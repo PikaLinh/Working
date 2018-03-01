@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EntityModels.TrainerModel>
+
+@{
+    ViewBag.Title = "Danh sách huấn luyện viên";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrainerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Actived)
+            </th>
+
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrainerName)
+                </td>
+                <td>
+                    <a href="@item.Url" title="@item.TrainerName" target="_blank">@item.Url</a>
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Actived)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.TrainerId }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.TrainerId }, new { @class = "btn btn-default btn-warning btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

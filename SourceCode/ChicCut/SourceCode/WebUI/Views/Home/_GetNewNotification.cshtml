@@ -1,0 +1,76 @@
+﻿@model IEnumerable<NotificationViewModel>
+@if (Model != null && Model.Count() > 0)
+{
+    int count = 0;
+    <ul class="ulNotifi">
+        @foreach (var item in Model)
+        {
+            count++;
+            int maxlenght = 35;
+            <li style="cursor:pointer" data-id="@item.NotificationId">
+                <a>
+                    <div class="containerNotifi">
+                        <span class="name">@item.UserName</span>
+                        <span class="message">
+                            <i class="glyphicon glyphicon-share-alt"></i>
+                            @if (item.Note.Length > maxlenght)
+                            {
+                                int toStr = item.Note.Substring(0, maxlenght).LastIndexOf(' ');
+                                @Html.Raw(item.Note.Substring(0, toStr) + "...")
+                            }
+                            else
+                            {
+                                @Html.Raw(item.Note)
+                            }                            
+                        </span>
+                        <span class="date">@item.CreateDate.Value.ToString("HH:mm dd/MM/yyyy")</span>
+                    </div>
+                </a>
+            </li>
+            <br />
+        }
+    </ul>
+    <input type="hidden" name="CheckHasValue" id="Notifi_Count" value="@count" />
+}
+else
+{
+    <input type="hidden" name="CheckHasValue" id="Notifi_Count" value="0" />
+}
+<!--End ModelPopup-->
+<script>
+    //Khi click vào <li> và 'Đã xem' thì sẽ set Actived = false
+    //$(document).on("click", ".ulNotifi li", function () {
+    //    var id = $(this).data("id");
+    //    $("#NotifiIdSeen").val(id);
+    //   // $("#notificationContainer").hide();
+    //    // alert(id);
+    //    $.ajax({
+    //        type: 'post',
+    //        url: '/Home/_NotifiDetail?id=' + id,
+    //        success: function (data) {
+    //            //load dữ liệu
+    //            //$("#divPopupNotifi #contentNotifi").html(data);
+    //            //Tắt thông báo
+    //            //$("#notificationContainer").fadeOut("slow");
+    //            //Mở popup chi tiết
+    //            //$("#divPopupNotifi").modal("show");\
+    //            $("input[name='SearchCreatedDate']").val(data);
+    //            window.location.href = "/DailyChicCutPreOrder/Index?SearchCreatedDate=" + data
+    //        }
+    //    });
+    //});
+    //$(document).on("click", "#btnSeen", function () {
+    //    var id = $("#NotifiIdSeen").val();
+    //    $.ajax({
+    //        type: 'post',
+    //        url: '/Home/NotifiSeen?id=' + id,
+    //        success: function (data) {
+    //            if (data == "success") {
+    //                //$("#notificationContainer").hide();
+    //                //LoadNewNotification();
+    //                window.location.assign("/Home/Index");
+    //            }
+    //        }
+    //    })
+    //});
+</script>

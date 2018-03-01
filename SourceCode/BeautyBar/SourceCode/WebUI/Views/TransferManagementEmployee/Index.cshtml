@@ -1,0 +1,61 @@
+﻿@model TransferManagermentEmployeeViewModel
+@{
+    ViewBag.Title = "Chuyển nhân viên quản lý";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-4 col-sm-12 col-xs-12">
+        <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+    </div>
+</div>
+<hr class="custom">
+<div class="panel panel-default" style="min-height: 195px;">
+    <div class="panel-body form-horizontal">
+        @Html.Hidden("EmployeeCurrentId")
+        @Html.Hidden("EmployeeCurrentName")
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.EmployeeCurrentId)
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 control-label">
+                <div id="divEmployeeCurrentId" class="text-left">
+                    <select name="EmployeeCurrentId" class="form-control "></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.EmployeeNewId)
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 control-label">
+                <div id="divEmployeeNewId" class="text-left">
+                    <select name="EmployeeNewId" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                <label class="control-label">Áp dụng cho</label>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 control-label text-left" id="divCustomerId" style="overflow-y:scroll; max-height : 300px">
+              
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading-modal"></div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+    </div>
+</div>
+
+<hr class="custom">
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+     <script src="~/Scripts/TransferManagementEmployee/Index.js"></script>
+}

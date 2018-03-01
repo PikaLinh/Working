@@ -1,0 +1,171 @@
+﻿@model Daily_ChicCut_OrderModel
+@using EntityModels
+@{
+    ViewBag.Title = "Thêm mới dịch vụ";
+}
+@Html.HiddenFor(m => m.OrderId)
+<input id="OrderStatusIdNow" value="@Model.OrderStatusId" hidden />
+<div class="row">
+    <div class="form-group form-horizontal text-left col-md-6">
+
+        <!--Tab Dịch vụ + Sản phẩm-->
+        <div id="tabs">
+            <ul id="nav-tab-list" class="nav nav-tabs">
+                <li id="tab-1">
+                    <a href="#pane-1" data-toggle="tab">Dịch vụ</a>
+                </li>
+                <li id="tab-2">
+                    <a href="#pane-2" data-toggle="tab">Sản phẩm</a>
+                </li>
+            </ul>
+            <input type="hidden" id="num" name="num" />
+            <!-- Tab Pane - Contents -->
+            <div id="tab-content" class="tab-content">
+                <div id="pane-1" class="tab-pane">
+                    <div class=" control-list">
+                        <div id="divDichVu" class="control-group">
+                            <div class="form-group cc-hair-type">
+                                <div class="col-xs-12 control-label text-left">
+                                    @{
+                                        string GenderMail = "", GenderFeMail = "", AddNew = "";
+                                        if (Model.Gender.HasValue)
+                                        {
+                                            GenderMail = Model.Gender.Value ? "btn-danger" : "";
+                                            GenderFeMail = !Model.Gender.Value ? "btn-danger" : "";
+                                        }
+                                        else
+                                        {
+                                            AddNew = "btn-danger";
+                                        }
+
+                                        var HairTypeLst = (List<Master_ChicCut_HairTypeSeachModel>)ViewBag.HairTypeLstWithCheckedItem;
+                                        var HairTypeLstHaveNotChecked = HairTypeLst.Where(p => p.Checked).ToList();
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in HairTypeLst)
+                                    {
+                                        i++;
+                                        //if ((i == 1 && (HairTypeLstHaveNotChecked == null || HairTypeLstHaveNotChecked.Count == 0)) || (item.Checked))
+                                        if (item.Checked)
+                                        {
+                                            <a class="btn btn-default HairTypeId btn-danger btn-custom" data-hairtypeid="@item.HairTypeId">@item.HairTypeName</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-default @(AddNew.Equals("btn-danger") ? "HairTypeId" : "")  btn-custom" data-hairtypeid="@item.HairTypeId" @(AddNew.Equals("btn-danger") ? "" : "disabled")>@item.HairTypeName</a>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="contentService">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pane-2" class="tab-pane">
+                    <div class=" control-list">
+                        <div id="divSanPham" class="control-group">
+                            <div class="control-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+                                    @{var ListProduct = (List<ProductViewModel>)ViewBag.ListProduct; }
+                                    <ul class="row" style="padding:0px;">
+                                        @if (ListProduct != null && ListProduct.Count > 0)
+                                        {
+                                            foreach (var item in ListProduct.ToList())
+                                            {
+                                                <li class="sbh-product">
+                                                    <div>
+                                                        <a class="ProductId" data-id="@item.ProductId">@item.ProductName</a>
+                                                        <i>@string.Format("{0:n0}", item.Price1) </i>
+                                                        <input type="hidden" name="Price_Of_ProductId_@item.ProductId" value="@item.Price1" />
+                                                    </div>
+
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div>
+            @Html.Partial("_CustomerInfo", Model)
+        </div>
+        <div>
+            @{
+                var _context = new EntityDataContext();
+                var LstProductDetail =
+               Model.Daily_ChicCut_OrderProductDetailModel.Select(p => new Daily_ChicCut_OrderDetailViewModel()
+               {
+                   OrderId = p.OrderId,
+                   ProductId = p.ProductId.HasValue ? p.ProductId.Value : 0,
+                   COGS = p.COGS,
+                   Price = p.Price,
+                   Qty = p.Qty,
+                   UnitCOGS = p.UnitCOGS,
+                   UnitPrice = p.UnitPrice,
+                   ServiceName = _context.ProductModel.Where(pd => pd.ProductId == p.ProductId).Select(pd => pd.ProductName).FirstOrDefault()
+               }).ToList();
+
+                var LstServiceDetail =
+               Model.Daily_ChicCut_OrderDetailModel.Select(p => new Daily_ChicCut_OrderDetailViewModel()
+               {
+                   OrderId = p.OrderId,
+                   ServiceId = p.ServiceId,
+                   COGS = p.COGS,
+                   Price = p.Price,
+                   Qty = p.Qty,
+                   UnitCOGS = p.UnitCOGS,
+                   UnitPrice = p.UnitPrice,
+                   ServiceName = _context.Master_ChicCut_ServiceModel.Where(pd => pd.ServiceId == p.ServiceId).Select(pd => pd.ServiceName).FirstOrDefault(),
+                   ServiceCategoryId = _context.Master_ChicCut_ServiceModel.Where(sv => sv.ServiceId == p.ServiceId).Select(sv => sv.ServiceCategoryId).FirstOrDefault()
+               }).ToList();
+
+                var LstDetail = LstServiceDetail;
+                LstDetail.AddRange(LstProductDetail); // Add Lst Product vào ListService
+            }
+            @Html.Action("_DailyChicCutOrderDetailInfo", new
+       {
+           details = Model.OrderId > 0 ? LstDetail : new List<Daily_ChicCut_OrderDetailViewModel>()
+       })
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    //Loại dịch vụ
+    var HairTypeId = $(".HairTypeId").filter(".btn-danger").data("hairtypeid");
+    GetServicePartital(HairTypeId);
+
+    var CustomerId = $("#IdCustomer").val();
+    var CustomerName = $("#FullName").val();
+    Select2_Custom("/Sell/GetCustomerId", "CustomerId", CustomerId, CustomerName, "divCustomerId");
+    var id = $("#IdCustomer").val();
+    if (id != "" && id != undefined) {
+        CustomerInfo(id);
+    }
+    //Tổng tiền
+    TotalPrice();
+    //$("input[name='Gender']").attr('disabled', 'disabled');
+
+    $(document).ready(function () {
+        ////TAB RADIO MANAGEMENT BEGIN ***********************************************************************************
+        $("ul.nav-tabs li:first").addClass("active").show(); //Activate first tab
+        $(".tab-pane:first").addClass("active").show(); //Show first tab content
+    });
+</script>

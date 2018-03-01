@@ -1,0 +1,51 @@
+﻿@model List<ProductAlertViewModel>
+@using ViewModels
+@{int i = 0;
+int k = -1;}
+@if (Model != null && Model.Count > 0)
+{
+    foreach (var item in Model)
+    {
+        i++;
+        k++;
+       
+        <tr>
+            <td class="text-center" style="width:40px">@i
+                <input type="hidden" name="QtyAlertList[@k].STT" class="QtyAlertList-STT" value="@i" />
+                <input type="hidden" name="QtyAlertList[@k].WarehouseId" class="QtyAlertList-WarehouseId" value="@item.WarehouseId"/>
+                <input type="hidden" name="QtyAlertList[@k].WarehouseName" class="QtyAlertList-WarehouseName" value="" data-row="@k" />
+                <input type="hidden" name="QtyAlertList[@k].RolesId" class="QtyAlertList-RolesId" value="@item.RolesId" />
+            </td>
+            <td class="text-left">
+                <select name="Warehouse" class="form-control" data-row="@k">
+                    @foreach (var itemdrop in (List<WareHouseViewModel>)ViewBag.WarehouseList)
+                    {
+                        var selectedWarehouse = itemdrop.WarehouseId == item.WarehouseId ? "selected" : "";
+                        <option value="@itemdrop.WarehouseId" @selectedWarehouse>@itemdrop.WarehouseName</option>
+                    }
+                </select>
+            </td>
+            <td><input type="text" class="form-control QtyAlertList-QtyAlert text-right" name="QtyAlertList[@k].QtyAlert" value="@item.QtyAlert" /></td>
+            <td class="text-left">
+                <select name="Roles" class="form-control Roles_@k" data-row="@k">
+                    @foreach (var itemdrop in (List<RoleViewModel>)ViewBag.RoleList)
+                    {
+                        var selectedRole = itemdrop.RolesId == item.RolesId ? "selected" : "";
+                        <option value="@itemdrop.RolesId" @selectedRole>@itemdrop.RolesName</option>
+                    }
+                </select>
+            </td>
+
+            <td class="text-center"> <a class="detail-btndeleteQtyAlert btn btn-danger " data-row="@i">Xóa</a></td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="5" class="text-center">
+            <span class="color-red">Chưa cài đặt </span>
+        </td>
+    </tr>
+}
+    <script src="~/Scripts/Product2/gridQtyAlert.js"></script>

@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý lương";
+}
+
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+
+@using (Html.BeginForm("Index", "Salary", FormMethod.Post, new { @id = "formload" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Cửa hàng:
+                @Html.DropDownList("StoreId", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Nhân viên:
+                @Html.DropDownList("CashierUserId", null, "-Tất cả-", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Nhân viên (Thợ phụ):
+                @Html.DropDownList("StaffId", null, "-Tất cả-", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Ghi chú
+                <input type="text" id="Note" name="Note" class="form-control" placeholder="Nhập ghi chú" />
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <label>
+                    Từ ngày
+                </label>
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td style="width: 100%;">
+                                <input type="date" name="FromDate" value="@ViewBag.FromDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <label>
+                    Đến ngày
+                </label>
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td style="width: 100%;">
+                                <input type="date" name="ToDate" value="@ViewBag.ToDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<hr class="custom">
+<div class="form-group">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="btnSearch" class="btn btn-warning col-sm">Tìm</a>
+    </div>
+</div>
+<div class="row">
+    <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+    <div class="col-md-6">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right"})
+    </div>
+</div>
+
+<hr class="custom">
+<div id="content2">
+    <div id="SalaryContent">
+        @*@Html.Action("_SearchPartial",Model)*@
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="~/Scripts/Salary/Index.js"></script>*@
+}

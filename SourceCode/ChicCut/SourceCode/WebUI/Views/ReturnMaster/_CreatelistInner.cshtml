@@ -1,0 +1,66 @@
+﻿@model List<ReturnDetailViewModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <!--Lưu Trọng lượng của 1 sản phẩm-->
+    decimal ValueShippingWeight = Convert.ToDecimal(item.UnitShippingWeight) / Convert.ToDecimal(item.ImportQty);
+    <tr>
+        @*@Html.HiddenFor(m => m.ImportDetailId)*@
+        <td class="text-center">
+            @i
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+            <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">
+            <input type="hidden" name="detail[@k].ImportQty" class="detail-ImportQty" value="@item.ImportQty">
+            <input type="hidden" name="detail[@k].ReturnedQty" class="detail-ReturnedQty" value="@item.ReturnedQty">
+            <input type="hidden" name="detail[@k].InventoryQty" class="detail-InventoryQty" value="@item.InventoryQty">
+            <input type="hidden" name="detail[@k].Price" class="detail-Price" value="@item.Price">
+            @*  <input type="hidden" name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight" data-row="@k" value="@item.UnitShippingWeight">*@
+            <input type="hidden" name="detail[@k].ShippingWeight" class="detail-ShippingWeight" data-row="@k" value="@ValueShippingWeight" >
+            <input type="hidden" name="detail[@k].ShippingFee" class="detail-ShippingFee" data-row="@k" value="@item.ShippingFee">
+            <input type="hidden" name="detail[@k].UnitCOGS" class="detail-UnitCOGS" value="@item.UnitCOGS">
+        </td>
+        <td>
+            <label>@item.ProductName</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-Price">@item.Price</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-ShippingFee">@item.ShippingFee</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-ImportQty">@item.ImportQty</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-ReturnedQty">@item.ReturnedQty</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-InventoryQty">@item.InventoryQty</label>
+        </td>
+        <td>
+            <input type="text" name="detail[@k].ReturnQty" class="detail-ReturnQty form-control text-right" data-row="@k"  value="0">
+        </td>
+        <td>
+            <input type="hidden"  name="detail[@k].UnitPrice" class="detail-UnitPrice form-control text-right" data-row="@k" value="@item.UnitPrice">
+            <input type="text" disabled  class="form-control text-right unit-price" name="detail[@k].UnitPrice" value="@item.UnitPrice" data-row="@k">
+        </td>
+        <td>
+            <input type="text" name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight form-control text-right" data-row="@k"  value="@ValueShippingWeight">
+            @*  <label class="detail-UnitShippingWeight" >@item.UnitShippingWeight</label>*@
+        </td>
+        <td>
+            <input type="text" name="detail[@k].Note" class="detail-Note form-control text-left" data-row="@k" value="@item.Note">
+        </td>
+    </tr>
+}
+
+@*<script src="~/Scripts/ImportMaster/grid.js"></script>*@
+<script src="~/Scripts/ReturnMaster/grid.js"></script>

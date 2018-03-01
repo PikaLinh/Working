@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EntityModels.DiscountModel>
+
+<h4><label>Giảm giá</label></h4>
+<table class="table table-bordered table-striped table-hover ">
+    <thead>
+        <tr>
+            <th class="v-top text-center">
+                STT
+            </th>
+            <th class="v-top text-center">
+                @Html.DisplayNameFor(model => model.Days)
+            </th>
+            <th class="v-top text-center">
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th class="v-top text-center">
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            @if (ViewBag.isDetailView != true)
+            {
+                <th>
+                </th>
+            }
+            else
+            {
+                <th class="v-top text-center">
+                    @Html.DisplayNameFor(model => model.Curent)
+                </th>
+            }
+
+        </tr>
+    </thead>
+    <tbody id="discountList">
+        @Html.Partial("_DiscountListInner", Model)
+    </tbody>
+    @if (ViewBag.isDetailView != true)
+    {
+        <tfoot>
+            <tr>
+                <td class="text-center">
+                    #
+                </td>
+                <td>
+                    @Html.TextBox("txtDays", null, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBox("txtQty", null, new { @class = "form-control" })
+                </td>
+                <td>
+                    @Html.TextBox("txtDiscount", null, new { @class = "form-control" })
+                </td>
+                <td>
+                    <input id="btnAddDisscount" type="button" value="Thêm" class="btn btn-warning" />
+                </td>
+            </tr>
+        </tfoot>
+    }
+</table>
+
+<script src="~/Scripts/Calendar/discount.js"></script>

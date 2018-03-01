@@ -1,0 +1,40 @@
+﻿@model EntityModels.PaymentMethodModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>PaymentMethodModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentMethodId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentMethodId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PaymentMethodName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PaymentMethodName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Actived)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Actived)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

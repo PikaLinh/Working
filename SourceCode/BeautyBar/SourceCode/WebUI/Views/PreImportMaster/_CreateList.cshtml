@@ -1,0 +1,108 @@
+﻿@model List<PreImportDetailViewModel>
+
+<form id="frmList" action="Save" method="post">
+     <input type="hidden"   name="SumPriceOfOrderDetail" id="ViewBagSumPrice"/>
+     <input type="hidden"   name="TotalPrice" id="ViewBagTotalPrice"/>
+    <input type="hidden"  name="TotalBillDiscount" id="ViewBagTotalBillDiscount"/>
+     <input type="hidden"  name="TotalVAT" id="ViewBagTotalVAT"/>
+
+     <input type="hidden"   name="TotalQty" id="ViewBagTotalQty"/>
+    <input type="hidden"   name="TotalShippingWeight" id="ViewBagTotalShippingWeight"/>
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px">Sản phẩm</th>
+                    <th style="width:110px">Giá</th>
+                    <th style="width:100px">Phí vận chuyển</th>
+                    <th style="width:100px">Số lượng</th>
+                    <th style="width:130px">Thành tiền</th>
+                    <th style="width:130px">Trọng lượng</th>
+                     <th style="width:130px">Ghi chú</th>
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+               @Html.Partial("_CreateListInner", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9">
+                        <div class="col-md-4">
+                            <div class="col-md-4">
+                                <input type="text" id="ProQty" name="ProQty" class="form-control text-center " value="1" />
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" id="scanBarcode" name="scanBarcode" class="form-control " placeholder="Quét mã vạch.." />
+                            </div>
+                        </div>
+                        <button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm mặt hàng</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng:</strong></td>
+                   <td class="text-right" id="SumPrice" >
+                        0
+                    </td>
+                  <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Giảm giá:</strong></td>
+                    <td class="text-right" style="width:100px;">
+                        <div class="input-group">
+                            <input type="text" name="ManualDiscount" id="ManualDiscount" class="form-control text-right" />
+                            <span class=" input-group-addon">
+                                <select name="ManualDiscountType" style="border: 0px; background-color: #eee;">
+                                    <option value="CASH">$</option>
+                                    <option value="PERCENT" selected="selected">%</option>
+                                </select>
+                            </span>
+                        </div>
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                     <tr>
+                    <td class="text-right" colspan="6"><strong>VAT(%):</strong></td>
+                    <td class="text-right"  >
+                        <input type="text" name="VATValue" id="VATValue" class="form-control text-right" />
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng thành tiền:</strong></td>
+                    <td class="text-right" id="TotalPrice" >
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                 <tr id="divGuestAmountPaid">
+                    <td class="text-right" colspan="6">
+                        <strong>Số tiền trả ngay:</strong>
+                    </td>
+                    <td class="text-right" >
+                        <input type="text"  class="form-control text-right" id="GuestAmountPaid" name="GuestAmountPaid"/>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                  <tr>
+                   <td class="text-right" colspan="6"><strong>Số tiền còn lại:</strong></td>
+                    <td class="text-right" id="RemainingAmount2">
+                        <span></span>
+                    </td>
+                    <td colspan="2"><input type="hidden"  class="form-control text-right" id="RemainingAmount" name="RemainingAmount"/></td>
+                </tr>
+               @*    <tr>
+                   <td class="text-right" colspan="6"><strong>Mở rộng:</strong></td>
+                    <td class="text-left" >
+                        <select name="CreateReceipt" class="form-control">
+                            <option value="1">Tự động tạo phiếu chi</option>
+                            <option value="0">Không tạo phiếu chi</option>
+                        </select>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>*@
+            </tfoot>
+        </table>
+    </div>
+</form>
+

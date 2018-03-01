@@ -1,0 +1,84 @@
+﻿@model List<IEOtherDetailModel>
+<form id="frmList" action="Save" method="post">
+     <input type="hidden"   name="TotalQty" id="ViewBagTotalQty"/>
+     <input type="hidden"   name="TotalPrice" id="ViewBagTotalPrice"/>
+    <input type="hidden"   name="TotalShippingWeight" id="ViewBagTotalShippingWeight"/>
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px">Sản phẩm</th>
+                    <th style="width:110px">Giá</th>
+                    @if (@ViewBag.isImport == 1)
+                    {
+                        <th style="width:100px">Số lượng nhập</th>
+                    }
+                    else
+                    {
+                        <th style="width:100px">Số lượng xuất</th>
+                    }  
+                    <th style="width:130px">Thành tiền</th>
+                    <th style="width:130px">Trọng lượng</th>
+                    <th style="width:130px">Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    string Price = item.Price.HasValue ? item.Price.Value.ToString("n0") : "0";
+                    string Qty = item.ImportQty.Value != 0 ? item.ImportQty.Value.ToString("n0") : item.ExportQty.Value.ToString("n0");
+                    string UnitPrice = item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("n0") : "0";
+                    string UnitShippingWeight = item.UnitShippingWeight.HasValue ? item.UnitShippingWeight.Value.ToString("n0") : "0";
+                    <tr>
+                        <td style="width: 40px" class="text-center">
+                            @i
+                        <td style="width: 200px">
+                            <a href="/Product/Details/@item.ProductId">@item.ProductModel.ProductCode | @item.ProductModel.ProductName</a>
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @Price
+                        </td>
+                        <td style="width: 100px;" class="text-right">
+                           @Qty
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                            @UnitPrice
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @UnitShippingWeight
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                            @item.Note
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-right" colspan="4"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" id="TotalPrice" >
+                       <strong>@ViewBag.TotalPrice.ToString("n0")</strong>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="4"><strong>Số tiền khách trả:</strong></td>
+                    <td class="text-right" id="Money" >
+                       <strong>@ViewBag.Money.ToString("n0")</strong>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+            </tfoot>
+        </table>
+    </div>
+</form>

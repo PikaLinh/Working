@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="175f71c12d744cfeba6385ab993fb838" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="EntityModels.AccountModel" Width="1.5" PointX="6.75" PointY="68.125" />
+        <EntityTypeShape EntityType="EntityModels.AM_AccountModel" Width="1.5" PointX="9.75" PointY="33.375" />
+        <EntityTypeShape EntityType="EntityModels.AM_AccountTypeModel" Width="1.5" PointX="7.5" PointY="45.875" />
+        <EntityTypeShape EntityType="EntityModels.AM_ContactItemTypeModel" Width="1.5" PointX="9.75" PointY="37.375" />
+        <EntityTypeShape EntityType="EntityModels.AM_DebtModel" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.AM_TransactionModel" Width="1.5" PointX="12" PointY="32.125" />
+        <EntityTypeShape EntityType="EntityModels.AM_TransactionTypeModel" Width="1.5" PointX="9.75" PointY="39.875" />
+        <EntityTypeShape EntityType="EntityModels.AY_SMSCalendar" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EntityModels.BranchModel" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="EntityModels.CalendarModel" Width="1.5" PointX="23.25" PointY="3.75" />
+        <EntityTypeShape EntityType="EntityModels.CategoryModel" Width="1.5" PointX="18.75" PointY="6.625" />
+        <EntityTypeShape EntityType="EntityModels.CourseModel" Width="1.5" PointX="21" PointY="4.625" />
+        <EntityTypeShape EntityType="EntityModels.CRM_EmailParameterModel" Width="1.5" PointX="14" PointY="1.125" />
+        <EntityTypeShape EntityType="EntityModels.CRM_EmailTemplateModel" Width="1.5" PointX="11.75" PointY="13.5" />
+        <EntityTypeShape EntityType="EntityModels.CRM_ObjectModel" Width="1.5" PointX="11.75" PointY="4.25" />
+        <EntityTypeShape EntityType="EntityModels.CRM_PeriodModel" Width="1.5" PointX="11.75" PointY="10.875" />
+        <EntityTypeShape EntityType="EntityModels.CRM_Remider_EmailParameter_Mapping" Width="1.5" PointX="16.25" PointY="6.875" />
+        <EntityTypeShape EntityType="EntityModels.CRM_Remider_SMSParameter_Mapping" Width="1.5" PointX="16.25" PointY="12.5" />
+        <EntityTypeShape EntityType="EntityModels.CRM_RemiderAUTOTypeModel" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="EntityModels.CRM_RemiderModel" Width="1.5" PointX="14" PointY="4.625" />
+        <EntityTypeShape EntityType="EntityModels.CRM_RemiderValueTypeModel" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.CRM_SMSParameterModel" Width="1.5" PointX="14" PointY="18.375" />
+        <EntityTypeShape EntityType="EntityModels.CRM_SMSTemplateModel" Width="1.5" PointX="11.75" PointY="7" />
+        <EntityTypeShape EntityType="EntityModels.CurrencyModel" Width="1.5" PointX="1.5" PointY="77.375" />
+        <EntityTypeShape EntityType="EntityModels.CustomerLevelModel" Width="1.5" PointX="2.25" PointY="51" />
+        <EntityTypeShape EntityType="EntityModels.CustomerModel" Width="1.5" PointX="4.5" PointY="49" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_OrderDetailModel" Width="1.5" PointX="6.75" PointY="88.5" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_OrderModel" Width="1.5" PointX="0.75" PointY="100.5" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_OrderProductDetailModel" Width="1.5" PointX="3" PointY="28" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_OrderStatusModel" Width="1.5" PointX="1.5" PointY="109.375" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_Pre_DayOffModel" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_Pre_OrderDetailModel" Width="1.5" PointX="23" PointY="23.75" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_Pre_OrderModel" Width="1.5" PointX="20.75" PointY="22.125" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_Pre_SettingModel" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_Pre_ShiftModel" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_WorkingDateModel" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.Daily_ChicCut_WorkingTimeModel" Width="1.5" PointX="16.75" PointY="2.75" />
+        <EntityTypeShape EntityType="EntityModels.DiscountModel" Width="1.5" PointX="25.5" PointY="4.875" />
+        <EntityTypeShape EntityType="EntityModels.DiscountTypeModel" Width="1.5" PointX="6.75" PointY="9.875" />
+        <EntityTypeShape EntityType="EntityModels.DistrictModel" Width="1.5" PointX="1.5" PointY="37.375" />
+        <EntityTypeShape EntityType="EntityModels.EmployeeModel" Width="1.5" PointX="3.75" PointY="43.5" />
+        <EntityTypeShape EntityType="EntityModels.ExchangeRateModel" Width="1.5" PointX="3.75" PointY="64.625" />
+        <EntityTypeShape EntityType="EntityModels.IEOtherDetailModel" Width="1.5" PointX="3" PointY="15.875" />
+        <EntityTypeShape EntityType="EntityModels.IEOtherMasterModel" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="EntityModels.ImportDetailModel" Width="1.5" PointX="6" PointY="27.75" />
+        <EntityTypeShape EntityType="EntityModels.ImportMasterModel" Width="1.5" PointX="3.75" PointY="32.5" />
+        <EntityTypeShape EntityType="EntityModels.InventoryDetailModel" Width="1.5" PointX="9" PointY="28.5" />
+        <EntityTypeShape EntityType="EntityModels.InventoryMasterModel" Width="1.5" PointX="6.75" PointY="13" />
+        <EntityTypeShape EntityType="EntityModels.InventoryTypeModel" Width="1.5" PointX="1.5" PointY="45.75" />
+        <EntityTypeShape EntityType="EntityModels.LanguageModel" Width="1.5" PointX="16.75" PointY="19.875" />
+        <EntityTypeShape EntityType="EntityModels.LocationModel" Width="1.5" PointX="21" PointY="1.125" />
+        <EntityTypeShape EntityType="EntityModels.LocationOfProductModel" Width="1.5" PointX="11.75" PointY="21.75" />
+        <EntityTypeShape EntityType="EntityModels.ManualDiscountTypeModel" Width="1.5" PointX="1.5" PointY="83.25" />
+        <EntityTypeShape EntityType="EntityModels.Master_ChicCut_HairTypeModel" Width="1.5" PointX="2.25" PointY="70.875" />
+        <EntityTypeShape EntityType="EntityModels.Master_ChicCut_QuantificationDetailModel" Width="1.5" PointX="9" PointY="20.375" />
+        <EntityTypeShape EntityType="EntityModels.Master_ChicCut_QuantificationMasterModel" Width="1.5" PointX="6.75" PointY="72.25" />
+        <EntityTypeShape EntityType="EntityModels.Master_ChicCut_ServiceCategoryModel" Width="1.5" PointX="2.25" PointY="73.75" />
+        <EntityTypeShape EntityType="EntityModels.Master_ChicCut_ServiceModel" Width="1.5" PointX="4.5" PointY="71.875" />
+        <EntityTypeShape EntityType="EntityModels.MenuLanguageModel" Width="1.5" PointX="19" PointY="59.625" />
+        <EntityTypeShape EntityType="EntityModels.MenuModel" Width="1.5" PointX="1.5" PointY="97.375" />
+        <EntityTypeShape EntityType="EntityModels.MessageModel" Width="1.5" PointX="13.75" PointY="21.75" />
+        <EntityTypeShape EntityType="EntityModels.NotificationModel" Width="1.5" PointX="23.75" PointY="14.75" />
+        <EntityTypeShape EntityType="EntityModels.OrderDetailModel" Width="1.5" PointX="9" PointY="23.5" />
+        <EntityTypeShape EntityType="EntityModels.OrderMasterModel" Width="1.5" PointX="6.75" PointY="32.625" />
+        <EntityTypeShape EntityType="EntityModels.OrderReturnDetailModel" Width="1.5" PointX="21" PointY="16.625" />
+        <EntityTypeShape EntityType="EntityModels.OrderReturnModel" Width="1.5" PointX="18.75" PointY="15.125" />
+        <EntityTypeShape EntityType="EntityModels.OrderStatusModel" Width="1.5" PointX="4.5" PointY="56.125" />
+        <EntityTypeShape EntityType="EntityModels.OriginOfProductModel" Width="1.5" PointX="23.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.PageLanguageModel" Width="1.5" PointX="19" PointY="53.875" />
+        <EntityTypeShape EntityType="EntityModels.PageModel" Width="1.5" PointX="1.5" PointY="92.875" />
+        <EntityTypeShape EntityType="EntityModels.PaymentMethodModel" Width="1.5" PointX="4.5" PointY="59" />
+        <EntityTypeShape EntityType="EntityModels.PlanDetailModel" Width="1.5" PointX="15.75" PointY="23.75" />
+        <EntityTypeShape EntityType="EntityModels.PlanModel" Width="1.5" PointX="17.75" PointY="23.75" />
+        <EntityTypeShape EntityType="EntityModels.PolicyModel" Width="1.5" PointX="23.75" PointY="18.75" />
+        <EntityTypeShape EntityType="EntityModels.PreImportDetailModel" Width="1.5" PointX="3" PointY="23.625" />
+        <EntityTypeShape EntityType="EntityModels.PreImportMasterModel" Width="1.5" PointX="0.75" PointY="54.25" />
+        <EntityTypeShape EntityType="EntityModels.PreOrderDetailModel" Width="1.5" PointX="9" PointY="15.5" />
+        <EntityTypeShape EntityType="EntityModels.PreOrderMasterModel" Width="1.5" PointX="6.75" PointY="49" />
+        <EntityTypeShape EntityType="EntityModels.ProductAlertModel" Width="1.5" PointX="6" PointY="24.25" />
+        <EntityTypeShape EntityType="EntityModels.ProductImageModel" Width="1.5" PointX="3" PointY="67.375" />
+        <EntityTypeShape EntityType="EntityModels.ProductModel" Width="1.5" PointX="0.75" PointY="19.625" />
+        <EntityTypeShape EntityType="EntityModels.ProductPriceModel" Width="1.5" PointX="3" PointY="20.375" />
+        <EntityTypeShape EntityType="EntityModels.ProductStatusModel" Width="1.5" PointX="11.75" PointY="24.75" />
+        <EntityTypeShape EntityType="EntityModels.ProductTypeModel" Width="1.5" PointX="25.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.ProductUpdateDetailModel" Width="1.5" PointX="25.75" PointY="8.75" />
+        <EntityTypeShape EntityType="EntityModels.ProductUpdateMasterModel" Width="1.5" PointX="25.75" PointY="13.75" />
+        <EntityTypeShape EntityType="EntityModels.ProvinceModel" Width="1.5" PointX="1.5" PointY="41.75" />
+        <EntityTypeShape EntityType="EntityModels.RegistryModel" Width="1.5" PointX="23.25" PointY="9.625" />
+        <EntityTypeShape EntityType="EntityModels.ReturnDetailModel" Width="1.5" PointX="6" PointY="19.5" />
+        <EntityTypeShape EntityType="EntityModels.ReturnMasterModel" Width="1.5" PointX="3.75" PointY="79.375" />
+        <EntityTypeShape EntityType="EntityModels.RolesLanguageModel" Width="1.5" PointX="19" PointY="56.875" />
+        <EntityTypeShape EntityType="EntityModels.RolesModel" Width="1.5" PointX="3.75" PointY="93" />
+        <EntityTypeShape EntityType="EntityModels.SalaryDetailModel" Width="1.5" PointX="25.75" PointY="18.75" />
+        <EntityTypeShape EntityType="EntityModels.SalaryMasterModel" Width="1.5" PointX="25.75" PointY="21.75" />
+        <EntityTypeShape EntityType="EntityModels.StatusModel" Width="1.5" PointX="25.75" PointY="24.75" />
+        <EntityTypeShape EntityType="EntityModels.StoreModel" Width="1.5" PointX="1.5" PointY="32.75" />
+        <EntityTypeShape EntityType="EntityModels.SupplierModel" Width="1.5" PointX="1.5" PointY="86" />
+        <EntityTypeShape EntityType="EntityModels.SYS_tblFile" Width="1.5" PointX="13.75" PointY="26.75" />
+        <EntityTypeShape EntityType="EntityModels.SYS_tblFolder" Width="1.5" PointX="15.75" PointY="26.75" />
+        <EntityTypeShape EntityType="EntityModels.sysdiagrams" Width="1.5" PointX="17.75" PointY="26.75" />
+        <EntityTypeShape EntityType="EntityModels.TrainerModel" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityModels.UnitModel" Width="1.5" PointX="27.75" PointY="3.75" />
+        <EntityTypeShape EntityType="EntityModels.VATTypeModel" Width="1.5" PointX="1.5" PointY="80.5" />
+        <EntityTypeShape EntityType="EntityModels.WarehouseInventoryDetailModel" Width="1.5" PointX="6" PointY="5.5" />
+        <EntityTypeShape EntityType="EntityModels.WarehouseInventoryMasterModel" Width="1.5" PointX="3.75" PointY="5" />
+        <EntityTypeShape EntityType="EntityModels.WarehouseModel" Width="1.5" PointX="1.5" PointY="2.625" />
+        <EntityTypeShape EntityType="EntityModels.Website_AdsModel" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="EntityModels.Website_Counter" Width="1.5" PointX="27.75" PointY="6.75" />
+        <EntityTypeShape EntityType="EntityModels.Website_LocationModel" Width="1.5" PointX="3.75" PointY="1.125" />
+        <EntityTypeShape EntityType="EntityModels.Website_NewsModel" Width="1.5" PointX="21" PointY="8.75" />
+        <EntityTypeShape EntityType="EntityModels.Website_SettingModel" Width="1.5" PointX="27.75" PointY="9.75" />
+        <AssociationConnector Association="EntityModels.FK_AccountModel_CustomerModel" />
+        <AssociationConnector Association="EntityModels.FK_AccountModel_EmployeeModel" />
+        <AssociationConnector Association="EntityModels.FK_AccountModel_RolesModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_AccountModel_AM_AccountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_AccountModel_StoreModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_TransactionModel_AM_AccountModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_TransactionModel_AM_ContactItemTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_TransactionModel_AM_TransactionTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_AM_TransactionModel_StoreModel" />
+        <AssociationConnector Association="EntityModels.FK_CalendarModel_CourseModel" />
+        <AssociationConnector Association="EntityModels.FK_CalendarModel_LocationModel" />
+        <AssociationConnector Association="EntityModels.FK_DiscountModel_CalendarModel" />
+        <AssociationConnector Association="EntityModels.FK_CourseModel_CategoryModel" />
+        <AssociationConnector Association="EntityModels.FK_Website_NewsModel_CategoryModel" />
+        <AssociationConnector Association="EntityModels.FK__RegistryM__Cours__13F1F5EB" />
+        <AssociationConnector Association="EntityModels.FK_CRM_EmailParameterModel_CRM_EmailTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_EmailParameter_Mapping_CRM_EmailParameterModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_EmailParameter_Mapping_CRM_EmailTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_RemiderModel_CRM_EmailTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_RemiderModel_CRM_ObjectModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_RemiderModel_CRM_PeriodModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_EmailParameter_Mapping_CRM_RemiderModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_SMSParameter_Mapping_CRM_RemiderModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_SMSParameter_Mapping_CRM_SMSParameterModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_Remider_SMSParameter_Mapping_CRM_SMSTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_RemiderModel_CRM_SMSTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_CRM_SMSParameterModel_CRM_SMSTemplateModel" />
+        <AssociationConnector Association="EntityModels.FK_ExchangeRateModel_CurrencyModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportMasterModel_CurrencyModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportMasterModel_CurrencyModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnMasterModel_CurrencyModel" />
+        <AssociationConnector Association="EntityModels.FK_CustomerModel_CustomerLevelModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductPriceModel_CustomerLevelModel" />
+        <AssociationConnector Association="EntityModels.FK_CustomerModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_CustomerModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderModel_CustomerModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_CustomerModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_CustomerModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderDetailModel_Daily_ChicCut_OrderModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderDetailModel_Master_ChicCut_ServiceModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderModel_Daily_ChicCut_OrderStatusModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderModel_DiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderModel_Master_ChicCut_HairTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderProductDetailModel_Daily_ChicCut_OrderModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_OrderProductDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_Daily_ChicCut_Pre_OrderDetailModel_Daily_ChicCut_Pre_OrderModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderDetailModel_DiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_DiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderDetailModel_DiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_DiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_DistrictModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_StoreModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_SupplierModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_WarehouseModel_DistrictModel" />
+        <AssociationConnector Association="EntityModels.FK_EmployeeModel_StoreModel" />
+        <AssociationConnector Association="EntityModels.FK_IEOtherDetailModel_IEOtherMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_IEOtherDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_IEOtherMasterModel_InventoryTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_IEOtherMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportDetailModel_ImportMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportMasterModel_ManualDiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportMasterModel_SupplierModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportMasterModel_VATTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_ImportMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_InventoryDetailModel_InventoryMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_InventoryDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_ReventoryMasterModel_ReventoryTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_MenuLanguageModel_LanguageModel" />
+        <AssociationConnector Association="EntityModels.FK_PageLanguageModel_LanguageModel" />
+        <AssociationConnector Association="EntityModels.FK_RolesLanguageModel_LanguageModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportMasterModel_ManualDiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnMasterModel_ManualDiscountTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_Master_ChicCut_ServiceModel_Master_ChicCut_HairTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_Master_ChicCut_QuantificationDetailModel_Master_ChicCut_QuantificationMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_Master_ChicCut_QuantificationDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_Master_ChicCut_QuantificationMasterModel_Master_ChicCut_ServiceModel" />
+        <AssociationConnector Association="EntityModels.FK_Master_ChicCut_ServiceModel_Master_ChicCut_ServiceCategoryModel" />
+        <AssociationConnector Association="EntityModels.FK_MenuLanguageModel_MenuModel" />
+        <AssociationConnector Association="EntityModels.FK_PageModel_MenuModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderDetailModel_OrderMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_OrderStatusModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_PaymentMethodModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_OrderReturnDetailModel_OrderReturnModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_OrderStatusModel" />
+        <AssociationConnector Association="EntityModels.FK_PageLanguageModel_PageModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_PaymentMethodModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportDetailModel_PreImportMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportMasterModel_SupplierModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportMasterModel_VATTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_PreImportMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderDetailModel_PreOrderMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_PreOrderMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductAlertModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductAlertModel_RolesModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductAlertModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductImageModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_ProductPriceModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnDetailModel_ProductModel" />
+        <AssociationConnector Association="EntityModels.FK_StoreModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_SupplierModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_WarehouseModel_ProvinceModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnDetailModel_ReturnMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnMasterModel_SupplierModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnMasterModel_VATTypeModel" />
+        <AssociationConnector Association="EntityModels.FK_ReturnMasterModel_WarehouseModel" />
+        <AssociationConnector Association="EntityModels.FK_RolesLanguageModel_RolesModel" />
+        <AssociationConnector Association="EntityModels.FK_WarehouseModel_StoreModel" />
+        <AssociationConnector Association="EntityModels.FK_WarehouseInventoryDetailModel_WarehouseInventoryMasterModel" />
+        <AssociationConnector Association="EntityModels.FK_Website_AdsModel_Website_LocationModel" />
+        <AssociationConnector Association="EntityModels.AccessModel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,60 @@
+﻿@model Daily_ChicCut_OrderModel
+@{
+    ViewBag.Title = "Thêm mới dịch vụ";
+}
+<div class="row">
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div class="form-group">
+            <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Giới tính:
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                <a class="btn btn-default Gender  btn-custom" data-gender="true">Nam</a>
+                <a class="btn btn-default Gender btn-custom btn-danger" data-gender="false">Nữ</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Loại tóc:
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                @{
+                    var HairTypeLst = (List<Master_ChicCut_HairTypeModel>)ViewBag.HairTypeLst;
+                    int i = 0;
+                }
+                @foreach (var item in HairTypeLst)
+                {
+                    i++;
+                    if (i == 1)
+                    {
+                        <a class="btn btn-default HairTypeId btn-danger btn-custom" data-hairtypeid="@item.HairTypeId">@item.HairTypeName</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-default HairTypeId btn-custom" data-hairtypeid="@item.HairTypeId">@item.HairTypeName</a>
+                    }
+                }
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="contentService">
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div>
+            @Html.Partial("_CustomerInfo", Model)
+        </div>
+        <div>
+            @Html.Partial("_DailyChicCutOrderDetailInfo")
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/DailyChicCutOrder/Shared.js"></script>
+}

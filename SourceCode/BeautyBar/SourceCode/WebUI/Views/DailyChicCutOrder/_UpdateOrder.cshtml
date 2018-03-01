@@ -1,0 +1,160 @@
+﻿@model Daily_ChicCut_OrderModel
+@using EntityModels
+@{
+    ViewBag.Title = "Thêm mới dịch vụ";
+}
+@Html.HiddenFor(m => m.OrderId)
+<input id="OrderStatusIdNow" value="@Model.OrderStatusId" hidden />
+<div class="row">
+    <div class="form-group form-horizontal text-left col-md-6">
+        <input type="hidden" id="num" name="num" />
+        <!--Tab Dịch vụ + Sản phẩm-->
+        <div id="tabs">
+            @{var ListCategory = (List<ServiceCategoryViewModel>)ViewBag.ListCategory; }
+            <ul id="nav-tab-list" class="nav nav-tabs">
+                <li>
+                    <a href="#tab-sp" data-toggle="tab">Sản phẩm</a>
+                </li>
+                @if (ListCategory != null && ListCategory.Count > 0)
+                {
+                    foreach (var item in ListCategory.ToList())
+                    {
+                        <li>
+                            <a href="#tab-@item.ServiceParentCategoryId" class="ServiceParentCategoryId" data-toggle="tab" data-id="@item.ServiceParentCategoryId">@item.ServiceParentCategoryName</a>
+                        </li>
+                    }
+                }
+
+            </ul>
+            <!-- Tab Pane - Contents -->
+            <div id="tab-content" class="tab-content">
+                <div id="tab-sp" class="tab-pane">
+                    <div class=" control-list">
+                        <div id="divSanPham" class="control-group">
+                            <div class="control-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+                                    @{var ListProduct = (List<ProductViewModel>)ViewBag.ListProduct; }
+                                    <ul class="row" style="padding:0px;">
+                                        @if (ListProduct != null && ListProduct.Count > 0)
+                                        {
+                                            foreach (var item in ListProduct.ToList())
+                                            {
+                                                <li class="sbh-product">
+                                                    <div>
+                                                        <a class="ProductId" data-id="@item.ProductId">@item.ProductName</a>
+                                                        <i>@string.Format("{0:n0}", item.Price1) </i>
+                                                        <input type="hidden" name="Price_Of_ProductId_@item.ProductId" value="@item.Price1" />
+                                                    </div>
+
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-1" class="tab-pane tab-dv">
+                </div>
+                <div id="tab-2" class="tab-pane tab-dv">
+                </div>
+                <div id="tab-3" class="tab-pane tab-dv">
+                </div>
+                <div id="tab-4" class="tab-pane tab-dv">
+                </div>
+                <div id="tab-5" class="tab-pane tab-dv">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div>
+            @Html.Partial("_CustomerInfo", Model)
+        </div>
+        <div>
+            @{
+                var _context = new EntityDataContext();
+                var LstProductDetail =
+               Model.Daily_ChicCut_OrderProductDetailModel.Select(p => new Daily_ChicCut_OrderDetailViewModel()
+               {
+                   OrderId = p.OrderId,
+                   ProductId = p.ProductId.HasValue ? p.ProductId.Value : 0,
+                   COGS = p.COGS,
+                   Price = p.Price,
+                   Qty = p.Qty,
+                   UnitCOGS = p.UnitCOGS,
+                   UnitPrice = p.UnitPrice,
+                   ServiceName = _context.ProductModel.Where(pd => pd.ProductId == p.ProductId).Select(pd => pd.ProductName).FirstOrDefault()
+               }).ToList();
+
+                var LstServiceDetail =
+               Model.Daily_ChicCut_OrderDetailModel.Select(p => new Daily_ChicCut_OrderDetailViewModel()
+               {
+                   OrderId = p.OrderId,
+                   ServiceId = p.ServiceId,
+                   TreatmentId = p.TreatmentId,
+                   COGS = p.COGS,
+                   Price = p.Price,
+                   Qty = p.Qty,
+                   UnitCOGS = p.UnitCOGS,
+                   UnitPrice = p.UnitPrice,
+                   ServiceName = _context.Master_ChicCut_ServiceModel.Where(pd => pd.ServiceId == p.ServiceId).Select(pd => pd.ServiceName).FirstOrDefault()
+               }).ToList();
+               
+                var LstDetail = LstServiceDetail;
+                LstDetail.AddRange(LstProductDetail); // Add Lst Product vào ListService
+            }
+            @Html.Action("_DailyChicCutOrderDetailInfo", new
+       {
+           details = Model.OrderId > 0 ? LstDetail : new List<Daily_ChicCut_OrderDetailViewModel>()
+       })
+        </div>
+    </div>
+</div>
+
+
+<div id="divTreatmentPopup" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center" style="font-size:28px"></h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center" id="content">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnHuyTreatmentDetails" type="button" class="btn btn-dafault ">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //Loại dịch vụ
+    var HairTypeId = $(".HairTypeId").filter(".btn-danger").data("hairtypeid");
+    GetServicePartital(HairTypeId);
+
+    var CustomerId = $("#IdCustomer").val();
+    var CustomerName = $("#FullName").val();
+    Select2_Custom("/Sell/GetCustomerId", "CustomerId", CustomerId, CustomerName, "divCustomerId");
+    var id = $("#IdCustomer").val();
+    if (id != "" && id != undefined) {
+        CustomerInfo(id);
+    }
+    //Tổng tiền
+    TotalPrice();
+    //$("input[name='Gender']").attr('disabled', 'disabled');
+    $(document).ready(function () {
+        ////TAB RADIO MANAGEMENT BEGIN ***********************************************************************************
+        $("ul.nav-tabs li:first").addClass("active").show(); //Activate first tab
+        $(".tab-pane:first").addClass("active").show(); //Show first tab content
+    });
+</script>

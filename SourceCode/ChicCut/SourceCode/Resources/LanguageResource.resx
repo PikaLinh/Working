@@ -1,0 +1,4743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>Quản lý thông tin người dùng</value>
+  </data>
+  <data name="AccountModel_Actived" xml:space="preserve">
+    <value>Còn hoạt động</value>
+  </data>
+  <data name="AccountModel_AvatarImageUrl" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
+  <data name="AccountModel_BirthDay" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="AccountModel_CountryId" xml:space="preserve">
+    <value>Quốc gia</value>
+  </data>
+  <data name="AccountModel_CurrentPassword" xml:space="preserve">
+    <value>Mật khẩu hiện tại</value>
+  </data>
+  <data name="AccountModel_DistrictId" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="AccountModel_FullName" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="AccountModel_Gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="AccountModel_NewPassword" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="AccountModel_Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="AccountModel_PasswordRecoveryCode" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="AccountModel_PhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="AccountModel_ProvinceId" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="AccountModel_RetypeNewPassword" xml:space="preserve">
+    <value>Xác nhận lại mật khẩu mới</value>
+  </data>
+  <data name="AccountModel_RetypePassword" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="AccountModel_RolesId" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="AccountModel_UserCreated" xml:space="preserve">
+    <value>Người khởi tạo</value>
+  </data>
+  <data name="AccountModel_UserId" xml:space="preserve">
+    <value>Mã tài khoản</value>
+  </data>
+  <data name="AccountModel_UserName" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="AccountModels" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="Actived" xml:space="preserve">
+    <value>Còn sử dụng</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="AddFailed" xml:space="preserve">
+    <value>Thêm không thành công</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Thêm mới</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Barcode" xml:space="preserve">
+    <value>Mã vạch</value>
+  </data>
+  <data name="BarCodeExists" xml:space="preserve">
+    <value>Mã vạch đã tồn tại</value>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>Chi nhánh</value>
+  </data>
+  <data name="BranchId" xml:space="preserve">
+    <value>Mã chi nhánh</value>
+  </data>
+  <data name="BranchListModel" xml:space="preserve">
+    <value>Chi nhánh</value>
+  </data>
+  <data name="BranchListModel_BankAccountNumber" xml:space="preserve">
+    <value>Số tài khoản</value>
+  </data>
+  <data name="BranchListModel_BranchName" xml:space="preserve">
+    <value>Tên chi nhánh</value>
+  </data>
+  <data name="BranchListModel_DateKey" xml:space="preserve">
+    <value>Ngày làm việc</value>
+  </data>
+  <data name="BranchListModel_isCloseDate" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ thì ngày phải theo ngày khóa số (tương ứng với "Ngày làm việc")</value>
+  </data>
+  <data name="BranchListModel_isDateCurrentSystem" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ thì lấy ngày hiện hành</value>
+  </data>
+  <data name="BranchListModel_isDateOptionInMonth" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ cho phép chọn ngày trong "Tháng làm việc"</value>
+  </data>
+  <data name="BranchListModel_isDebtCust" xml:space="preserve">
+    <value>Có phần công nợ phải thu </value>
+  </data>
+  <data name="BranchListModel_isDebtDuyetVuotCongNo" xml:space="preserve">
+    <value>Cho phép duyêt vượt công nợ không</value>
+  </data>
+  <data name="BranchListModel_isDebtLimitMoney" xml:space="preserve">
+    <value>Giới hạn số tiền được nợ</value>
+  </data>
+  <data name="BranchListModel_isDebtLimitTime" xml:space="preserve">
+    <value>Cho phép giới hạn số tiền</value>
+  </data>
+  <data name="BranchListModel_isLotDate" xml:space="preserve">
+    <value>Có quản lý số lô và date hay không (dành cho công ty dược)</value>
+  </data>
+  <data name="BranchListModel_isPromoteDiscount" xml:space="preserve">
+    <value>Chương trình khuyến mãi chiết khấu % trên đơn hàng</value>
+  </data>
+  <data name="BranchListModel_isPromoteProduct" xml:space="preserve">
+    <value>Chương trình khuyến mãi mua hàng tặng hàng</value>
+  </data>
+  <data name="BranchListModel_ParentBranchId" xml:space="preserve">
+    <value>Thuộc chi nhánh</value>
+  </data>
+  <data name="BranchListModel_RateBV" xml:space="preserve">
+    <value>Tỉ lệ BV</value>
+  </data>
+  <data name="BranchListModel_Serial" xml:space="preserve">
+    <value>Ký hiệu (hóa đơn)</value>
+  </data>
+  <data name="BranchListModel_TaxCode" xml:space="preserve">
+    <value>Mã số thuế</value>
+  </data>
+  <data name="BranchListModel_TemplateBill" xml:space="preserve">
+    <value>Mẫu số (hóa đơn)</value>
+  </data>
+  <data name="BranchListModel_VATAmount" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="BranchListModel_WorkingDate" xml:space="preserve">
+    <value>Ngày làm việc</value>
+  </data>
+  <data name="BranchListModel_WorkingMonth" xml:space="preserve">
+    <value>Tháng làm việc</value>
+  </data>
+  <data name="BranchManagement" xml:space="preserve">
+    <value>Quản lý chi nhánh</value>
+  </data>
+  <data name="BranchName" xml:space="preserve">
+    <value>Chi nhánh</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Nhãn hiệu</value>
+  </data>
+  <data name="Brand_Title" xml:space="preserve">
+    <value>Nhãn hiệu</value>
+  </data>
+  <data name="BrandId" xml:space="preserve">
+    <value>Mã nhãn hiệu</value>
+  </data>
+  <data name="BrandManagement" xml:space="preserve">
+    <value>Quản lý nhãn hiệu</value>
+  </data>
+  <data name="BrandModel_BrandId" xml:space="preserve">
+    <value>Mã nhãn hiệu</value>
+  </data>
+  <data name="BrandModel_Title" xml:space="preserve">
+    <value>Nhãn hiệu</value>
+  </data>
+  <data name="BrandName" xml:space="preserve">
+    <value>Tên nhãn hiệu</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="CategoriesManagement" xml:space="preserve">
+    <value>Quản lý ngành hàng</value>
+  </data>
+  <data name="CategoriesModel_CategoryId" xml:space="preserve">
+    <value>Mã danh mục</value>
+  </data>
+  <data name="CategoriesModel_CategoryName" xml:space="preserve">
+    <value>Ngành hàng</value>
+  </data>
+  <data name="CategoriesModel_Desc" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="CategoriesModel_DescVI" xml:space="preserve">
+    <value>Mô tả (Vi)</value>
+  </data>
+  <data name="CategoriesModel_Title" xml:space="preserve">
+    <value>Tên ngành hàng</value>
+  </data>
+  <data name="CategoriesModel_TitleVI" xml:space="preserve">
+    <value>Tên ngành hàng (Vi)</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="ChangePVModel_DateExecute" xml:space="preserve">
+    <value>Ngày thực thi</value>
+  </data>
+  <data name="ChangePVModel_DateInvoice" xml:space="preserve">
+    <value>Ngày hóa đơn</value>
+  </data>
+  <data name="ChangePVModel_Invoice" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+  </data>
+  <data name="ChangePVModel_UserCreate" xml:space="preserve">
+    <value>Người tạo nghiệp vụ</value>
+  </data>
+  <data name="CheckClosedDate" xml:space="preserve">
+    <value>Khóa sổ ngày</value>
+  </data>
+  <data name="CheckClosedDateSuccess" xml:space="preserve">
+    <value>Khóa sổ ngày thành công</value>
+  </data>
+  <data name="CheckClosedMonth" xml:space="preserve">
+    <value>Khóa sổ tháng</value>
+  </data>
+  <data name="CheckSuccess" xml:space="preserve">
+    <value>Thành công</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Quản lý Control</value>
+  </data>
+  <data name="CouldNotFound" xml:space="preserve">
+    <value>Không tìm thấy!</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Quốc gia</value>
+  </data>
+  <data name="CountryModel" xml:space="preserve">
+    <value>Quốc gia</value>
+  </data>
+  <data name="CountryModel_CountryId" xml:space="preserve">
+    <value>Mã quốc gia</value>
+  </data>
+  <data name="CountryModel_CountryName" xml:space="preserve">
+    <value>Tên quốc gia</value>
+  </data>
+  <data name="CountryModel_LanguageId" xml:space="preserve">
+    <value>Mã ngôn ngữ</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Khóa học</value>
+  </data>
+  <data name="CourseManagement" xml:space="preserve">
+    <value>Quản lý khóa học</value>
+  </data>
+  <data name="CourseModel_CourseId" xml:space="preserve">
+    <value>Mã khóa học</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Tên khóa học</value>
+  </data>
+  <data name="CourseNameVi" xml:space="preserve">
+    <value>Tên khóa học (Vi)</value>
+  </data>
+  <data name="CreateFailed" xml:space="preserve">
+    <value>Thất bại trong việc thêm dữ liệu</value>
+  </data>
+  <data name="CreateSuccess" xml:space="preserve">
+    <value>Thêm thành công</value>
+  </data>
+  <data name="DateCurrent" xml:space="preserve">
+    <value>Ngày hiện hành</value>
+  </data>
+  <data name="DateInvoice" xml:space="preserve">
+    <value>Ngày nghiệp vụ</value>
+  </data>
+  <data name="DateValid" xml:space="preserve">
+    <value>Vui lòng nhập {0} theo định dạng ngày/tháng/năm</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="DescriptionVi" xml:space="preserve">
+    <value>Mô tả (Vi)</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="DetailsVi" xml:space="preserve">
+    <value>Chi tiết (Vi)</value>
+  </data>
+  <data name="Distributor" xml:space="preserve">
+    <value>Nhà phân phối</value>
+  </data>
+  <data name="DistributorManagement" xml:space="preserve">
+    <value>Quản lý nhà phân phối</value>
+  </data>
+  <data name="DistributorModel_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="DistributorModel_BirthDate" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="DistributorModel_Code" xml:space="preserve">
+    <value>Mã nhà phân phối</value>
+  </data>
+  <data name="DistributorModel_DateCurrent" xml:space="preserve">
+    <value>Ngày hiện hành</value>
+  </data>
+  <data name="DistributorModel_FirstNameOfMate" xml:space="preserve">
+    <value>Tên vợ/chồng</value>
+  </data>
+  <data name="DistributorModel_FisrtName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="DistributorModel_Gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="DistributorModel_GetMarried" xml:space="preserve">
+    <value>Đã lấy vợ/chồng</value>
+  </data>
+  <data name="DistributorModel_Indentity" xml:space="preserve">
+    <value>CMND</value>
+  </data>
+  <data name="DistributorModel_IndentityOfMate" xml:space="preserve">
+    <value>CMND vợ/chồng</value>
+  </data>
+  <data name="DistributorModel_LastBuydate" xml:space="preserve">
+    <value>Lần cuối mua hàng</value>
+  </data>
+  <data name="DistributorModel_LastName" xml:space="preserve">
+    <value>Họ và đệm</value>
+  </data>
+  <data name="DistributorModel_LastNameOfMate" xml:space="preserve">
+    <value>Họ vợ/chồng</value>
+  </data>
+  <data name="DistributorModel_LimitDate" xml:space="preserve">
+    <value>Ngày giới hạn</value>
+  </data>
+  <data name="DistributorModel_Mobile1" xml:space="preserve">
+    <value>Số di động 1</value>
+  </data>
+  <data name="DistributorModel_Mobile2" xml:space="preserve">
+    <value>Số di động 2</value>
+  </data>
+  <data name="DistributorModel_ParentCodeInSide" xml:space="preserve">
+    <value>Tuyến trên</value>
+  </data>
+  <data name="DistributorModel_ParentCodeOutSide" xml:space="preserve">
+    <value>Người bảo trợ quốc tế</value>
+  </data>
+  <data name="DistributorModel_RegDate" xml:space="preserve">
+    <value>Ngày đăng ký</value>
+  </data>
+  <data name="DistributorModel_RegFirstDate" xml:space="preserve">
+    <value>Ngày đăng ký đầu tiên</value>
+  </data>
+  <data name="DistributorModel_SalesLevel" xml:space="preserve">
+    <value>Cấp bậc</value>
+  </data>
+  <data name="DistributorModel_StopDate" xml:space="preserve">
+    <value>Ngày ngưng hoạt động</value>
+  </data>
+  <data name="DistributorModel_SurName" xml:space="preserve">
+    <value>Tên lót</value>
+  </data>
+  <data name="DistributorModel_SurNameOfMate" xml:space="preserve">
+    <value>Tên lót vợ/chồng</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Quận/huyện</value>
+  </data>
+  <data name="DistrictModel" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="DistrictModel_Appellation" xml:space="preserve">
+    <value>tên gọi</value>
+  </data>
+  <data name="DistrictModel_DistrictId" xml:space="preserve">
+    <value>Mã quận/huyện</value>
+  </data>
+  <data name="DistrictModel_DistrictName" xml:space="preserve">
+    <value>Tên quận/huyện</value>
+  </data>
+  <data name="DistrictModel_Location" xml:space="preserve">
+    <value>Tọa độ</value>
+  </data>
+  <data name="DupplicateEmail" xml:space="preserve">
+    <value>Email này đã đăng ký. Vui lòng chọn email khác !</value>
+  </data>
+  <data name="DupplicateUserName" xml:space="preserve">
+    <value>Tên đăng nhập này đã có. Vui lòng chọn tên khác !</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailValid" xml:space="preserve">
+    <value>Vui lòng nhập chính xác thông tin "{0}"</value>
+  </data>
+  <data name="EnterSearchInformation" xml:space="preserve">
+    <value>Nhập thông tin cần tìm</value>
+  </data>
+  <data name="entries" xml:space="preserve">
+    <value>mục</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="ExistsEmail" xml:space="preserve">
+    <value>Email đã tồn tại!</value>
+  </data>
+  <data name="ExistsUserName" xml:space="preserve">
+    <value>Tài khoản đã tồn tại</value>
+  </data>
+  <data name="FailPass" xml:space="preserve">
+    <value>Nhập lại mật khẩu không đúng</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Số Fax</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Trang đầu</value>
+  </data>
+  <data name="FormManagement" xml:space="preserve">
+    <value>Quản lý form chức năng</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>Từ ngày</value>
+  </data>
+  <data name="FromInvenCode" xml:space="preserve">
+    <value>Kho hàng xuất</value>
+  </data>
+  <data name="FromInvenName" xml:space="preserve">
+    <value>Kho hàng xuất</value>
+  </data>
+  <data name="FullDateUK" xml:space="preserve">
+    <value>Ngày nghiệp vụ</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Họ và tên</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Xin chào</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Index_Message" xml:space="preserve">
+    <value>Vui lòng nhấn vào ô "tìm kiếm" để lấy dữ liệu</value>
+  </data>
+  <data name="InvenCode" xml:space="preserve">
+    <value>Mã kho</value>
+  </data>
+  <data name="InvenName" xml:space="preserve">
+    <value>Tên kho</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Kho hàng</value>
+  </data>
+  <data name="InventoryModel_Des" xml:space="preserve">
+    <value>Kho</value>
+  </data>
+  <data name="InventoryModel_InvenCode" xml:space="preserve">
+    <value>Mã kho</value>
+  </data>
+  <data name="InventoryModel_Management" xml:space="preserve">
+    <value>Quản lý kho hàng</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+  </data>
+  <data name="InvoiceManagement" xml:space="preserve">
+    <value>Quản lý hóa đơn</value>
+  </data>
+  <data name="InvoiceStatus" xml:space="preserve">
+    <value>Tình trạng hóa đơn</value>
+  </data>
+  <data name="IsCheckedByFromDateToDate" xml:space="preserve">
+    <value>Tìm từ ngày tới ngày ?</value>
+  </data>
+  <data name="isConfirm" xml:space="preserve">
+    <value>isConfirm</value>
+  </data>
+  <data name="isPrinted" xml:space="preserve">
+    <value>isPrinted</value>
+  </data>
+  <data name="isQR" xml:space="preserve">
+    <value>Mã QR</value>
+  </data>
+  <data name="itemkey" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Trang cuối</value>
+  </data>
+  <data name="LearningModel_AddLearning" xml:space="preserve">
+    <value>Thêm ngày học</value>
+  </data>
+  <data name="LearningModel_CourseId" xml:space="preserve">
+    <value>Mã môn học</value>
+  </data>
+  <data name="LearningModel_CourseName" xml:space="preserve">
+    <value>Tên môn học</value>
+  </data>
+  <data name="LearningModel_DateInvoice" xml:space="preserve">
+    <value>Ngày nghiệp vụ</value>
+  </data>
+  <data name="LearningModel_DateJoin" xml:space="preserve">
+    <value>Ngày học</value>
+  </data>
+  <data name="LearningModel_DistributorBranch" xml:space="preserve">
+    <value>Chi nhánh</value>
+  </data>
+  <data name="LearningModel_DistributorId" xml:space="preserve">
+    <value>Mã nhà phân phối</value>
+  </data>
+  <data name="LearningModel_DistributorName" xml:space="preserve">
+    <value>Tên nhà phân phối</value>
+  </data>
+  <data name="LearningModel_endDate" xml:space="preserve">
+    <value>Đến ngày</value>
+  </data>
+  <data name="LearningModel_Invoice" xml:space="preserve">
+    <value>Mã nghiệp vụ</value>
+  </data>
+  <data name="LearningModel_startDate" xml:space="preserve">
+    <value>Từ ngày</value>
+  </data>
+  <data name="LearningModel_UserCreate" xml:space="preserve">
+    <value>Người tạo nghiệp vụ</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="LoginFailedNotification" xml:space="preserve">
+    <value>Tài khoản hoặc mật khẩu của bạn chưa chính xác ! Xin vui lòng thử lại.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Danh mục chức năng</value>
+  </data>
+  <data name="Menu_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Menu_SystemAdministration" xml:space="preserve">
+    <value>Quản trị hệ thống</value>
+  </data>
+  <data name="MenuManagement" xml:space="preserve">
+    <value>Quản lý danh mục chức năng</value>
+  </data>
+  <data name="MenuModel" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="MenuModel_MenuId" xml:space="preserve">
+    <value>Mã danh mục</value>
+  </data>
+  <data name="MenuModel_MenuName" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Mới</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sau</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>Không</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>tới</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Thứ tự</value>
+  </data>
+  <data name="OrderType" xml:space="preserve">
+    <value>Loại hóa đơn</value>
+  </data>
+  <data name="PageModel_PageId" xml:space="preserve">
+    <value>Mã chức năng</value>
+  </data>
+  <data name="PageModel_PageName" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="PageModel_PageUrl" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="PageModels" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="PasswordDoNotMatch" xml:space="preserve">
+    <value>Mật khẩu và "mật khẩu xác nhận" không khớp.</value>
+  </data>
+  <data name="Phone1" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Phone2" xml:space="preserve">
+    <value>Số điện thoại 2</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Trước</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="ProductManagement" xml:space="preserve">
+    <value>Quản lý sản phẩm</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="ProductNameVi" xml:space="preserve">
+    <value>Tên sản phẩm (Vi)</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="ProfileSettings" xml:space="preserve">
+    <value>Cài đặt tài khoản</value>
+  </data>
+  <data name="Province" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="ProvinceModel" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="ProvinceModel_ProvinceId" xml:space="preserve">
+    <value>Mã tỉnh/thành phố</value>
+  </data>
+  <data name="ProvinceModel_ProvinceName" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="ProvinceModel_RegionID" xml:space="preserve">
+    <value>Vùng</value>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>Số Lượng</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="RegionModel_Des" xml:space="preserve">
+    <value>Tên vùng</value>
+  </data>
+  <data name="RegionModel_RegionID" xml:space="preserve">
+    <value>Mã vùng</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Nhớ tài khoản</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "{0}"</value>
+  </data>
+  <data name="RolesManagement" xml:space="preserve">
+    <value>Quản lý thông tin nhóm người dùng</value>
+  </data>
+  <data name="RolesModel" xml:space="preserve">
+    <value>Quyền</value>
+  </data>
+  <data name="RolesModel_RolesId" xml:space="preserve">
+    <value>Mã quyền</value>
+  </data>
+  <data name="RolesModel_RolesName" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="RolesModels" xml:space="preserve">
+    <value>Quyền</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Savechanges" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="SearchArea" xml:space="preserve">
+    <value>Vùng tìm kiếm</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Kết quả tìm kiếm</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Cấu hình hệ thống</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Xem</value>
+  </data>
+  <data name="Sitecode" xml:space="preserve">
+    <value>Mã chi nhánh</value>
+  </data>
+  <data name="smscode" xml:space="preserve">
+    <value>Mã SMS</value>
+  </data>
+  <data name="SMSCodeExists" xml:space="preserve">
+    <value>SMS code đã tồn tại</value>
+  </data>
+  <data name="Stock_Import" xml:space="preserve">
+    <value>Cập nhật tồn kho đầu kỳ</value>
+  </data>
+  <data name="Stock_Transfer" xml:space="preserve">
+    <value>Vận chuyển hàng giữa các kho</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Thành công</value>
+  </data>
+  <data name="SuccessfulUpdate" xml:space="preserve">
+    <value>Cập nhật thành công</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Thông tin của bạn đã được thêm thành công.</value>
+  </data>
+  <data name="SupId" xml:space="preserve">
+    <value>Mã nhà cung cấp</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="Supplier_Management" xml:space="preserve">
+    <value>Quản lý nhà cung cấp</value>
+  </data>
+  <data name="Supplier_SupId" xml:space="preserve">
+    <value>Mã nhà cung cấp</value>
+  </data>
+  <data name="Supplier_SupName" xml:space="preserve">
+    <value>Tên nhà cung cấp</value>
+  </data>
+  <data name="SystemAdministration" xml:space="preserve">
+    <value>Quản trị hệ thống</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>Lỗi hệ thống</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="Title_PhanQuyenNguoiDung" xml:space="preserve">
+    <value>Phân quyền người dùng</value>
+  </data>
+  <data name="Title_QLCN" xml:space="preserve">
+    <value>Quản lý thông tin chi nhánh</value>
+  </data>
+  <data name="Title_QLDM" xml:space="preserve">
+    <value>Quản lý danh mục</value>
+  </data>
+  <data name="Title_QLTrang" xml:space="preserve">
+    <value>Quản lý trang</value>
+  </data>
+  <data name="Title_QLTTNguoiDung" xml:space="preserve">
+    <value>Quản lý thông tin người dùng</value>
+  </data>
+  <data name="Title_QLTTNhomNguoiDung" xml:space="preserve">
+    <value>Quản lý thông tin nhóm người</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>từ</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>Đến ngày</value>
+  </data>
+  <data name="ToInvenCode" xml:space="preserve">
+    <value>Kho hàng nhận</value>
+  </data>
+  <data name="ToInvenName" xml:space="preserve">
+    <value>Kho hàng nhận</value>
+  </data>
+  <data name="TotalAmount" xml:space="preserve">
+    <value>Thành tiền</value>
+  </data>
+  <data name="Town" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Thành tiền</value>
+  </data>
+  <data name="UpdateFailed" xml:space="preserve">
+    <value>Cập nhật không thành công</value>
+  </data>
+  <data name="UpdateLearning" xml:space="preserve">
+    <value>Cập nhật ngày học</value>
+  </data>
+  <data name="UpdateMenu" xml:space="preserve">
+    <value>Cập nhật danh mục</value>
+  </data>
+  <data name="UpdateSuccess" xml:space="preserve">
+    <value>Câp nhật thành công</value>
+  </data>
+  <data name="UserConfirm" xml:space="preserve">
+    <value>Người xác nhận</value>
+  </data>
+  <data name="UserCreate" xml:space="preserve">
+    <value>Người tạo nghiệp vụ</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="WarehouseManagement" xml:space="preserve">
+    <value>Quản lý kho</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Cảnh báo</value>
+  </data>
+  <data name="WarningDistributor" xml:space="preserve">
+    <value>Vui lòng nhập thông tin nhà phân phối</value>
+  </data>
+  <data name="WarningParentDistributor" xml:space="preserve">
+    <value>Vui lòng nhập thông tin tuyến trên bảo trợ (bảo trợ trực tiếp)</value>
+  </data>
+  <data name="WarningPass" xml:space="preserve">
+    <value>Mật khẩu cũ và mật khẩu mới giống nhau</value>
+  </data>
+  <data name="WorkingDateTmp" xml:space="preserve">
+    <value>Ngày nghiệp vụ</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Có</value>
+  </data>
+  <data name="Msg001" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+  </data>
+  <data name="Msg002" xml:space="preserve">
+    <value>Ngày hóa đơn</value>
+  </data>
+  <data name="Msg003" xml:space="preserve">
+    <value>Tên chi nhánh</value>
+  </data>
+  <data name="Msg004" xml:space="preserve">
+    <value>Mã hóa đơn</value>
+  </data>
+  <data name="Msg005" xml:space="preserve">
+    <value>Nhà phân phối</value>
+  </data>
+  <data name="Msg006" xml:space="preserve">
+    <value>Phương thức bán</value>
+  </data>
+  <data name="Msg007" xml:space="preserve">
+    <value>Phương thức trả</value>
+  </data>
+  <data name="Msg008" xml:space="preserve">
+    <value>Phương thức nhận</value>
+  </data>
+  <data name="Msg009" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="Msg010" xml:space="preserve">
+    <value>Tỉnh/Thành phố</value>
+  </data>
+  <data name="Msg011" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="Msg012" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="Msg013" xml:space="preserve">
+    <value>Loại thanh toán</value>
+  </data>
+  <data name="Msg014" xml:space="preserve">
+    <value>Kho hàng</value>
+  </data>
+  <data name="Msg015" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="Msg016" xml:space="preserve">
+    <value>Phần trăm chiết khấu</value>
+  </data>
+  <data name="Msg017" xml:space="preserve">
+    <value>Tổng tiền chiết khấu</value>
+  </data>
+  <data name="Msg018" xml:space="preserve">
+    <value>Mã kho</value>
+  </data>
+  <data name="Msg019" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Msg020" xml:space="preserve">
+    <value>Đã kích hoạt</value>
+  </data>
+  <data name="Msg021" xml:space="preserve">
+    <value>Ngưng</value>
+  </data>
+  <data name="Msg022" xml:space="preserve">
+    <value>Không chọn</value>
+  </data>
+  <data name="Msg023" xml:space="preserve">
+    <value>Phải trên 18 tuổi mới được làm nhà phân phối !</value>
+  </data>
+  <data name="Msg024" xml:space="preserve">
+    <value>Tên này đã được sử dụng !</value>
+  </data>
+  <data name="Msg025" xml:space="preserve">
+    <value>Vui lòng nhập đầy đủ thông tin !</value>
+  </data>
+  <data name="Msg026" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Tài khoản" !</value>
+  </data>
+  <data name="Msg027" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Nhà phân phối" !</value>
+  </data>
+  <data name="Msg028" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Khóa học" !</value>
+  </data>
+  <data name="Msg029" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Ngày học" !</value>
+  </data>
+  <data name="Msg030" xml:space="preserve">
+    <value>Vui lòng nhập đúng kiểu ngày tháng !</value>
+  </data>
+  <data name="Msg031" xml:space="preserve">
+    <value>Enter an item</value>
+  </data>
+  <data name="Msg032" xml:space="preserve">
+    <value>Cập nhật thông tin khóa huấn luyện</value>
+  </data>
+  <data name="Msg033" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="Msg034" xml:space="preserve">
+    <value>Bạn có muốn xác nhận ?</value>
+  </data>
+  <data name="Msg035" xml:space="preserve">
+    <value>Bạn có muốn xóa ?</value>
+  </data>
+  <data name="Msg036" xml:space="preserve">
+    <value>Quản lý nghiệp vụ</value>
+  </data>
+  <data name="Msg037" xml:space="preserve">
+    <value>Tạo nghiệp vụ </value>
+  </data>
+  <data name="Msg038" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="Msg039" xml:space="preserve">
+    <value>Quản lý đơn hàng</value>
+  </data>
+  <data name="Msg040" xml:space="preserve">
+    <value>Tạo đơn hàng</value>
+  </data>
+  <data name="Msg041" xml:space="preserve">
+    <value>Đơn hàng sms và online</value>
+  </data>
+  <data name="Msg042" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Msg043" xml:space="preserve">
+    <value>Quản lý truy cập dữ liệu các nhà phân phối</value>
+  </data>
+  <data name="Msg044" xml:space="preserve">
+    <value>Quản lý thông tin bảo hành </value>
+  </data>
+  <data name="Msg045" xml:space="preserve">
+    <value>Mã đơn hàng không tồn tại !</value>
+  </data>
+  <data name="Msg046" xml:space="preserve">
+    <value>Chuyển hàng kho nội bộ</value>
+  </data>
+  <data name="Msg047" xml:space="preserve">
+    <value>Số lượng mua</value>
+  </data>
+  <data name="Msg048" xml:space="preserve">
+    <value>Số lượng trả</value>
+  </data>
+  <data name="Msg049" xml:space="preserve">
+    <value>Ngày giờ từ ngày bắt đầu đến ngày kết thúc là không hợp lệ</value>
+  </data>
+  <data name="Msg050" xml:space="preserve">
+    <value>Xin vui lòng điền vào chỗ còn trống</value>
+  </data>
+  <data name="Msg051" xml:space="preserve">
+    <value>Thông tin của bạn thêm vào thất bại.</value>
+  </data>
+  <data name="Msg052" xml:space="preserve">
+    <value>Xóa thành công !</value>
+  </data>
+  <data name="Msg053" xml:space="preserve">
+    <value>Bạn có muốn kiểm tra hóa đơn này ?</value>
+  </data>
+  <data name="Msg054" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Sản phẩm" !</value>
+  </data>
+  <data name="Msg055" xml:space="preserve">
+    <value>Vui lòng nhập đúng kiểu số !</value>
+  </data>
+  <data name="Msg056" xml:space="preserve">
+    <value>Kho hàng xuất khác kho hàng nhận</value>
+  </data>
+  <data name="Msg057" xml:space="preserve">
+    <value>Nhập hàng từ nhà cung cấp</value>
+  </data>
+  <data name="Msg058" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Nhà cung cấp" !</value>
+  </data>
+  <data name="Msg059" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Chi nhánh" !</value>
+  </data>
+  <data name="Msg060" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Kho" !</value>
+  </data>
+  <data name="Msg061" xml:space="preserve">
+    <value>Sửa thành công !</value>
+  </data>
+  <data name="Msg062" xml:space="preserve">
+    <value>Lỗi khi sửa !</value>
+  </data>
+  <data name="Msg063" xml:space="preserve">
+    <value>Thêm mới thành công !</value>
+  </data>
+  <data name="Msg064" xml:space="preserve">
+    <value>Lỗi khi thêm mới !</value>
+  </data>
+  <data name="Msg065" xml:space="preserve">
+    <value>Xác nhận thành công !</value>
+  </data>
+  <data name="Msg066" xml:space="preserve">
+    <value>Lỗi khi xác nhận !</value>
+  </data>
+  <data name="Msg067" xml:space="preserve">
+    <value>Cắt mã nhà phân phối</value>
+  </data>
+  <data name="Msg068" xml:space="preserve">
+    <value>Cắt mã nhà phân phối này và chuyển tuyến dưới lên cho người bảo trợ trực tiếp của nhà phân phối này.</value>
+  </data>
+  <data name="Msg069" xml:space="preserve">
+    <value>Chuyển toàn bộ nhà phân phối này qua nhà bảo trợ mới.</value>
+  </data>
+  <data name="Msg070" xml:space="preserve">
+    <value>Chuyển nhà phân phối này qua nhà bào trợ mới nhưng tuyến dưới của nhà phân phối này thì chuyển lên người bảo trợ cũ.</value>
+  </data>
+  <data name="Msg071" xml:space="preserve">
+    <value>Quản lý giá sản phẩm</value>
+  </data>
+  <data name="Msg072" xml:space="preserve">
+    <value>Execute Date is more than Working Date</value>
+  </data>
+  <data name="Msg073" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Giá mới CP" !</value>
+  </data>
+  <data name="Msg074" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Giá mới PV" !</value>
+  </data>
+  <data name="Msg075" xml:space="preserve">
+    <value>Giá CP mới</value>
+  </data>
+  <data name="Msg076" xml:space="preserve">
+    <value>Điểm PV mới</value>
+  </data>
+  <data name="Msg077" xml:space="preserve">
+    <value>Giá CP cũ</value>
+  </data>
+  <data name="Msg078" xml:space="preserve">
+    <value>Điểm PV cũ</value>
+  </data>
+  <data name="Msg079" xml:space="preserve">
+    <value>Áp dụng cho Chi nhánh</value>
+  </data>
+  <data name="Msg080" xml:space="preserve">
+    <value>Loại khuyến mãi</value>
+  </data>
+  <data name="Msg081" xml:space="preserve">
+    <value>Mặt hàng điều kiện</value>
+  </data>
+  <data name="Msg082" xml:space="preserve">
+    <value>Tên mặt hàng điều kiện</value>
+  </data>
+  <data name="Msg083" xml:space="preserve">
+    <value>Số lượng điều kiện</value>
+  </data>
+  <data name="Msg084" xml:space="preserve">
+    <value>Mặt hàng khuyến mãi</value>
+  </data>
+  <data name="Msg085" xml:space="preserve">
+    <value>Tên mặt hàng khuyến mãi</value>
+  </data>
+  <data name="Msg086" xml:space="preserve">
+    <value>Số lượng khuyến mãi</value>
+  </data>
+  <data name="Msg087" xml:space="preserve">
+    <value>Số lượng khuyến mãi tối đa</value>
+  </data>
+  <data name="Msg088" xml:space="preserve">
+    <value>Chiết khấu hóa đơn</value>
+  </data>
+  <data name="Msg089" xml:space="preserve">
+    <value>% được chiết khấu</value>
+  </data>
+  <data name="Msg090" xml:space="preserve">
+    <value>Ngày làm việc thì lớn hơn ngày bắt đầu (từ ngày)</value>
+  </data>
+  <data name="Msg091" xml:space="preserve">
+    <value>Có một chương trình khuyến mãi đang chạy</value>
+  </data>
+  <data name="Msg092" xml:space="preserve">
+    <value>Ngày bắt đầu (từ ngày) lớn hơn ngày kết thúc (đến ngày)</value>
+  </data>
+  <data name="Msg093" xml:space="preserve">
+    <value>Vui lòng nhập tổng số tiền</value>
+  </data>
+  <data name="Msg094" xml:space="preserve">
+    <value>Vui lòng nhập giảm giá</value>
+  </data>
+  <data name="Msg095" xml:space="preserve">
+    <value>Nhập đúng dữ liệu</value>
+  </data>
+  <data name="Msg096" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Số lượng điều kiện" !</value>
+  </data>
+  <data name="Msg097" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Mặt hàng khuyến mãi" !</value>
+  </data>
+  <data name="Msg098" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Số lượng khuyến mãi" !</value>
+  </data>
+  <data name="Msg099" xml:space="preserve">
+    <value>Ngày hiệu lực</value>
+  </data>
+  <data name="Msg100" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Giá mới CP" !</value>
+  </data>
+  <data name="Msg101" xml:space="preserve">
+    <value>Vui lòng nhập thông tin "Giá mới PV" !</value>
+  </data>
+  <data name="Msg102" xml:space="preserve">
+    <value>Sản phẩm này chưa có trong kho!!!</value>
+  </data>
+  <data name="Msg103" xml:space="preserve">
+    <value>Mã nhà phân phối</value>
+  </data>
+  <data name="Msg104" xml:space="preserve">
+    <value>Tên nhà phân phối</value>
+  </data>
+  <data name="Msg105" xml:space="preserve">
+    <value>Có khuyến mãi</value>
+  </data>
+  <data name="Msg106" xml:space="preserve">
+    <value>Hình thức thanh toán</value>
+  </data>
+  <data name="Msg107" xml:space="preserve">
+    <value>Cách đặt hàng</value>
+  </data>
+  <data name="Msg108" xml:space="preserve">
+    <value>Cách nhận hàng</value>
+  </data>
+  <data name="Msg109" xml:space="preserve">
+    <value>Loại đơn hàng</value>
+  </data>
+  <data name="Msg110" xml:space="preserve">
+    <value>Quản lý đơn hàng</value>
+  </data>
+  <data name="Msg111" xml:space="preserve">
+    <value>Tạo đơn hàng</value>
+  </data>
+  <data name="Msg112" xml:space="preserve">
+    <value>Đơn hàng sms và online</value>
+  </data>
+  <data name="Msg113" xml:space="preserve">
+    <value>Vui lòng nhập địa chỉ nhận</value>
+  </data>
+  <data name="Msg114" xml:space="preserve">
+    <value>Vui lòng nhập loại khuyến mãi</value>
+  </data>
+  <data name="Msg115" xml:space="preserve">
+    <value>Vui lòng nhập loại đơn hàng</value>
+  </data>
+  <data name="Msg116" xml:space="preserve">
+    <value>Vui lòng nhập "Số lượng" !</value>
+  </data>
+  <data name="Msg117" xml:space="preserve">
+    <value>Mã mặt hàng</value>
+  </data>
+  <data name="Msg118" xml:space="preserve">
+    <value>Tên mặt hàng</value>
+  </data>
+  <data name="Msg119" xml:space="preserve">
+    <value>Mã cũ QR</value>
+  </data>
+  <data name="Msg120" xml:space="preserve">
+    <value>Mã QR</value>
+  </data>
+  <data name="Msg121" xml:space="preserve">
+    <value>Số hóa đơn/nghiệp vụ</value>
+  </data>
+  <data name="Msg122" xml:space="preserve">
+    <value>Ngày hóa đơn/nghiệp vụ</value>
+  </data>
+  <data name="Msg123" xml:space="preserve">
+    <value>Loại nghiệp vụ</value>
+  </data>
+  <data name="Msg124" xml:space="preserve">
+    <value>Đã cập nhật QR</value>
+  </data>
+  <data name="Msg125" xml:space="preserve">
+    <value>Bạn muốn đóng lại ?</value>
+  </data>
+  <data name="Msg126" xml:space="preserve">
+    <value>Bạn muốn hoàn thành ?</value>
+  </data>
+  <data name="Msg127" xml:space="preserve">
+    <value>Nghiệp vụ này không có sản phẩm cần quét</value>
+  </data>
+  <data name="Msg128" xml:space="preserve">
+    <value>QR này đã tồn tại</value>
+  </data>
+  <data name="Msg129" xml:space="preserve">
+    <value>Bán hàng cho nhà phân phối</value>
+  </data>
+  <data name="Msg130" xml:space="preserve">
+    <value>Quản lý chương trình khuyến mãi</value>
+  </data>
+  <data name="Msg131" xml:space="preserve">
+    <value>Tác vụ hàng ngày của thủ kho</value>
+  </data>
+  <data name="Msg132" xml:space="preserve">
+    <value>Báo cáo doanh số tháng</value>
+  </data>
+  <data name="Msg133" xml:space="preserve">
+    <value>Báo cáo doanh số quý (năm tài chính)</value>
+  </data>
+  <data name="Msg134" xml:space="preserve">
+    <value>Báo cáo doanh số năm tài chính</value>
+  </data>
+  <data name="Msg135" xml:space="preserve">
+    <value>Báo cáo trả thưởng hàng tháng</value>
+  </data>
+  <data name="Msg136" xml:space="preserve">
+    <value>Báo cáo trả thưởng năm</value>
+  </data>
+  <data name="Msg137" xml:space="preserve">
+    <value>Báo cáo hoàn thành khóa huấn luyện</value>
+  </data>
+  <data name="Msg138" xml:space="preserve">
+    <value>Báo cáo danh hiệu nhà phân phối (năm tài chính)</value>
+  </data>
+  <data name="Msg139" xml:space="preserve">
+    <value>Báo cáo xuất nhập tồn</value>
+  </data>
+  <data name="Msg140" xml:space="preserve">
+    <value>Danh sách sản phẩm cung cấp</value>
+  </data>
+  <data name="Msg141" xml:space="preserve">
+    <value>Hàng khuyến mãi</value>
+  </data>
+  <data name="Msg142" xml:space="preserve">
+    <value>Tổng tiền có VAT</value>
+  </data>
+  <data name="Msg143" xml:space="preserve">
+    <value>Tổng tiền chiết khấu có VAT</value>
+  </data>
+  <data name="Msg144" xml:space="preserve">
+    <value>Khuyến mãi</value>
+  </data>
+  <data name="Msg145" xml:space="preserve">
+    <value>Thời hạn</value>
+  </data>
+  <data name="Msg146" xml:space="preserve">
+    <value>Hóa đơn trên</value>
+  </data>
+  <data name="Msg147" xml:space="preserve">
+    <value>sẽ nhận được chiết khấu</value>
+  </data>
+  <data name="Msg148" xml:space="preserve">
+    <value>Mua</value>
+  </data>
+  <data name="Msg149" xml:space="preserve">
+    <value>sản phẩm</value>
+  </data>
+  <data name="Msg150" xml:space="preserve">
+    <value>Được tặng</value>
+  </data>
+  <data name="Msg151" xml:space="preserve">
+    <value>Vui lòng nhập chính xác thông tin "{0}"</value>
+  </data>
+  <data name="Msg152" xml:space="preserve">
+    <value>thành công</value>
+  </data>
+  <data name="Msg153" xml:space="preserve">
+    <value>đã tồn tại</value>
+  </data>
+  <data name="Msg154" xml:space="preserve">
+    <value>{0} - {1} Không đủ {2}</value>
+  </data>
+  <data name="Msg155" xml:space="preserve">
+    <value>Tiền mặt</value>
+  </data>
+  <data name="Msg156" xml:space="preserve">
+    <value>Chuyển khoản</value>
+  </data>
+  <data name="Msg157" xml:space="preserve">
+    <value>Khuyến mãi mặt hàng</value>
+  </data>
+  <data name="Msg158" xml:space="preserve">
+    <value>Khuyến mãi chiết khấu</value>
+  </data>
+  <data name="Msg159" xml:space="preserve">
+    <value>Nhập liệu</value>
+  </data>
+  <data name="Msg160" xml:space="preserve">
+    <value>Web trực tuyến</value>
+  </data>
+  <data name="Msg161" xml:space="preserve">
+    <value>Tin nhắn điện thoại</value>
+  </data>
+  <data name="Msg162" xml:space="preserve">
+    <value>Đến nhận hàng</value>
+  </data>
+  <data name="Msg163" xml:space="preserve">
+    <value>Giao hàng</value>
+  </data>
+  <data name="Msg164" xml:space="preserve">
+    <value>Đơn hàng bán</value>
+  </data>
+  <data name="Msg165" xml:space="preserve">
+    <value>Đơn hàng tặng</value>
+  </data>
+  <data name="Msg166" xml:space="preserve">
+    <value>Đơn trả hàng</value>
+  </data>
+  <data name="Msg167" xml:space="preserve">
+    <value>Đơn đổi hàng</value>
+  </data>
+  <data name="Msg168" xml:space="preserve">
+    <value>Đơn nhập hàng</value>
+  </data>
+  <data name="Msg169" xml:space="preserve">
+    <value>Chưa quét</value>
+  </data>
+  <data name="Msg170" xml:space="preserve">
+    <value>Đã quét</value>
+  </data>
+  <data name="Msg171" xml:space="preserve">
+    <value>Quét QR</value>
+  </data>
+  <data name="Msg172" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Msg173" xml:space="preserve">
+    <value>Hoàn thành</value>
+  </data>
+  <data name="Msg174" xml:space="preserve">
+    <value>Báo cáo sơ đồ bảo trợ (Theo đơn hàng)</value>
+  </data>
+  <data name="Msg175" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg176" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg177" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg178" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg179" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg180" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg181" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg182" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg183" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg184" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg185" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg186" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg187" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg188" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg189" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg190" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg191" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg192" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg193" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg194" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg195" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg196" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg197" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg198" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg199" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg200" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg201" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg202" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg203" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg204" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg205" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg206" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg207" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg208" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg209" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg210" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg211" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg212" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg213" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg214" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg215" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg216" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg217" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg218" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg219" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg220" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg221" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg222" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg223" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg224" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg225" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg226" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg227" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg228" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg229" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg230" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg231" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg232" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg233" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg234" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg235" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg236" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg237" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg238" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg239" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg240" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg241" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg242" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg243" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg244" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg245" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg246" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg247" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg248" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg249" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg250" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg251" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg252" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg253" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg254" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg255" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg256" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg257" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg258" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg259" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg260" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg261" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg262" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg263" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg264" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg265" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg266" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg267" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg268" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg269" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg270" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg271" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg272" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg273" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg274" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg275" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg276" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg277" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg278" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg279" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg280" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg281" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg282" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg283" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg284" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg285" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg286" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg287" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg288" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg289" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg290" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg291" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg292" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg293" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg294" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg295" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg296" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg297" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg298" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg299" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg300" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg301" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg302" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg303" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg304" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg305" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg306" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg307" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg308" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg309" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg310" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg311" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg312" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg313" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg314" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg315" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg316" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg317" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg318" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg319" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg320" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg321" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg322" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg323" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg324" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg325" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg326" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg327" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg328" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg329" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg330" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg331" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg332" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg333" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg334" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg335" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg336" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg337" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg338" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg339" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg340" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg341" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg342" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg343" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg344" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg345" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg346" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg347" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg348" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg349" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg350" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg351" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg352" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg353" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg354" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg355" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg356" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg357" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg358" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg359" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg360" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg361" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg362" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg363" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg364" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg365" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg366" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg367" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg368" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg369" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg370" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg371" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg372" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg373" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg374" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg375" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg376" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg377" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg378" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg379" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg380" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg381" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg382" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg383" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg384" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg385" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg386" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg387" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg388" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg389" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg390" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg391" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg392" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg393" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg394" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg395" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg396" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg397" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg398" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg399" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg400" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg401" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg402" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg403" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg404" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg405" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg406" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg407" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg408" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg409" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg410" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg411" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg412" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg413" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg414" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg415" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg416" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg417" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg418" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg419" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg420" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg421" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg422" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg423" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg424" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg425" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg426" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg427" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg428" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg429" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg430" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg431" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg432" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg433" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg434" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg435" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg436" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg437" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg438" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg439" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg440" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg441" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg442" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg443" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg444" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg445" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg446" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg447" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg448" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg449" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg450" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg451" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg452" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg453" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg454" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg455" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg456" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg457" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg458" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg459" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg460" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg461" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg462" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg463" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg464" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg465" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg466" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg467" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg468" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg469" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg470" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg471" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg472" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg473" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg474" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg475" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg476" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg477" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg478" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg479" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg480" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg481" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg482" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg483" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg484" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg485" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg486" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg487" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg488" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg489" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg490" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg491" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg492" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg493" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg494" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg495" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg496" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg497" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg498" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg499" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg500" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg501" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg502" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg503" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg504" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg505" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg506" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg507" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg508" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg509" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg510" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg511" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg512" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg513" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg514" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg515" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg516" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg517" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg518" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg519" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg520" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg521" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg522" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg523" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg524" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg525" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg526" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg527" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg528" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg529" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg530" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg531" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg532" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg533" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg534" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg535" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg536" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg537" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg538" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg539" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg540" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg541" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg542" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg543" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg544" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg545" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg546" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg547" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg548" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg549" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg550" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg551" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg552" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg553" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg554" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg555" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg556" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg557" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg558" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg559" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg560" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg561" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg562" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg563" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg564" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg565" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg566" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg567" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg568" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg569" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg570" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg571" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg572" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg573" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg574" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg575" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg576" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg577" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg578" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg579" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg580" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg581" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg582" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg583" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg584" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg585" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg586" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg587" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg588" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg589" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg590" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg591" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg592" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg593" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg594" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg595" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg596" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg597" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg598" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg599" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg600" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg601" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg602" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg603" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg604" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg605" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg606" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg607" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg608" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg609" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg610" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg611" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg612" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg613" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg614" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg615" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg616" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg617" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg618" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg619" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg620" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg621" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg622" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg623" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg624" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg625" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg626" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg627" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg628" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg629" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg630" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg631" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg632" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg633" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg634" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg635" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg636" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg637" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg638" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg639" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg640" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg641" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg642" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg643" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg644" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg645" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg646" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg647" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg648" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg649" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg650" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg651" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg652" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg653" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg654" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg655" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg656" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg657" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg658" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg659" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg660" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg661" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg662" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg663" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg664" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg665" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg666" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg667" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg668" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg669" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg670" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg671" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg672" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg673" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg674" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg675" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg676" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg677" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg678" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg679" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg680" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg681" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg682" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg683" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg684" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg685" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg686" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg687" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg688" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg689" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg690" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg691" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg692" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg693" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg694" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg695" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg696" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg697" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg698" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg699" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg700" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg701" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg702" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg703" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg704" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg705" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg706" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg707" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg708" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg709" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg710" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg711" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg712" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg713" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg714" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg715" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg716" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg717" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg718" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg719" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg720" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg721" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg722" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg723" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg724" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg725" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg726" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg727" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg728" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg729" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg730" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg731" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg732" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg733" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg734" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg735" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg736" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg737" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg738" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg739" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg740" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg741" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg742" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg743" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg744" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg745" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg746" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg747" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg748" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg749" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg750" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg751" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg752" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg753" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg754" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg755" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg756" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg757" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg758" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg759" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg760" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg761" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg762" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg763" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg764" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg765" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg766" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg767" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg768" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg769" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg770" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg771" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg772" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg773" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg774" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg775" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg776" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg777" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg778" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg779" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg780" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg781" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg782" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg783" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg784" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg785" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg786" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg787" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg788" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg789" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg790" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg791" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg792" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg793" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg794" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg795" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg796" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg797" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg798" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg799" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg800" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg801" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg802" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg803" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg804" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg805" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg806" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg807" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg808" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg809" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg810" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg811" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg812" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg813" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg814" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg815" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg816" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg817" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg818" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg819" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg820" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg821" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg822" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg823" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg824" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg825" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg826" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg827" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg828" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg829" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg830" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg831" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg832" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg833" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg834" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg835" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg836" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg837" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg838" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg839" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg840" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg841" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg842" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg843" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg844" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg845" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg846" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg847" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg848" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg849" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg850" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg851" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg852" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg853" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg854" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg855" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg856" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg857" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg858" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg859" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg860" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg861" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg862" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg863" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg864" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg865" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg866" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg867" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg868" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg869" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg870" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg871" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg872" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg873" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg874" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg875" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg876" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg877" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg878" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg879" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg880" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg881" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg882" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg883" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg884" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg885" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg886" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg887" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg888" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg889" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg890" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg891" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg892" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg893" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg894" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg895" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg896" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg897" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg898" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg899" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg900" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg901" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg902" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg903" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg904" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg905" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg906" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg907" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg908" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg909" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg910" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg911" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg912" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg913" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg914" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg915" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg916" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg917" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg918" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg919" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg920" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg921" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg922" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg923" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg924" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg925" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg926" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg927" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg928" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg929" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg930" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg931" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg932" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg933" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg934" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg935" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg936" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg937" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg938" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg939" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg940" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg941" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg942" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg943" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg944" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg945" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg946" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg947" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg948" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg949" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg950" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg951" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg952" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg953" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg954" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg955" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg956" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg957" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg958" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg959" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg960" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg961" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg962" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg963" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg964" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg965" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg966" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg967" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg968" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg969" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg970" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg971" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg972" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg973" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg974" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg975" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg976" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg977" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg978" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg979" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg980" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg981" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg982" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg983" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg984" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg985" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg986" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg987" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg988" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg989" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg990" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg991" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg992" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg993" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg994" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg995" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg996" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg997" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg998" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg999" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="ReceiveEmail" xml:space="preserve">
+    <value>Nhận Email thông báo</value>
+  </data>
+  <data name="ReceiveSMS" xml:space="preserve">
+    <value>Nhận SMS thông báo</value>
+  </data>
+  <data name="ExistsProductCode" xml:space="preserve">
+    <value>Mã sản phẩm đã tồn tại</value>
+  </data>
+  <data name="IDCard" xml:space="preserve">
+    <value>CMND</value>
+  </data>
+  <data name="ProductPackageID" xml:space="preserve">
+    <value>Mã gói </value>
+  </data>
+  <data name="ProductPackageName" xml:space="preserve">
+    <value>Tên gói</value>
+  </data>
+  <data name="ProductPackageTitle" xml:space="preserve">
+    <value>Gói sản phẩm</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="DistributorCode" xml:space="preserve">
+    <value>Mã NPP</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Đơn vị tính</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Mã</value>
+  </data>
+  <data name="IncludeInactivePackage" xml:space="preserve">
+    <value>Bao gồm gói ngưng hoạt động</value>
+  </data>
+  <data name="ExistsCode" xml:space="preserve">
+    <value>Mã khách hàng đã tồn tại!</value>
+  </data>
+  <data name="CompareGreaterThan" xml:space="preserve">
+    <value>Vui lòng nhập "{0}" lớn hơn {1}.</value>
+  </data>
+  <data name="CompareLessThan" xml:space="preserve">
+    <value>Vui lòng nhập "{0}" nhỏ hơn {1}.</value>
+  </data>
+  <data name="isExists" xml:space="preserve">
+    <value>"{0}" đã tồn tại.</value>
+  </data>
+  <data name="BT" xml:space="preserve">
+    <value>Bảo trợ</value>
+  </data>
+  <data name="BuyerAccount" xml:space="preserve">
+    <value>Người mua</value>
+  </data>
+  <data name="CreatedAccount" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="CT" xml:space="preserve">
+    <value>Cấp trên</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Triết khấu</value>
+  </data>
+  <data name="isAgency" xml:space="preserve">
+    <value>isAgency</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="NPPID" xml:space="preserve">
+    <value>Người thụ hưởng</value>
+  </data>
+  <data name="OrderCode" xml:space="preserve">
+    <value>Mã đơn hàng</value>
+  </data>
+  <data name="OrderDate" xml:space="preserve">
+    <value>Thời gian đk mua hàng</value>
+  </data>
+  <data name="OrderId" xml:space="preserve">
+    <value>Số Bill</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="VAT" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="AgencyType" xml:space="preserve">
+    <value>Loại đại lý</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>đơn hàng</value>
+  </data>
+  <data name="OrderPackage" xml:space="preserve">
+    <value>Loại đơn hàng</value>
+  </data>
+  <data name="ExcludingSales" xml:space="preserve">
+    <value>Không tính doanh số</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Bank_AccountName" xml:space="preserve">
+    <value>Tên chủ TK</value>
+  </data>
+  <data name="Bank_AccountNumber" xml:space="preserve">
+    <value>Số TK</value>
+  </data>
+  <data name="Bank_Address" xml:space="preserve">
+    <value>Chi nhánh NH</value>
+  </data>
+  <data name="Bank_Branch" xml:space="preserve">
+    <value>Tên ngân hàng</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Đăng nhập lần cuối</value>
+  </data>
+  <data name="RegDate" xml:space="preserve">
+    <value>Ngày đăng ký</value>
+  </data>
+  <data name="IDIssuanceDate" xml:space="preserve">
+    <value>Ngày cấp CMND</value>
+  </data>
+  <data name="IDIssuancePlace" xml:space="preserve">
+    <value>Nơi cấp CMND</value>
+  </data>
+  <data name="ProductPackage" xml:space="preserve">
+    <value>Gói sản phẩm</value>
+  </data>
+  <data name="InventoryCode" xml:space="preserve">
+    <value>Mã phiếu</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>Thời gian tạo</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="EffectDate" xml:space="preserve">
+    <value>Ngày hiệu lực</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Ngày kết thúc</value>
+  </data>
+  <data name="InformationManagement" xml:space="preserve">
+    <value>Quản lý thông tin</value>
+  </data>
+  <data name="TimeOutError" xml:space="preserve">
+    <value>Hết thời gian hiệu lực của phiên làm việc, Vui lòng nhấn phím F5 và đăng nhập lại!</value>
+  </data>
+  <data name="PaymentDate" xml:space="preserve">
+    <value>Ngày trả thưởng</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Chu kỳ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="PersonalTaxCode" xml:space="preserve">
+    <value>Mã số thuế cá nhân</value>
+  </data>
+  <data name="OrderReference" xml:space="preserve">
+    <value>Đơn hàng trích quỹ tái tiêu thụ</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="OrderStatus" xml:space="preserve">
+    <value>Trạng thái đơn hàng</value>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>Tên chương trình</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Miễn phí</value>
+  </data>
+  <data name="ProductPackageMaster" xml:space="preserve">
+    <value>Loại gói</value>
+  </data>
+  <data name="DataPermission" xml:space="preserve">
+    <value>Phân quyền dữ liệu</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Người đặt hàng</value>
+  </data>
+  <data name="CustomerNumber" xml:space="preserve">
+    <value>Mã số khách hàng</value>
+  </data>
+  <data name="EnterpriseName" xml:space="preserve">
+    <value>Đơn vị</value>
+  </data>
+  <data name="NumberOfTrucks" xml:space="preserve">
+    <value>Số xe</value>
+  </data>
+  <data name="ReceivedAddress" xml:space="preserve">
+    <value>Địa chỉ nhận hàng</value>
+  </data>
+  <data name="ReceivedPerson" xml:space="preserve">
+    <value>Người nhận hàng</value>
+  </data>
+  <data name="SalesAdminEmail" xml:space="preserve">
+    <value>Email Sales Admin</value>
+  </data>
+  <data name="SendTo" xml:space="preserve">
+    <value>Kính gửi</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="SalesSupervisorEmail" xml:space="preserve">
+    <value>Email Sales Supervisor</value>
+  </data>
+  <data name="CustomerMobile" xml:space="preserve">
+    <value>DD người đặt hàng</value>
+  </data>
+  <data name="SalesAdminMobile" xml:space="preserve">
+    <value>DD Sales Admin</value>
+  </data>
+  <data name="CustomerId" xml:space="preserve">
+    <value>Mã người dùng</value>
+  </data>
+  <data name="YearOfBirth" xml:space="preserve">
+    <value>Năm sinh</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>Đến giờ</value>
+  </data>
+  <data name="EventCode" xml:space="preserve">
+    <value>Mã hội thảo - sự kiện</value>
+  </data>
+  <data name="LocationId" xml:space="preserve">
+    <value>Địa điểm</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Ngày khai giảng</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>Từ giờ</value>
+  </data>
+  <data name="CustomerLevelName" xml:space="preserve">
+    <value>Tên cấp độ</value>
+  </data>
+  <data name="MinimumPurchase" xml:space="preserve">
+    <value>Số tiền mua tối thiểu</value>
+  </data>
+  <data name="AdditionalPurchase" xml:space="preserve">
+    <value>Doanh số cộng thêm</value>
+  </data>
+  <data name="CurrencyName" xml:space="preserve">
+    <value>Tên tiền tệ</value>
+  </data>
+  <data name="BirthDay" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="CustomerLevel" xml:space="preserve">
+    <value>Cấp độ</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="IdentityCard" xml:space="preserve">
+    <value>Số CMND</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Đường dẫn ảnh</value>
+  </data>
+  <data name="TaxCode" xml:space="preserve">
+    <value>Mã số thuế</value>
+  </data>
+  <data name="OriginOfProductName" xml:space="preserve">
+    <value>Tên xuất xứ hàng hoá</value>
+  </data>
+  <data name="DistrictId" xml:space="preserve">
+    <value>Quận Huyện</value>
+  </data>
+  <data name="hasInvoice" xml:space="preserve">
+    <value>Xuất hóa đơn</value>
+  </data>
+  <data name="isPersonal" xml:space="preserve">
+    <value>Cá nhân / Tổ chức</value>
+  </data>
+  <data name="ProvinceId" xml:space="preserve">
+    <value>Thành phố</value>
+  </data>
+  <data name="SupplierCode" xml:space="preserve">
+    <value>Mã nhà cung cấp</value>
+  </data>
+  <data name="SupplierName" xml:space="preserve">
+    <value>Tên nhà cung cấp</value>
+  </data>
+  <data name="BankAccountNumber" xml:space="preserve">
+    <value>Số tài khoản</value>
+  </data>
+  <data name="BankBranch" xml:space="preserve">
+    <value>Chi nhánh</value>
+  </data>
+  <data name="BankName" xml:space="preserve">
+    <value>Ngân hàng</value>
+  </data>
+  <data name="BankOwner" xml:space="preserve">
+    <value>Chủ tài khoản</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="COGS" xml:space="preserve">
+    <value>Giá vốn</value>
+  </data>
+  <data name="ExchangeRate" xml:space="preserve">
+    <value>Tỷ giá</value>
+  </data>
+  <data name="ImportPrice" xml:space="preserve">
+    <value>Giá nhập</value>
+  </data>
+  <data name="isHot" xml:space="preserve">
+    <value>Nổi bật</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>Từ khóa</value>
+  </data>
+  <data name="LocationOfProductId" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="PolicyInStockId" xml:space="preserve">
+    <value>Quy định khi còn hàng</value>
+  </data>
+  <data name="PolicyOutOfStockId" xml:space="preserve">
+    <value>Quy định khi hết hàng</value>
+  </data>
+  <data name="ProductStatusId" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="ShippingFee" xml:space="preserve">
+    <value>Phí vận chuyển</value>
+  </data>
+  <data name="ShippingWeight" xml:space="preserve">
+    <value>Trọng lượng</value>
+  </data>
+  <data name="UnitId" xml:space="preserve">
+    <value>Đơn vị tính</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Tiền tệ</value>
+  </data>
+  <data name="ExchangeDate" xml:space="preserve">
+    <value>Ngày hiệu lực</value>
+  </data>
+  <data name="PolicyName" xml:space="preserve">
+    <value>Tên chính sách sản phẩm</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="LocationOfProductName" xml:space="preserve">
+    <value>Vị trí sản phẩm</value>
+  </data>
+  <data name="OriginOfProduct" xml:space="preserve">
+    <value>Xuất xứ hàng hoá</value>
+  </data>
+  <data name="WarehouseName" xml:space="preserve">
+    <value>Kho</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Tiền mặt đã thanh toán cho HĐ này</value>
+  </data>
+  <data name="DebtDueDate" xml:space="preserve">
+    <value>Ngày hẹn thanh toán công nợ còn lại của HĐ này</value>
+  </data>
+  <data name="ManualDiscountType" xml:space="preserve">
+    <value>Chiết khấu cho HĐ</value>
+  </data>
+  <data name="MoneyTransfer" xml:space="preserve">
+    <value>Tiền đã chuyển khoản cho HĐ này</value>
+  </data>
+  <data name="ReceiverName" xml:space="preserve">
+    <value>Người nhận</value>
+  </data>
+  <data name="SalemanName" xml:space="preserve">
+    <value>Nhân viên kinh doanh</value>
+  </data>
+  <data name="SenderName" xml:space="preserve">
+    <value>Người gửi</value>
+  </data>
+  <data name="TAXBillCode" xml:space="preserve">
+    <value>Số hóa đơn VAT</value>
+  </data>
+  <data name="TAXBillDate" xml:space="preserve">
+    <value>Ngày xuất HĐ VAT</value>
+  </data>
+  <data name="TotalShippingWeight" xml:space="preserve">
+    <value>Tổng trọng lượng</value>
+  </data>
+  <data name="VATType" xml:space="preserve">
+    <value>VAT của HĐ</value>
+  </data>
+  <data name="AddErrorMessage" xml:space="preserve">
+    <value>Xảy ra lỗi trong quá trình thêm mới. Vui lòng liên hệ kỹ thuật !</value>
+  </data>
+  <data name="EditErrorMessage" xml:space="preserve">
+    <value>Xảy ra lỗi trong quá trình chỉnh sửa thông tin. Vui lòng liên hệ kỹ thuật !</value>
+  </data>
+  <data name="BillVAT" xml:space="preserve">
+    <value>VAT (%)</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Công ty</value>
+  </data>
+  <data name="ContractNumber" xml:space="preserve">
+    <value>Số PO - Hợp đồng</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Khách hàng</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Tiền mặt khách thanh toán</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
+  </data>
+  <data name="SaleName" xml:space="preserve">
+    <value>Nhân viên bán hàng</value>
+  </data>
+  <data name="DiscountType" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
+  <data name="ProductId" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="TotalQty" xml:space="preserve">
+    <value>Tổng số lượng</value>
+  </data>
+  <data name="ImportMasterId" xml:space="preserve">
+    <value>Mã phiếu nhập</value>
+  </data>
+  <data name="BeginInventoryQty" xml:space="preserve">
+    <value>Tồn đầu</value>
+  </data>
+  <data name="CreatedEmployeeId" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="EndInventoryQty" xml:space="preserve">
+    <value>Tồn cuối</value>
+  </data>
+  <data name="ExportQty" xml:space="preserve">
+    <value>SL Xuất</value>
+  </data>
+  <data name="ImportQty" xml:space="preserve">
+    <value>SL nhập</value>
+  </data>
+  <data name="InventoryTypeCode" xml:space="preserve">
+    <value>Loại </value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>Nhân Viên</value>
+  </data>
+  <data name="InventoryDetailId" xml:space="preserve">
+    <value>Mã phiếu</value>
+  </data>
+  <data name="Money" xml:space="preserve">
+    <value>Tiền khách trả</value>
+  </data>
+  <data name="IEOtherMasterCode" xml:space="preserve">
+    <value>Mã phiếu</value>
+  </data>
+  <data name="StoreId" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
+  <data name="StoreCode" xml:space="preserve">
+    <value>Mã cửa hàng</value>
+  </data>
+  <data name="StoreName" xml:space="preserve">
+    <value>Tên cửa hàng</value>
+  </data>
+  <data name="WarehouseCode" xml:space="preserve">
+    <value>Mã kho</value>
+  </data>
+  <data name="ParentId" xml:space="preserve">
+    <value>Cấp trên</value>
+  </data>
+  <data name="EmployeeId" xml:space="preserve">
+    <value>Nhân viên phụ trách</value>
+  </data>
+  <data name="RemainingAmount" xml:space="preserve">
+    <value>Số tiền còn lại</value>
+  </data>
+  <data name="BeginWarehouseId" xml:space="preserve">
+    <value>Kho đầu kỳ</value>
+  </data>
+  <data name="ProductTypeId" xml:space="preserve">
+    <value>Loại sản phẩm</value>
+  </data>
+  <data name="ProductStoreCode" xml:space="preserve">
+    <value>Mã sản phẩm cửa hàng</value>
+  </data>
+  <data name="ReturnMasterId" xml:space="preserve">
+    <value>Mã phiểu trả</value>
+  </data>
+  <data name="CancelErrorMessenge" xml:space="preserve">
+    <value>Xảy ra lỗi trong quá trình huỷ{0}. Vui lòng liên hệ kỹ thuật để nhận được sự giúp đỡ !</value>
+  </data>
+  <data name="SumPrice" xml:space="preserve">
+    <value>Tổng cộng</value>
+  </data>
+  <data name="ExportPrice" xml:space="preserve">
+    <value>Giá xuất</value>
+  </data>
+  <data name="ProductShortName" xml:space="preserve">
+    <value>Tên SP</value>
+  </data>
+  <data name="UnitCOGS" xml:space="preserve">
+    <value>SL Nhập</value>
+  </data>
+  <data name="OrderReturnMasterId" xml:space="preserve">
+    <value>Mã đơn trả hàng</value>
+  </data>
+  <data name="CreatedIEOther" xml:space="preserve">
+    <value>Đã tạo xuất - nhập kho khác</value>
+  </data>
+  <data name="WarehouseInventoryMasterCode" xml:space="preserve">
+    <value>Mã phiếu kiểm kho</value>
+  </data>
+  <data name="ContactItemTypeName" xml:space="preserve">
+    <value>Đối tượng</value>
+  </data>
+  <data name="TransactionTypeName" xml:space="preserve">
+    <value>Loại phiếu</value>
+  </data>
+  <data name="AMAccountTypeCode" xml:space="preserve">
+    <value>Loại tài khoản</value>
+  </data>
+  <data name="CodeAccount" xml:space="preserve">
+    <value>Mã tài khoản</value>
+  </data>
+  <data name="NameAccount" xml:space="preserve">
+    <value>Tên tài khoản</value>
+  </data>
+  <data name="ShortProductName" xml:space="preserve">
+    <value>Tên ngắn sản phẩm</value>
+  </data>
+  <data name="ProductCode" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="PreImportMasterCode" xml:space="preserve">
+    <value>Mã phiếu nhập kho</value>
+  </data>
+  <data name="RemainingAmountAccrued" xml:space="preserve">
+    <value>Công nợ cuối kỳ</value>
+  </data>
+  <data name="StatusCode" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="WarehouseId" xml:space="preserve">
+    <value>Kho</value>
+  </data>
+  <data name="Price1" xml:space="preserve">
+    <value>Vip</value>
+  </data>
+  <data name="Price2" xml:space="preserve">
+    <value>Vip-Bạc</value>
+  </data>
+  <data name="Price3" xml:space="preserve">
+    <value>Vip-Vàng</value>
+  </data>
+  <data name="Price4" xml:space="preserve">
+    <value>Vip-Bạch Kim</value>
+  </data>
+  <data name="ProductUpdateMasterCode" xml:space="preserve">
+    <value>Mã phiếu cập nhật</value>
+  </data>
+  <data name="EmailContent" xml:space="preserve">
+    <value>Nội dung Email</value>
+  </data>
+  <data name="EmailTemplateId" xml:space="preserve">
+    <value>Mã mẫu Email</value>
+  </data>
+  <data name="EmailTemplateName" xml:space="preserve">
+    <value>Tên mẫu Email</value>
+  </data>
+  <data name="LastModifiedAccount" xml:space="preserve">
+    <value>Tài khoản cập nhật cuối cùng</value>
+  </data>
+  <data name="LastModifiedDate" xml:space="preserve">
+    <value>Thời gian cập nhật cuối cùng</value>
+  </data>
+  <data name="ObjectId" xml:space="preserve">
+    <value>Đối tượng</value>
+  </data>
+  <data name="RemiderName" xml:space="preserve">
+    <value>Tên ghi nhớ</value>
+  </data>
+  <data name="SMSContent" xml:space="preserve">
+    <value>Nội dung mẫu SMS</value>
+  </data>
+  <data name="SMSTemplateId" xml:space="preserve">
+    <value>Mã mẫu SMS</value>
+  </data>
+  <data name="SMSTemplateName" xml:space="preserve">
+    <value>Tên mẫu SMS</value>
+  </data>
+  <data name="PeriodType" xml:space="preserve">
+    <value>Tần suất</value>
+  </data>
+  <data name="EmailTitle" xml:space="preserve">
+    <value>Tiêu đề Email</value>
+  </data>
+  <data name="EmailOfEmployee" xml:space="preserve">
+    <value>Email nhân viên quản lý</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Ngày đến hạn</value>
+  </data>
+  <data name="isCCEmail" xml:space="preserve">
+    <value>CC Email cho NV Q.lý</value>
+  </data>
+  <data name="PeriodCode" xml:space="preserve">
+    <value>Kỳ</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="PostDate" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="Views" xml:space="preserve">
+    <value>Lượt xem</value>
+  </data>
+  <data name="OrderIndex" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="Visible" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="RemiderId" xml:space="preserve">
+    <value>Mã ghi nhớ</value>
+  </data>
+  <data name="DeletedAccount" xml:space="preserve">
+    <value>Người hủy</value>
+  </data>
+  <data name="DeletedDate" xml:space="preserve">
+    <value>Ngày hủy</value>
+  </data>
+  <data name="DeletedEmployeeId" xml:space="preserve">
+    <value>Nhân viên hủy</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LastDateRemind" xml:space="preserve">
+    <value>Lần ghi nhớ cuối</value>
+  </data>
+  <data name="NextDateRemind" xml:space="preserve">
+    <value>Lần thông báo tiếp theo</value>
+  </data>
+  <data name="isCCSMS" xml:space="preserve">
+    <value>SMS cho NV Q.lý</value>
+  </data>
+  <data name="SMSOfEmployee" xml:space="preserve">
+    <value>SĐT của NV quản lý</value>
+  </data>
+  <data name="isShowOnWebsite" xml:space="preserve">
+    <value>Hiển thị lên website</value>
+  </data>
+  <data name="Specifications" xml:space="preserve">
+    <value>Quy cách</value>
+  </data>
+  <data name="ActivedHairType" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="HairTypeName" xml:space="preserve">
+    <value>Loại tóc</value>
+  </data>
+  <data name="ServiceName" xml:space="preserve">
+    <value>Dịch vụ</value>
+  </data>
+  <data name="UnitName" xml:space="preserve">
+    <value>Tên đơn vị tính</value>
+  </data>
+  <data name="QuantificationName" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="OrderStatusId" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="IsMaterial" xml:space="preserve">
+    <value>Là nguyên liệu</value>
+  </data>
+  <data name="IsProduct" xml:space="preserve">
+    <value>Là sản phẩm</value>
+  </data>
+  <data name="AppointmentTime" xml:space="preserve">
+    <value>Thời gian hẹn</value>
+  </data>
+  <data name="StaffId" xml:space="preserve">
+    <value>Nhân viên p.vụ</value>
+  </data>
+  <data name="ActualAmount" xml:space="preserve">
+    <value>Thực thu</value>
+  </data>
+  <data name="Cashier" xml:space="preserve">
+    <value>Thu ngân</value>
+  </data>
+  <data name="CashierTime" xml:space="preserve">
+    <value>Thời gian TT</value>
+  </data>
+  <data name="CreatedTime" xml:space="preserve">
+    <value>Thời gian tạo</value>
+  </data>
+  <data name="Staff" xml:space="preserve">
+    <value>Nhân viên</value>
+  </data>
+  <data name="SumCOGSOfOrderDetail" xml:space="preserve">
+    <value>Vốn</value>
+  </data>
+  <data name="SumPriceOfOrderDetail" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="TotalBillDiscount" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
+  <data name="isParentProduct" xml:space="preserve">
+    <value>Là sản phẩm cha</value>
+  </data>
+  <data name="ParentProductId" xml:space="preserve">
+    <value>Sản phẩm cha</value>
+  </data>
+  <data name="Remote" xml:space="preserve">
+    <value>{0} đã tồn tại!</value>
+  </data>
+  <data name="Salary" xml:space="preserve">
+    <value>Lương</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ServicesNote" xml:space="preserve">
+    <value>Dịch vụ đặt trước</value>
+  </data>
+  <data name="AdditionalPrice" xml:space="preserve">
+    <value>Phụ thu</value>
+  </data>
+</root>

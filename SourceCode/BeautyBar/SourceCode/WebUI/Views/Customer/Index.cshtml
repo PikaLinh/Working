@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Danh sách khách hàng";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "Customer", FormMethod.Post, new { @id = "formload" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Số điện thoại:
+                <input type="text" id="Phone" name="Phone" class="form-control" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Tên khách hàng:
+                <input type="text" id="FullName" name="FullName" class="form-control" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Giới tính:
+                <select class="form-control" name="Gender">
+                    <option value="">--Tất cả--</option>
+                    <option value="true">Nam</option>
+                    <option value="false">nữ</option>
+                </select>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Ngày sinh:
+                <input type="date" id="BirthDay" name="BirthDay" class="form-control" />
+            </div>
+            @if (@ViewBag.isUseCustomerLevelSearchId == true)
+            {
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    Cấp độ khách hàng:
+                    @Html.DropDownList("CustomerLevelId", null, "Tất cả", new { @class = "form-control" })
+                </div>
+            }
+            @if (@ViewBag.isUseEmployeeSearchId == true)
+            {
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    Nhân viên phụ trách:
+                    @Html.DropDownList("EmployeeId", null, "Tất cả", new { @class = "form-control" })
+                </div>
+            }
+
+        </div>
+        <br />
+        <hr class="custom">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+            </div>
+        </div>
+    </div>
+}
+<div class="row">
+    <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+    <div class="col-md-6">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+    </div>
+</div>
+<hr class="custom">
+<div id="contentCustomer">
+    @Html.Action("_SearchCustomer")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Customer/Index.js"></script>
+}

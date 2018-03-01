@@ -1,0 +1,72 @@
+﻿@model List<CRMRemiderEmailParameterMappingViewModel>
+@using Constant
+<div class="form-horizontal">
+    <table id="tblEmailPara" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="warning">
+                <th style="width:80px" class="text-center">Tham số</th>
+                <th style="width:150px" class="text-center">Loại tham số</th>
+                <th style="width:200px" class="text-center">Giá trị (<span class="color-red">*</span>)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                <input type="hidden" name="CheckHasEmailPara" id="CheckHasEmailPara" value="true" />
+                int i = 0;
+                int k = -1;
+                foreach (var item in Model)
+                {
+                    i++;
+                    k++;
+                    <tr>
+
+                        <td style="width: 200px">
+                            <input type="hidden" name="detail[@k].EmailParameterId" class="detail-EmailParameterId" value="@item.EmailParameterId">
+                            <span title="@item.EmailParameterDescription">@item.EmailParameterName</span>
+                            <input type="hidden" name="detail[@k].EmailParameterName" class="detail-EmailParameterName  detail-EmailParameterName-@k form-control text-left" data-row="@k" value="@item.EmailParameterName">
+                        </td>
+                        <td style="width: 100px">
+                            <select name="detail[@k].ValueType" class="detail-ValueType  detail-ValueType-@k form-control text-left" data-row="@k">
+                                @if (item.ValueType == ConstantRemiderValueType.AUTO)
+                                {
+                                    <option value="CUSTOM">Nhập thủ công</option>
+                                    <option value="AUTO" selected>Tự động</option>
+                                }
+                                else
+                                {
+                                    <option value="CUSTOM" selected>Nhập thủ công</option>
+                                    <option value="AUTO">Tự động</option>
+                                }
+
+                            </select>
+                        </td>
+                        <td style="width: 50px">
+                            <select name="detail[@k].Value" class="detail-Value  detail-Value-@k form-control text-left" data-row="@k">
+                                @{
+                                    string ExpDATESelected = item.Value == "ExpDATE" ? "selected" : "";
+                                    string SerCONTENTSelected = item.Value == "SerCONTENT" ? "selected" : "";
+                                    string SerPRICESelected = item.Value == "SerPRICE" ? "selected" : "";
+                                }
+                                <option value="ExpDATE" @ExpDATESelected>Ngày hết hạn</option>
+                                <option value="SerCONTENT" @SerCONTENTSelected>Nội dung dịch vụ</option>
+                                <option value="SerPRICE" @SerPRICESelected>Giá dịch vụ</option>
+                            </select>
+                            <input type="text" name="detail[@k].Value" class="ValueEmailPara form-control text-left" data-row="@k" value="@item.Value">
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">
+                        <input type="hidden" name="CheckHasEmailPara" id="CheckHasEmailPara" value="false" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

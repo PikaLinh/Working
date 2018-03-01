@@ -1,0 +1,99 @@
+﻿@model ProductModel
+
+<form id="frmtimproduct" name="frmtimproduct" action="~/Views/Checkinfo/_Procduct" method="post">
+    <div class="form-horizontal">
+        <br />
+        <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                <div>
+                    @Html.LabelFor(model => model.ProductName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left" id="divProductId">
+                    <select name="ProductId" id="ProductId" class="form-control" style="width:100%;">
+                    </select>
+                </div>
+             </div>
+            <div class="form-group">
+                <div>
+                    @Html.LabelFor(model => model.ProductName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                        <tbody>
+                            <tr>
+                                <td class="dxic" style="width: 100%;">
+                                    @Html.TextBoxFor(m => m.ProductName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 col-sm-4 col-xs-12 control-label">
+                    Khoảng giá
+                </label>
+                <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                    Từ
+                </label>
+                <div class="col-md-2 col-sm-2 col-xs-12 control-label text-left">
+                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                        <tbody>
+                            <tr>
+                                <td class="dxic" style="width: 100%;">
+                                    <input type="number" name="txtkhoanggiaduoi" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                    đến
+                </label>
+                <div class="col-md-2 col-sm-2 col-xs-12 control-label text-left">
+                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                        <tbody>
+                            <tr>
+                                <td class="dxic" style="width: 100%;">
+                                    <input type="number" name="txtkhoanggiatren" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                    @Html.DropDownList("CategoryId", null, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OriginOfProductId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                    @Html.DropDownList("OriginOfProductId", null, "-Tất cả-", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="text-center">
+                <a id="btnExport"  class="btn btn-default col-sm">Export To Excel</a>
+                <a id="btnsearchproduct" class="btn btn-warning">Tìm</a>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<div class="loading-modal"></div>
+<div id="contentproduct">
+    @Html.Action("_ProductPartial")
+</div>
+
+
+

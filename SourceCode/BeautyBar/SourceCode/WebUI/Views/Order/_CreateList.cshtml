@@ -1,0 +1,27 @@
+﻿@model List<OrderDetailViewModel>
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblOrderDetails" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">TT</th>
+                    <th style="width:100px">Mác thép</th>
+                    <th style="width:100px">Phi thép</th>
+                    <th style="width:110px">Số lượng (cuộn/bó)</th>
+                    <th style="width:130px">Số lượng (tấn)</th>
+                    <th style="width:130px">Ngày giao</th>
+                    @*<th>Ghi chú</th>*@
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_CreateListInner", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8"><button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm mặt hàng</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>

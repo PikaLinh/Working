@@ -1,0 +1,169 @@
+﻿@model EntityModels.CalendarModel
+
+@{
+    ViewBag.Title = "Thêm mới";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "frm",  @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.TotalOfReg)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @Html.LabelFor(model => model.CourseId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label" style="padding-top: 2px;">
+                @Html.DropDownList("CourseId", null, new { @class = "form-control", @style = "height: 25px;padding: 0px 4px;font-size: 13px;" })
+                @Html.ValidationMessageFor(model => model.CourseId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label" style="padding-top: 5px;">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.StartDate)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @Html.LabelFor(model => model.LocationId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label" style="padding-top: 2px;">
+                @Html.DropDownList("LocationId", null, new { @class = "form-control", @style = "height: 25px;padding: 0px 4px;font-size: 13px;" })
+                @Html.ValidationMessageFor(model => model.LocationId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.Price, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.Price)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @Html.LabelFor(model => model.NumberOfTrainees, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.NumberOfTrainees, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.NumberOfTrainees)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.isHot, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left" style="padding-top: 5px;">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.isHot)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HotIndex, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.HotIndex, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.HotIndex)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.Label("lblTrainer", "Huấn luyện viên", new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+                @if (ViewBag.Trainer != null)
+                {
+                    <ul class="list-unstyled">
+                        @foreach (var item in ViewBag.Trainer as List<TrainerModel>)
+                        {
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="trainers" value="@item.TrainerId" /> @item.TrainerName
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Time, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label">
+                @Html.TextAreaFor(m => m.Time, new { @class = "ckeditor" })
+                <script type="text/javascript">
+                    CKEDITOR.replace("Time", {
+                        customConfig: '/Content/Plugin/ckeditor/config_basic.js'
+                    });
+                </script>                
+                @Html.ValidationMessageFor(model => model.Time)
+            </div>
+            <div class="col-md-6">
+                @Html.Action("_DiscountList", "Calendar", new { DiscountModel = Model.DiscountModel })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Actived, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left" style="padding-top: 2px;">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.Actived)
+                    </label>
+                </div>
+            </div>
+        </div>
+   
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-warning custom-button minw100" />
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

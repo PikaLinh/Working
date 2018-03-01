@@ -1,0 +1,58 @@
+﻿@model UpdateEmailViewModel
+@{
+    ViewBag.Title = "Cập nhật email sales admin";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title </h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.Label("Email hiện tại", new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-10 col-sm-9 col-xs-12 control-label">
+                    @Html.DropDownList("FromEmail", null, new { @class = "form-control", @Style = "height: 26px; padding: 0px 3px;" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Email mới", new { @class = "col-md-2 col-sm-3 col-xs-12 control-label"})
+                <div class="col-md-10 col-sm-9 col-xs-12 control-label">
+                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                        <tbody>
+                            <tr>
+                                <td class="dxic" style="width:100%;">
+                                    @Html.TextBoxFor(m => m.ToEmail, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    @Html.ValidationMessageFor(model => model.ToEmail)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2 col-sm-3 col-xs-12 control-label">
+                    <label>Áp dụng cho:</label>
+                </div>
+                <div id="effectTo" class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+                    @Html.Action("GetEffect", null, new { FromEmail = ViewBag.FirstEmail })
+                </div>
+            </div>
+            <hr class="custom">
+            <div class="form-horizontal col-md-offset-2 col-sm-offset-3">
+                @Html.ActionLink("Hủy", "Index", "Home",null, new { @class = "btn btn-default custom-button minw100" })
+                <input type="submit" value="Lưu" class="btn btn-default custom-button btn-warning minw100" onclick="confirm('Bạn có muốn cập nhật toàn bộ qua email mới không!');" />
+            </div>
+        </div>
+  
+    }
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/Scripts/UpdateEmail/index.js"></script>
+}

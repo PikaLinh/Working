@@ -1,0 +1,113 @@
+﻿@model List<ProductImageModel>
+<style>
+    #frmList {
+        text-align: center;
+    }
+
+    .loading-modal {
+        display: none;
+        position: fixed;
+        z-index: 999999;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba( 255, 255, 255, .8 ) url('/images/ajax-loader.gif') 50% 50% no-repeat;
+    }
+
+    .loading2 .loading-modal {
+        display: block;
+    }
+</style>
+
+<form id="fileupload" action="/Product/AddProductImage" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="ProductId" value="@ViewBag.ProductId" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td style="min-width: 50px;">STT</td>
+                <td style="min-width: 200px;">Hình ảnh</td>
+                <td style="min-width: 100px;" colspan="2">Chức năng</td>
+            </tr>
+        </thead>
+        <tbody id="contentLstImage">
+            @Html.Partial("_EditListImageInner", Model)
+        </tbody>
+    </table>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <input type="file" name="files" id="FileUpload" multiple>
+        </div>
+        <a id="btnAddImage" class="btn custom-button btn-warning minw100">Tải lên</a>
+    </div>
+</form>
+<form id="frmList" method="post"></form>
+
+
+<script>
+
+    // Xử lý btn Xoá
+    $(document).on("click", ".detail-btndelete", function () {
+        // var $btn = $(this).button('loading');
+        var data = $("#fileupload").serializeArray();
+        var ProductImageIdDelete = $(this).data("productimageid");
+        loading2();//addClass(loading2) --   $(document).ajaxStop(function () {  $("body").removeClass("loading2");  });
+        $.ajax({
+            type: "POST",
+            url: "/Product/DeleteProductImage?ProductImageId=" + ProductImageIdDelete,
+            data: data,
+            success: function (data) {
+                //$btn.button('reset');
+                $("#contentLstImage").html(data);
+            }
+        });
+        //alert($(this).data("productimageid"));
+    });
+
+    // Xử lý btn Tải ảnh
+    $(document).on("click", "#btnAddImage", function () {
+        loading2();//addClass(loading2) --   $(document).ajaxStop(function () {  $("body").removeClass("loading2");  });
+        if (document.getElementById("FileUpload").files[0] == undefined) {
+            $("body").removeClass("loading2");
+            return false;
+        } else {
+            $("#fileupload").ajaxSubmit({
+                type: "POST",
+                success: function (data) {
+                    $("#contentLstImage").html(data);
+                    $('input[type=file]').val('');
+                    $("body").removeClass("loading2");
+                }
+            });
+
+            return false;
+        }
+
+        //var fileUpload = $("#FileUpload").get(0);
+        //var files = fileUpload.files;
+        //// Create FormData object
+        //var fileData = new FormData();
+
+        //// Looping over all files and add it to FormData object
+        //for (var i = 0; i < files.length; i++) {
+        //    fileData.append(files[i].name, files[i]);
+        //}
+        //// alert(fileData);
+        //console.log(fileData);
+        //$.ajax({
+        //    url: '/Product/AddProductImage',
+        //    type: "POST",
+        //    data: fileData
+        //    //success: function (result) {
+        //    //    alert(result);
+        //    //},
+        //    //error: function (err) {
+        //    //    alert(err.statusText);
+        //    //}
+        //});
+
+    });
+</script>

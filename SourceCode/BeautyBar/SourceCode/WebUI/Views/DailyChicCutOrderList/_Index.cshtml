@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ViewModels.ChicCutOrderViewModel>
+
+<input type="hidden" name="TotalRow" id="TotalRow" value="@ViewBag.TotalRow" /> 
+
+<table class="table">
+    <tr>
+        <th>
+           #
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumPriceOfOrderDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalBillDiscount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CashierDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CashierName)
+        </th>
+        <th></th>
+    </tr>
+@{int i = ViewBag.RowIndex;}
+@foreach (var item in Model) {
+    i++;
+    <tr>
+        <td>
+            @i
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumPriceOfOrderDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalBillDiscount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CashierDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StaffName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CashierName)
+        </td>
+       
+        <td>
+            <a data-id="@item.OrderId" class="view" style="cursor:pointer;">Xem</a>
+            <a data-id="@item.OrderId" data-code="@(item.FullName  + " - " + item.Phone ) " class="btn-cancel btn btn-danger" style="cursor:pointer;" data-toggle="modal" data-target="#confirm-delete">Xoá</a>
+        </td>
+    </tr>
+}
+
+</table>
+<input type="hidden" id="idDelete" />
+
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xoá đơn hàng</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xoá đơn hàng : <strong></strong> ? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>

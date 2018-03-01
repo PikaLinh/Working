@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ProductUpdateDetailModel>
+<br />
+<hr class="custom" />
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Danh sách sản phẩm cập nhật</h4></div>
+</div>
+<hr class="custom" />
+<br />
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="datatableproduct">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="min-width: 5%">STT</th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductStoreCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.ImportPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExchangeRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShippingFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price4)
+            </th>
+            <th class="actions text-center" style="width:10%">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+     <tbody>
+@if (Model != null && Model.ToList().Count  > 0)
+    {
+             int i = 0;
+             foreach (var item in @Model) 
+             {
+                 i++;
+                 <tr>
+                    <td class="text-center">
+                       @i
+                    </td>
+                    <td style="width: 10%;">
+                        @Html.DisplayFor(modelItem => item.ProductStoreCode)
+                    </td>
+                    <td style="width: 250px;">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ImportPrice)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ExchangeRate)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ShippingFee)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Price1)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Price2)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Price3)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Price4)
+                    </td>
+                    <td class="text-center" style="min-width:10%">
+                         @if (ViewBag.isLast == 1)
+                        {
+                            <a class = "btn btn-danger btn-sm btn-xoa"  data-id ="@item.ProductUpdateDetailId" data-name="@item.ProductName" data-row="@item.ProductUpdateMasterId"  data-toggle="modal" data-target="#confirm-delete-product" >Xoá</a>
+                         }
+                        else
+                         {
+                            <button class="btn btn-danger btn-sm" disabled>Xoá</button>
+                         }
+                        <input type="hidden" id="idDeleteProduct" />
+                        <input type="hidden" id="masterId" />
+                    </td>
+                </tr>
+         }
+   
+}
+else
+{
+    <tr>
+        <td class="text-center color-red" colspan="11"> Vui lòng chọn 'Xem' để xem chi tiết sản phẩm ! </td>
+    </tr>
+     
+}
+</tbody>
+</table>

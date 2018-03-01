@@ -1,0 +1,45 @@
+﻿<form id="frmSupplierSearch"  name="frmSupplierSearch">
+     <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+               Nhà cung cấp (<span class="color-red">*</span>):
+                <div id="divSupplierId">
+                    <select name="SupplierId" style="width:100%" class="form-control"></select>
+                </div>
+            </div>
+
+              <!--Start Ngày-->
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="col-sm-6 col-xs-12">
+                    @{DateTime FromTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);}
+                    Từ ngày :
+                    <input type="date" name="FromDateSup" id="FromDateSup" value="@FromTime.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                    Đến ngày :
+                    <input type="date" name="ToDateSup" id="ToDateSup" value="@ToTime" class="form-control" />
+                </div>
+            </div>
+            <!--End Ngày-->
+
+        </div>
+   
+    </div>
+</form>
+
+<hr class="custom">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="btnSearchSupplier" class="btn btn-warning col-sm">Xem báo cáo</a>
+    </div>
+</div>
+<hr class="custom">
+<div id="SupplierInforContent">
+    @*@Html.Partial("_SupplierInforPartial")*@
+</div>
+<hr class="custom">
+<div id="SupplierInforTransaction">
+    @*@Html.Partial("_SupplierInforTransaction")*@
+</div>

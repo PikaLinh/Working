@@ -1,0 +1,18 @@
+﻿@model List<Master_ChicCut_ServiceModel>
+<ul class="row">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var item in Model.Where(p => p.Price > 0).ToList())
+        {
+            <li class="sbh-product">
+                <div>
+                    <a class="ServiceId" data-id="@item.ServiceId">@item.ServiceName</a>
+                    <i>@string.Format("{0:n0}", item.Price) </i>
+                    <input type="hidden" name="Price_Of_ServiceId_@item.ServiceId" value="@item.Price" />
+                    <input type="hidden" name="ServiceCategoryId" value="@item.ServiceCategoryId" />
+                </div>
+
+            </li>
+        }
+    }
+</ul>

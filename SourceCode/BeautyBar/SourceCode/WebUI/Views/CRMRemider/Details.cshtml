@@ -1,0 +1,268 @@
+﻿@model CRMRemiderViewModel
+@{
+    ViewBag.Title = "Chi tiết thông báo - nhắc nhở";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class=" col-md-6">
+            <div class="panel panel-default" style="min-height:287px;">
+                <div class="panel-body form-horizontal">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RemiderName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.RemiderName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ObjectType, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <span>@Model.ObjectName</span>
+                        </div>
+                    </div>
+                    @{
+        string DisplayCus = Model.ObjectName == "Khách hàng" ? "block" : "none";
+        string DisplaySup = Model.ObjectName == "Nhà cung cấp" ? "block" : "none";
+                    }
+                    <div class="form-group row " style="display:@DisplayCus">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CustomerId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.CustomerName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row " style="display:@DisplaySup">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SupplierId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.SupplierName)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PeriodType, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.PeriodTypeName)
+                        </div>
+                    </div>
+                    @{
+        string DisplayMotlan = Model.PeriodTypeName == "Một lần" ? "block" : "none";
+        string DisplayDinhky = Model.PeriodTypeName == "Định kỳ" ? "block" : "none";
+                    }
+                    <div class="form-group" style="display:@DisplayMotlan">
+                        @Html.LabelFor(model => model.ExpiryDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.ExpiryDate)
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:@DisplayDinhky">
+                        @Html.LabelFor(model => model.PeriodCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.PeriodCode)
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:@DisplayDinhky">
+                        @Html.LabelFor(model => model.StartDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.StartDate)
+                        </div>
+                    </div>
+                    @{
+        string DisplayNDays = Model.NDays != null ? "block" : "none";
+                    }
+                    <div class="form-group" style="display:@DisplayNDays">
+                        @Html.LabelFor(model => model.NDays, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.NDays)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DaysPriorNotice, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.DaysPriorNotice)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NextDateRemind, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.NextDateRemind)
+                        </div>
+                    </div>
+
+                    <hr class="custom" />
+                    @{
+        string RemiderName = Model.isEmailNotified != null ? "Email" : "";
+        RemiderName += Model.isSMSNotifred != null ? "  SMS " : "";
+                    }
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-4 col-xs-12 control-label">Hình thức thông báo</label>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <span>@RemiderName</span>
+                        </div>
+                    </div>
+                    @{
+        string DisplayEmailTemplateId = Model.isEmailNotified != null ? "block" : "none";
+        string DisplaySMSTemplateId = Model.isSMSNotifred != null ? "block" : "none";
+                    }
+                    <div class="form-group" style="display:@DisplayEmailTemplateId">
+                        @Html.LabelFor(model => model.EmailTemplateId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.EmailTemplateName)
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:@DisplaySMSTemplateId">
+                        @Html.LabelFor(model => model.SMSTemplateId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.SMSTemplateName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmployeeId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.EmployeeName)
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:@DisplayEmailTemplateId">
+                        @Html.LabelFor(model => model.isCCEmail, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.EmailOfEmployee)
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:@DisplaySMSTemplateId">
+                        @Html.LabelFor(model => model.isCCSMS, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.SMSOfEmployee)
+                        </div>
+                    </div>
+                    @{
+        string ActiveName = Model.Actived == true ? "Đang hoạt động" : "Ngừng hoạt động";
+                    }
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Actived, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <span>@ActiveName</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default" style="min-height: 297px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Price, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.Price)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ServiceContent, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 control-label text-left">
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.ServiceContent))
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.Note)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="custom" />
+        int EmailParaRow = ((List<CRMRemiderEmailParameterMappingViewModel>)ViewBag.EmailParameterList).Count;
+        int SMSParaRow = ((List<CRMRemiderSMSParameterMappingViewModel>)ViewBag.SMSParameterList).Count;
+        string Displayemailpara = EmailParaRow > 0 ? "block" : "none";
+        string Displaysmspara = SMSParaRow > 0 ? "block" : "none";
+        <div class="row">
+            <div class="col-md-6" style="display:@Displayemailpara">
+                <div class="form-horizontal">
+                    <h4 style="color: #0534f4;">Danh sách tham số Email</h4><table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr class="warning">
+                                <th style="width:40px" class="text-center">Tham số</th>
+                                <th style="width:100px" class="text-center">Loại tham số</th>
+                                <th style="width:200px" class="text-center">Giá trị</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+        foreach (var item in (List<CRMRemiderEmailParameterMappingViewModel>)ViewBag.EmailParameterList)
+        {
+            <tr>
+                <td style="width: 200px">
+                    <label>@item.EmailParameterName</label>
+                </td>
+                <td style="width: 50px">
+                    <label>@item.ValueType</label>
+                </td>
+                <td style="width: 50px">
+                    <label>@item.Value</label>
+                </td>
+            </tr>
+        }
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <div class=" col-md-6" style="display:@Displaysmspara">
+                <h4 style="color: #27e341;">Danh sách tham số SMS</h4>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr class="warning">
+                            <th style="width:40px" class="text-center">Tham số</th>
+                            <th style="width:100px" class="text-center">Loại tham số</th>
+                            <th style="width:200px" class="text-center">Giá trị</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+        foreach (var item in (List<CRMRemiderSMSParameterMappingViewModel>)ViewBag.SMSParameterList)
+        {
+                        <tr>
+                            <td style="width: 200px">
+                                <label>@item.SMSParameterName</label>
+                            </td>
+                            <td style="width: 50px">
+                                <label>@item.ValueType</label>
+                            </td>
+                            <td style="width: 50px">
+                                <label>@item.Value</label>
+                            </td>
+                        </tr>
+        }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    }
+    <div class="form-horizontal text-right">
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.RemiderId }, new { @class = "btn btn-warning custom-button minw100" })
+        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+    </div>
+
+</div>

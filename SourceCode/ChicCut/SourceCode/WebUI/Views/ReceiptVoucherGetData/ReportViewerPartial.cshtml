@@ -1,0 +1,11 @@
+﻿@using WebUI.Report
+
+@Html.DevExpress().ReportViewer(settings =>
+{
+    settings.Name = "reportViewer2";
+    settings.Report = (PhieuThuXtraReport)ViewData["Report"];
+    settings.Attributes.Add("class", "reportViewer");
+    settings.CallbackRouteValues = new { Action = "CallbackReportViewerPartial", Controller = "ReceiptVoucherGetData", TransactionId = ViewBag.TransactionId };
+    settings.ExportRouteValues = new { Action = "ExportReportViewerPartial", Controller = "ReceiptVoucherGetData", TransactionId = ViewBag.TransactionId };
+}).GetHtml()
+

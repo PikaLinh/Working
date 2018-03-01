@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ReportCategory1ViewModel>
+
+<table class="table" id="table1">
+    <thead>
+        <tr>
+        <th class="text-center">STT</th>
+        <th> @Html.DisplayNameFor(model => model.CategoryName)</th>
+        <th class="text-right"> @Html.DisplayNameFor(model => model.EndInventoryQty)</th>
+        <th class="text-right"> @Html.DisplayNameFor(model => model.TotalCogs)</th>
+        <th class="text-center">Chi tiết</th>         
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 1;}
+        @foreach (var item in Model)
+        {            
+            <tr style="cursor:pointer">
+                <td class="text-center">@i</td>
+                <td class="text-Left">@item.CategoryName</td>
+                <td class="text-right">@String.Format("{0:n2}",@item.EndInventoryQty)</td>
+                <td class="text-right">@String.Format("{0:n0}",@item.TotalCogs)</td>
+                <td class="text-center">
+                    <label>
+                            <input type="radio" name="rdCategoryId" id="t1_@i" value="@item.CategoryId" /> 
+                    </label>
+                </td>
+            </tr>
+            i++;
+        }
+       
+    </tbody>
+</table>

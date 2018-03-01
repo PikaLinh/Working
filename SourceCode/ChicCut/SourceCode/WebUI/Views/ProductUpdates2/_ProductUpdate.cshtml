@@ -1,0 +1,20 @@
+﻿ <form action="/ProductUpdates/Import" id="fileupload" method="post" enctype="multipart/form-data">
+        <br />
+     <div class="row">
+         <div class="col-md-4 col-sm-4 col-xs-12">
+             <label>Chọn File cần Import: </label>
+             <input type="file" name="excelfile" id="FileUpload" class="btn btn-default custom-button btn-default minw100 form-control" />
+         </div>
+          <div class="col-md-4 col-sm-4 col-xs-12">
+              <br />
+             <a id="btnImport" class="btn col-sm btn-warning "  style="margin: 5px;">Tải lên</a>
+          </div>
+     </div>
+        <span style="color: red;" id="Messenger"> </span>
+        <br />
+    
+    </form>
+<hr class="custom" />
+<div id="contentPhieuKiemKho">
+   @* @Html.Action("WarehouseInventoryList")*@
+</div>

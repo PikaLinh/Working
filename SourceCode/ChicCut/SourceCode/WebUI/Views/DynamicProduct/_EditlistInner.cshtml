@@ -1,0 +1,31 @@
+﻿@model List<PriceListViewModel>
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td style="width: 40px" class="text-center">
+            @i
+            <input type="hidden" name="pricelist[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="pricelist[@k].CustomerLevelId" class="detail-CustomerLevelId" value="@item.CustomerLevelId">
+        </td>
+        @*<td style="width: 100px">
+                <div id="divProductPriceID_@k" style="width:255px;">
+                    <select name="CustomerLevelId" id="CustomerLevelId-@k" data-row="@k" class="form-control" style="width:255px;"></select>
+                </div>
+            </td>*@
+        <td style="width: 100px">
+            <input type="text" name="pricelist[@k].CustomerLevelName" class="pricelist-CustomerLevelName form-control text-left" data-row="@k" id="CustomerLevelName" value="@item.CustomerLevelName">
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="pricelist[@k].Price" class="pricelist-Price form-control text-right" data-row="@k" id="Price" value="@item.Price">
+        </td>
+    </tr>
+}
+
+<script src="~/Scripts/DynamicProduct/grid.js"></script>

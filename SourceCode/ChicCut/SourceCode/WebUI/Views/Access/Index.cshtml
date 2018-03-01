@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = Resources.LanguageResource.Title_PhanQuyenNguoiDung;
+}
+<style type="text/css">
+    .ui-state-active .ui-icon, .ui-state-default .ui-icon {
+        margin-left: 98%;
+    }
+
+    h4 {
+        margin: 0;
+    }
+
+        h4 a:hover {
+            text-decoration: none !important;
+        }
+</style>
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Phân quyền chức năng</h4></div>
+</div>
+<hr class="custom">
+
+@using (Html.BeginForm("Index", "Access", FormMethod.Get, new { @id = "formRolesId" }))
+{
+    <div class="row">
+        <div class="gradient pull-left">
+            @Html.DropDownList("RolesId", null, new { @class = " form-control" })
+        </div>
+        <div class="gradient pull-right" style="padding: 7px 0px">
+            <a id="BtnSave" href="#" data-toggle="modal" title="Save">
+                <button class="btn btn-warning minw100 custom-button pull-right" onclick="javascript:document.getElementById('updateform').submit()">@Resources.LanguageResource.Save</button>
+            </a>
+        </div>
+    </div>
+}
+<div class="row">
+    @using (Html.BeginForm("UpdateRoles", "Access", FormMethod.Post, new { @id = "updateform" }))
+    {
+        @Html.AntiForgeryToken()
+        if (ViewBag.Menus != null)
+        {
+            var menuList = (List<MenuViewModel>)ViewBag.Menus;
+                @Html.Hidden("id")
+                <div class="panel-group" id="accordion">
+
+                    <!-- Start .content -->
+                    @foreach (var menu in menuList.Where(p => p.Pages.Count > 0))
+        {
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href='#collapse-@menu.MenuId' class="accordion-toggle" data-parent="#accordion" data-toggle="collapse">
+                                        @menu.MenuName
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id='collapse-@menu.MenuId' class='panel-collapse collapse in'>
+                                <div class="accordion-inner">
+
+                                    <table cellspacing="0" cellpadding="4" rules="all" border="1" style="color: #333333; border-color: #D4D4D4; border-width: 1px; border-style: Solid; width: 100%; border-collapse: collapse;">
+                                        <tbody>
+                                            @{int i = 0;}
+                                            @foreach (var page in menu.Pages)
+                                            {
+                                                i++;
+                                                if (i % 2 == 0)
+                                                {
+                                                    <tr style="color: #333333; background-color: white; font-weight: bold;">
+                                                        <td style="width: 100px;" class="text-center">
+                                                            <label class="check-box">
+                                                                @Html.CheckBox("selectedPages", page.isSelected, new { @class = "check-box", @value = page.PageId })
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            @page.PageName
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                else
+                                                {
+                                                    <tr style="color: #333333; background-color: #EFEFEF; font-weight: bold;">
+                                                        <td style="width: 100px;" class="text-center">
+                                                            @Html.CheckBox("selectedPages", page.isSelected, new { @class = "check-box", @value = page.PageId })
+                                                        </td>
+                                                        <td>
+                                                            @page.PageName
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+        }
+                    <!-- End .content -->
+                </div>
+                }
+                }
+</div>
+    @section Scripts {
+        <script>
+            $('#RolesId').change(function () {
+                window.location.replace("/Access/index/" + $('#RolesId').val());
+            });
+
+            (function ($) {
+                $(".accordion .accordion-body").first().addClass("in");
+                $(".accordion").collapse();
+            })(jQuery);
+        </script>
+    }

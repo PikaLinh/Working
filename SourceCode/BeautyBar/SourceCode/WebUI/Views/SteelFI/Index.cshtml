@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EntityModels.SteelFIModel>
+
+@{
+    ViewBag.Title = "Quản lý phi thép";
+}
+
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Actived)
+            </th>
+
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Actived)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.SteelFIId }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.SteelFIId }, new { @class = "btn btn-default btn-warning btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới phi thép", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

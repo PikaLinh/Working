@@ -1,0 +1,198 @@
+﻿@model OrderReturnMasterViewModel
+
+@{
+    ViewBag.Title = "Đơn khách hàng trả hàng";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">Đơn khách hàng trả hàng</h4>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12"><h4>Mã phiếu trả hàng: <span>@ViewBag.ReturnCode</span></h4></div>
+       
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm("Save", null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(m => m.Actived)
+            // @Html.HiddenFor(m => m.OrderStatusId)
+            <input type="hidden" name="OrderCode" id="OrderCode" />
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                           <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.StoreId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                 @Html.DropDownList("StoreId", null, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.WarehouseId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                 @Html.DropDownList("WarehouseId", null, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.OrderId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divImportMasterId">
+                                    <select name="OrderId" id="OrderId" class="form-control"></select>
+                                    @Html.ValidationMessageFor(model => model.OrderId)
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="custom">
+                        <div class="form-group row">
+                             @Html.LabelFor(model => model.CustomerId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-6 col-sm-6 col-xs-8 control-label text-left">
+                                <label  id="CustomerId"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.CustomerLevelId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <label id="CustomerLevelId"></label>
+                                @Html.HiddenFor(m => m.CustomerLevelId)
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.IdentityCard, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                               <label id="IdentityCard"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                 <label id="Phone"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row" >
+                            @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <label id="Gender"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.Email, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                 <label id="Email"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row" >
+                            @Html.LabelFor(model => model.ProvinceId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                 <label id="ProvinceId"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row" >
+                            @Html.LabelFor(model => model.DistrictId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <label id="DistrictId"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.Address, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                 <label id="Address"></label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.SaleName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                 <label id="SaleName"></label>
+                            </div>
+                        </div>
+                        <hr class="custom" />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CompanyName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                               <label id="CompanyName"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.TaxBillCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                <label id="TaxBillCode"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.ContractNumber, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                <label id="ContractNumber"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TaxBillDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                 <label id="TaxBillDate"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                <label id="Note"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            @Html.LabelFor(model => model.DebtDueDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left"">
+                                <label id="DebtDueDate"></label>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Note)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+      @Html.Action("_CreateList")
+        <hr class="custom" />
+        <div class="form-horizontal text-right">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+        <div id="divAlert">
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+   @* <script src="~/Scripts/OrderMaster/shared.js"></script>*@
+    @*<script src="~/Scripts/OrderMaster/create.js"></script>*@
+    <script src="~/Scripts/OrderReturnMaster/create.js"></script>
+    <script src="~/Scripts/OrderReturnMaster/shared.js"></script>
+
+
+}

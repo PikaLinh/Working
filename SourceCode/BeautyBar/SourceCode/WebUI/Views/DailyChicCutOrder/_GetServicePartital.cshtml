@@ -1,0 +1,36 @@
+﻿@model List<ServiceViewModel>
+
+@*@{int i = 0;}*@
+@foreach (var ParentCategoryId in (List<int>)ViewBag.ParentCategoryList)
+{
+    //i++;
+    //string active = "";
+    //if (i == 1)
+    //{
+    //    active = "active";
+    //}
+    <div id="tab-@ParentCategoryId" class="tab-pane">
+        <div class=" control-list">
+            <div class="control-group">
+                <ul class="row">
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        //Lấy thông tin tên dịch vụ và giá dựa vào danh mục dịch vụ
+                        foreach (var item in Model.Where(p => p.ServiceParentCategoryId == ParentCategoryId && p.Price > 0).ToList())
+                        {
+                            <li class="sbh-product">
+                                <div>
+                                    <a class="ServiceId" data-id="@item.ServiceId">@item.ServiceName</a>
+                                    <i>@string.Format("{0:n0}", item.Price) </i>
+                                    <input type="hidden" name="Price_Of_ServiceId_@item.ServiceId" value="@item.Price" />
+                                </div>
+
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}

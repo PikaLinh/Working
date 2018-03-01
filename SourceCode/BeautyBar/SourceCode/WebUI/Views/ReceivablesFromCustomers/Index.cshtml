@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Danh sách nợ phải thu khách hàng";
+}
+<hr class="custom">
+<div class="row head">
+	<div class="col-md-4 col-sm-12 col-xs-12">
+		<h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+	</div>
+</div>
+<hr class="custom">
+	<div class="form-horizontal">
+		<div class="form-group">
+			  <!--Start Ngày-->
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="col-sm-6 col-xs-12">
+                    @{DateTime FromTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);}
+                    Từ ngày :
+                     <input type="date" name="FromDate" value="@FromTime.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                    Đến ngày :
+                     <input type="date" name="ToDate" value="@ToTime" class="form-control" />
+                </div>
+            </div>
+            <!--End Ngày-->
+		</div>
+		<hr class="custom">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<input type="submit" id="btntim" class="btn btn-warning col-sm" value="Tìm" />
+			</div>
+		</div>
+        <hr class="custom">
+        <div id="CustomerInforContent"></div>
+        <div class="loading-modal"></div>
+	</div>
+@section Scripts {
+    <script>
+        $(document).on("click", '#btntim', function () {
+            loading2();
+            $.ajax({
+                type: 'POST',
+                url: '/ReceivablesFromCustomers/_CustomerInforPartial',
+                data: {
+                    FromDate: $("input[name='FromDate']").val(),
+                    ToDate: $("input[name='ToDate']").val()
+                },
+                success: function (data) {
+                    $("#CustomerInforContent").html(data);
+                }
+            })
+        });
+       
+    </script>
+}

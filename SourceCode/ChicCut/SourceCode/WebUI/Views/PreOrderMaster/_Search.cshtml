@@ -1,0 +1,101 @@
+﻿@model IEnumerable<OrderMasterInfoViewModel>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+	<thead>
+		<tr class="warning">
+			<th class="text-center">
+				TT
+			</th>
+			<th class="text-center" style="width:80px;">
+				@Html.DisplayNameFor(model => model.OrderId)
+			</th>
+			<th class="text-center">
+				Họ và tên khách hàng
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.Phone)
+			</th>
+            <th class="text-center">
+                NV.Bán hàng
+            </th>
+            <th class="text-center" style="width: 103px;">
+                NV.Quản lý
+            </th>
+			<th class="text-center" style="width:140px;">
+				@Html.DisplayNameFor(model => model.CreatedDate)
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.TotalPrice)
+			</th>
+            <th class="text-center">
+				@Html.DisplayNameFor(model => model.StatusCode)
+			</th>
+
+			<th class="actions text-center">@Resources.LanguageResource.Actions</th>
+	</thead>
+	<tbody>
+		@{ int i = ViewBag.RowIndex;}
+		@foreach (var item in Model)
+  {
+      i++;
+			<tr>
+				<td class="text-center">
+					@i
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.PreOrderCode)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FullName)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.SaleName)
+				</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+				<td class="text-center">
+					@Html.DisplayFor(modelItem => item.CreatedDate)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.TotalPrice)
+				</td>
+                <td class="text-center">
+                     @if (item.StatusCode!= null && item.StatusCode.Equals("HUY"))
+                     {
+                         <span style="background:#ff1f00; color: white; ">Huỷ</span>
+                     }
+                     else if (item.StatusCode != null && item.StatusCode.Equals("DADUYET"))
+                     {
+                         <span style="background:#00ff21;">Đã duyệt</span>
+                     }
+                     else
+                     {
+                         <span style="background:#00ffff" >Tạo mới</span>
+                     }
+                </td>
+
+				<td class="text-center" style="width: 230px;">
+					@Html.ActionLink("Xem", "Details", new { id = item.PreOrderId }, new { @class = "btn btn-default btn-sm" })
+					@if ( item.StatusCode != null && (!item.Actived || item.StatusCode.Equals("DADUYET")))
+                    {
+                        <button class="btn btn-warning btn-sm" disabled>Sửa</button>
+                        <button class="btn btn-info btn-sm" disabled>Duyệt</button>
+                        <button class="btn btn-danger btn-sm" disabled>Huỷ</button>
+                    }
+                    else
+                    {
+                          @Html.ActionLink("Sửa", "Edit", new { id = item.PreOrderId }, new { @class = "btn btn-warning btn-sm" })
+                         <!-- @Html.ActionLink("Duyệt", "Confirm", new { id = item.PreOrderId }, new { @class = "btn btn-info btn-sm" }) -->
+                          <a href="/Sell/Create?PreOrderId=@item.PreOrderId" class = "btn btn-info btn-sm">Duyệt</a>
+                          <a class = "btn btn-default btn-danger btn-sm btn-xoa"  data-id ="@item.PreOrderId"  data-row="@i" data-toggle="modal" data-target="#confirm-delete" >Huỷ</a>
+                    }                  
+                    <input type="hidden" id="idDelete" />
+                    <input type="hidden" name="PreImportMasterCode" id="PreOrderMasterCode_@i" data-row="@i" value="@item.PreOrderCode" />
+				</td>
+			</tr>
+  }
+</table>
+<input type="hidden" name="TotalRow" id="TotalRow" value="@ViewBag.TotalRow" />

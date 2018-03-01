@@ -1,0 +1,93 @@
+﻿@model IEnumerable<EmployeeInfoViewModel>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>
+<hr class="custom">
+<table class="table table-hover dataTable table-bordered table-striped no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th>
+                Thuộc nhóm
+            </th>
+            <th>
+                Cấp trên
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+
+                <td>
+                    @if (item.Gender == true)
+                    {
+                        <span>Nam</span>
+                    }
+                    else if (item.Gender == false)
+                    {
+                        <span>Nữ</span>
+                    }
+                    else
+                    {
+                        <span>Khác</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RolesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParentName)
+                </td>
+                <td>
+                    @if (item.Actived == true)
+                    {
+                        <i>Còn hoạt động</i>
+                    }
+                    else
+                    {
+                        <i>Không hoạt động</i>
+                    }
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.ActionLink("Xem", "Details", new { id = item.EmployeeId }, new { @class = "btn btn-default col-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.EmployeeId }, new { @class = "btn btn-warning col-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

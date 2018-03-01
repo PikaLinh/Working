@@ -1,0 +1,74 @@
+﻿@model IEnumerable<InventoryMasterInfoViewModel>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarehouseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryTypeCode)
+            </th>
+            <th width="60px">
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InventoryCode)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.WarehouseName)
+                    @if (item.isImport == true)
+                    {
+                            <span style="color:blue" class="glyphicon glyphicon-arrow-left"></span>
+                    }
+                    else
+                    {
+                            <span style="color:red" class="glyphicon glyphicon-arrow-right"></span>
+                    }
+
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.InventoryTypeCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td class="text-center">
+                    <a href="@item.ActionUrl@item.BusinessId" class="btn btn-default btn-sm">Xem</a>
+                    @switch (item.ActionUrl.Substring(1,item.ActionUrl.IndexOf("/",2) - 1).ToString())
+                    {
+                        case "ImportMaster": <a href="/suplierreport/index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+
+                        case "Sell":  <a href="/CustomerReport/Index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+                    
+                        case "IEOtherMaster":  <a href="/IEOtherMasterViewReport/Index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+                    }
+                   
+                    @*            @Html.ActionLink("Sửa", "Edit", new { id = item.MenuId}, new { @class = "btn btn-default btn-warning btn-sm" })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

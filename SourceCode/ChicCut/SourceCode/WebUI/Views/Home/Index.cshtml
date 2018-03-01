@@ -1,0 +1,120 @@
+﻿@model CustomerModel
+
+@{
+    ViewBag.Title = "Trang chủ";
+}
+<div class="row" style="min-height: 500px;">
+    <div class="col-sm-12">
+        <div class="dashboard">
+            <div class="panel panel-default">
+                <div class="panel-title text-center">GIÁ TRỊ TỒN KHO THEO DANH MỤC SẢN PHẨM</div>
+                <div class="panel-body">
+                    @Html.Action("_ReportCategory","MasterRPReport")
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="divReportProductType"></div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="divReportProduct"></div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>
+<div id="divAlert">
+</div>
+<!--Start Popup QtyAlert -->
+@Html.Hidden("PopupQtyAlert")
+
+<div id="QtyAlert" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:658px">
+            <div class="modal-header">
+                <h2 class="modal-title text-center">Cảnh báo hết hàng tồn kho</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <table id="tblQtyAlert" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr class="warning">
+                                <th style="width:100px; text-align:center;">Kho</th>
+                                <th style="width:100px; text-align:center;">Sản phẩm</th>
+                                <th style="width:100px; text-align:center;">Số lượng tồn</th>
+                                <th style="width:100px; text-align:center;">Số lượng tồn tối thiểu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.PopupQtyAlert == "Show")
+                            {
+                                foreach (var item in (List<ProductAlertViewModel>)ViewBag.lstQtyAlert)
+                                {
+                                    <tr>
+                                        <td class="text-left">@item.WarehouseName</td>
+                                        <td class="text-left">@item.ProductName</td>
+                                        <td class="text-right">@string.Format("{0:n2}", item.EndinventoryQty)</td>
+                                        <td class="text-right">@string.Format("{0:n0}",item.QtyAlert)</td>
+                                    </tr>
+                                }
+                            }      
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label>
+                    <input type="checkbox" id="NoDisplayQtyAlert" />
+                    Không hiển thị lại
+                </label>
+                <button type="button" class="btn btn-default btn-close-QtyAlert" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End Popup QtyAlert-->
+<script>
+    //_ReportCategory
+    $(document).on("click", '#table1 tr', function () {
+        var id = "t1_" + ($(this).index() + 1);
+        $('input[type=radio][name=rdCategoryId][id=' + id + ']').prop('checked', true);
+        $('#table1 tr').css("background-color", "#fff");
+        $(this).css("background-color", "#eee");
+        ajaxCategoryId1();
+    });
+
+    //$(document).on("change", 'input[type=radio][name=rdCategoryId]', function () {
+    //    ajaxCategoryId1();
+    //});
+
+    function ajaxCategoryId1() {
+        $.ajax({
+            type: "POST",
+            url: "/MasterRPReport/_ReportProductChicCut",
+            data: {
+                rdCategoryId: $('input[type=radio][name=rdCategoryId]:checked').val(),
+            },
+            success: function (jsondata) {
+                $("#divAlert").html(jsondata)
+                $("#divPopup").modal("show");
+            }
+        });
+    }
+
+    //#region Popup cảnh báo tồn kho
+    $(document).on("click", ".btn-close-QtyAlert", function () {
+        if ($("#NoDisplayQtyAlert").prop("checked") == true) {
+            //alert("123");
+            $.ajax({
+                type: "POST",
+                url: "/Home/SetNoDisplayQtyAlert",
+                success: function (data) {
+
+                }
+            });
+        }
+    });
+    //#endregion
+</script>

@@ -1,0 +1,463 @@
+﻿@model DynamicProductViewModel
+<div class="row">
+    <div class=" col-md-6">
+        <div class="panel panel-default" style="min-height: 195px;">
+            <div class="panel-body form-horizontal">
+                <input type="hidden" name="id" value="@Model.ProductId"/>
+                @if (ViewBag.isUseStoreId == true)
+                {
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.StoreId)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("StoreId", null, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.ProductName)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.ProductName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.ProductName)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProductCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.ProductCode, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.ProductCode)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                @if (ViewBag.isUseShortProductName == true)
+                {
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.ShortProductName)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.ShortProductName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.ShortProductName)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.CategoryId)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        @Html.DropDownList("CategoryId", null, "- Vui lòng chọn danh mục sản phẩm -", new { @class = "form-control" })
+                    </div>
+                </div>
+                @if (ViewBag.isUseOriginOfProductId == true)
+                {
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.OriginOfProductId)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("OriginOfProductId", null, "- Vui lòng chọn tông màu -", new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUsePolicyInStockId == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PolicyInStockId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("PolicyInStockId", null, "- Vui lòng chọn quy định -", new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUsePolicyOutOfStockId == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PolicyOutOfStockId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("PolicyOutOfStockId", null, "- Vui lòng chọn quy định -", new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseLocationOfProductId == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LocationOfProductId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("LocationOfProductId", null, "- Vui lòng chọn vị trí-", new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseProductStatusId == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductStatusId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("ProductStatusId", null, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+
+                @if (ViewBag.isUseKeywords == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keywords, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.Keywords, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.Keywords)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseBarcode == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Barcode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.Barcode, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.Barcode)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseImportDate == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImportDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.ImportDate, "{0:yyyy-MM-dd}", new { @type = "Date", @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.ImportDate)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageUrl, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <input type="file" id="file" name="file" />
+                        @Html.ValidationMessageFor(model => model.ImageUrl)
+                        <br />
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="/Upload/Product/Thum/@Model.ImageUrl" style="width: 200px;" />
+                        }
+                        else
+                        {
+                            <img src="/Upload/Product/Thum/noimage.jpg" style="width: 200px;" />
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-6">
+        <div class="panel panel-default" style="min-height: 195px;">
+            <div class="panel-body form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Specifications, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.Specifications, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.Specifications)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ShippingWeight, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.ShippingWeight, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.ShippingWeight)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        @Html.DropDownList("UnitId", null, null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.ImportPrice)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.ImportPrice, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.ImportPrice)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                @if (ViewBag.isUseCurrencyId == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrencyId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("CurrencyId", null, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseExchangeRate == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ExchangeRate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.ExchangeRate, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.ExchangeRate)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseShippingFee == true)
+                {
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.ShippingFee)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.ShippingFee, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.ShippingFee)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseCOGS == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.COGS, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <input type="hidden" name="COGS" id="COGS" />
+                            <label id="COGSDisplay">@ViewBag.COGS.ToString("n0")</label>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseisHot == true)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.isHot, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.CheckBox("isHot")
+                            @Html.ValidationMessageFor(model => model.isHot)
+                        </div>
+                    </div>
+                }
+
+                @{
+                    int k = -1;
+                }
+                @foreach (var item in (List<PriceListViewModel>)@ViewBag.pricelist)
+                {
+                    k++;
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            <label for="pricelist[@k].Price">Giá bán @*- @item.CustomerLevelName*@ (<span class="color-red">*</span>) :</label>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            <input type="text" name="pricelist[@k].Price" class="pricelist-Price dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox input-validation-error" data-row="@k" id="Price" value="@item.Price" data-val-required="Vui lòng nhập thông tin &quot;@item.CustomerLevelName&quot;" aria-required="true" aria-describedby="ShippingFee-error" aria-invalid="true" data-val="true" data-val-number="The field Phí vận chuyển must be a number.">
+                                            <span class="field-validation-valid" data-valmsg-for="pricelist[@k].Price" data-valmsg-replace="true"></span>
+                                            <input type="hidden" name="pricelist[@k].CustomerLevelId" class="detail-CustomerLevelId" value="@item.CustomerLevelId">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                }
+                <div class="form-group" id="divOrderBy" style="display: none;">
+                    @Html.LabelFor(model => model.OrderBy, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.OrderBy, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.OrderBy)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                @if (ViewBag.isUseBeginWarehouseId == true)
+                {
+                    <hr class="custom" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BeginWarehouseId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @if (@Model.BeginWarehouseId.HasValue)
+                        {
+                        <label>@ViewBag.BeginWarehouseName</label>
+                        }
+                        else
+                        {
+                        @Html.DropDownList("BeginWarehouseId", null, null, new { @class = "form-control" })
+                        }
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.isUseBeginInventoryQty == true)
+                {
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.BeginInventoryQty)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.BeginInventoryQty, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.BeginInventoryQty)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                        @Html.LabelFor(model => model.IsProduct, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                      @Html.CheckBoxFor(model => model.IsProduct)
+                    </div>
+                </div>
+                <div class="form-group">
+                        @Html.LabelFor(model => model.IsMaterial, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        @Html.CheckBoxFor(model => model.IsMaterial)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="divSystemProduct">
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isParentProduct, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        @if (Model.isParentProduct == null)
+                        {
+                            Model.isParentProduct = false;
+                        }
+                        @Html.CheckBox("isParentProduct", Model.isParentProduct.HasValue ? Model.isParentProduct.Value : false)
+                        @Html.ValidationMessageFor(model => model.isParentProduct)
+                    </div>
+                </div>
+                <div class="form-group" id="divParentProductIdToDisplay">
+                    @Html.LabelFor(model => model.ParentProductId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <div id="divParentProductId">
+                            <select name="ParentProductId" class="form-control" style=" width: 100%;"></select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ParentProductId)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default" style="min-height: 195px;">
+    <div class="panel-body form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Note, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label">
+                @*@Html.TextBoxFor(m => m.Detail, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })*@
+                @Html.TextAreaFor(m => m.Note, new { @class = "ckeditor" })
+                <script type="text/javascript">
+                    CKEDITOR.replace("Note");
+                </script>
+                @Html.ValidationMessageFor(model => model.Note)
+            </div>
+        </div>
+    </div>
+</div>

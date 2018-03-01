@@ -1,0 +1,16 @@
+﻿@model CRMPreviewViewModel
+
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(model => model.NextDateRemindPreview, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+            @Html.DisplayFor(m => m.NextDateRemindPreview)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Content, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+        <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+            @Html.Raw(HttpUtility.HtmlDecode(Model.Content))
+        </div>
+    </div>
+</div>

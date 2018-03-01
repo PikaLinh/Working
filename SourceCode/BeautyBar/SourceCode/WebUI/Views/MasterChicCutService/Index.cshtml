@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Danh sách dịch vụ";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "formload" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Tên dịch vụ:
+                <input type="text" id="ServiceName" name="ServiceName" class="form-control" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Loại giá:
+                @Html.DropDownList("HairTypeId", null, "Tất cả", new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <hr class="custom">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+                <a id="btnPrint" href="/MasterChicCutService/APriceList" target="_blank" class="btn btn-success col-sm">Xem bảng giá</a>
+            </div>
+        </div>
+    </div>
+}
+<div class="row">
+    <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+    <div class="col-md-6">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+    </div>
+</div>
+<hr class="custom">
+<div id="contentSearchService">
+    @Html.Action("_SearchService")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/MasterChicCutService/Index.js"></script>
+}

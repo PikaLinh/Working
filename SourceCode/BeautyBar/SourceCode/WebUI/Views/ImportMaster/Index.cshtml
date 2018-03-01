@@ -1,0 +1,171 @@
+﻿@{
+    ViewBag.Title = "Danh sách nhập hàng từ nhà cung cấp";
+}
+
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "ImportMaster", FormMethod.Post, new { @id = "formload" }))
+{      
+    <div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Kho:
+                @Html.DropDownList("WarehouseId", null, "-Tất cả-", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Nhà cung cấp:
+                @Html.DropDownList("SupplierId", null, "-Tất cả-", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Sản phẩm:
+            <input type="hidden" id="ProductName" name="ProductName">
+            <div id="divProductId" style="width: 220px">
+                <select name="ProductId" class="form-control" style="width: 220px;">
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Mã phiếu nhập:
+            <input type="hidden" id="ImportMasterCode" name="ImportMasterCode">
+            <div id="divImportMasterId" style="width: 220px">
+                <select name="ImportMasterId" class="form-control" style="width: 220px;">
+                </select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+         <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Ngày
+                    </label>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Từ
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="date" name="FromDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        đến
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="date" name="ToDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+         <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                        Tổng tiền
+                    </label>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Từ
+                    </label>
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="number" name="FromTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>   
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        đến
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="number" name="ToTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    </div>
+    <hr class="custom">
+    <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btnSearch" class="btn btn-warning col-sm">Tìm</a>
+        </div>
+    </div>
+ </div>
+}
+
+<hr class="custom">
+<div id="contentImportMaster">
+    @Html.Action("_SearchImportMaster")
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).on("click", "#btnSearch", function () {
+            $.ajax({
+                type: "POST",
+                url: "/ImportMaster/_SearchImportMaster",
+                data: $("#formload").serialize(),
+                success: function (data) {
+                    $("#contentImportMaster").html(data);
+                    recreateDatatable();
+                }
+            });
+        });
+
+       //==========javascrip btn-delete ====================
+        $(document).on("click", ".btn-xoa", function (e) {
+            var id = $(this).data("id");
+            var row = $(this).data("row");
+            var Code = $("#ImportMasterCode_" + row).val();
+            $("#idDelete").val(id);
+            $(".modal-body strong").html(Code);
+        });
+        //  $('#confirm-delete').on('click', '.btn-ok', function (e)
+        $(document).on('click', '.btn-ok', function (e) {
+            var $modalDiv = $(e.delegateTarget);
+            var id = $("#idDelete").val();
+            $.ajax({
+                url: '/ImportMaster/Cancel?id=' + id,
+                success: function (data) {
+                    if (data == "success") {
+                        //alert("Xoá thành công !");
+                        window.location.assign("/ImportMaster/Index");
+                    }
+                    else {
+                        Alert_Popup("Xoá không thành công !");
+                    }
+                }
+            })
+            // $.post('/api/record/' + id).then()
+            $modalDiv.addClass('loading');
+            setTimeout(function () {
+                $modalDiv.modal('hide').removeClass('loading');
+            }, 1000)
+        });
+
+
+    </script>
+    <script src="~/Scripts/ImportMaster/Index.js"></script>
+}

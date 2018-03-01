@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Quản lý giờ làm việc";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Quản lý giờ làm việc</h4></div>
+</div>
+<hr class="custom">
+<form id="formTime">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-12">
+            Ngày trong tuần:
+            @Html.DropDownList("PlanMasterId", null, "--Chọn ngày--", new { @class = "form-control" })
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-12">
+            Từ:
+            @Html.DropDownList("FromTime", null, "--Chọn giờ--", new { @class = "form-control", @disabled = "disabled" })
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-12">
+            Đến:
+            @Html.DropDownList("ToTime", null, "--Chọn giờ--", new { @class = "form-control", @disabled = "disabled" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div id="planDetail">
+        </div>
+    </div>
+</form>
+
+@*Modal lưu giờ làm*@
+<div class="modal fade" id="saveModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Thông báo</h4>
+            </div>
+            <div class="modal-body">
+                <p>Đã lưu giờ làm thành công!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+
+        $(document).ready(function () {
+
+            //Chọn ngày => enable dropdownlist chọn giờ
+            $(document).on("change", "select[name='PlanMasterId']", function () {
+                $("select[name='FromTime']").prop("disabled", false);
+                $("select[name='ToTime']").prop("disabled", false);
+                //Load giờ làm theo ngày trong tuần
+                var PlanMasterId = $("select[name='PlanMasterId']").find(":selected").val();
+                $.ajax({
+                    type: "GET",
+                    url: "/WorkingTime/GetTime",
+                    data: {
+                        PlanMasterId: PlanMasterId,
+                    },
+                    success: function (data) {
+                        $("#FromTime").val(data.FromTime);
+                        $("#ToTime").val(data.ToTime);
+                        getTimeFrame();
+                    },
+                });
+            });
+
+            //Xử lý xem khung giờ khi chọn giờ bắt đầu
+            $(document).on("change", "select[name='FromTime']", function () {
+                getTimeFrame();
+            });
+           
+
+            //Xử lý xem khung giờ khi chọn giờ kết thúc
+            $(document).on("change", "select[name='ToTime']", function () {
+                getTimeFrame();
+            });
+
+            //Lưu giờ làm
+            $(document).on("click", "#btnSave", function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/WorkingTime/Save",
+                    data: $("#formTime").serialize(),
+                    success: function (data) {
+                        $("#saveModal").modal("show");
+                    }
+                });
+            });
+        });
+        //Lấy khung giờ
+        function getTimeFrame() {
+            var WorkingFromTime = $("select[name='FromTime']").find(":selected").val();
+            var WorkingToTime = $("select[name='ToTime']").find(":selected").val();
+            var PlanMasterId = $("select[name='PlanMasterId']").find(":selected").val();
+            $.ajax({
+                type: "POST",
+                url: "/WorkingTime/GetWorkingTime",
+                data: {
+                    WorkingFromTime: WorkingFromTime,
+                    WorkingToTime: WorkingToTime,
+                    PlanMasterId: PlanMasterId
+                },
+                success: function (data) {
+                    $("#planDetail").html(data);
+                    //Tách dòng trong bảng
+                    var main = $('#tblPlanDetail'),
+                        head = main.find('tr:first'),
+                        extraRows = main.find('tr:gt(5)');
+                    for (var i = 0; i < extraRows.length; i = i + 5) {
+                        $('<table class="table table-bordered table-striped table-hover col-md-2 col-sm-2" style="width:200px">').append(head.clone(), extraRows.slice(i, i + 5)).appendTo(main.parent());
+                    }
+                },
+            });
+        }
+    </script>
+}

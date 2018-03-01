@@ -1,0 +1,92 @@
+﻿@model CRM_SMSTemplateModel
+@{
+    ViewBag.Title = "Chi tiết mẫu SMS";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="panel panel-default" style="min-height: 195px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SMSTemplateName, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.SMSTemplateName)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SMSContent, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(m => m.SMSContent)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Actived, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                            @{string display = Model.Actived == true ? "ok" : "remove";}
+                            <i class="glyphicon glyphicon-@display "></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <hr class="custom" />
+    <div class="form-horizontal">
+        <table id="tblEmailPara" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px" class="text-center">Mã tham số</th>
+                    <th style="width:200px" class="text-center">Miêu tả</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (((List<SMSParameterViewModel>)ViewBag.SMsParameterList).Count == 0)
+                {
+                    <tr>
+                        <td colspan="3" class="color-red text-center">Không có tham số nào cho mẫu SMS này</td>
+                    </tr>
+                }
+                else
+                {
+                    int i = 0;
+                    int k = -1;
+                    foreach (var item in (List<SMSParameterViewModel>)ViewBag.SMsParameterList)
+                    {
+                        i++;
+                        k++;
+                        <tr>
+                            <td style="width: 40px" class="text-center">
+                                @i
+                            </td>
+                            <td style="width: 200px">
+                                <label>@item.Name</label>
+                            </td>
+                            <td style="width: 50px">
+                                <label>@item.Description</label>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="form-horizontal text-right">
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.SMSTemplateId }, new { @class = "btn btn-warning custom-button minw100" })
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        </div>
+    }
+</div>
+
+
+

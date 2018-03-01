@@ -1,0 +1,61 @@
+﻿@model  EntityModels.WarehouseInventoryMasterModel
+
+@{
+    ViewBag.Title = "Kiểm kho";
+}
+
+@using (Html.BeginForm("Save", null, FormMethod.Post, new { id = "frmHeader" }))
+{
+    <hr class="custom">
+    <div class="row head">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12" id="divOrderCode">
+            <h4>Mã phiếu kiểm kho: <span>@Model.WarehouseInventoryMasterCode</span> <a class="glyphicon glyphicon-refresh" title="Cập nhật mã phiếu kiểm kho" id="UpdateOrderCode"></a></h4>
+            <input type="hidden" name="WarehouseInventoryMasterCode" id="WarehouseInventoryMasterCode" value="@Model.WarehouseInventoryMasterCode">
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        </div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <label>Kho: </label>@Html.DropDownList("WarehouseId", null, null, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <label>Danh mục: </label>
+            @Html.DropDownList("CategoryId", null, null, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <label>Ghi chú: </label>
+            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                <tbody>
+                    <tr>
+                        <td class="dxic" style="width: 100%;">
+                            @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                            @Html.ValidationMessageFor(model => model.Note)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+<br/>
+@Html.Action("_CreateDetailList")
+<div class="form-horizontal text-right">
+    @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+    <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+</div>
+<div id="divAlert">
+</div>
+<div class="loading-modal">
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/WarehouseInventoryChicCut/create.js"></script>
+    <script src="~/Scripts/WarehouseInventoryChicCut/shared.js"></script>
+}

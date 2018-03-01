@@ -1,0 +1,109 @@
+﻿@model List<OrderDetailModel>
+
+<div class="form-horizontal">
+    <table id="tblOrderDetails" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="warning">
+                <th style="width:40px" class="text-center">TT</th>
+                <th style="width:100px">Mác thép</th>
+                <th style="width:100px">Phi thép</th>
+                <th style="width:110px">Số lượng (cuộn/bó)</th>
+                <th style="width:130px">Số lượng (tấn)</th>
+                <th style="width:130px">Ngày giao</th>
+                @*<th style="width:110px">Số lượng (cuộn/bó) xác nhận</th>*@
+                <th style="width:110px">Số lượng (tấn) xác nhận</th>
+                @*<th>Ghi chú</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                double TotalSum = 0;
+                double ConfirmTotalSum = 0;
+
+            }
+            @if (Model == null || Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="8">
+                        <center>Vui lòng nhấn thêm mặt hàng để thêm vào lưới này!</center>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                int k = -1;
+                int i = 0;
+                foreach (var item in Model)
+                {
+                    k++;
+                    i++;
+                    if (item.TONQty.HasValue)
+                    {
+                        TotalSum += item.TONQty.Value;
+                    }
+                    if (item.ConfirmTONQty.HasValue)
+                    {
+                        ConfirmTotalSum += item.ConfirmTONQty.Value;
+                    }
+                    <tr>
+                        <td class="text-center">
+                            @i
+                        </td>
+                        <td>
+                            @item.SteelMarkModel.Name
+                        </td>
+                        <td>
+                            @item.SteelFIModel.Name
+                        </td>
+                        <td class="text-right">
+                            @if (item.RollQty.HasValue)
+                            {
+                                @Html.Raw(item.RollQty.Value.ToString("#,###"));
+                            }
+                        </td>
+                        <td class="text-right">
+                            @{
+                    double Ton = item.TONQty ?? 0;
+                    double confirmTon = item.ConfirmTONQty ?? 0;
+                            }
+                            @if (item.TONQty.HasValue)
+                            {
+                                @Html.Raw(Ton.ToString("#,###.000"));
+                            }
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.DeliveryDate)
+                        </td>
+                        @*<td>
+                                @item.ConfirmRollQty
+                            </td>*@
+                        <td class="text-right">
+                            @if (item.ConfirmTONQty.HasValue)
+                            {
+                                @Html.Raw(confirmTon.ToString("#,###.000"));
+                            }
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(m => item.Note)
+                            </td>*@
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3"></td>
+                    <td class="text-right"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right"><strong>@TotalSum.ToString("#,###.000")</strong></td>
+                    <td class="text-right"><strong>Tổng cộng:<strong></strong></strong></td>
+                    <td class="text-right">
+                        <strong>
+                            @if (ConfirmTotalSum != 0)
+                            {
+                                @Html.Raw(ConfirmTotalSum.ToString("#,###.000"));
+                            }
+                            <strong></strong>
+                        </strong>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,79 @@
+﻿@model List<Daily_ChicCut_OrderDetailViewModel>
+@{
+    int i = 0;
+    int k = -1;
+}
+@if (Model.Count > 0 && Model != null)
+{
+    foreach (var item in Model)
+    {
+        i++;
+        k++;
+        <tr>
+            <td style="width: 40px" class="text-center">
+                @i
+                <input type="hidden" name="details[@k].STT" class="details-STT" value="@i">
+                <input type="hidden" name="details[@k].COGS" class="details-COGS" value="@item.COGS" data-row="@k">
+                <input type="hidden" name="details[@k].UnitCOGS" class="details-UnitCOGS" value="@item.UnitCOGS" data-row="@k">
+                <input type="hidden" name="details[@k].ServiceId" class="details-ServiceId" value="@item.ServiceId" data-row="@k">
+                <input type="hidden" name="details[@k].OrderId" class="details-OrderId" value="@item.OrderId" data-row="@k">
+                <input type="hidden" name="details[@k].ProductId" class="details-ProductId" value="@item.ProductId" data-row="@k">
+            </td>
+            <td style="width: 200px">
+                <span>@item.ServiceName</span>
+                <input type="hidden" name="details[@k].ServiceName" class="details-ServiceName" value="@item.ServiceName">
+                <input type="hidden" name="details[@k].ProductName" class="details-ProductName" value="@item.ProductName">
+                <input type="hidden" name="details[@k].ServiceCategoryId" class="details-ServiceCategoryId" value="@item.ServiceCategoryId">    
+            </td>
+            <td style="width: 200px">
+                <input type="text" disabled="" class="form-control text-right Price" name="details[@k].Price" data-row="@k" value="@item.Price">
+                <input type="hidden" name="details[@k].Price" class="details-Price form-control text-right" data-row="@k" value="@item.Price">
+            </td>
+            <td style="width: 50px">
+                <input type="text" name="details[@k].Qty" class="details-Qty details-Qty-@k form-control text-right" data-row="@k" value="@item.Qty)">
+            </td>
+            <td style="width: 50px">
+                <input type="hidden" name="details[@k].UnitPrice" class="details-UnitPrice form-control text-right" data-row="@k" value="@item.UnitPrice">
+                <input type="text" disabled="" class="form-control text-right unit-price" name="details[@k].UnitPrice" data-row="@k" value="@item.UnitPrice">
+            </td>
+            <td style="width: 50px">
+                <select name="details[@k].QuantificationMasterId" style="width:100%">
+                    @if (item.QuantificationMasterList != null && item.QuantificationMasterList.Count() > 1)
+                    {
+                        foreach (var itemQMaster in item.QuantificationMasterList)
+                        {
+                            string selected = (itemQMaster.Selected == true) ? "Selected":"";
+                            <option value="@itemQMaster.Value" @selected>@itemQMaster.Text</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="">--</option>
+                    }
+                </select>
+            </td>
+            <td style="width: 100px; text-align: center;">
+                <a href="#" class="details-btndelete btn btn-danger " data-row="@k">Xóa</a>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="7" class="color-red text-center">Chưa có dịch vụ nào được chọn!</td>
+    </tr>
+}
+@*@{
+    int izzz = 12121215;
+    ViewBag.Total = izzz;
+}*@
+<script>
+    $(".Price").number(true);
+    $(".unit-price").number(true); 
+    $(".details-Qty").number(true);
+    $("#BillDiscount").number(true);
+
+   //$("#TotalPrice").html(@ViewBag.Total);
+</script>
+

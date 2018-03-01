@@ -1,0 +1,40 @@
+﻿@model List<Master_ChicCut_QuantificationDetailViewModel>
+@{
+    int i = 0;
+    int k = -1;
+}
+@if (Model.Count > 0 && Model != null)
+{
+    foreach (var item in Model)
+    {
+        i++;
+        k++;
+        <tr>
+            <td style="width: 40px" class="text-center">
+                @i
+                <input type="hidden" name="detailInner[@k].STT" class="detailInner-stt" value="@i">
+                <input type="hidden" name="detailInner[@k].ProductId" class="detailInner-ProductId" value="@item.ProductId">
+                <input type="hidden" name="detailInner[@k].ProductName" class="detailInner-ProductName" value="@item.ProductName">
+            </td>
+            <td style="width: 200px">
+                <div id="divProductId_@k" style="width:255px;">
+                    <select name="ProductId" id="ProductId_@k" data-row="@k" class="form-control" style="width:255px;"></select>
+                </div>
+            </td>
+            <td style="width: 50px">
+                <input type="text" name="detailInner[@k].Qty" class="detailInner-Qty detailInner-Qty-@k form-control text-left" data-row="@k" value="@item.Qty">
+            </td>
+            <td style="width: 100px; text-align: center;">
+                <a href="#" class="detailInner-btndelete btn btn-danger " data-row="@i">Xóa</a>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="4" class="color-red text-center">Vui lòng nhấn vào nút 'Thêm Sản phẩm định lượng' để thêm mới!</td>
+    </tr>
+}
+
+<script src="~/Scripts/MasterChicCutService/gridInner.js"></script>

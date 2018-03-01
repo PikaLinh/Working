@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDatetimepicker.cshtml";
+}
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div id="datetimepicker1">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-2">
+            <div class="radio">
+                <label><input type="radio" name="timezone" value="1">10:30 -11:30 </label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="timezone" value="2">11:30 -12:30 </label>
+            </div> 
+            <div class="radio">
+                <label><input type="radio" name="timezone" value="3">14:30 -15:30 </label>
+            </div> 
+            <div class="radio">
+                <label><input type="radio" name="timezone" value="4">15:30 -16:30</label>
+            </div>             
+        </div>
+        <div class="col-md-1">
+            <label>5 người</label>
+            <label>5 người</label>
+            <label>5 người</label>
+            <label>5 người</label>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            var date = ["4/12/2017","4/15/2017"];
+        $('#datetimepicker1').datetimepicker({
+            inline: true,
+            sideBySide: true,
+            disabledDates: date,
+            format: "dd/MM/yyyy"
+        });
+            $("#datetimepicker1").on("dp.change", function (e) {
+                console.log($("#datetimepicker1 .table-condensed tr td").filter(".active").data("day"));
+            });
+        });
+  </script>
+}
+
+    

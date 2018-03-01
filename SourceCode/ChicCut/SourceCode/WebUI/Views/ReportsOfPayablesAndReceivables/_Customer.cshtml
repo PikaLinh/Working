@@ -1,0 +1,45 @@
+﻿<form id="frmCustomerSearch"  name="frmCustomerSearch">
+     <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+               Khách hàng (<span class="color-red">*</span>):
+                <div id="divCustomId">
+					<select name="CustomerId" style="width:100%" class="form-control"></select>
+				</div>
+            </div>
+
+              <!--Start Ngày-->
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="col-sm-6 col-xs-12">
+                    @{DateTime FromTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);}
+                    Từ ngày :
+                    <input type="date" name="FromDate" id="FromDate" value="@FromTime.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                    Đến ngày :
+                    <input type="date" name="ToDate" id="ToDate" value="@ToTime" class="form-control" />
+                </div>
+            </div>
+            <!--End Ngày-->
+
+        </div>
+   
+    </div>
+</form>
+
+<hr class="custom">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="btnSearchCustomer" class="btn btn-warning col-sm">Xem báo cáo</a>
+    </div>
+</div>
+<hr class="custom">
+<div id="CustomerInforContent">
+    @*@Html.Partial("_CustomerInforPartial")*@
+</div>
+<hr class="custom">
+<div id="CustomerInforTransaction">
+    @*@Html.Partial("_CustomerInforTransaction")*@
+</div>

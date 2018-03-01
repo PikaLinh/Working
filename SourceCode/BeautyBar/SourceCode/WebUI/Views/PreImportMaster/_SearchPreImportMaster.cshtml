@@ -1,0 +1,123 @@
+﻿@model IEnumerable<PreImportMasterInfoViewModel>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th  style="width:3px;">
+                STT
+            </th>
+            <th  style="width:25px;">
+                @Html.DisplayNameFor(model => model.PreImportMasterCode)
+            </th>
+            <th  style="width:10%;">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th  style="width:10%;">
+                @Html.DisplayNameFor(model => model.WarehouseName)
+            </th>
+            <th  style="width:10%;" class="text-center">
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th  style="width:10%;" class="text-center">
+                @Html.DisplayNameFor(model => model.SalemanName)
+            </th>
+            <th  style="width:3%;" class="text-center" >
+                @Html.DisplayNameFor(model => model.TotalQty)
+            </th>
+            <th  style="width:10%;" class="text-center">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+             <th  style="width:10%;" class="text-center">
+                @Html.DisplayNameFor(model => model.StatusCode)
+            </th>
+            <th class="actions text-center"  style="width:30%;"  >@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = ViewBag.RowIndex;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.PreImportMasterCode)
+                </td>
+                <td class="text-center" >
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarehouseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item. SalemanName)
+                </td>
+
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalQty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                 <td class="text-center">
+                     @if (item.StatusCode.Equals("HUY"))
+                     {
+                         <span style="background:#ff1f00; color: white; ">Huỷ</span>
+                     }
+                     else if (item.StatusCode.Equals("DADUYET"))
+                     {
+                         <span style="background:#00ff21;">Đã duyệt</span>
+                     }
+                     else
+                     {
+                         <span style="background:#00ffff" >Tạo mới</span>
+                     }
+                </td>
+                <td class="text-center" >
+                    @Html.ActionLink("Xem", "Details", new { id = item.PreImportMasterId }, new { @class = "btn btn-default btn-sm" })
+                    @if (!item.Actived || item.StatusCode.Equals("DADUYET"))
+                    {
+                        <button class="btn btn-warning btn-sm" disabled>In</button>
+                        <button class="btn btn-primary btn-sm" disabled>Sửa</button>
+                        <button class="btn btn-info btn-sm" disabled>Duyệt</button>
+                        <button class="btn btn-danger btn-sm" disabled>Huỷ</button>
+                    }
+                    else
+                    {
+                           <a class="btn  btn-warning btn-sm" href="/PreImportReport/Index/@item.PreImportMasterId">In</a>
+                          @Html.ActionLink("Sửa", "Edit", new { id = item.PreImportMasterId }, new { @class = "btn btn-primary btn-sm" })
+                          @Html.ActionLink("Duyệt", "Confirm", new { id = item.PreImportMasterId }, new { @class = "btn btn-info btn-sm" })
+                          <a class = "btn btn-default btn-danger btn-sm btn-xoa"  data-id ="@item.PreImportMasterId"  data-row="@i" data-toggle="modal" data-target="#confirm-delete" >Huỷ</a>
+                    }
+                  
+                    
+                    <input type="hidden" id="idDelete" />
+                    <input type="hidden" name="PreImportMasterCode" id="PreImportMasterCode_@i" data-row="@i" value="@item.PreImportMasterCode" />
+                </td>
+            </tr>
+        }   
+    </tbody>
+</table>
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xoá yêu cầu đơn hàng</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xoá yêu cầu đơn hàng : <strong></strong> ? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" name="TotalRow" id="TotalRow" value="@ViewBag.TotalRow" />

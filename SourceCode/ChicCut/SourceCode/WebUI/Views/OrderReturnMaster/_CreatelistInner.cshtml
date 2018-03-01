@@ -1,0 +1,50 @@
+﻿@model List<OrderReturnDetailViewModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td class="text-center">
+            @i
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+            <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">
+            <input type="hidden" name="detail[@k].SellQuantity" class="detail-SellQuantity" value="@item.SellQuantity">
+            <input type="hidden" name="detail[@k].ReturnedQuantity" class="detail-ReturnedQuantity" value="@item.ReturnedQuantity">
+            <input type="hidden" name="detail[@k].Price" class="detail-Price" value="@item.Price">
+        </td>
+        <td>
+            <label>@item.ProductName</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-Price">@item.Price</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-SellQuantity">@item.SellQuantity</label>
+        </td>
+        <td class="text-right">
+            <label class="detail-ReturnedQty">@item.ReturnedQuantity</label>
+        </td>
+        <td>
+            <input type="text" name="detail[@k].ReturnQuantity" class="detail-ReturnQuantity form-control text-right" data-row="@k"  value="0">
+        </td>
+        <td>
+            <input type="hidden"  name="detail[@k].UnitPrice" class="detail-UnitPrice form-control text-right" data-row="@k" value="@item.UnitPrice">
+            <input type="text" disabled  class="form-control text-right unit-price" name="detail[@k].UnitPrice" value="@item.UnitPrice" data-row="@k">
+        </td>
+        <td>
+             <label class="detail-Note">@item.Note</label>
+            <input type="hidden"  name="detail[@k].Note" class="detail-Note form-control text-right" data-row="@k" value="@item.Note">
+        </td>
+        <td>
+            <input type="text" name="detail[@k].ReturnReason" class="detail-ReturnReason form-control text-left" data-row="@k" value="@item.ReturnReason">
+        </td>
+    </tr>
+}
+<script src="~/Scripts/OrderReturnMaster/grid.js"></script>

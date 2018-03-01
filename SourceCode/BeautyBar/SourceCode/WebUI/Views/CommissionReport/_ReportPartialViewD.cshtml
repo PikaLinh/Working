@@ -1,0 +1,164 @@
+﻿
+@model IEnumerable<ReportInforViewModel>
+
+
+@*<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Tổng doanh thu: @string.Format("{0:n0}", Model.Sum(p => p.Revenue))</label>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
+        </div>
+    </div>
+
+</div>*@
+
+<table class="table table-bordered table-striped table-hover no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="width:10%">
+                STT
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ViewTime)
+            </th>
+            @*<th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalBillDiscount)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Revenue)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.COGS)
+            </th>*@
+
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Tip)
+            </th>
+
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Commission)
+            </th>
+
+            @*<th class="text-center">
+                @Html.DisplayNameFor(model => model.Profit)
+            </th>*@
+            <th class="text-center">
+                Tổng
+            </th>
+            @if (@ViewBag.ViewType == "D")
+            {
+                <th class="text-center">
+                    Chức năng
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count() > 0)
+        {
+
+            int i = 0;
+            foreach (var item in @Model)
+            {
+                i++;
+                <tr>
+                    <td class="text-center">
+                        @i
+                        <input type="hidden" name="CheckHasList" value="true" />
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.ViewTime)
+                        <input type="hidden" name="ViewTime_@i" class="ViewTime" data-row="@i" value="@item.ViewTime" />
+                    </td>
+                    @*<td class="text-right">
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.TotalBillDiscount)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Revenue)
+                        <input type="hidden" name="Revenue_@i" class="Revenue" data-row="@i" value="@item.Revenue" />
+                    </td>
+
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.COGS)
+                    </td>*@
+
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Tip)
+                    </td>
+
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Commission)
+                    </td>
+
+                    @*<td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Profit)
+                        <input type="hidden" name="Profit_@i" class="Profit" data-row="@i" value="@item.Profit" />
+                    </td>*@
+                    <td class="text-right">
+                        @{Decimal? Sum = item.Tip + item.Commission;}
+                        @string.Format("{0:n0}",@Sum)
+                    </td>
+
+                    @if (@ViewBag.ViewType == "D")
+                    {
+                        <td class="text-center">
+                            <a class="btn btn-default btn-sm ViewDetail" data-id="@item.dateFormat">Chi tiết</a>
+                        </td>
+                    }
+                </tr>
+            }
+        }
+        else
+        {
+            int numbercol = @ViewBag.ViewType == "D" ? 10 : 9;
+            <tr>
+                <td colspan="@numbercol" class="text-center color-red">
+                    Không có kết quả cho điều kiện tìm kiếm này..
+                    <input type="hidden" name="CheckHasList" value="false" />
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2" class="text-right">Tổng cộng:</td>
+            @*<td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.Revenue))</td>
+            <td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.COGS))</td>*@
+            <td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.Tip))</td>
+            <td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.Commission))</td>
+            @*<td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.Profit))</td>*@
+            <td class="text-right">@string.Format("{0:n0}", Model.Sum(p => p.Tip) + Model.Sum(p => p.Commission))</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div id="divPopup2" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center" style="font-size:28px"></h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center" id="content">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+

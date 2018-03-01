@@ -1,0 +1,224 @@
+﻿@model EmployeeInfoViewModel
+@{
+    ViewBag.Title = "Sửa thông tin nhân viên";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">Thông tin nhân viên</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.EmployeeId)
+        @Html.HiddenFor(model => model.InitialUserName)
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                    @Html.RequiredLabelFor(model => model.StoreId)
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    @Html.DropDownList("StoreId", null, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ParentId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    @Html.DropDownList("ParentId", null,"-Không có cấp trên -", new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            @Html.LabelFor(model => model.FullName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.FullName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.FullName)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div class="radio">
+                                    @if (@Model.Gender == true)
+                                    {
+                                        <label>
+                                            <input type="radio" name="Gender" value="true" checked="checked">Nam</label>
+                                        <label>
+                                            <input type="radio" name="Gender" value="false">Nữ</label>
+                                    }
+                                    else
+                                    {
+                                        <label>
+                                            <input type="radio" name="Gender" value="true">Nam</label>
+                                        <label>
+                                            <input type="radio" name="Gender" value="false" checked="checked">Nữ</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BirthDay, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.BirthDay, "{0:yyyy-MM-dd}", new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "date" })
+                                                @Html.ValidationMessageFor(model => model.BirthDay)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Email)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="Actived"> Trạng thái</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <select name="Actived" id="Actived" class="form-control">
+                                    @if (Model.Actived)
+                                    {
+                                        <option value="true" selected>Còn hoạt động</option>
+                                        <option value="false">Không còn hoạt động</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="true">Còn hoạt động</option>
+                                        <option value="false" selected>Không còn hoạt động</option>
+                                    }
+                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RolesId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label ">
+                                @Html.DropDownList("RolesId", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.UserName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.UserName)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Password, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "password" })
+                                                @Html.ValidationMessageFor(model => model.Password)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.retypePassword, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.retypePassword, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "password" })
+                                                @Html.ValidationMessageFor(model => model.retypePassword)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdentityCard, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.IdentityCard, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.IdentityCard)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="custom" style="clear: both;">
+        <div class="form-horizontal">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <button id="btnSave" type="submit" class="btn btn-default custom-button btn-warning minw100">Lưu</button>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

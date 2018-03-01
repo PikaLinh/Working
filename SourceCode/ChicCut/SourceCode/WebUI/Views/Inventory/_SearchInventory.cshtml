@@ -1,0 +1,107 @@
+﻿@model IEnumerable<InventoryInfoViewModel>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="width:20px">
+                STT
+            </th>
+            <th style="width:300px">
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryTypeCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeginInventoryQty)
+            </th>
+            <th>                
+                @Html.DisplayNameFor(model => model.COGS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExportQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndInventoryQty)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="width:10px">
+                    @i
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.ProductCode) | @Html.DisplayFor(modelItem => item.ProductName)
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.InventoryCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InventoryTypeCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.BeginInventoryQty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.COGS)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.ImportQty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.ExportQty)
+                </td>
+                <td class="text-right">
+	                @*@Html.DisplayFor(modelItem => item.UnitPrice)*@
+					@Html.Raw((item.UnitCOGS ?? 0 + item.UnitPrice ?? 0).ToString("n0"))
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.EndInventoryQty)
+                </td>
+                <td class="text-center">
+                    <a href="@item.ActionUrl@item.BusinessId" class="btn btn-default btn-sm">Xem</a>
+                    @*            @Html.ActionLink("Sửa", "Edit", new { id = item.MenuId}, new { @class = "btn btn-default btn-warning btn-sm" })*@
+                    @switch (item.ActionUrl.Substring(1, item.ActionUrl.IndexOf("/", 2) - 1).ToString())
+                    {
+                        case "ImportMaster": <a href="/suplierreport/index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+
+                        case "Sell":  <a href="/CustomerReport/Index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+
+                        case "IEOtherMaster":  <a href="/IEOtherMasterViewReport/Index/@item.BusinessId" class="btn btn-warning btn-sm">In</a>; break;
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

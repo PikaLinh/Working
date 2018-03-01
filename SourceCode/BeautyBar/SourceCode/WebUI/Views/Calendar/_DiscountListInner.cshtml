@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EntityModels.DiscountModel>
+
+@{ int i = 0; int k = -1;}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td class="text-center">
+            @i
+            <input type="hidden" name="DiscountModel[@k].DiscountId" value="@item.DiscountId" />
+            <input type="hidden" name="DiscountModel[@k].CalendarId" value="@item.CalendarId" />
+            <input type="hidden" name="DiscountModel[@k].Days" value="@item.Days" />
+            <input type="hidden" name="DiscountModel[@k].Qty" value="@item.Qty" />
+            <input type="hidden" name="DiscountModel[@k].Discount" value="@item.Discount" />
+            <input type="hidden" name="DiscountModel[@k].Curent" value="@item.Curent" />
+        </td>
+        <td class="text-right">
+            @Html.DisplayFor(modelItem => item.Days)
+        </td>
+        <td class="text-right">
+            @Html.DisplayFor(modelItem => item.Qty)
+        </td>
+        <td class="text-right">
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        @if (ViewBag.isDetailView != true)
+        {
+            <td class="text-center cursor-poiter">
+                @if (item.Curent == null || item.Curent == 0)
+                {
+                    <i class="glyphicon glyphicon-remove remove-discount" data-stt="@k"></i>
+                }
+            </td>
+        }
+        else
+        {
+            <th class="text-right">
+                @{var current = item.Curent ?? 0;}
+                @current
+            </th>
+        }
+    </tr>
+}

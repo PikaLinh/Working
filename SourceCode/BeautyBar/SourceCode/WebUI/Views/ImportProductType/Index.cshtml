@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Import Loại sản phẩm";
+}
+
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title </h4>
+        </div>
+    </div>
+    <hr class="custom">
+     Click <a href="/ImportProductType/Template" target="_blank"><u>vào đây</u></a> để tải file danh sách các loại sản phẩm mẫu.
+     <br /><br />
+     Click <a href="/ImportProductType/Export" target="_blank"><u>vào đây</u></a> để tải file danh sách các loại sản phẩm hiện có.
+    <hr class="custom">
+    <form action="/ImportProductType/Import" method="post" enctype="multipart/form-data">
+        <br />
+        <label>Chọn File cần Import: </label>
+        <br />
+        <input type="file" name="excelfile" class="btn btn-default custom-button btn-default minw100" />
+        <br />
+        <input type="submit" id="btnImport" value="Lưu" class="btn btn-warning custom-button btn-warning minw100" />
+        <span style="color: red;">@ViewBag.Import </span>
+        <br />
+
+    </form>
+</div>

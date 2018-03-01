@@ -1,0 +1,162 @@
+﻿@model IEnumerable<OrderMasterModel>
+
+@{
+    ViewBag.Title = "Danh sách đơn hàng bị huỷ";
+}
+@using (Html.BeginForm("Canceled", "Sell", FormMethod.Post, new { @id = "formload" }))
+{  
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Tên khách hàng:
+            @*<input type="text" id="FullName" name="FullName" class="form-control" placeholder="Nhập tên khách hàng" />*@
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <input type="hidden" name="FullName" />
+                <div id="divCustomId">
+                    <select name="CustomerId" class="form-control" style="width: 280px;">
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-3 col-xs-12">
+           Số điện thoại:
+            <input type="text" id="Phone" name="Phone" class="form-control" placeholder="Nhập số điện thoại" />
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+           Email:
+            <input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" />
+        </div>
+
+        @*<div class="col-md-3 col-sm-3 col-xs-12">
+            Mã sản phẩm:
+            <input type="text" id="ProductCode" name="ProductCode" class="form-control" placeholder="Nhập mã sản phẩm" />
+        </div>*@
+    </div>
+    <hr class="custom">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <input type="submit" id="btntim" class="btn btn-warning col-sm" value="Tìm"/>
+        </div>
+    </div>
+}
+
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th class="text-center">
+                Họ và tên khách hàng
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+             <th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.SaleName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                 <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleName)
+                </td>
+                 <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.OrderId }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.OrderId }, new { @class = "btn btn-default btn-warning btn-sm" })
+                   @* @Html.ActionLink("Huỷ", null, new { id = item.OrderId }, new { @class = "btn btn-default btn-danger btn-sm btn-delete" })*@
+                    <a class = "btn btn-default btn-danger btn-sm btn-xoa"  data-id ="@item.OrderId" data-toggle="modal" data-target="#confirm-delete" >Huỷ</a>
+                    <input type="hidden" id="idDelete" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!--Alert_Popup_Delete-->
+ <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Xác nhận khôi phục đơn hàng</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn muốn khôi phục đơn hàng : <strong> </strong>  ? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                    <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>
+<script>
+    $(document).on("click", ".btn-xoa", function (e) {
+        var id = $(this).data("id");
+        $("#idDelete").val(id);
+        $(".modal-body strong").html(id);
+        //alert(id);
+    });
+    $('#confirm-delete').on('click', '.btn-ok', function (e) {
+        var $modalDiv = $(e.delegateTarget);
+        var id = $("#idDelete").val();
+        $.ajax({
+            url: '/Sell/Restore?id=' + id,
+            success: function (data) {
+                if (data == "success") {
+                    //alert("Xoá thành công !");
+                    window.location.assign("/Sell/Index");
+                }
+                else {
+                    Alert_Popup("Xoá không thành công !");
+                }
+            }
+        })
+        // $.post('/api/record/' + id).then()
+        $modalDiv.addClass('loading');
+        setTimeout(function () {
+            $modalDiv.modal('hide').removeClass('loading');
+        }, 1000)
+    });
+   
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")\
+    <script src="~/Scripts/OrderMaster/Index.js"></script>
+}

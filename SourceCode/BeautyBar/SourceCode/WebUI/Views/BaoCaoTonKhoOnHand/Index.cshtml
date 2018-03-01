@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Báo cáo tồn kho on hand";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-12 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Báo cáo tồn kho on hand</h4></div>
+</div>
+<hr class="custom">
+<form id="formload">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Cửa hàng
+                @Html.DropDownList("StoreId", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Kho
+                @*<select id="WarehouseId" name="WarehouseId" class="form-control"></select>*@
+                @Html.DropDownList("WarehouseId", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Danh mục sản phẩm
+                @*<select id="WarehouseId" name="WarehouseId" class="form-control"></select>*@
+                @Html.DropDownList("CategoryId", null, new { @class = "form-control" })
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <label>
+                    Ngày
+                </label>
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            @{string Date = DateTime.Now.Date.ToString("yyyy-MM-dd");}
+                            <td style="width: 100%;">
+                                <input type="date" name="Date" value="@Date" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</form>
+<br />
+<hr class="custom">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="btnreport" class="btn btn-warning col-sm">Xem báo cáo</a>
+    </div>
+</div>
+<div id="content">
+
+</div>
+
+@section head{ <!--Gọi ở head trong _Layout-->
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Chart },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.Chart },
+        new Script { ExtensionSuite = ExtensionSuite.Report },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        //report
+        $(document).on("click", "#btnreport", function () {
+            $.ajax({
+                type: "POST",
+                url: "/BaoCaoTonKhoOnHand/Report/",
+                data: $("#formload").serialize(),
+                success: function (data) {
+                    $("#content").html(data);
+                }
+            });
+        });
+    </script>
+}

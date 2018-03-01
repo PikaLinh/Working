@@ -1,0 +1,117 @@
+﻿@model EntityModels.CourseModel
+
+@{
+    ViewBag.Title = "Cập nhật";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.CourseId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseName, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.CourseName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.CourseName)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.DropDownList("CategoryId", null, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.CategoryId)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        if (ViewBag.isDescription == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                    @Html.TextAreaFor(m => m.Description, new { @id = "txtDescription", @class = "form-control" })
+                    @*<script type="text/javascript">
+                            CKEDITOR.replace("txtDescription");
+                        </script>*@
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+            </div>
+        }
+
+        if (ViewBag.isDetails == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Details, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                    @Html.TextBoxFor(m => m.Details, new { @id = "txtDetails", @css = "ckeditor" })
+                    <script type="text/javascript">
+                        CKEDITOR.replace("txtDetails");
+                    </script>
+                    @Html.ValidationMessageFor(model => model.Details)
+                </div>
+            </div>
+        }
+        
+        if (ViewBag.isUseUrl == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Url, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                        <tbody>
+                            <tr>
+                                <td class="dxic" style="width:100%;">
+                                    @Html.TextBoxFor(m => m.Url, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    @Html.ValidationMessageFor(model => model.Url)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Actived, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(m => m.Actived)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-warning custom-button minw100" />
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

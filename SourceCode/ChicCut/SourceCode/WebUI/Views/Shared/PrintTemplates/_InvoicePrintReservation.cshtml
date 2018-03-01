@@ -1,0 +1,98 @@
+﻿<script type="text/x-kendo-template" id="tmplInvoicePrint">
+    <style>
+        .invoice {
+            font-family: 'Arial';
+            margin: 3px;
+            margin-left: 6px;
+            padding: 0;
+            padding-left: 2px;
+        }
+
+            .invoice div, .invoice table {
+                font-family: 'Arial';
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+            }
+            .invoice th{
+                border-bottom: 1px dashed black;
+            }
+           .invoice hr{
+                border: 1px dashed black;
+            }
+            .invoice h3 {
+                font-family: 'Arial';
+                margin: 0px 0px 5px 0px;
+                padding: 0;
+            }
+
+            .invoice h4 {
+                font-family: 'Arial';
+                font-size: 14px;
+                margin: 0;
+                padding: 0;
+            }
+         .invoice h6{
+            padding:0px;
+            margin:0px 0px 0px 0px;
+            text-align:center;
+         }
+         .thanks{
+             text-align:center;
+             font-weight:initial;
+         }
+    </style>
+    <div class="invoice">
+        <h3 style="text-align:center">CHIC CUT HAIR SALON</h3>
+        <h6>489, Hồng Bàng, Phường 14, Quận 5</h6>
+        <h6>08 6278 0881</h6>
+        <div style="clear: both;margin-top:25px"></div>
+        <h3 style="text-align:center">PHIẾU ĐẶT HÀNG</h3>
+        <div style="clear: both;margin-top:10px"></div>
+        <div>Khách hàng: #= Order.FullName # - #= Order.Phone #</div>
+        <div style="clear:both"></div>
+        <div style="float: left">Giới tính: #= Order.GenderName #</div>
+        <div style="clear: both"></div>
+        <div style="float: left">Số phiếu đặt: #= Order.PreOrderId #</div>
+        <div style="clear:both"></div>
+        <div style="clear: both"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:left;width: 120px;">Dịch vụ</th>
+                    <th style="text-align:center;width: 150px">Đ.Giá</th>
+                    <th style="text-align:center;width: 30px">SL</th>
+                    <th style="text-align:center;width: 150px">T.Tiền</th>
+                </tr>   
+            </thead>
+            <tbody>
+                #for (var i = 0; i < Order.details.length ; i++){#
+                <tr>
+                    # var detail = Order.details[i]; #
+                    <td style="text-align:left;">#= detail.ServiceName #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.MinPrice)) # - #= floatToString(parseFloat(detail.MaxPrice)) #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.Qty)) #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.MinUnitPrice)) # - #= floatToString(parseFloat(detail.MaxUnitPrice)) #</td>
+                    @*<td style="text-align: right">(#= Number(detail.Qty).toFixed(2)  #)</td>*@
+                </tr>
+                #}#
+            </tbody>
+            <tfoot>                
+                <tr>
+                    <td colspan="2" style="text-align: right;"><b>Tổng tiền trả:</b></td>
+                    <td colspan="2" style="text-align: right;"><b>#= floatToString(Order.MinSumPriceOfOrderDetail) #</b> - <b>#= floatToString(Order.MaxSumPriceOfOrderDetail) #</b></td>
+                </tr>
+            </tfoot>
+        </table>
+      
+       
+        #if(Order.Note != null && Order.Note != ""){ #
+            <div style="float: left;font-size: 22px">
+                Ghi chú: #= Order.Note #
+            </div>
+        #}#
+        <div style="clear: both;margin-top:25px"></div>
+        <hr />
+        <div class="thanks"><i>Cám ơn quý khách, Hẹn gặp lại!</i></div>
+    </div>
+</script>

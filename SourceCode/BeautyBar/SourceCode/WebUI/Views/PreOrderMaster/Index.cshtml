@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Danh sách yêu cầu đơn hàng của khách hàng";
+}
+<hr class="custom">
+<div class="row head">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+		<h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+	</div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "PreOrderMaster", FormMethod.Post, new { @id = "formload" }))
+{
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Tên khách hàng:
+				<input type="hidden" name="FullName"/>
+				<div id="divCustomId">
+					<select name="CustomerId" class="form-control"></select>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Số điện thoại:
+				<input type="text" id="Phone" name="Phone" class="form-control" placeholder="Nhập số điện thoại"/>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+                Sản phẩm:
+                <input type="hidden" id="ProductName" name="ProductName">
+                <div id="divProductId" style="width: 220px">
+                    <select name="ProductId" class="form-control" style="width: 220px;"></select>
+                </div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Mã đơn hàng:
+				<input type="hidden" name="OrderCode"/>
+				<div id="divOrderId">
+					<select name="OrderId" class="form-control"></select>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="form-group">
+			@Html.Partial("FilterDateAndTotal")
+		</div>
+		<hr class="custom">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<a id="btntim" class="btn btn-warning col-sm" >Tìm</a>
+			</div>
+		</div>
+	</div>
+}
+<div class="loading-modal"></div>
+<div class="row">
+    <div id="paging" class="pagination col-md-6 col-sm-12" ></div>
+        <div class="col-md-6" >
+            @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+        </div>
+</div>
+<hr class="custom">
+
+<div class="row">
+    <div id="SearchContent">
+        @*@Html.Action("_Search")*@
+    </div>
+</div>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">Xác nhận xoá đơn hàng</h4>
+			</div>
+			<div class="modal-body">
+				<p>Bạn muốn xoá đơn hàng : <strong></strong> ? </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+				<button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+			</div>
+		</div>
+	</div>
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	<script src="~/Scripts/PreOrderMaster/Index.js"></script>
+}

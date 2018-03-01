@@ -1,0 +1,58 @@
+﻿@model List<IEOtherDetailViewModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        @*@Html.HiddenFor(m => m.ImportDetailId)*@
+        <td style="width: 40px" class="text-center">
+            @i
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].IEOtherDetailId" class="detail-ImportDetailId" value="@item.IEOtherDetailId">
+            <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+            <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">
+            <input type="hidden" name="detail[@k].ShippingWeight" class="detail-ShippingWeight" >
+        </td>
+        <td style="width: 100px">
+            @* <input type="text" name="detail[@k].ProductCode" class="detail-ProductCode" id="txtProductCode" value="@item.ProductCode">*@
+            <div id="divProductId_@k" style="width:320px">
+                <select name="ProductId" id="ProductId_@k" data-row="@k" class="form-control" style="width:340px;">
+                </select>
+            </div>
+        </td>
+        <td style="width: 100px">
+            <input type="text" disabled name="detail[@k].Price" class="detail-Price form-control text-right" data-row="@k" value="@item.Price">
+        </td>
+        <td style="width: 100px;">
+            @if (@item.Qty == null)
+            {
+                <input type="text" name="detail[@k].Qty" class="detail-Qty form-control text-right" data-row="@k" id="Qty" value="1">
+           }
+            else
+            {
+                <input type="text" name="detail[@k].Qty" class="detail-Qty form-control text-right" data-row="@k" id="Qty" value="@item.Qty">
+           }
+        </td>
+        <td style="width: 100px">
+            <input type="hidden"  name="detail[@k].UnitPrice" class="detail-UnitPrice form-control text-right" data-row="@k" value="@item.UnitPrice">
+            <input type="text" disabled  class="form-control text-right unit-price" name="detail[@k].UnitPrice" value="@item.UnitPrice" data-row="@k">
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight form-control text-right" data-row="@k" id="UnitShippingWeight" value="@item.UnitShippingWeight">
+        </td>
+         <td style="width: 100px">
+            <input type="text" name="detail[@k].Note" class="detail-Note form-control text-right"  data-row="@k" value="@item.Note">
+        </td>
+        <td style="width: 100px; text-align: center;">
+            <a href="#" class="detail-btndelete btn btn-danger " data-row="@i">Xóa</a>
+        </td>
+    </tr>
+}
+
+<script src="~/Scripts/IEOtherMaster/grid.js"></script>

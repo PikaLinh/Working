@@ -1,0 +1,28 @@
+﻿@model List<ImportDetailModel>
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px">Mã sản phẩm</th>
+                    <th style="width:100px">Sản phẩm</th>
+                    <th style="width:100px">Số lượng</th>
+                    <th style="width:110px">Giá</th>
+                    <th style="width:130px">Tổng khối lượng</th>
+                    <th style="width:130px">Thành tiền</th>
+                    @*<th>Ghi chú</th>*@
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+         @*      @Html.Partial("_CreateListInner", Model)*@
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8"><button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm mặt hàng</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>

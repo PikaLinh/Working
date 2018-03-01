@@ -1,0 +1,53 @@
+﻿@model EntityModels.ExchangeModel
+
+@{
+    ViewBag.Title = "Tạo mới";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+            <div class="row">
+                <div class="editor-label col-md-2">
+                    @Html.LabelFor(model => model.SteelMarkId)
+                </div>
+                <div class="editor-field col-md-2">
+                    @Html.DropDownList("SteelMarkId", null , new { @class = " form-control" })
+                    @Html.ValidationMessageFor(model => model.SteelMarkId)
+                </div>
+
+                <div class="editor-label col-md-2">
+                    @Html.LabelFor(model => model.SteelFIId)
+                </div>
+                <div class="editor-field col-md-2">
+                    @Html.DropDownList("SteelFIId", null, new { @class = " form-control" })
+                    @Html.ValidationMessageFor(model => model.SteelFIId)
+                </div>
+
+                <div class="editor-label col-md-2">
+                    @Html.LabelFor(model => model.UnitId)
+                </div>
+                <div class="editor-field col-md-2">
+                    @Html.DropDownList("UnitId", null, new { @class = " form-control" })
+                    @Html.ValidationMessageFor(model => model.UnitId)
+                </div>
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Value)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Value, new { @class = " form-control" })
+                @Html.ValidationMessageFor(model => model.Value)
+            </div>
+
+        <p style="margin-top:5px;">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-default custom-button btn-warning minw100" />
+        </p>
+</fieldset>
+}
+
+

@@ -1,2 +1,0 @@
-Hello
-Change from Git

@@ -1,0 +1,58 @@
+﻿@model ViewModels.SettingViewModel
+
+<style>
+    .editor-field .cke_browser_webkit {
+        margin-left: 0px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.SettingName)
+    <fieldset>
+        <legend>@ViewBag.Message</legend>
+
+
+        <div class="editor-field has-ck">
+            <div class="content">
+                <ul id="tabExample1" class="nav nav-tabs">
+                    <li class="active"><a href="#vietnamese1" data-toggle="tab">Tiếng việt</a></li>
+                    <li class=""><a href="#english1" data-toggle="tab">Tiếng anh</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="vietnamese1">
+                        @Html.TextAreaFor(model => model.Details, new { @id = "ckeContent", @css = "ckeditor" })
+                        <script type="text/javascript">
+                            CKEDITOR.replace("ckeContent");
+                        </script>
+                        @Html.ValidationMessageFor(model => model.Details)
+                    </div>
+                    <div class="tab-pane fade" id="english1">
+                        @Html.TextAreaFor(model => model.DetailsEn, new { @id = "ckeContentEn", @css = "ckeditor" })
+                        <script type="text/javascript">
+                            CKEDITOR.replace("ckeContentEn");
+                        </script>
+                        @Html.ValidationMessageFor(model => model.DetailsEn)
+                    </div>
+
+                </div>
+                <div style="clear:both"></div>
+
+                <div class="editor-field">
+                    <input type="submit" value="Cập nhật" class="=btn btn-primary" />
+                </div>
+            </div>
+
+        </div>
+
+    </fieldset>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

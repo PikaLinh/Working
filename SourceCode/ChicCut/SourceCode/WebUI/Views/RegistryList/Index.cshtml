@@ -1,0 +1,89 @@
+﻿@model IEnumerable<EntityModels.RegistryModel>
+
+@{
+    ViewBag.Title = "Danh sách đăng ký";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-hover dataTable table-bordered table-striped no-footer" >
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseModel.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model) {
+            i++;
+    <tr>
+        <td class="text-center">
+            @i
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseModel.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+        @if (item.Gender == true)
+        {
+            <span>Nam</span>
+        }
+        else if (item.Gender == false)
+        {
+             <span>Nữ</span>
+        }
+        else
+        {
+             <span>Khác</span>
+        }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Xem", "Details", new { id = item.RegistryId }, new { @class="btn btn-default col-sm"})
+            @Html.ActionLink("Sửa", "Edit", new { id = item.RegistryId }, new { @class="btn btn-warning col-sm"})
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

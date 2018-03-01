@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Đăng ký thành công";
+    Layout = "~/Views/Shared/_LayoutWithNoCheck.cshtml";
+}
+@if (ViewBag.IsSuccess == true)
+{
+    <p style="text-align:center;">
+        Đăng ký thành công! <br />
+        Cảm ơn Quý khách hàng đã đăng ký thành công khóa học.! Vui lòng kiểm tra lại Email để biết thêm thông tin chi tiết về khóa học!
+    </p>
+}
+else
+{
+    <p style="text-align:center;">
+        Đăng ký thất bại! <br />
+        @ViewBag.Message
+    </p>
+}

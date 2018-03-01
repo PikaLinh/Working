@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CustomerInfoModel>
+
+<table class="table table-hover dataTable table-bordered table-striped no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            @if (@ViewBag.isUseCustomerLevelSearchId == true)
+            {
+                <th>
+                    Cấp độ
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegDate)
+            </th>
+            @if (@ViewBag.isUseEmployeeSearchId == true)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeId)
+                </th>
+
+            }
+
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="width:2%">
+                    @i
+                </td>
+                <td style="width:20%">
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                @if (@ViewBag.isUseCustomerLevelSearchId == true)
+                {
+                    <td style="width:10%">
+                        @Html.DisplayFor(modelItem => item.CustomerLevelName)
+                    </td>
+                }
+                <td style="width:3%">
+                    @if (item.Gender == true)
+                    {
+                        <span>Nam</span>
+                    }
+                    else if (item.Gender == false)
+                    {
+                        <span>Nữ</span>
+                    }
+                    else
+                    {
+                        <span>Khác</span>
+                    }
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.BirthDay)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.RegDate)
+                </td>
+                @if (@ViewBag.isUseEmployeeSearchId == true)
+                {
+                    <td style="width:15%">
+                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                    </td>
+
+                }
+                <td style="width:10%">
+                    @Html.ActionLink("Xem", "Details", new { id = item.CustomerId }, new { @class = "btn btn-default col-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.CustomerId }, new { @class = "btn btn-warning col-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

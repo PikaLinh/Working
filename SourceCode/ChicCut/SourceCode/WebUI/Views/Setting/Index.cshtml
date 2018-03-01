@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Website_SettingModel>
+@*@{
+    Layout = "~/Areas/Administration/Views/Shared/_TableLayout.cshtml";
+}*@
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<br />
+<table id="datatable_example" class="responsive table table-striped table-bordered" style="width:100%;margin-bottom:0; ">
+
+    <thead>
+        <th>
+            @Html.DisplayNameFor(model => model.SettingName)
+        </th>
+
+        <th class="edit-colum no_sort">Hiệu chỉnh</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SettingName)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.SettingName },
+                    new { @class = "btn btn-small", @rel = "tooltip" }) |
+
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.SettingName },
+                    new { @class = "btn btn-small", @rel = "tooltip" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

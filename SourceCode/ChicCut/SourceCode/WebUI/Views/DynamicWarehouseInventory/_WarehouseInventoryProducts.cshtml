@@ -1,0 +1,24 @@
+﻿@model WarehouseInventoryMasterModel
+<div id="contentWarehouseInventoryProducts">
+    @*@Html.Action("WarehouseInventoryProducts")*@
+</div>
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete-product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xoá sản phẩm</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xoá sản phẩm : <strong></strong>? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End_Popup_Delete-->

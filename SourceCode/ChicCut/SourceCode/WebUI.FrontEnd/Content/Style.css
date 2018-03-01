@@ -1,0 +1,913 @@
+﻿.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.row.content {
+    height: 450px;
+}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 116%;
+}
+
+footer {
+    background-color: #555;
+    color: white;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.form-control {
+    font-size: 18px;
+}
+
+input, textarea, select, .btn {
+    box-shadow: none !important;
+    border-color: #252525 !important;
+    background: none;
+}
+
+.select2-selection--single:not([class*=bg-]):not([class*=border-]) {
+    box-shadow: none !important;
+    border-color: #252525;
+}
+
+/*input[name="customer_name"] {
+    text-transform: capitalize;
+}*/
+
+.has-error input, .has-error text-area, .has-error select, .has-error .select2-selection--single:not([class*=bg-]):not([class*=border-]), .has-error .btn {
+    border-color: #f90730 !important;
+    background: #fff4f4 !important;
+}
+
+.select2-results__option[aria-selected=true] {
+    background: #252525 !important;
+}
+
+.disable-customer {
+    cursor: wait;
+    pointer-events: none;
+    background: #fff !important;
+}
+
+.has-error:before {
+    content: "*";
+    font-family: 'icomoon';
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: block;
+    width: 16px;
+    height: 34px;
+    line-height: 34px;
+    color: red;
+    z-index: 2;
+    padding-right: 20px;
+}
+
+.navbar-bottom {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.navpublic {
+    border-top: 1px solid #ddd;
+}
+
+.valid-data input, .valid-data text-area, .valid-data select, .valid-data .select2-selection--single:not([class*=bg-]):not([class*=border-]), .valid-data .btn {
+    border-color: #076e0b !important;
+    background: #e6fde6 !important;
+    position: relative;
+}
+
+.valid-data:before {
+    content: "✔";
+    font-family: 'icomoon';
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: block;
+    width: 16px;
+    height: 34px;
+    line-height: 34px;
+    color: green;
+    z-index: 2;
+    padding-right: 20px;
+}
+
+input:focus, text-area:focus, select:focus {
+    background: rgb(254, 255, 231);
+}
+
+.merchant-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    font-size: 26px;
+    color: #f2480c;
+}
+
+.white-blend-bg {
+    background-color: rgba(255, 255, 255, 0.65);
+    min-height: 100%;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.spa-logo-container {
+    width: 120px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 10px;
+    /*border: solid 1px #bbb;*/
+    margin-top: 10px;
+}
+
+.location-list-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 30px;
+    text-decoration: underline;
+}
+
+.location-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0;
+    color: #f2480c;
+    text-transform: capitalize;
+}
+
+.location-phone {
+    display: block;
+    color: #404859;
+}
+
+.location-address {
+    display: block;
+    color: #404859;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.heading-info {
+    min-height: 100%;
+    padding-bottom: 20px;
+    background: rgba(255,255,255,0.75);
+}
+
+.location-list-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+    min-width: 300px;
+    text-transform: capitalize;
+}
+
+    .location-list-container li {
+        float: left;
+        min-width: 295px;
+        padding-right: 30px;
+        margin-bottom: 20px;
+    }
+
+.conten-hor-line {
+    width: 100%;
+    display: block;
+    height: 2px;
+    background: #f2480c;
+    clear: both;
+    margin-bottom: 20px;
+}
+
+
+.scale-ratio-square {
+    position: relative;
+}
+
+    .scale-ratio-square .scale-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .scale-ratio-square:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+.nav-bar-button {
+    background: #f2480c;
+    color: #fff;
+}
+
+a {
+    color: #f2480c;
+}
+
+    a:hover {
+        color: #f7622d;
+    }
+
+.product-grid {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+    .product-grid > li .product-image {
+        height: calc(100% - 50px);
+        margin: 0;
+        float: left;
+        position: absolute;
+        background-size: cover;
+        top: 0;
+        background-position: center center;
+        width: 100%;
+        padding: 0;
+        box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        border: solid 1px #d6e0ef;
+        background-repeat: no-repeat;
+    }
+
+    .product-grid > li .product-name {
+        bottom: 25px;
+        left: 5px;
+        max-width: 100%;
+        text-transform: initial;
+        width: 55%;
+        float: left;
+    }
+
+.product-name-name {
+    font-weight: bold;
+    line-height: 20px;
+    overflow: hidden;
+    font-size: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 20px;
+    display: block;
+}
+
+
+
+.product-grid > li .product-sku {
+    color: #999;
+    width: 20%;
+    float: left;
+    text-align: right;
+}
+
+.product-grid > li .customer-booking-total {
+    font-weight: bold;
+    width: 25%;
+    float: left;
+    text-align: right;
+    color: #252525;
+}
+
+.product-grid > li {
+    float: left;
+    width: 100%;
+    margin: 0 10px 15px 0;
+    border: none;
+}
+
+    .product-grid > li > i {
+        bottom: 5px;
+        color: #dddddd;
+        font-size: 22px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: auto;
+        width: 10px;
+    }
+
+.product-name-description {
+    font-size: 12px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #999;
+    text-align: justify;
+    max-width: 100%;
+}
+
+.nav-tabs.nav-justified {
+    margin-bottom: 20px;
+    clear: both;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+}
+
+    .nav-tabs.nav-justified > li > a {
+        color: #404859;
+        border-top: none;
+        border-bottom: solid 2px #ddd;
+        border-right: none;
+        border-left: none;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+
+        .nav-tabs.nav-justified > li > a:hover, .nav-tabs.nav-justified > li > a:focus, .nav-tabs.nav-justified > li > a:active {
+            background: transparent;
+        }
+
+    .nav-tabs.nav-justified > li {
+        width: 33.3333%;
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+        border-top: none;
+        border-bottom: solid 2px #f2480c;
+        border-right: none;
+        border-left: none;
+        font-weight: bold;
+        color: #f2480c;
+        background: transparent;
+    }
+
+.price-cash {
+    color: #66bb6a;
+    position: relative;
+    white-space: nowrap;
+}
+
+.blur-loading {
+    position: relative;
+}
+
+    .blur-loading:after {
+        position: absolute;
+        background: url("/images/ajax-loader.gif") no-repeat scroll center center rgba(255,255,255,0.45);
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        display: block;
+    }
+
+.error {
+    color: red;
+}
+
+    .error:before {
+        display: inline-block;
+        float: left;
+        margin-left: -10px;
+        line-height: 22px;
+    }
+
+.big-success {
+    font-size: 100px;
+    text-align: center;
+    color: #83da83;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.select2-fix-padding {
+    padding: 5px 0;
+}
+
+.big-font {
+    margin-left: -50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 60px;
+}
+
+.thankyou-text {
+    text-align: center;
+    color: #505050;
+    font-size: 16px;
+}
+
+input:-webkit-autofill {
+    background: #fff;
+}
+
+input, a {
+    -webkit-transition: all 2s ease-out;
+    -moz-transition: all 2s ease-out;
+    -o-transition: all 2s ease-out;
+    transition: all 2s ease-out;
+}
+
+.merchant-info {
+    margin-left: 10px;
+}
+
+.tabbable {
+    background: rgba(255,255,255,0.55);
+}
+
+.btn-phone {
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    border: none;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+.disable-click {
+    cursor: wait;
+    pointer-events: none;
+}
+
+.spinner {
+    animation: 2s linear 0s normal none infinite running rotation;
+    color: rgba(0,0,0,0.45);
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    width: 18px;
+}
+
+.white-space {
+    white-space: nowrap;
+    float: left;
+}
+
+.select-day {
+    cursor: pointer;
+}
+
+    .select-day .select-day-title {
+        background: #999;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    .select-day .select-day-body .btn {
+        border: 1px #999 solid !important;
+        width: calc(100%/2 - 12px);
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+.select-day {
+    border: 1px #999 solid;
+    border-radius: 3px;
+    margin: 5px;
+    width: calc(100%/3 - 10px);
+    float: left;
+}
+
+.select-day-active {
+    border: 1px #252525 solid;
+    border-radius: 3px;
+    margin: 5px;
+    width: calc(100%/3 - 10px);
+    float: left;
+}
+
+    .select-day-active .select-day-body .btn {
+        width: calc(100%/2 - 12px);
+        border: 1px #252525 solid !important;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .select-day-active .select-day-title {
+        background: #252525;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    .select-day-active .select-day-body button, .select-day .select-day-body button {
+        margin: 5px;
+    }
+
+.btn-black {
+    background: #252525 !important;
+    color: #ffffff !important;
+}
+
+    .btn-black :hover {
+        background: #252525 !important;
+        box-shadow: none;
+    }
+
+#today {
+    margin: 5px 10px 5px 0px;
+}
+
+#afterTomorrow {
+    margin: 5px 0px 5px 10px;
+}
+
+#tomorrow {
+    margin: 5px 5px 5px 5px;
+}
+
+.select-day-active .select-day-body .day-in-week {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000 !important;
+}
+
+.select-day-active .select-day-body .day {
+    font-size: 15px;
+    text-align: center;
+    color: #000 !important;
+}
+
+.select-day .select-day-body .day-in-week {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #999;
+}
+
+.select-day .select-day-body .day {
+    font-size: 15px;
+    text-align: center;
+    color: #999;
+}
+
+.product-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+    .product-btn .product-name {
+        font-weight: bold;
+    }
+
+.general-message {
+    margin-bottom: 5px;
+    font-weight: normal;
+    float: right;
+}
+
+.booking-successful .ptext {
+    margin-left: 40px;
+    padding-left: 0;
+}
+
+.booking-successful ul {
+    margin-left: 60px;
+    padding-left: 0;
+}
+
+#timeLabel {
+    width: calc(100%/3);
+    float: left;
+    text-align: center;
+    font-size: 14px;
+}
+
+.time-label-title {
+    width: calc(100%/3);
+    float: left;
+    font-size: 14px;
+}
+
+.btn-time-danger {
+    border: 1px rgb(247,24,25) solid !important;
+    border-radius: 3px;
+    background: none;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 5px !important;
+}
+
+    .btn-time-danger .time {
+        color: rgb(247,24,25) !important;
+        font-weight: bold;
+    }
+
+.btn-time-success {
+    border: 1px rgb(35,177,77) solid !important;
+    border-radius: 3px;
+    background: none;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 5px !important;
+}
+
+    .btn-time-success .time {
+        margin: 0;
+        color: rgb(35,177,77) !important;
+        font-weight: bold;
+    }
+
+.btn-time-selected {
+    color: #ffffff !important;
+    border: 1px rgb(35,177,77) solid !important;
+    font-weight: bold;
+    border-radius: 3px;
+    background: rgb(35,177,77) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+    .btn-time-selected .slot, .btn-time-success .slot, .btn-time-danger .slot {
+        font-size: 12px !important;
+        line-height: 15px;
+    }
+
+#operatorInfo #operatorAvatar {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+}
+
+#operatorInfo #operatorContent {
+    float: left;
+    margin-top: 5px;
+}
+
+.select2-fix-padding {
+    padding: 5px 0;
+}
+
+.selection .select2-selection #select2-operator-container img {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+@media (max-width: 479px) {
+    #timeLabel {
+        width: calc(100%/2);
+        float: right;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .time-label-title {
+        width: calc(100%/2);
+        float: left;
+        font-size: 14px;
+    }
+
+    .booking-successful .ptext {
+        margin-left: 0px;
+        padding-left: 0;
+    }
+
+    .booking-successful ul {
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
+    .spa-logo-container {
+        width: 90px;
+        height: 90px;
+    }
+
+    .merchant-name {
+        font-size: 22px;
+    }
+
+    .merchant-details {
+        font-size: 12px;
+    }
+
+    .general-message {
+        margin-bottom: 5px;
+        font-weight: normal;
+        float: none;
+        display: block;
+    }
+
+    .select-day .select-day-body .btn {
+        border: 1px #999 solid !important;
+        width: calc(100% - 12px);
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .select-day {
+        border: 1px #999 solid;
+        border-radius: 3px;
+        margin: 2px;
+        width: calc(100%/3 - 4px);
+        float: left;
+    }
+
+    .select-day-active {
+        border: 1px #252525 solid;
+        border-radius: 3px;
+        margin: 2px;
+        width: calc(100%/3 - 4px);
+        float: left;
+    }
+
+        .select-day-active .select-day-body .btn {
+            width: calc(100% - 12px);
+            border: 1px #252525 solid !important;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+    .day-of-day-mobile {
+        padding: 5px;
+    }
+
+    #today, #afterTomorrow, #tomorrow {
+        margin: 2px !important;
+    }
+
+    .product-btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 0;
+        font-size: 15px;
+        overflow: hidden;
+    }
+}
+
+@media(min-width: 1024px) {
+
+    .time-frame {
+        margin: 0 2px;
+        width: calc((100% - 28px)/6);
+        padding: 1%;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 1023px) {
+    .time-frame {
+        margin: 0 2px;
+        width: calc((100% - 28px)/6);
+        padding: 1%;
+    }
+}
+
+@media(min-width: 513px) and (max-width: 768px) {
+    .time-frame {
+        margin: 0 2px;
+        width: calc((100% - 28px)/6);
+        padding: 1%;
+    }
+}
+
+@media(max-width: 512px) {
+    .heading-info {
+        background-size: 100% auto;
+    }
+
+    .time-frame {
+        margin: 0 1px;
+        width: calc((100%)/6 - 2px);
+        padding: 1%;
+        line-height: 25px;
+    }
+
+    .time-frame-mobile {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    #popupModal {
+        margin-top: 10%;
+    }
+
+    .btn-time-selected .slot, .btn-time-success .slot, .btn-time-danger .slot {
+        font-size: 11px !important;
+        line-height: 15px;
+    }
+
+    .btn-time-selected .time, .btn-time-success .time, .btn-time-danger .time {
+        line-height: 18px;
+    }
+
+    .big-success {
+        font-size: 60px;
+        text-align: center;
+        color: #83da83;
+        margin-top: 40px;
+    }
+
+    .big-font {
+        margin-left: -30px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 60px;
+    }
+
+    .spa-logo-container {
+        width: 70px;
+        height: 70px;
+    }
+
+    .merchant-name {
+        font-size: 20px;
+    }
+
+    .merchant-details {
+        font-size: 11px;
+    }
+
+    .nav-tabs.nav-justified {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+    .select-day-active .select-day-body .btn {
+        width: calc(100% - 12px);
+        border: 1px #252525 solid !important;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .select-day .select-day-body .btn {
+        border: 1px #999 solid !important;
+        width: calc(100% - 12px);
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+    .select-day-active .select-day-body .btn {
+        width: calc(100%/2 - 6px);
+        border: 1px #252525 solid !important;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .select-day .select-day-body .btn {
+        border: 1px #999 solid !important;
+        width: calc(100%/2 - 6px);
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .select-day-active .select-day-body button, .select-day .select-day-body button {
+        margin: 5px 2px;
+    }
+}
+
+#timeFrame button {
+    white-space: normal;
+}
+
+.btn-service-default {
+    border: 1px rgb(255,165,0) solid !important;
+    border-radius: 3px;
+    background: none;
+    margin-top: 5px !important;
+}
+
+.sNote {
+    color: rgb(255,165,0) !important;
+}
+
+.btn-service-default div {
+     font-weight: bold;
+    font-size: 12px;
+}
+
+.buttonactive {
+    color: #ffffff !important;
+    background: rgb(255,165,0) !important;
+}
+
+#list li {
+    margin-bottom: 5px;
+}

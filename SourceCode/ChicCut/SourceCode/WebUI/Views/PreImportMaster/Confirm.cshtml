@@ -1,0 +1,140 @@
+﻿@model PreImportMasterModel
+
+@{
+    ViewBag.Title = "Duyệt yêu cầu đặt hàng từ nhà cung cấp";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-6 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+        <div class="col-md-6 col-sm-12 col-xs-12"><h4>Mã đơn hàng: <span> @Html.DisplayFor(m => m.PreImportMasterCode)</span></h4></div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+    @using (Html.BeginForm(null, "SaveConfirm", FormMethod.Post, new { id = "frmHeader" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor( m => m.Actived)
+        @Html.HiddenFor( m => m.PreImportMasterId)
+        <div class=" col-md-6">
+            <div class="panel panel-default" style=" min-height: 195px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StoreId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @ViewBag.StoreName
+                             <input type="hidden" name="StoreId" value="@Model.StoreId" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.WarehouseId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @ViewBag.WarhouseName
+                             <input type="hidden" name="WarehouseId" value="@Model.WarehouseId" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.SupplierId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.SupplierModel.SupplierName)
+                             <input type="hidden" name="SupplierId" value="@Model.SupplierId" />
+                        </div>
+                    </div>
+                    <hr class="custom" />
+
+                     <div class="form-group">
+                        @Html.LabelFor(model => model.StatusCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.StatusCode)
+                              <input type="hidden" name="StatusCode" value="@Model.StatusCode" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SenderName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.SenderName)
+                             <input type="hidden" name="SenderName" value="@Model.SenderName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReceiverName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.ReceiverName)
+                            <input type="hidden" name="ReceiverName" value="@Model.ReceiverName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.Note)
+                            <input type="hidden" name="Note" value="@Model.Note" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrencyId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.CurrencyModel.CurrencyName)
+                            <input type="hidden" name="CurrencyId" value="@Model.CurrencyId" />
+                        </div>
+                    </div>
+                    <div class="form-group" id="divExchangeRate">
+                        @Html.LabelFor(model => model.ExchangeRate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.ExchangeRate)
+                            <input type="hidden" name="ExchangeRate" value="@Model.ExchangeRate" />
+                            <input type="hidden" name="ExchangeDate" id="ExchangeDate" value="2016-05-01" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class="panel panel-default" style=" min-height: 195px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SalemanName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.SalemanName)
+                            <input type="hidden" name="SalemanName" value="@Model.SalemanName" />
+                        </div>
+                    </div>
+                    <hr class="custom" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TAXBillCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.TAXBillCode)
+                            <input type="hidden" name="TAXBillCode" value="@Model.TAXBillCode" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TAXBillDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.TAXBillDate)
+                            <input type="hidden" name="TAXBillDate" value="@Model.TAXBillDate" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DebtDueDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            @Html.DisplayFor(p => p.DebtDueDate)
+                            <input type="hidden" name="DebtDueDate" value="@Model.DebtDueDate" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    @Html.Action("_ConfirmList", new { model = Model.PreImportDetailModel.ToList(),BillDiscountTypeId = Model.ManualDiscountType,BillDiscount = Model.ManualDiscount.HasValue? Model.ManualDiscount : 0, TotalPrice = Model.TotalPrice, BillVAT = Model.VATValue.HasValue?Model.VATValue : 0, RemainingAmount = Model.RemainingAmount.HasValue?Model.RemainingAmount: 0 })
+
+    <div class="form-horizontal text-right">
+        @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        <button id="btnConfirm" type="button" class="btn btn-default custom-button btn-warning minw100">Duyệt</button>
+    </div>
+
+@section Scripts {
+    <script src="~/Scripts/PreImportMaster/Comfirm.js"></script>
+}

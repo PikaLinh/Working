@@ -1,0 +1,29 @@
+﻿@model DynamicProductViewModel
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12 text-left"><h4 style="color:#6BABDF;">Thông tin sản phẩm</h4></div>
+        <div class="col-md-9 col-sm-6 col-xs-12" id="divOrderCode">
+            @*<h4>Mã sản phẩm cửa hàng: <span></span> <a class="glyphicon glyphicon-refresh" title="Cập nhật mã sản phẩm cửa hàng hàng" id="UpdateOrderCode"></a></h4>*@
+
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAdd", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @ViewBag.Error
+        <input type="hidden" name="ProductStoreCode" id="ProductStoreCode" />
+        @Html.Partial("_CreatePartial")
+    }
+        @*@Html.Action("_CreateList")*@
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-5 col-sm-offset-5">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+    
+</div>
+@section scripts{
+}

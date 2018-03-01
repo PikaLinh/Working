@@ -1,0 +1,61 @@
+﻿@model EntityModels.Master_ChicCut_HairTypeModel
+
+@{
+    ViewBag.Title = "Thêm mới";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Actived)
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.HairTypeName)
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.HairTypeName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.HairTypeName)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.OrderIndex)
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width:100%;">
+                                @Html.TextBoxFor(m => m.OrderIndex, new { @type = "number", @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.OrderIndex)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-warning custom-button minw100" />
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

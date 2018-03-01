@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ReturnMasterInfoViewModel>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th style="max-width:20px;">
+                STT
+            </th>
+             <th style="min-width:90px;">
+                @Html.DisplayNameFor(model => model.ReturnMasterCode)
+            </th>
+            <th style="min-width:90px;" >
+                @Html.DisplayNameFor(model => model.ImportMasterId)
+            </th>
+            <th style="width:60px">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th style="min-width:120px">
+                @Html.DisplayNameFor(model => model.WarehouseName)
+            </th>
+            <th class="text-center" style="min-width:120px">
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.SalemanName)
+            </th>
+
+            <th class="text-center" style="max-width:20px">
+                @Html.DisplayNameFor(model => model.TotalQty)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th class="actions text-center" style="min-width:135px;" >@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="max-width:5px;">
+                    @i
+                </td>
+                <td class="text-center" >
+                    @Html.DisplayFor(modelItem => item.ReturnMasterCode)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ImportMasterCode)
+                </td>
+                <td class="text-center" style="width:60px">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarehouseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item. SalemanName)
+                </td>
+
+                <td class="text-right" >
+                    @Html.DisplayFor(modelItem => item.TotalQty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td class="text-center" style="width:190px">
+                    @Html.ActionLink("Xem", "Details", new { id = item.ReturnMasterId }, new { @class = "btn btn-default btn-sm" })
+                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.ImportMasterId }, new { @class = "btn btn-default btn-warning btn-sm" })*@
+                     <a class="btn btn-default btn-warning btn-sm" href="/ReturnReportView/Index/@item.ReturnMasterId">In</a>
+                    <a class = "btn btn-default btn-danger btn-sm btn-xoa"  data-id ="@item.ReturnMasterId"  data-row="@i" data-toggle="modal" data-target="#confirm-delete" >Huỷ</a>
+                    <input type="hidden" id="idDelete" />
+                    <input type="hidden" name="ReturnMasterCode" id="ReturnMasterCode_@i" data-row="@i" value="@item.ReturnMasterCode" />
+                </td>
+            </tr>
+        }   
+    </tbody>
+</table>
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xoá đơn trả hàng</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xoá đơn trả hàng : <strong></strong> ? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>

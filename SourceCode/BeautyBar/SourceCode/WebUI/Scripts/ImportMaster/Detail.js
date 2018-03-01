@@ -1,0 +1,1 @@
+﻿$("#ExchangeRate").number(true);

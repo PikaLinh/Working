@@ -1,0 +1,68 @@
+﻿@model List<CalendarOfEventModel>
+@{
+    Layout = "~/Views/Shared/_DisplayLayout.cshtml";
+}
+<div class="gdlr-item gdlr-content-item">
+    <p style="text-align: center;"><span style="font-size: 18pt;"><strong><span style="color: #000000;">@ViewBag.Title</span></strong></span></p>
+</div>
+
+<div class="gdlr-session-item">
+    @foreach (var c in Model)
+    {
+        <div class="gdlr-session-item-content-wrapper">
+            <div class="gdlr-session-item-divider"></div>
+            <div class="gdlr-session-item-content-info">
+                <div class="gdlr-session-info">
+                    <div class="session-info session-time">
+                        <i class="fa fa-calendar"></i>@Html.DisplayFor(model => c.StartDate)
+                    </div>
+                    <div class="session-info session-time">
+                        <i class="fa fa-clock-o"></i>@Html.DisplayFor(model => c.StartTime) - @Html.DisplayFor(model => c.EndTime)
+                    </div>
+                    <div class="session-info session-location">
+                        <i class="fa fa-location-arrow"></i>@Html.DisplayFor(model => c.LocationModel.LocationName)
+                    </div>
+                    @if (c.TrainerModel != null && c.TrainerModel.Count > 0)
+                    {
+                        <div class="session-info session-speaker">
+                            <div class="session-speaker-inner">
+                                <i class="fa fa-user"></i>
+                                <div class="session-speaker-list">
+                                    @foreach (var trainer in c.TrainerModel)
+                                    {
+                                        <div class="session-speaker-list-item">
+                                            <a target="_blank" href="@trainer.Url">@trainer.TrainerName</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="gdlr-session-item-content">
+                <h5 style="margin-top: 5px" class="gdlr-session-item-title">
+                    <a href="@c.CourseModel.Url" target="_blank">@c.EventCode – @c.CourseModel.CourseName</a>
+                </h5>
+                <div style="margin-bottom: 5px" class="gdlr-session-item-excerpt">
+                    @c.CourseModel.Description
+                    <div class="clear"></div>
+                    <a href="@c.CourseModel.Url" target="_blank" class="gdlr-info-font excerpt-read-more">Read More</a>
+                </div>
+                <div class="gdlr-session-info">
+                    <div class="session-info session-document">
+                        @{
+                            string url = string.Format("/khoa-hoc-cong-dong/{0}/{1}.html", c.CourseModel.CategoryModel.SEOCategoryName, c.EventId);
+                        }
+                        <a href="@url" target="_blank">
+                            <i class="fa fa-key"></i>ĐĂNG KÝ NGAY
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div><div class="clear"></div>
+        </div>
+    }
+</div>

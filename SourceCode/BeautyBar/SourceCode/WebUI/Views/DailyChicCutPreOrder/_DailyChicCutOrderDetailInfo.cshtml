@@ -1,0 +1,39 @@
+﻿@model List<Daily_ChicCut_Pre_OrderDetailViewModel>
+<form id="frmList" action="Save" method="post">
+    <input type="hidden" name="MinSumPriceOfOrderDetail" id="MinViewBagSumPrice" />
+    <input type="hidden" name="MaxSumPriceOfOrderDetail" id="MaxViewBagSumPrice" />
+    <input type="hidden" name="TotalBillDiscount" id="ViewBagTotalBillDiscount" value="0" />
+    <input type="hidden" name="SumCOGSOfOrderDetail" id="ViewBagCOGSOfOrder" value="0" />
+
+    <input type="hidden" name="MinTotal" id="MinViewBagTotal" />
+    <input type="hidden" name="MaxTotal" id="MaxViewBagTotal" />
+    <div class="form-horizontal">
+        <table id="tblOrderDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px; text-align:center;">Dịch vụ</th>
+                    <th style="width:110px">Giá</th>
+                    <th style="width:100px">Số lượng</th>
+                    <th style="width:130px">TT</th>
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody style="max-height:200px; overflow:scroll">
+                @Html.Partial("_DailyChicCutOrderDetailInnerInfo", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-right" colspan="4"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" colspan="2" id="SumPrice">
+                        0
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+
+<script>
+
+</script>

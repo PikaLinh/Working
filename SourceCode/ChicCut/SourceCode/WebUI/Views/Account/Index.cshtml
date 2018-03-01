@@ -1,0 +1,80 @@
+﻿@model IEnumerable<EntityModels.AccountModel>
+
+@{
+    ViewBag.Title = "Danh sách người dùng";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerModel.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerModel.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RolesModel.RolesName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Actived)
+            </th>
+            <th class="actions text-center" style="width:220px;">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerModel.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerModel.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RolesModel.RolesName)
+                </td>
+                <td class="text-center">
+                    @if (item.Actived == true)
+                    {
+                        <i class="glyphicon glyphicon-ok"></i>
+                    }
+                    else
+                    {
+                        <i class="glyphicon glyphicon-remove"></i>
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.UserId }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.UserId }, new { @class = "btn btn-default btn-warning btn-sm" })
+                    @Html.ActionLink("Đổi mật khẩu", "ChangePassword", new { id = item.UserId }, new { @class = "btn btn-default btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

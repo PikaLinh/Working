@@ -1,0 +1,112 @@
+﻿#Notifi {
+    padding: 10px 13px;
+}
+
+#notificationContainer {
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 37px;
+    margin-left: -179px;
+    width: 30%;
+    z-index: 99999;
+    display: none;
+    min-width: 380px;
+}
+
+    #notificationContainer:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        color: transparent;
+        border: 10px solid black;
+        border-color: transparent transparent white;
+        margin-top: -20px;
+        margin-left: 190px;
+    }
+
+#notificationTitle {
+    z-index: 1000;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #ffffff;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+}
+
+#notificationsBody {
+    padding: 10px 0px 0px 10px !important;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+#notificationFooter {
+    background-color: #e9eaed;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+    border-top: 1px solid #dddddd;
+}
+
+#notification_count {
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 64px;
+    border-radius: 13px;
+    position: absolute;
+    margin-top: -11px;
+    font-size: 11px;
+    display: none;
+}
+
+.ulNotifi {
+    list-style-type: none;
+    margin: 0;
+    padding:0px;
+}
+.ulNotifi li a:hover{text-decoration:none;}
+    .ulNotifi .containerNotifi .name {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .ulNotifi .containerNotifi .message {
+        color: #917c78;
+        font-size: 12px;
+        line-height: 22px;
+        padding: 0px 23px;
+        width: 100%;
+    }
+
+    .ulNotifi .containerNotifi .date {
+        color: #917c78;
+        font-size: 11px;
+        float: right;
+        margin-right:5px;
+        font-style: italic;
+    }
+
+    .ulNotifi .containerNotifi {
+        width: 100%;
+    }
+    .ulNotifi li {
+        min-height: 30px;
+    }
+        .ulNotifi li:hover {
+            background: #eee;
+        }
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px ) {
+    #notificationContainer {
+        margin-left: -0px;
+        min-width: 350px;
+    }
+}

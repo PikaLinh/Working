@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProductInfoViewModel>
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="dataTable1">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="width:10%">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specifications)
+            </th>
+            <th>
+                Tồn hệ thống
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            int i = 0;
+            foreach (var item in @Model)
+            {
+                i++;
+                <tr>
+                    <td class="text-center">
+                        @i
+                    </td>
+                    <td style="width: 40%;">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Specifications)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Inventory)
+                    </td>
+                </tr>
+            };
+        }
+    </tbody>
+</table>
+

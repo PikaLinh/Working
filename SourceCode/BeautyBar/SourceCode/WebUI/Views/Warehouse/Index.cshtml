@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EntityModels.WarehouseModel>
+
+@{
+    ViewBag.Title = "Danh sách kho";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-hover dataTable table-bordered table-striped no-footer" >
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarehouseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistrictId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProvinceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Actived)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model) {
+            i++;
+    <tr>
+        <td class="text-center">
+            @i
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreModel.StoreName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @item.DistrictModel.Appellation @item.DistrictModel.DistrictName
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProvinceModel.ProvinceName)
+        </td>
+                <td class="text-center">
+                    @if (item.Actived == true)
+                    {
+                        <i class="glyphicon glyphicon-ok"></i>
+                    }
+                    else
+                    {
+                        <i class="glyphicon glyphicon-remove"></i>
+                    }
+                </td>
+        <td>
+            @Html.ActionLink("Xem", "Details", new { id = item.WarehouseId }, new { @class="btn btn-default col-sm"})
+            @Html.ActionLink("Sửa", "Edit", new { id = item.WarehouseId }, new { @class="btn btn-warning col-sm"})
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

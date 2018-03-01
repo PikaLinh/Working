@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ViewModels.BeautyBar.TreatmentDetailViewModel>
+
+<table class="table table-bordered table-striped table-hover no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="width:5%">
+                STT
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TreatmentCode)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ServiceQty)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ServiceQtyIsUsed)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.CashierDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            foreach (var item in @Model)
+            {
+                i++;
+                <tr>
+                    <td class="text-center">
+                        @i
+                        <input type="hidden" id="TreatmentId" name="TreatmentId" value="@item.TreatmentId"></td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.TreatmentCode)
+                    </td>
+                    <td class="text-left">
+                        @Html.DisplayFor(modelItem => item.ServiceName)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.ServiceQty)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.ServiceQtyIsUsed)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.CashierDate)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

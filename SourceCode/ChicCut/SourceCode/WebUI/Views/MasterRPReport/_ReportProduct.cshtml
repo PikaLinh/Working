@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ReportCategory1ViewModel>
+<div class="panel panel-default"  style="overflow-y:auto; height:500px">
+    <div class="panel-title text-center">SẢN PHẨM</div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                <th>STT</th>
+                <th>Sản phẩm</th>
+                <th>@Html.DisplayNameFor(model => model.EndInventoryQty)</th>
+                <th>@Html.DisplayNameFor(model => model.TotalCogs)</th>
+                </tr>
+            <tbody>
+                @{int i = 1;}
+                @foreach (var item in Model)
+                {
+               
+                    <tr>
+                <td class="text-center">@i</td>
+                <td class="text-Left">@item.CategoryName</td>
+                <td class="text-right">@String.Format("{0:n0}",@item.EndInventoryQty)</td>
+                <td class="text-right">@String.Format("{0:n0}",@item.TotalCogs)</td>
+                <td class="text-center">
+                    </tr>
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

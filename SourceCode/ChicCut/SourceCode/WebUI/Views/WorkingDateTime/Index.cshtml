@@ -1,0 +1,197 @@
+﻿@model List<Daily_ChicCut_WorkingDateModel>
+@{
+    ViewBag.Title = "Quản lý ngày làm việc";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Quản lý ngày làm việc</h4></div>
+</div>
+<hr class="custom">
+<form id="formCalendar">
+    <input type="hidden" value="@ViewBag.DayOff" id="DayOff" />
+    @*<div class="row">
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                Tháng:
+                <input type="number" id="month" name="month" class="form-control" />
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-12">
+                Năm:
+                <input type="number" id="year" name="year" class="form-control" />
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a id="btnCalendar" class="btn btn-warning col-sm">Xem lịch</a>
+            </div>
+        </div>*@
+    @*<hr class="custom">*@
+    <br />
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+            <div id="calendar"></div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+    </div>
+    <br />
+</form>
+
+@*Modal thiết lập ngày nghỉ*@
+<!-- Modal -->
+<div class="modal fade" id="offModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thiết lập ngày nghỉ</h4>
+            </div>
+            <div class="modal-body">
+                <p>Nhấn nút "Thêm" để thiết lập ngày nghỉ.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="offYes">Thêm</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal xóa ngày nghỉ*@
+<!-- Modal -->
+<div class="modal fade" id="onModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Xóa ngày nghỉ</h4>
+            </div>
+            <div class="modal-body">
+                <p>Nhấn nút "Xóa" để xóa ngày nghỉ.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="onYes">Xóa</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>*@
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/fullcalendar.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            //Lấy dữ liệu ngày nghỉ trong DB
+            $.ajax({
+                type: "POST",
+                url: "/WorkingDateTime/GetDatesArray",
+                data: '',
+                success: function (data) {
+                    console.log(data);
+                    $("#calendar").datepicker({
+                        inline: true,
+                        firstDay: 1,
+                        showOtherMonths: true,
+                        dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                        changeMonth: true,
+                        changeYear: true,
+                        //Disable từ ngày hiện tại trở đi
+                        minDate: new Date(),
+                        beforeShow: function (dateText) {
+                            $(this).data('preferred-day', ($(this).datepicker('getDate') || new Date()).getDate());
+                        },
+                        beforeShowDay: function (date) {
+                            //Lấy ngày trong datepicker để kiểm tra ngày nghỉ
+                            var dmy = ('0' + (date.getDate())).slice(-2) + "/" + ('0' + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear();
+                            //Không có ngày nghỉ trong DB => không làm gì
+                            if ($.inArray(dmy, data) == -1) {
+                                return [true, ""];
+                            }
+                                //Có ngày nghỉ trong DB => tô đỏ
+                            else {
+                                return [true, "selected", "Ngày nghỉ"];
+                            }
+                        },
+                        //dateFormat: 'dd/mm/yy' ,
+                        onSelect: function (dateText, inst) {
+                            //Format lại ngày tháng năm cho phù hợp với type trong DB để so sánh
+                            var getDate = formatDate(dateText);
+                            //Là ngày nghỉ => hiển thị modal xóa ngày nghỉ
+                            if ($.inArray(getDate, data) > -1) {
+
+                                $("#onModal").modal("show");
+                            }
+                                //Thêm ngày nghỉ => hiển thị modal thêm ngày nghỉ
+                            else {
+                                $("#offModal").modal("show");
+                            }
+                            //Xử lý button thêm ngày nghỉ
+                            $("#offYes").click(function () {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/WorkingDateTime/Create",
+                                    data: {
+                                        DayOff: dateText
+                                    },
+                                    success: function (result) {
+                                        window.location.href = "/WorkingDateTime";
+                                    }
+                                });
+                            });
+                            //Xử lý button xóa ngày nghỉ
+                            $("#onYes").click(function () {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/WorkingDateTime/Delete",
+                                    data: {
+                                        DayOn: dateText
+                                    },
+                                    success: function (result) {
+                                        window.location.href = "/WorkingDateTime";
+                                    }
+                                });
+                            });
+                        },
+                        //Khi thay đổi tháng, năm thì cập nhật lại event beforeShowDay
+                        onChangeMonthYear: function (year, month, inst) {
+                            // Prevent forbidden dates, like 2/31/2012:
+                            var $t = $(this);
+                            var day = $t.data('preferred-day') || new Date().getDate();
+                            var newDate = new Date(month + '/' + day + '/' + year);
+                            while (day > 28) {
+                                if (newDate.getDate() == day && newDate.getMonth() + 1 == month && newDate.getFullYear() == year) {
+                                    break;
+                                } else {
+                                    day -= 1;
+                                    newDate = new Date(month + '/' + day + '/' + year);
+                                }
+                            }
+                            $t.datepicker('setDate', newDate);
+                        }
+                    });
+                },
+                dataType: "json",
+                traditional: true
+            });
+            //$('#calendar').datepicker('refresh');
+
+        })
+
+        //Format ngày tháng năm
+        function formatDate(input) {
+            var datePart = input.match(/\d+/g),
+            year = datePart[2],
+            month = datePart[0],
+            day = datePart[1];
+            return day + '/' + month + '/' + year;
+        }
+
+       
+    </script>
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ReportInforViewModel>
+
+<table class="table table-bordered table-striped table-hover no-footer" >
+    <thead>
+        <tr class="warning">
+        <th class="text-center" style="width:10%">
+                STT
+        </th>
+        <th  class="text-center">
+            @Html.DisplayNameFor(model => model.ViewTime)
+        </th>
+        <th class="text-center" >
+            Tổng thu(1)
+        </th>
+        <th class="text-center">
+            Tổng chi(2)
+        </th>
+        <th class="text-center">
+            Tổng cộng (1) - (2)
+        </th>
+    </tr>
+</thead>
+ <tbody>
+     @if (Model != null && Model.Count() > 0)
+     {
+         int i = 0;
+         decimal TongThu = 0, TongChi = 0;
+         foreach (var item in @Model) 
+         {
+             i++;
+             TongThu += item.TotalRevenue.Value;
+             TongChi += item.TotalExpenditure.Value;
+             <tr>
+                <td class="text-center">
+                   @i
+                    <input type="hidden" name="CheckHasList" value="true" />
+                </td>
+                <td  class="text-center">
+                    @Html.DisplayFor(modelItem => item.ViewTime)
+                    <input type="hidden" name="ViewTime_@i" class="ViewTime" data-row="@i" value="@item.ViewTime" />
+                </td>
+                 <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalRevenue)
+                     <input type="hidden" name="TotalRevenue_@i" class="TotalRevenue" data-row="@i" value="@item.TotalRevenue" />
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalExpenditure)
+                    <input type="hidden" name="TotalExpenditure_@i" class="TotalExpenditure" data-row="@i" value="@item.TotalExpenditure" />
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalDifference)
+                </td>
+            </tr>
+        }
+        <tr style="background-color: #b0f0ec;">
+            <td colspan="2" class="text-center">Tổng cộng</td>
+            <td class="text-right"> @TongThu.ToString("n0") </td>
+            <td class="text-right"> @TongChi.ToString("n0") </td>
+            <td class="text-right"> @string.Format("{0:n0}",(TongThu - TongChi))</td>
+        </tr>
+     }
+      else
+        {
+          <tr>
+              <td colspan="8" class="text-center color-red">
+               Không có kết quả cho điều kiện tìm kiếm này..
+                  <input type="hidden" name="CheckHasList" value="false" />
+              </td>
+           </tr>
+        }
+ </tbody>
+
+</table>

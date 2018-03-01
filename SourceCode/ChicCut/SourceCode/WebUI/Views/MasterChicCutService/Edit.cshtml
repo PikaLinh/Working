@@ -1,0 +1,65 @@
+﻿@model Master_ChicCut_ServiceModel
+@{
+    ViewBag.Title = "Sửa thông tin dịch vụ";
+}
+<div id="tabs">
+    <ul id="nav-tab-list" class="nav nav-tabs">
+        <li id="tab-1">
+            <a href="#pane-1" data-toggle="tab">Thông tin dịch vụ</a>
+        </li>
+        <li id="tab-2">
+            <a href="#pane-2" data-toggle="tab">Định lượng nguyên liệu</a>
+        </li>
+    </ul>
+    <input type="hidden" id="num" name="num" />
+    <!-- Tab Pane - Contents -->
+    <div id="tab-content" class="tab-content">
+        <div id="pane-1" class="tab-pane">
+            <div class=" control-list">
+                <div id="divCustomer" class="control-group">
+                    @Html.Partial("_EditPartital", Model)
+                </div>
+            </div>
+        </div>
+        <div id="pane-2" class="tab-pane">
+            <div class=" control-list">
+                <div id="divSuplier" class="control-group">
+                    @Html.Partial("_QuantificationPartital", (List<Master_ChicCut_QuantificationMasterModel>)ViewBag.QuantificationList)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!--Star ModelPopup Chi tiết định mức-->
+<div id="divPopupQuantification" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center" style="font-size:28px">
+                    Chi tiết định lượng
+                </h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center" id="contentQuantification">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-info" id="btnSaveAddNewQuantification">Lưu</a>
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Huỷ
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/MasterChicCutService/Share.js"></script>
+    <script src="~/Scripts/MasterChicCutService/Edit.js"></script>
+
+}

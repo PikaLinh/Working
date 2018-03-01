@@ -1,0 +1,56 @@
+﻿@model EntityModels.SteelMarkModel
+
+@{
+    ViewBag.Title = "Cập nhật";
+}
+
+<h2>Cập nhật</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.SteelMarkId)
+    <fieldset>
+        <div class="row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Code)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Code, new { @class = " form-control" })
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Name, new { @class = " form-control" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="row">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Actived)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Actived)
+                @Html.ValidationMessageFor(model => model.Actived)
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+                <input type="submit" value="Lưu" class="btn btn-default custom-button btn-warning minw100" />
+            </p>
+        </div>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

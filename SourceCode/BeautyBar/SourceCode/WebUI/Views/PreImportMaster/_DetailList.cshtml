@@ -1,0 +1,114 @@
+﻿@model List<PreImportDetailModel>
+<form id="frmList" action="Save" method="post">
+     <input type="hidden"   name="TotalQty" id="ViewBagTotalQty"/>
+     <input type="hidden"   name="TotalPrice" id="ViewBagTotalPrice"/>
+    <input type="hidden"   name="TotalShippingWeight" id="ViewBagTotalShippingWeight"/>
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px">Sản phẩm</th>
+                    <th style="width:110px">Giá</th>
+                    <th style="width:110px">Phí vận chuyển</th>
+                    <th style="width:100px">Số lượng</th>
+                    <th style="width:130px">Thành tiền</th>
+                    <th style="width:130px">Trọng lượng</th>
+                    <th style="width:130px">Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                @{
+                    int i = 0;
+                   // decimal TotalQty = 0, TotalPrice = 0, TotalShipingWeight = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    //TotalQty += item.Qty.Value;
+                    //TotalPrice += item.UnitPrice.Value;
+                    //TotalShipingWeight += item.UnitShippingWeight.Value;
+                    string Price = item.Price.HasValue ? item.Price.Value.ToString("n0") : "0";
+                    string Qty = item.Qty.HasValue ? item.Qty.Value.ToString("n0") : "0";
+                    string UnitPrice = item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("n0") : "0";
+                    string UnitShippingWeight = item.UnitShippingWeight.HasValue ? item.UnitShippingWeight.Value.ToString("n0") : "0";
+                    string ShippingFee = item.ShippingFee.HasValue ? item.ShippingFee.Value.ToString("n0") : "0";
+                    <tr>
+                        <td style="width: 40px" class="text-center">
+                            @i
+                        <td style="width: 100px">
+                           @*@Html.DisplayFor(m => item.ProductModel.ProductName)*@
+                            <a href="/Product/Details/@item.ProductId">@item.ProductModel.ProductName</a>
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @Price
+                        </td>
+                         <td style="width: 100px" class="text-right">
+                             @ShippingFee
+                        </td>
+                        <td style="width: 100px;" class="text-right">
+                           @Qty
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                            @UnitPrice
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @UnitShippingWeight
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @item.Note
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" id="TotalPrice" >
+                        <strong>@ViewBag.SumPrice.ToString("n0") </strong>
+                    </td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Giảm giá:</strong></td>
+                    <td class="text-right"  >
+                        <strong>@ViewBag.BillDiscount</strong>
+                    </td>
+                     <td></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>VAT(%):</strong></td> 
+                    <td class="text-right"  >
+                        <strong>@ViewBag.BillVAT</strong>
+                    </td>
+                     <td></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng thành tiền:</strong></td> 
+                    <td class="text-right"  >
+                        <strong>@ViewBag.TotalPrice</strong>
+                    </td>
+                     <td></td>
+                </tr>
+                
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Số tiền trả NCC:</strong></td> 
+                    <td class="text-right"  >
+                         <strong>@ViewBag.GuestAmountPaid.ToString("n0")</strong>
+                    </td>
+                     <td></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="6"><strong>Số tiền còn lại:</strong></td> 
+                    <td class="text-right"  >
+                        <strong>@ViewBag.RemainingAmount.ToString("n0")</strong>
+                    </td>
+                     <td></td>
+                </tr>
+                
+            </tfoot>
+        </table>
+    </div>
+</form>

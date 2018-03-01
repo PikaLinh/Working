@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Danh sách loại dịch vụ";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "ServiceCategory", FormMethod.Post, new { @id = "formload" }))
+{
+    @*<div class="row">
+        <div class="col-md-4 col-sm-4col-xs-12">
+            Tên loại dịch vụ:
+            <input type="text" id="ServiceName" name="ServiceName" class="form-control" />
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            Vị trí:
+            <input type="text" id="OrderBy" name="OrderBy" class="form-control" />
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            Trạng thái:
+            <select name="Actived" class="form-control">
+                <option value="true">
+                    Còn sử dụng
+                </option>
+                <option value="false">
+                    Không còn sử dụng
+                </option>
+            </select>
+        </div>
+    </div>
+    <hr class="custom">*@
+    @*<div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+        </div>
+    </div>*@
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+        <div class="col-md-6">
+            @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+        </div>
+    </div>
+
+    <hr class="custom">
+    <div class="row">
+        <div id="content" class="col-md-12 col-sm-12 col-xs-12">
+            @Html.Action("_SearchPartial")
+        </div>
+    </div>
+
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).on("click", "#btntim", function () {
+            $.ajax({
+                type: "POST",
+                url: "/ServiceCategory/_SearchPartial",
+                data: $("#formload").serialize(),
+                success: function (data) {
+                    $("#content").html(data);
+                    recreateDatatable();
+                    $(".dataTables_filter").prepend("<span class='search-icon'></span>");
+                    $(".dataTables_filter").append($(".has-btn-add-new").html());
+                    $(".has-btn-add-new").html("");
+                }
+            });
+        });
+
+    </script>
+}
+

@@ -1,0 +1,28 @@
+﻿@model NotificationViewModel
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.UserName)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.CreateDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                <div class="col-md-98 col-sm-8 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.CreateDate)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.Note, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+        <div class="col-md-10 col-sm-10 col-xs-12 text-left">
+            @Html.DisplayFor(m => m.Note)
+        </div>
+    </div>
+</div>

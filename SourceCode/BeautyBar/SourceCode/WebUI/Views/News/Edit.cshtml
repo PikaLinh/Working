@@ -1,0 +1,153 @@
+﻿@model Website_NewsModel
+@{
+    ViewBag.Title = "Cập nhật tin tức";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.NewsID)
+        @Html.HiddenFor(m => m.PostDate)
+        @Html.HiddenFor(m => m.SEOTitle)
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.Views)
+        @Html.HiddenFor(m => m.FileId)
+        @Html.HiddenFor(m => m.ImageUrl)
+        <div class="row">
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.CategoryId)
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.DropDownList("CategoryId", null, null, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.Title)
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.Title, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        @Html.ValidationMessageFor(model => model.Title)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.Description)
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "ckeditor" })
+                        <script type="text/javascript">
+                        CKEDITOR.replace("Description");
+                        </script>
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.Details)
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label">
+                        @Html.TextAreaFor(m => m.Details, new { @class = "ckeditor" })
+                        <script type="text/javascript">
+                        CKEDITOR.replace("Details");
+                        </script>
+                        @Html.ValidationMessageFor(model => model.Details)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isHot, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        @Html.CheckBox("isHot")
+                    </div>
+                </div>
+                <div class="form-group" id="divOrderIndex" style="display: none;">
+                    @Html.LabelFor(model => model.OrderIndex, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.OrderIndex, new { @type = "number", @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Visible, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                        <select name="Visible" class="form-control">
+                            @if (@Model.Visible == true)
+                            {
+                                <option selected value="true">Hiện thị</option>
+                                <option value="false">Ẩn</option>
+                            }
+                            else
+                            {
+                                <option value="true">Hiện thị</option>
+                                <option selected value="false">Ẩn</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageUrl, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        <input type="file" id="file" name="file" />
+                        @Html.ValidationMessageFor(model => model.ImageUrl)
+                        <br />
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <img src="@ViewBag.pathImage " style="width: 200px;" />
+                        }
+                        else
+                        {
+                            <img src="/Upload/Website_News/Thum/noimage.jpg" style="width: 200px;" />
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Actived, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                        <select name="Visible" class="form-control">
+                            @if (@Model.Actived == true)
+                            {
+                                <option selected value="true">Còn sử dụng</option>
+                                <option value="false">Không còn sử dụng</option>
+                            }
+                            else
+                            {
+                                <option value="true">Còn sử dụng</option>
+                                <option selected value="false">Không còn sử dụng</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-5 col-sm-offset-5">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-warning custom-button minw100" />
+        </div>
+    }
+</div>
+<script src="~/Scripts/News/Shared.js"></script>

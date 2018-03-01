@@ -1,0 +1,34 @@
+﻿@model EntityModels.SteelMarkModel
+
+@{
+    ViewBag.Title = "Xem chi tiết";
+}
+
+<h3> @ViewBag.Title</h3>
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">@Html.DisplayNameFor(model => model.Code)</label>
+        <span class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+            @Html.DisplayFor(model => model.Code)
+        </span>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">@Html.DisplayNameFor(model => model.Name)</label>
+        <span class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+            @Html.DisplayFor(model => model.Name)
+        </span>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-sm-3 col-xs-12 control-label">@Html.DisplayNameFor(model => model.Actived)</label>
+        <span class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+            @Html.DisplayFor(model => model.Actived)
+        </span>
+    </div>
+    <div class="form-group">
+        <span class="col-md-offset-2  col-sm-offset-3 col-md-10 col-sm-9 col-xs-12 control-label text-left">
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default btn-sm  custom-button minw100" })
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.SteelMarkId }, new { @class = "btn btn-default btn-sm  custom-button btn-warning minw100" })
+        </span>
+    </div>
+
+</div>

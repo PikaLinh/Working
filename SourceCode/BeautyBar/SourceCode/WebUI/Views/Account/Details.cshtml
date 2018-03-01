@@ -1,0 +1,99 @@
+﻿@model CustomerModel
+
+@{
+    ViewBag.Title = "Xem chi tiết";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.CustomerId)
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.FullName, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.FullName)
+                </div>
+                @Html.Label("roles","Nhóm người dùng", new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(model => model.AccountModel.First().RolesModel.RolesName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Gender, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                    <label>
+                        @Html.RadioButtonFor(m => m.Gender, true)
+                        Nam
+                    </label>
+                    <label>
+                        @Html.RadioButtonFor(m => m.Gender, false)
+                        Nữ
+                    </label>
+                    @Html.ValidationMessageFor(model => model.Gender)
+                </div>
+
+                @Html.LabelFor(model => model.AccountModel.First().UserName, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(model => model.AccountModel.First().UserName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BirthDay, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.BirthDay)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.Email)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                    @Html.DisplayFor(m => m.Phone)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AccountModel.First().Actived, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+                    @if (Model.AccountModel.First().Actived == true)
+                    {
+                        <i class="glyphicon glyphicon-ok"></i>
+                    }
+                    else
+                    {
+                        <i class="glyphicon glyphicon-remove"></i>
+                    }
+
+                </div>
+            </div>
+
+            <hr class="custom">
+            <div class="form-horizontal col-md-offset-2 col-sm-offset-3">                                
+                @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+                @Html.ActionLink("Sửa", "Edit", new { @id = Model.CustomerId}, new { @class = "btn btn-warning custom-button minw100" })
+            </div>
+        </div>
+
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

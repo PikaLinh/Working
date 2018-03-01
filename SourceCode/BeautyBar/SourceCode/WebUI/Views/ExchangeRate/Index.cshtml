@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EntityModels.ExchangeRateModel>
+
+@{
+    ViewBag.Title = "Danh sách tỷ giá";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExchangeRate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ExchangeDate)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrencyModel.CurrencyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExchangeRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExchangeDate)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.ExchangeRateId }, new { @class = "btn btn-default btn-sm" })
+                    @if (item.CurrencyId == 1)
+                    {
+                        <button class ="btn btn-default btn-warning btn-sm" disabled="disabled">Sửa</button>
+                    }
+                    else
+                    {
+                         @Html.ActionLink("Sửa", "Edit", new { id = item.ExchangeRateId }, new { @class = "btn btn-default btn-warning btn-sm" })    
+                    }
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

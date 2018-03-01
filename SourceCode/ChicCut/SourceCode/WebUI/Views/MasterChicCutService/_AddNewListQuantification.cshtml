@@ -1,0 +1,45 @@
+﻿@model Master_ChicCut_QuantificationMasterViewModel
+           @Html.HiddenFor(m => m.QuantificationMasterId)
+<div class="form-group">
+    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+        @Html.RequiredLabelFor(model => model.QuantificationName)
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+            <tbody>
+                <tr>
+                    <td class="dxic" style="width: 100%;">
+                        @Html.TextBoxFor(m => m.QuantificationName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                        @Html.ValidationMessageFor(model => model.QuantificationName)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<form id="frmListAddNewInner" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblQuantificationAddNewInner" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:200px" class="text-center">Sản phẩm</th>
+                    <th style="width:100px" class="text-center">Số lượng</th>
+                    <th style="width:50px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_AddNewListInnerQuantification",(List<Master_ChicCut_QuantificationDetailViewModel>)ViewBag.ListdetailInner )
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <button id="btnAddNewRowAddNewInner" type="button" class="btn btn-default" style="float:right">Thêm Sản phẩm định lượng</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+

@@ -1,0 +1,136 @@
+﻿@model Daily_ChicCut_Pre_OrderModel
+@using Constant
+<div class="row">
+    @using (Html.BeginForm("Save", null, FormMethod.Post, new { id = "frmHeader" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @*@Html.HiddenFor(m => m.OrderStatusId)*@
+        @Html.HiddenFor(m => m.FullName)
+        @Html.Hidden("IdCustomer")
+        @Html.Hidden("PreOrderId")
+        @Html.HiddenFor(m => m.Gender)
+        <input type="hidden" name="OrderCode" id="OrderCode" />
+        <div class=" col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group row">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.CustomerId)
+                        </div>
+                        @if (Model.OrderId == 0)
+                        {
+                            <div class="col-md-6 col-sm-6 col-xs-8 control-label text-left">
+                                <div id="divCustomerId">
+                                    <select name="CustomerId" class="form-control" style="width: 295px;"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4 control-label">
+                                <a class="btn btn-default custom-button btn-warning " id="btn-add-new-customer" title="Thêm mới khách hàng">Thêm</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-8 col-sm-8 col-xs-8 control-label text-left">
+                                <div id="divCustomerId">
+                                    <select name="CustomerId" class="form-control" style="width: 295px;"></select>
+                                </div>
+                            </div>
+                        }
+                       
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @if (Model.PreOrderId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            }
+                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <div class="radio">
+                              @if (@Model.Gender == true)
+                              {
+                                <label><input disabled type="radio" name="Gender" id="Nam" value="true" checked="checked">Nam</label>
+                                <label><input disabled type="radio" name="Gender" id="Nu" value="false">Nữ</label>
+                              }
+                              else
+                              {
+                                <label><input disabled type="radio" name="Gender" id="Nam" value="true">Nam</label>
+                                <label><input disabled type="radio" name="Gender" id="Nu" value="false" checked="checked">Nữ</label>
+                              }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.TextAreaFor(m => m.Note, new { @style = "width: 100%;" })
+                        </div>
+                    </div>
+                    @if (Model.PreOrderId == null || Model.PreOrderId == 0)
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OrderStatusId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @if (Model.PreOrderId == null || Model.PreOrderId == 0)
+                                {
+                                    <div class="radio">
+                                        <label><input type="radio" name="OrderStatusId" value="@EnumDaily_ChicCut_OrderStatus.DatTruoc" checked>Đặt trước</label>
+                                    </div>
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.OrderStatusId)
+                                }
+                            </div>
+                        </div>
+                    }
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AppointmentTime, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                <input type="datetime-local" name="AppointmentTime" id="AppointmentTime" value="@(Model.AppointmentTime.HasValue ? Model.AppointmentTime.Value.ToString("yyyy-MM-dd HH:mm:ss").Replace(' ', 'T') : DateTime.Now.ToString("yyyy-MM-dd HH:mm").Replace(' ', 'T'))" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                                @Html.ValidationMessageFor(model => model.AppointmentTime)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    $("select[name='CustomerId']").on("change", function (e) {
+        var CustomerId = e.target.value;
+        //console.log(e.target.textContent);
+        //console.log("CustomerId: " + CustomerId);
+        CustomerInfo(CustomerId);
+    });
+</script>
+

@@ -1,0 +1,82 @@
+﻿@{
+	ViewBag.Title = "Danh sách xuât nhập tồn";
+}
+<hr class="custom">
+<div class="row head">
+	<div class="col-md-5 col-sm-12 col-xs-12">
+		<h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+	</div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "InventoryMaster", FormMethod.Post, new { @id = "formload" }))
+{
+
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Kho:
+				@Html.DropDownList("WarehouseId", null, new { @class = "form-control" })
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Sản phẩm:
+				<input type="hidden" id="ProductName" name="ProductName">
+				<div id="divProductId" style="width: 220px">
+					<select name="ProductId" class="form-control" style="width: 220px;"></select>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Mã phiếu:
+				<input type="hidden" id="InventoryCode" name="InventoryCode">
+				<div id="divInventoryMasterId" style="width: 220px">
+					<select name="InventoryMasterId" class="form-control" style="width: 220px;"></select>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Loại:
+				<input type="hidden" id="InventoryTypeName" name="InventoryTypeName">
+				<div id="divInventoryTypeId" style="width: 220px">
+					<select name="InventoryTypeId" class="form-control" style="width: 220px;"></select>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<div class="form-group">
+			@Html.Partial("FilterDate");
+		</div>
+
+		<hr class="custom">
+		<div class="form-group">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<a id="btnSearch" class="btn btn-warning col-sm">Tìm</a>
+			</div>
+		</div>
+	</div>
+
+}
+<div class="row">
+	<div id="content" class="col-md-12 col-sm-12 col-xs-12">
+		@Html.Action("_SearchInventoryMaster")
+	</div>
+</div>
+
+@section scripts{
+	@Scripts.Render("~/bundles/jqueryval")
+	<script>
+		$(document).on("click", "#btnSearch", function () {
+			$.ajax({
+				type: "POST",
+				url: "/InventoryMaster/_SearchInventoryMaster",
+				data: $("#formload").serialize(),
+				success: function (data) {
+					$("#content").html(data);
+					recreateDatatable();
+					$(".dataTables_filter").prepend("<span class='search-icon'></span>");
+					$(".dataTables_filter").append($(".has-btn-add-new").html());
+					$(".has-btn-add-new").html("");
+				}
+			});
+		});
+	</script>
+	<script src="~/Scripts/InventoryMaster/Index.js"></script>
+}

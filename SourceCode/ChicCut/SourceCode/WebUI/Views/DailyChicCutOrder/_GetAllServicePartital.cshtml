@@ -1,0 +1,36 @@
+﻿@model List<Daily_ChicCut_OrderModel>
+@using Constant;
+@if (Model != null && Model.Count > 0)
+{
+    var LstDangPhucVu = Model.Where(p => p.OrderStatusId == EnumDaily_ChicCut_OrderStatus.DangPhucVu).ToList();
+    <ul class="row">
+        @if (LstDangPhucVu != null && LstDangPhucVu.Count > 0)
+        {
+            foreach (var item in LstDangPhucVu)
+            {
+                string[] cssColorArr = { "", "#BDB76B", "#00CED1" };
+                <li class="sbh-customer">
+                    <div>
+                        <a class="OrderId" data-id="@item.OrderId" style="background-color:@cssColorArr[item.OrderStatusId.Value]">@item.FullName</a>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+    var LstDangCho = Model.Where(p => p.OrderStatusId == EnumDaily_ChicCut_OrderStatus.DangCho).ToList();
+    <ul class="row">
+        @if (LstDangCho != null && LstDangCho.Count > 0)
+        {
+            foreach (var item in LstDangCho)
+            {
+                string[] cssColorArr = { "", "#BDB76B", "#00CED1" };
+                <li class="sbh-customer">
+                    <div>
+                        <a class="OrderId" data-id="@item.OrderId" style="background-color:@cssColorArr[item.OrderStatusId.Value]">@item.FullName</a>
+                    </div>
+                </li>
+            }
+        }
+    </ul>
+
+}

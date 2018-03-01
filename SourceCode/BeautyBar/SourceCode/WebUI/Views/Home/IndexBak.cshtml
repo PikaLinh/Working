@@ -1,0 +1,68 @@
+﻿@model CustomerModel
+
+@{
+    ViewBag.Title = "Lịch sử đặt đơn hàng";
+}
+<style>
+    .panel {
+        -webkit-box-shadow: 0 0px 0px rgb(255, 255, 255);
+        box-shadow: 0 0px 0px rgb(255, 255, 255);
+    }
+    .panel-default {
+        border-color: black;
+    }
+    .tooltip{
+        opacity: 100;
+        width: 550px;
+        left: -400px !important;
+    }
+</style>
+@if (ViewBag.currentAccount != null && ((AccountModel)ViewBag.currentAccount).RolesId == (int)Repository.RolesEnum.Admin)
+{
+    <div id="OrderSearch" class="row-fluid">
+        @Html.Action("_Search", "Order", null)
+    </div>
+}
+else
+{
+    <div id="Header" class="panel panel-default" style="margin-top: 5px;">
+        <div class="panel-body" style="padding: 5px 15px 0px 15px">
+            <div class="row-fluid">
+                <div class="row">
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.FullName, new { @class = "col-sm-3 col-md-2 control-label" })
+                        <div class="col-sm-9 col-md-10">
+                            <strong>
+                                @Html.DisplayFor(model => model.FullName)
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.Phone, new { @class = "col-sm-3 col-md-2 control-label" })
+                        <div class="col-sm-9 col-md-10">
+                            @Html.DisplayFor(model => model.Phone)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group">
+                        @Html.LabelFor(model => model.BirthDay, new { @class = "col-sm-3 col-md-2 control-label" })
+                        <div class="col-sm-9 col-md-10">
+                            @Html.DisplayFor(model => model.BirthDay)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div id="OrderList" class="row-fluid">
+
+    <center>Đang xây dựng</center>
+    @*@Html.Action("_List", "Order", new { isFirst = true})*@
+</div>
+@*<script src="/Scripts/Order/shared.js"></script>
+<script src="/Scripts/Home/Index.js"></script>*@
+

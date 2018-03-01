@@ -1,0 +1,82 @@
+﻿@model IEOtherMasterModel
+
+@{
+    ViewBag.Title = "Xem lại đơn đặt hàng";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Đơn đặt hàng</h4></div>
+        <div class="col-md-3 col-sm-6 col-xs-12"><h4>Mã đơn hàng: <span> @Html.DisplayFor(m => m.IEOtherMasterCode)</span></h4></div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+        </div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+            <div class=" col-md-6">
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                       
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.InventoryTypeId , new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.InventoryTypeModel.InventoryTypeName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WarehouseId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.WarehouseModel.WarehouseName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Note)
+                            </div>
+                        </div>
+                         
+            </div>
+        </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                         <div class="form-group">
+                            @Html.LabelFor(model => model.CustomerName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.CustomerName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SenderName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.SenderName)
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            @Html.LabelFor(model => model.ReceiverName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ReceiverName)
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+         @Html.Action("_DetailList", new { model = Model.IEOtherDetailModel.ToList(), InventoryTypeId = Model.InventoryTypeId , Money = Model.Money.HasValue? Model.Money: 0})
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/ImportMaster/Detail.js"></script>
+}

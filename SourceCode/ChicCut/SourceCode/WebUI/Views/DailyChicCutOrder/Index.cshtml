@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Danh sách đơn hàng";
+}
+<div class="row">
+    <div class="form-group form-horizontal text-center col-md-12">
+        <div class="form-group">
+            <div class="col-md-6  text-left">
+                <a class="btn btn-default OrderStatusId btn-custom btn-danger" data-id="0">Tất cả</a>
+                <a class="btn btn-default OrderStatusId btn-custom " data-id="1">Đang chờ</a>
+                <a class="btn btn-default OrderStatusId btn-custom " data-id="2">Đang phục vụ</a>
+            </div>
+            <div class="col-md-6  text-right">
+                <a class="btn btn-warning btn-custom " id="btnAddNewOrder">Thêm mới</a>
+            </div>
+        </div>
+        <div class="panel panel-default" style="min-height: 195px;">
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div id="contentAllService">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Star ModelPopup Thông tin đơn hàng-->
+    <div id="divPopupOrder" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width:100%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="StatusNow"></span>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container text-center" id="contentOrder">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div id="divMessengerPanel" class="text-left">
+                            <div class="alert alert-success" id="divMessenger">
+                                <button type="button" class="close" id="closedivMessenger">×</button>
+                                <span id="Messenger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-12 text-left">
+                            <a class="btn btn-default btn-danger pull-left btn-sm btn-xoa" data-toggle="modal" data-target="#confirm-delete" id="Calcel-OrderId">Huỷ dịch vụ này</a>
+                        </div>
+                        <div class="col-sm-10 col-xs-12 pull-right">
+                            <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                Đóng
+                            </button>
+                            <a class="btn action" style="background-color: #00CED1" id="serve-immediately">Phục vụ ngay</a>
+                            <a class="btn btn-primary action" id="pay">Thanh toán</a>
+                            <a class="btn btn-info" id="btnSaveOrder">Lưu <i class="glyphicon glyphicon-save"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End ModelPopup-->
+
+    <!--Star ModelPopup Huỷ dịch vụ-->    
+        <!--Alert_Popup_Delete-->
+        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Xác nhận huỷ dịch vụ</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn muốn xoá dịch vụ cho: <strong></strong> ? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-show-popup-order" data-dismiss="modal">Huỷ bỏ</button>
+                        <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End ModelPopup-->
+    <!--Star ModelPopup Thêm mới khách hàng-->
+    <div id="divPopup-add-new-customer" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width:100%">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1>Thông tin khách hàng</h1>
+                </div>
+                <div class="modal-body">
+                    <div class="container text-center" id="contentInfoCustomer">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span id="Mes-error-add-new-customer" class="color-red"></span>
+                        <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            Đóng
+                        </button>
+                        <a class="btn btn-info" id="btnSave-add-new-customer">Lưu <i class="glyphicon glyphicon-save"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End ModelPopup-->
+
+</div>
+@Html.Partial("~/Views/Shared/PrintTemplates/_InvoicePrint.cshtml")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Utils/DateFormat.js"></script>
+    <script src="~/Scripts/kendo.core.min.js"></script>
+    <script src="~/Scripts/Utils/common.js"></script>
+
+    <script src="~/Scripts/DailyChicCutOrder/Index.js"></script>
+    <script src="~/Scripts/DailyChicCutOrder/Shared.js"></script>
+}

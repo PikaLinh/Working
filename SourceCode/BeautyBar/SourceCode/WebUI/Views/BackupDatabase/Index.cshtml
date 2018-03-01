@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Sao lưu và khôi phục dữ liệu";
+}
+
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title </h4>
+        </div>
+    </div>
+    <hr class="custom">
+    <form action="/Backupdatabase/Backup" method="post" enctype="multipart/form-data">
+        <input type="submit" id="btnImport" value="Sao lưu" class="btn btn-warning custom-button btn-warning minw100" />
+        <span style="color: red;">@ViewBag.Import </span>
+        <br />
+    </form>
+    <br/>
+    <br/>
+    <form action="/Backupdatabase/Restore" method="post" enctype="multipart/form-data">
+        <label>Chọn File dữ liệu cần khôi phục: </label>
+        <br />
+        <input type="file" name="excelfile" class="btn btn-default custom-button btn-default minw100" />
+        <br />
+        <input type="submit" id="btnImport" value="Khôi phục" class="btn btn-warning custom-button btn-warning minw100" />
+        <span style="color: red;">@ViewBag.Import </span>
+        <br />
+    </form>
+</div>

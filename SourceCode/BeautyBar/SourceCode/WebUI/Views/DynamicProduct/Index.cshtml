@@ -1,0 +1,121 @@
+﻿@model ViewModels.ProductSearchViewModel
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+        <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+    </div>
+</div>
+<hr class="custom">
+
+@using (Html.BeginForm("Index", "DynamicProduct", FormMethod.Post, new { @id = "formload" }))
+{
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Mã sản phẩm:
+            <input type="text" id="ProductCode" name="ProductCode" class="form-control" placeholder="Nhập mã sản phẩm" />
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Tên sản phẩm:
+            <input type="text" id="ProductName" name="ProductName" class="form-control" placeholder="Nhập tên sản phẩm" />
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Danh mục:
+            @Html.DropDownList("CategoryId", null, null, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Quy cách:
+            <input type="text" id="Specifications" name="Specifications" class="form-control" placeholder="Nhập quy cách" />
+        </div>
+
+    </div>
+    <div class="row">
+        @*<div class="col-md-3 col-sm-3 col-xs-12">
+           Tông màu:
+            @Html.DropDownList("OriginOfProductId", null, "Tất cả", new { @class = "form-control" })
+        </div>*@
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Còn sử dụng:
+            <select name="Actived" class="form-control">
+                <option value="true">
+                    Còn sử dụng
+                </option>
+                <option value="false">
+                    Không còn sử dụng
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Loại sản phẩm:
+            <select name="ProductStatust" class="form-control">
+                <option value="0">
+                    Tất cả
+                </option>
+                <option value="1">
+                    Sản phẩm
+                </option>
+                <option value="2">
+                    Nguyên liệu
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Mã vạch:
+            <select name="isHasBarcode" class="form-control">
+                <option value="null">
+                    Tất cả
+                </option>
+                <option value="true">
+                    Có mã vạch
+                </option>
+                <option value="false">
+                    Chưa có mã vạch
+                </option>
+            </select>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Là sản phẩm:
+            <select name="isParentProduct" class="form-control">
+                <option value="null">
+                    Tất cả
+                </option>
+                <option value="true">
+                    Là sản phẩm cha
+                </option>
+                <option value="false">
+                    Là sản phẩm con
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <hr class="custom">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btnExport" class="btn btn-info col-sm">Export</a>
+            <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+        </div>
+    </div>
+    <div class="loading-modal"></div>
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+        <div class="col-md-6">
+            @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+        </div>
+    </div>
+
+    <hr class="custom">
+    <div id="content2">
+        <div id="Productcontent">
+            @*@Html.Action("_SearchPartial",Model)*@
+        </div>
+    </div>
+
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/DynamicProduct/Index.js"></script>
+}

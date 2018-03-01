@@ -1,0 +1,145 @@
+﻿@model List<PreImportDetailModel>
+<form id="frmList" action="SaveConfirm" method="post">
+     <input type="hidden"   name="TotalQty" id="ViewBagTotalQty" />
+     <input type="hidden"   name="TotalPrice" id="ViewBagTotalPrice" value="0"/>
+    <input type="hidden"   name="TotalShippingWeight" id="ViewBagTotalShippingWeight"/>
+     <input type="hidden"   name="SumPrice" id="ViewBagSumPrice"/>
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:5%" class="text-center">STT</th>
+                    <th style="width:20%">Sản phẩm</th>
+                    <th style="width:10%">Giá</th>
+                    <th style="width:10%">Phí vận chuyển</th>
+                    <th style="width:5%">Số lượng xác nhận</th>
+                    <th style="width:5%">Số lượng</th>
+                    <th style="width:10%">Thành tiền</th>
+                    <th style="width:20%">Trọng lượng</th>
+                    <th style="width:10%">Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0 , k = -1;
+                    decimal ShippingWeight;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    k++;
+                    string Qty = item.Qty.HasValue ? item.Qty.Value.ToString("n0") : "0";
+                    ShippingWeight = (item.UnitShippingWeight.HasValue ?  item.UnitShippingWeight.Value :  0) / item.Qty.Value;
+                    <tr>
+                        <td  class="text-center">
+                            @i
+                              <input type="hidden" name="detail[@k].ShippingWeight" class="detail-ShippingWeight" value="@ShippingWeight" >
+                        <td >
+                            <a href="/Product/Details/@item.ProductId">@item.ProductModel.ProductName</a>
+                             <input type="hidden" name="detail[@k].ProductId"  class="detail-ProductId form-control text-center" data-row="@k"  value="@item.ProductId">
+                        </td>
+
+                        <td class="text-right">
+                          <input type="text" name="detail[@k].Price" class="detail-Price form-control text-right" disabled  data-row="@k" value="@item.Price">
+                          <input type="hidden" name="detail[@k].Price"  class="detail-Price form-control text-center" data-row="@k"  value="@item.Price">
+                        </td>
+
+                        <td >
+                           <input type="text" name="detail[@k].ShippingFee" class="detail-ShippingFee form-control text-center" data-row="@k"  value="@item.ShippingFee">
+                        </td>
+
+                        <td >
+                           <input type="text" name="detail[@k].ConfirmQty" class="detail-ConfirmQty form-control text-center" data-row="@k"  value="0">
+                        </td>
+
+                        <td  class="text-right">
+                           @Qty
+                              <input type="hidden" name="detail[@k].Qty"  class="detail-Qty form-control text-center" data-row="@k"  value="@item.Qty">
+                        </td>
+
+                        <td class="text-right">
+                            <input type="hidden"  name="detail[@k].UnitPrice" class="detail-UnitPrice form-control text-right" data-row="@k" value="0">
+                            <input type="text" disabled  class="form-control text-right unit-price" name="detail[@k].UnitPrice" value="0" data-row="@k">
+                            <!--Giá vốn = giá + phí vận chuyển-->
+                            <input type="hidden"  name="detail[@k].UnitCOGS" class="detail-UnitCOGS form-control text-right" data-row="@k" value="0">
+                        </td>
+                        <td  class="text-right">
+                            <input type="text" disabled name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight form-control text-right" data-row="@k"  value="0">  
+                            <input type="hidden" name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight form-control text-right" data-row="@k"  value="0">
+                        </td>
+                        <td  class="text-right">
+                             @item.Note
+                        </td>
+                     
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                  <tr>
+                    <td class="text-right" colspan="7"><strong>Tổng cộng:</strong></td>
+                   <td class="text-right" id="SumPrice" >
+                       @* @ViewBag.SumPrice*@
+                       0
+                    </td>
+                  <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="7"><strong>Giảm giá:</strong></td>
+                    <td class="text-right" style="width:100px;">
+                        <div class="input-group">
+                            <input type="text" name="ManualDiscount" id="ManualDiscount" class="form-control text-right" value="0" />
+                            <span class=" input-group-addon">
+                                <select name="ManualDiscountType" style="border: 0px; background-color: #eee;">
+                                    <option value="CASH">$</option>
+                                    <option value="PERCENT" selected="selected">%</option>
+                                </select>
+                            </span>
+                        </div>
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                     <tr>
+                    <td class="text-right" colspan="7"><strong>VAT(%):</strong></td>
+                    <td class="text-right"  >
+                        <input type="text" name="VATValue" id="VATValue" class="form-control text-right" value="0" />
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                 <tr>
+                    <td class="text-right" colspan="7"><strong>Tổng cộng thành tiền:</strong></td>
+                    <td class="text-right" id="TotalPrice" >
+                        0
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                 <tr id="divGuestAmountPaid">
+                    <td class="text-right" colspan="7">
+                        <strong>Số tiền trả ngay:</strong>
+                    </td>
+                    <td class="text-right" >
+                        <input type="text"  class="form-control text-right" id="GuestAmountPaid" name="GuestAmountPaid" value="0"/>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                  <tr>
+                   <td class="text-right" colspan="7"><strong>Số tiền còn lại:</strong></td>
+                    <td class="text-right" id="RemainingAmount2">
+                        <span>0</span>
+                    </td>
+                    <td colspan="2"><input type="hidden"  class="form-control text-right" id="RemainingAmount" name="RemainingAmount"/></td>
+                </tr>
+                   @*<tr>
+                   <td class="text-right" colspan="7"><strong>Mở rộng:</strong></td>
+                    <td class="text-left" >
+                        <select name="CreateReceipt" class="form-control">
+                            <option value="1">Tự động tạo phiếu chi</option>
+                            <option value="0">Không tạo phiếu chi</option>
+                        </select>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>*@
+            </tfoot>
+        </table>
+    </div>
+</form>

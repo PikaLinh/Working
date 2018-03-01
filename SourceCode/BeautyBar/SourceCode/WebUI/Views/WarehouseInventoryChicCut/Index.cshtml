@@ -1,0 +1,126 @@
+﻿@model IEnumerable<WarehouseInventoryMasterViewModel>
+@{
+    ViewBag.Title = "Danh sách phiếu kiểm kho";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="datatableListWarehouse" style="width:100%">
+    <thead>
+        <tr class="warning">
+            <th style="width:2%">
+                STT
+            </th>
+            <th style="width:28%">
+                Kho
+            </th>
+            <th style="width:20%">
+                @Html.DisplayNameFor(model => model.WarehouseInventoryMasterCode)
+            </th>
+            <th style="width:10%">
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th style="width:10%">
+                @Html.DisplayNameFor(model => model.CreatedAccount)
+            </th>
+            <th class="text-center" style="width:5%">
+                @*@Html.DisplayNameFor(model => model.TotalQty)*@
+                S.Lượng Cập.nhật
+            </th>
+            <th class="actions text-center" style="width:25%">@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="width:2%">
+                    @i
+                </td>
+                <td class="text-left" style="width:28%">
+                    @Html.DisplayFor(modelItem => item.WarehouseName)
+                </td>
+                <td class="text-center" style="width:20%">
+                    @Html.DisplayFor(modelItem => item.WarehouseInventoryMasterCode)
+                </td>
+                <td class="text-center" style="width:10%">
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.CreatedAccount)
+                </td>
+                <td class="text-right" style="width:5%">
+                    @Html.DisplayFor(modelItem => item.TotalQty)
+                </td>
+                <td class="text-center" style="width:25%">
+                    <a href="/WarehouseInventoryChicCut/WarehouseInventoryProducts?id=@item.WarehouseInventoryMasterId" class="btn btn-default btn-sm btn-sm btn-details" data-id="@item.WarehouseInventoryMasterId">Xem</a>
+                    @if (item.CreatedIEOther == true || item.Actived == false || i != 1) // || i != 1 : các phiếu tạo cũ
+                    {
+                        <button class="btn btn-warning btn-sm" disabled>Tạo xuất nhập kho</button>
+                        <button class="btn btn-danger btn-sm" disabled>Huỷ</button>
+                    }
+                    else
+                    {
+                        <a class="btn btn-default btn-warning btn-sm bt-autoimex" data-id="@item.WarehouseInventoryMasterId" data-code="@item.WarehouseInventoryMasterCode" data-toggle="modal" data-target="#confirm-autoimex" title="Bù trừ kiểm kho khớp với hệ thống : Sẽ NK sản phẩm thừa & XK sản phẩm thiếu">Tạo xuất nhập kho</a>
+                        <a class="btn btn-default btn-danger btn-sm btn-xoa" data-id="@item.WarehouseInventoryMasterId" data-code="@item.WarehouseInventoryMasterCode" data-toggle="modal" data-target="#confirm-delete">Huỷ</a>
+                    }
+                    <input type="hidden" id="idDelete" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận xoá phiếu kiểm kho</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn xoá phiếu kiểm kho : <strong></strong>? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End_Popup_Delete-->
+
+<!--Start Alert_Popup_Autoimex-->
+<div class="modal fade" id="confirm-autoimex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Xác nhận Tạo xuất nhập kho</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn Tạo xuất nhập kho : <strong></strong>? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Alert_Popup_Autoimex-->
+<div class="loading-modal"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/WarehouseInventoryChicCut/Index.js"></script>
+    <script src="~/Scripts/plugins/form-master/jquery.form.js"></script>
+}

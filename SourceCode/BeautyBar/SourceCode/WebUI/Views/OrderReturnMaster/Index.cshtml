@@ -1,0 +1,136 @@
+﻿@model IEnumerable<OrderReturnMasterViewModel>
+
+@{
+	ViewBag.Title = "Danh sách khách hàng trả hàng";
+}
+<hr class="custom">
+<div class="row head">
+	<div class="col-md-3 col-sm-12 col-xs-12">
+		<h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+	</div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", null, FormMethod.Post, new { @id = "formload" }))
+{
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Tên khách hàng:
+				<input type="hidden" name="FullName" />
+				<div id="divCustomId">
+					<select name="CustomerId" class="form-control"></select>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Số điện thoại:
+				<input type="text" id="Phone" name="Phone" class="form-control" placeholder="Nhập số điện thoại" />
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Email:
+				<input type="text" id="Email" name="Email" class="form-control" placeholder="Nhập Email" />
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Mã đơn hàng:
+				<input type="hidden" name="OrderCode" />
+				<div id="divOrderId">
+					<select name="OrderId" class="form-control"></select>
+				</div>
+			</div>
+			<br />
+			<div class="form-group">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<label class="col-md-2 col-sm-2 col-xs-12 control-label">
+						Ngày
+					</label>
+					<label class="col-md-2 col-sm-2 col-xs-12 control-label">
+						Từ
+					</label>
+					<div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+						<table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+							<tbody>
+								<tr>
+									<td class="dxic" style="width: 100%;">
+
+										<input type="date" name="FromDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<label class="col-md-2 col-sm-2 col-xs-12 control-label">
+						đến
+					</label>
+					<div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+						<table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+							<tbody>
+								<tr>
+									<td class="dxic" style="width: 100%;">
+										<input type="date" name="ToDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<label class="col-md-3 col-sm-3 col-xs-12 control-label">
+						Tổng tiền
+					</label>
+					<label class="col-md-2 col-sm-2 col-xs-12 control-label">
+						Từ
+					</label>
+					<div class="col-md-2 col-sm-2 col-xs-12 control-label text-left">
+						<table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+							<tbody>
+								<tr>
+									<td class="dxic" style="width: 100%;">
+										<input type="number" name="FromTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<label class="col-md-2 col-sm-2 col-xs-12 control-label">
+						đến
+					</label>
+					<div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+						<table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+							<tbody>
+								<tr>
+									<td class="dxic" style="width: 100%;">
+										<input type="number" name="ToTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<hr class="custom">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					  <a id="btnSearch" class="btn btn-warning col-sm">Tìm</a>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+ <div class="loading-modal"></div>
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12" ></div>
+         <div class="col-md-6" >
+               @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+         </div>
+    </div>
+<hr class="custom">
+<div id="OrderReturnMastercontent">
+  @*  @Html.Action("_SearchOrderReturnMaster")*@
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+@*	<script src="~/Scripts/OrderMaster/Index.js"></script>*@
+    <script src="~/Scripts/OrderReturnMaster/Index.js"></script>
+}

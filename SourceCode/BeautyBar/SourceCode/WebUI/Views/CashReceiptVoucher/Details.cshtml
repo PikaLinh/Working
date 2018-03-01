@@ -1,0 +1,88 @@
+﻿@model AM_TransactionInfoViewModel
+@{
+    ViewBag.Title = "Chi tiết phiếu thu - chi tiền mặt";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm(null,null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StoreId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.StoreName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TransactionTypeCode, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.TransactionTypeName)
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            @Html.LabelFor(model => model.ContactItemTypeCode, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.ContactItemTypeName)
+                            </div>
+                        </div>
+                        <hr class="custom" />
+                        @if (!string.IsNullOrEmpty(Model.CustomerName))
+                        {
+                             <div class="form-group">
+                                @Html.LabelFor(model => model.CustomerId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                                <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                    @Html.DisplayFor(model => model.CustomerName)
+                                </div>
+                            </div>
+                        }
+                        else if (!string.IsNullOrEmpty(Model.SupplierName))
+                        {
+                             <div class="form-group">
+                                @Html.LabelFor(model => model.SupplierId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                                <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                    @Html.DisplayFor(model => model.SupplierName)
+                                </div>
+                            </div>
+                        }
+                        else if (!string.IsNullOrEmpty(Model.EmployeeName))
+                        {
+                             <div class="form-group">
+                                @Html.LabelFor(model => model.EmployeeId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                                <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                    @Html.DisplayFor(model => model.EmployeeName)
+                                </div>
+                            </div>
+                        }
+                       
+                     <div class="form-group">
+                            @Html.LabelFor(model => model.Amount, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.Amount)
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.Note)
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+        }
+        <div class="form-horizontal  text-right">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        </div>
+       
+    </div>
+
+</div>

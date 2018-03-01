@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Báo cáo doanh thu bán hàng";
+}
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+        <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+    </div>
+</div>
+<hr class="custom">
+
+<form action="/StockMovementSummary/ExportQ" method="post" id="frmExport">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                Cửa hàng:
+                @Html.DropDownList("StoreId",null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                Nhân viên thu ngân:
+                  @Html.DropDownList("CashierUserId", null, "-Tất cả-", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                Nhân viên (Thợ phụ):
+                @Html.DropDownList("StaffId", null, "-Tất cả-", new { @class = "form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-sm-4 col-xs-12">
+                Báo cáo theo :
+                    <select name="condition" class="form-control pull-right">
+                        <option value="d">Ngày</option>
+                        @*<option value="m">Tháng</option>
+                        <option value="q">Quý</option>*@
+                    </select>
+            </div>
+            <!--Start Ngày-->
+            <div id="divDay" class="DivToHide">
+                <div class="col-sm-4 col-xs-12">
+                    @{DateTime FromTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);}
+                    Từ ngày :
+                     <input type="date" name="FromDate" value="@FromTime.ToString("yyyy-MM-dd")" class="form-control" />
+                </div>
+
+                <div class="col-sm-4 col-xs-12">
+                    @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                    Đến ngày :
+                     <input type="date" name="ToDate" value="@ToTime" class="form-control" />
+                </div>
+            </div>
+            <!--End Ngày-->
+
+            <!--Start Quater-->
+            <div id="divQuater" class="DivToHide">
+                <div class="col-sm-2 col-xs-12">
+                    Từ Quý :
+                    @Html.DropDownList("FromQuater", null, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Năm :
+                    <input type="number" name="FromYearQuater" value="@DateTime.Now.Year" class="form-control" />
+                </div>
+
+                <div class="col-sm-2 col-xs-12">
+                    Đến Quý :
+                    @Html.DropDownList("ToQuater", null, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Năm :
+                    <input type="number" name="ToYearQuater" value="@DateTime.Now.Year" class="form-control" />
+                </div>
+            </div>
+            <!--End Quater-->
+
+            <!--Start Month-->
+            <div id="divMonth" class="DivToHide">
+                <div class="col-sm-2 col-xs-12">
+                    Từ Tháng :
+                    @Html.DropDownList("FromMonth", null, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Năm :
+                    <input type="number" name="FromYearMonth" value="@DateTime.Now.Year" class="form-control" />
+                </div>
+
+                <div class="col-sm-2 col-xs-12">
+                    Đến Tháng :
+                        @Html.DropDownList("ToMonth", null, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Năm :
+                    <input type="number" name="ToYearMonth" value="@DateTime.Now.Year" class="form-control" />
+                </div>
+            </div>
+            <!--End Month-->
+
+        </div>
+    </div>
+</form>
+
+<hr class="custom">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a id="btntim" class="btn btn-warning col-sm">Xem báo cáo</a>
+    </div>
+</div>
+<hr class="custom">
+<div id="contentGrossRevenueReport"></div>
+<hr class="custom">
+<div class="row text-center">
+    <div id="placeholder" class="demo-placeholder " style="width:1200px;height:500px;"></div>
+</div>
+@section scripts {
+    <script src="~/Scripts/GrossRevenueReport/Index.js"></script>
+    <script src="~/Scripts/FlotJs/jquery.flot.js"></script>
+    <script src="~/Scripts/FlotJs/jquery.flot.symbol.js"></script>
+    <script src="~/Scripts/FlotJs/jquery.flot.time.js"></script>
+    <script src="~/Scripts/FlotJs/jquery.flot.categories.js"></script>
+}
+

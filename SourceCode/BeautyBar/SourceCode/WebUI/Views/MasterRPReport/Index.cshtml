@@ -1,0 +1,44 @@
+﻿<div class="dashboard">
+    <div class="panel panel-default">
+        <div class="panel-title text-center">GIÁ TRỊ TỒN KHO THEO DANH MỤC SẢN PHẨM</div>
+        <div class="panel-body">
+          @Html.Action("_ReportCategory")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="divReportProductType"></div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12" >
+            <div class="divReportProduct"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on("change", 'input[type=radio][name=rdCategoryId]', function () {
+            $.ajax({
+                type: "POST",
+                url: "/MasterRPReport/_ReportProductType",
+                data: {
+                    rdCategoryId: $('input[type=radio][name=rdCategoryId]:checked').val(),
+                },
+                success: function (data) {
+                    $(".divReportProductType").html(data);
+                    $(".divReportProduct").html("");
+                }
+            });
+        });
+    $(document).on("change", 'input[type=radio][name=rdCategoryProductId]', function () {
+        $.ajax({
+                type: "POST",
+                url: "/MasterRPReport/_ReportProduct",
+                data: {
+                    rdCategoryId: $('input[type=radio][name=rdCategoryProductId]:checked').val(),
+                    rdCategoryParent: $('input[type=radio][name=rdCategoryId]:checked').val()
+                },
+                success: function (data) {
+                    $(".divReportProduct").html(data);
+                }
+            });
+        });
+</script>

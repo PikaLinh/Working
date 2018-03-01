@@ -1,0 +1,18 @@
+﻿@model List<Master_ChicCut_ServiceViewModel>
+<ul class="row">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var item in Model)
+        {
+            <li class="sbh-product">
+                <div>
+                    <a class="ServiceCategoryId" data-id="@item.ServiceCategoryId">@item.ServiceName</a>
+                    <i style="font-size: 13px;">@string.Format("{0:n0} - {1:n0}", item.MinPrice, item.MaxPrice) </i>
+                    <input type="hidden" name="Min_Price_Of_ServiceCategoryId_@item.ServiceCategoryId" value="@item.MinPrice" />
+                    <input type="hidden" name="Max_Price_Of_ServiceCategoryId_@item.ServiceCategoryId" value="@item.MaxPrice" />
+                </div>
+
+            </li>
+        }
+    }
+</ul>

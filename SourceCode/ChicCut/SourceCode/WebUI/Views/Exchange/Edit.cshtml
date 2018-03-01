@@ -1,0 +1,57 @@
+﻿@model EntityModels.ExchangeModel
+
+@{
+    ViewBag.Title = "Cập nhật";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.SteelFIId)
+    @Html.HiddenFor(model => model.SteelMarkId)
+    @Html.HiddenFor(model => model.UnitId)
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+        <div class="row">
+            <div class="editor-label col-md-2">
+                @Html.LabelFor(model => model.SteelMarkId)
+            </div>
+            <div class="editor-field col-md-2">
+                @Html.DisplayFor(model => Model.SteelMarkModel.Code)
+            </div>
+
+            <div class="editor-label col-md-2">
+                @Html.LabelFor(model => model.SteelFIId)
+            </div>
+            <div class="editor-field col-md-2">
+                @Html.DisplayFor(model => Model.SteelFIModel.Code)
+            </div>
+
+            <div class="editor-label col-md-2">
+                @Html.LabelFor(model => model.UnitId)
+            </div>
+            <div class="editor-field col-md-2">
+                @Html.DisplayFor(model => Model.UnitModel.UnitName)
+            </div>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Value)
+        </div>
+        <div class="editor-field">            
+            @Html.TextBoxFor(model => model.Value, new { @class = " form-control" })
+            @Html.ValidationMessageFor(model => model.Value)
+        </div>
+
+        <p style="margin-top:5px;">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-default custom-button btn-warning minw100" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

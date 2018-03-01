@@ -1,0 +1,183 @@
+﻿@model ViewModels.Booking.Daily_ChicCut_Pre_OrderViewModel
+@{
+    ViewBag.Title = "Đặt lịch cắt tóc - ChicCut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        <h2 class="text-center"><em><strong>ĐẶT LỊCH CẮT TÓC</strong></em></h2>
+        <br />
+        <form class="form-horizontal" id="booking">
+            <input type="hidden" name="CustomerId">
+            <p class="text-bold text-left">
+                Quý khách vui lòng cho biết thông tin
+                <span id="checking" style="display: none; margin-left: 10px">
+                    <span class="block-ui-message spinner">
+                        <i class="icon-spinner9 "></i>
+                    </span>
+                </span>
+                <span class="general-message" style="display: none;">
+                    <span class="error"></span>
+                </span>
+            </p>
+
+            <div class="customer-info-block">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input type="text" pattern="99999999999" name="mobile" maxlength="11" placeholder="Số điện thoại" id="mobile" class="form-control" min="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input type="text" name="customer_name" maxlength="50" placeholder="Họ và tên" id="customer_name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 text-left">
+                        <label>Giới tính: </label>
+                        <input type="radio" name="Gender" id="Nu" value="false" checked style="margin-left:5px"> Nữ
+                        <input type="radio" name="Gender" id="Nam" value="true" style="margin-left:10px"> Nam
+                    </div>
+                </div>
+
+                <div class="booking-service-info">
+                    <div class="row">
+                        <!-- <p class="col-xs-12 col-sm-12 text-bold">Chọn gói cắt:</p>
+                        <div id="productSetting" class="col-xs-12 col-sm-12  mb-10" style="padding: 0">
+
+
+                            <div class="col-xs-6">
+                              <button type="button" class="btn btn-default product-btn" value="1374">
+                                <span class="product-name">Combo BBMEN 12 bước</span><br>
+                                <span class="product-price">100.000 đ</span>
+                              </button>
+                            </div>
+
+
+                            <div class="col-xs-6">
+                              <button type="button" class="btn btn-default product-btn" value="7225">
+                                <span class="product-name">Cắt tóc nhanh</span><br>
+                                <span class="product-price">50.000 đ</span>
+                              </button>
+                            </div>
+
+                        </div> -->
+
+                        <div class="col-xs-12 mb-5">
+                            <div class="text-bold text-left time-label-title">Thời gian đặt lịch: </div> <div id="timeLabel" class="text-bold"></div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 mb-20 day-of-day-mobile">
+                            <div class="row">
+                                <div class="col-xs-12" id="groupDay">
+                                    <div class='select-day-active' id="today" value="today" data-id="@DateTime.Now.Date">
+                                        <div class="select-day-title">
+                                            @ViewBag.Today
+                                        </div>
+                                        <div class="select-day-body">
+                                            <div class="day-in-week">
+                                                @ViewBag.DayOfWeekToday
+                                            </div>
+                                            <div class="day">
+                                                @ViewBag.DayWithFormatToday
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='select-day' id="tomorrow" value="tomorrow" data-id="@DateTime.Now.Date.AddDays(1)">
+                                        <div class="select-day-title">
+                                            @ViewBag.Tomorrow
+                                        </div>
+                                        <div class="select-day-body">
+                                            <div class="day-in-week">
+                                                @ViewBag.DayOfWeekTomorrow
+                                            </div>
+                                            <div class="day">
+                                                @ViewBag.DayWithFormatTomorrow
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='select-day' id="afterTomorrow" value="afterTomorrow" data-id="@DateTime.Now.Date.AddDays(2)">
+                                        <div class="select-day-title">
+                                            @ViewBag.AfterTomorrow
+                                        </div>
+                                        <div class="select-day-body">
+                                            <div class="day-in-week">
+                                                @ViewBag.DayOfWeekAfterTomorrow
+                                            </div>
+                                            <div class="day">
+                                                @ViewBag.DayWithFormatAfterTomorrow
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+
+                        @*<div id="operatorSetting" class="col-xs-12 col-sm-12 mb-20">
+                                <span id="time-select" class="text-left"><b>Chọn Stylist (không bắt buộc):</b></span>
+                                <select style="width: 100%" id="operator" class="form-control" data-minimum-results-for-search="-1"></select>
+                            </div>
+                            <div id="operatorInfo" style='display: none' class="col-xs-12 col-sm-12 mb-20">
+                                <div id="operatorAvatar"></div>
+                                <div id="operatorContent">
+                                    <div id="operatorName"></div>
+                                    <div id="operatorTitle"></div>
+                                </div>
+                            </div>*@
+
+
+                        <div class="col-xs-12 mb-20 time-frame-mobile text-left">
+                            <span id="time-select"><b>Chọn khung giờ bắt đầu phục vụ:</b></span>
+                            <span class="bookingtime-message" style="display: none;">
+                                <span class="error"></span>
+                            </span>
+                            <div id="timeFrame"></div>
+                            <br />
+                        </div>
+
+                        <div class="col-xs-12 mb-20 time-frame-mobile text-left">
+                            <span id="service-select"><b>Chọn dịch vụ:</b></span>
+                            <div id="serviceNote">
+                                    <button type="button" class="btn time-frame mb-10 btn-service-default button" data-id="0"><div class="sNote">Cắt</div></button>
+                                        <button type="button" class="btn time-frame mb-10 btn-service-default button" data-id="1"><div class="sNote">Uốn</div></button>
+                                        <button type="button" class="btn time-frame mb-10 btn-service-default button" data-id="2"><div class="sNote">Duỗi</div></button>
+                                        <button type="button" class="btn time-frame mb-10 btn-service-default button" data-id="3"><div class="sNote">Nhuộm</div></button>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-xs-12 mb-20">
+                            <p class="tns-p1 text-left text-uppercase text-bold">Mỗi SĐT đặt chỉ dành cho 1 người</p>
+                            <p class="tns-p2 text-right">(*) Nếu đi nhiều người, quý khách vui lòng dùng SĐT khác để đặt thêm một lần nữa để được sắp xếp giữ chỗ!</p>
+                            <p class="tns-p2 text-right">(*) Vui lòng đến đúng giờ hẹn! Nếu quá hẹn 20 phút, mã đặt trước của bạn sẽ bị hủy. Có thể bạn sẽ phải đợi lâu hơn!</p>
+                            <textarea id="note" name="Note" class="form-control" placeholder="Ghi chú"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-xs-12 text-center">
+                        <button type="button" class="btn btn-black btn-block" id="ok" style="font-size: 22px; line-height: 40px" data-loading-text="ĐANG XỬ LÝ...">
+                            @*<i class="icon-calendar" style="margin-right: 10px"></i>*@
+                            <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                            <span> ĐẶT LỊCH GIỮ CHỖ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div id="divAlert"></div>
+</div>
+
+
+<script src="~/Scripts/Script.js"></script>
+

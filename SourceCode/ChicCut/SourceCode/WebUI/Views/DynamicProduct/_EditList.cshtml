@@ -1,0 +1,21 @@
+﻿@model List<PriceListViewModel>
+
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:110px">Cấp độ khách hàng</th>
+                    <th style="width:100px; text-align:center;">Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Action("_EditListInner", new { pricelist = (List<PriceListViewModel>)@Model, Count = @ViewBag.Count })
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+

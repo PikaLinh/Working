@@ -1,0 +1,40 @@
+﻿@model EntityModels.ExchangeModel
+
+@{
+    ViewBag.Title = "Xóa quy đổi";
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có chắc muốn xóa hệ số quy đổi này?</h3>
+<fieldset style="margin-bottom:10px;">
+    <table>
+        <tr>
+            <td style="width:100px;">@Html.DisplayNameFor(model => model.SteelMarkModel.Code)</td>
+            <td>@Html.DisplayFor(model => model.SteelMarkModel.Code)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.SteelFIModel.Code)</td>
+            <td>@Html.DisplayFor(model => model.SteelFIModel.Code)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.UnitModel.UnitName)</td>
+            <td>@Html.DisplayFor(model => model.UnitModel.UnitName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Value)</td>
+            <td>@Html.DisplayFor(model => model.Value)</td>
+        </tr>
+    </table>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(p => Model.SteelFIId)
+    @Html.HiddenFor(p => Model.SteelMarkId)
+    @Html.HiddenFor(p => Model.UnitId)
+    <p>
+                @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn  btn-default" }) |
+                <input type="submit" value="Xóa" class="btn btn-danger" />
+    </p>
+}

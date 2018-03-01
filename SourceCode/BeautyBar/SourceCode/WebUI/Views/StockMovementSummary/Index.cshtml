@@ -1,0 +1,180 @@
+﻿@model List<ProductInfoViewModel>
+@{
+    ViewBag.Title = "Báo cáo xuất nhập tồn";
+}
+
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+        <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+    </div>
+</div>
+<hr class="custom">
+<form action="/StockMovementSummary/ExportQ" method="post" id="frmExport">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                 <div class="control-label text-left col-md-6 col-sm-6 col-xs-12">
+                    Kho :
+                    <select name="WarehouseId" class="form-control pull-left">
+                        <option >Tất cả</option>
+                        <option value="1">37i Nguyễn Thức Đường, P An Lạc A, Q Bình Tân</option>
+                        <option value="6">Kho TK</option>
+                    </select>
+                </div>
+                <div class="control-label text-left col-md-6 col-sm-6 col-xs-12">
+                    Báo cáo theo :
+                    <select name="condition" class="form-control pull-right" >
+                        <option value="q">Quý</option>
+                        <option value="m">Tháng</option>
+                        <option value="d">Ngày</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <!--Start Ngày-->
+                <div id="divDay" class="DivToHide">
+                    @{DateTime FromTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);}
+                    <div class="col-sm-4 col-xs-12 control-label text-left">
+                        Từ ngày :
+                        <input type="date" name="FromDate" value="@FromTime.ToString("yyyy-MM-dd")" class="form-control" />
+                    </div>
+                    <div class="col-sm-4 col-xs-12 control-label text-left">
+                        Đến ngày :
+                        @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                        <input type="date" name="ToDate" value="@ToTime" class="form-control" />
+                    </div>
+                </div>
+                <!--End Ngày-->
+                <!--Start Quý-->
+                <div id="divQuater" class="DivToHide">
+                    <div class="col-sm-6 col-xs-12 ">
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Từ Quý :
+                            <input type="number" name="FromQuater" value="1" class="form-control" />
+                        </div>
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Năm :
+                            <input type="number" name="FromYearQuater" value="@DateTime.Now.Year" class="form-control" />
+                        </div>
+                    </div>
+                    @{
+                        int CurrentQuater;
+                        int CurrentMonth = DateTime.Now.Month;
+                        if (CurrentMonth <= 3)
+                        {
+                            CurrentQuater = 1;
+                        }
+                        else if (CurrentMonth <= 6)
+                        {
+                            CurrentQuater = 2;
+                        }
+                        else if (CurrentMonth <= 9)
+                        {
+                            CurrentQuater = 3;
+                        }
+                        else
+                        {
+                            CurrentQuater = 4;
+                        }
+                    }
+                    <div class="col-sm-6 col-xs-12 ">
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Đến Quý :
+                            <input type="number" name="ToQuater" value="@CurrentQuater" class="form-control" />
+                        </div>
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Năm :
+                            <input type="number" name="ToYearQuater" value="@DateTime.Now.Year" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <!--End Quý-->
+                <!--Start Tháng-->
+                <div id="divMonth" class="DivToHide">
+                    <div class="col-sm-6 col-xs-12 ">
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Từ Tháng :
+                            <input type="number" name="FromMonth" value="1" class="form-control" />
+                        </div>
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Năm :
+                            <input type="number" name="FromYearMonth" value="@DateTime.Now.Year" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 ">
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Đến Tháng :
+                            <input type="number" name="ToMonth" value="@DateTime.Now.Month" class="form-control" />
+                        </div>
+                        <div class="col-md-4 col-xs-12 control-label text-left">
+                            Năm :
+                            <input type="number" name="ToYearMonth" value="@DateTime.Now.Year" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <!--End Quý-->
+
+            </div>
+        </div>
+
+        <br />
+    </div>
+    <hr class="custom">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btnReportView" class="btn btn-warning col-sm">Xem báo cáo</a>
+            <button id="btnExport" class="btn btn-info col-sm">Export</button>
+        </div>
+    </div>
+</form>
+<hr class="custom">
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <label class="col-sm-8 col-md-8 col-xs-12 text-right ">
+		    Page Size :
+	    </label>
+        <div class="col-sm-4 col-md-4 col-xs-12 ">
+            <select name="PageSize" class="form-control ">
+                <option value="20">20</option>
+                 <option value="50">50</option>
+                 <option value="100">100</option>
+            </select>
+       </div>
+    </div>
+</div>
+<div id="content">
+    @* @Html.Partial("_PivotPartialViewQ", Model)*@
+</div>
+
+
+
+@section head{
+    <!--Gọi ở head trong _Layout-->
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid, Theme = "Metropolis" },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Chart },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.Chart },
+        new Script { ExtensionSuite = ExtensionSuite.Report },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+}
+
+@section scripts{
+    <script src="~/Scripts/StockMovementSummary/Index.js"></script>
+}

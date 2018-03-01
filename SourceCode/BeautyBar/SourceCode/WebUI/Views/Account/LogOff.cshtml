@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Thoát thành công!";
+    Layout = "~/Views/Shared/_LayoutWithNoCheck.cshtml";
+}
+<p style="text-align:center;">
+    Đăng xuất thành công! <br />
+    Cảm ơn Quý khách hàng đã sử dụng chương trình quản lý bán hàng được xây dựng và phát triển bởi <a href="http://isdcorp.vn" target="_blank"><strong>ISD Corp</strong></a>!.
+</p>
+
+<p style="text-align:center;">
+    @Html.ActionLink("Đăng nhập lại", "Login", "Account", null, new { @class = "btn btn-warning" })
+</p>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<OrderMasterInfoViewModel>
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+	<thead>
+		<tr class="warning">
+			<th class="text-center">
+				TT
+			</th>
+			<th class="text-center" style="width: 85px;">
+				Mã ĐH
+			</th>
+            <th class="text-center" style="width: 114px;">
+                Họ và tên khách hàng
+            </th>
+			<th class="text-center" style="width: 86px;">
+				@Html.DisplayNameFor(model => model.Phone)
+			</th>
+			<th class="text-center">
+				NV.Bán hàng
+			</th>
+            @*<th class="text-center" style="width: 103px;">
+                NV.Quản lý
+            </th>*@
+			<th class="text-center" style="width:140px;">
+				@Html.DisplayNameFor(model => model.CreatedDate)
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.TotalPrice)
+			</th>
+			<th class="actions text-center">@Resources.LanguageResource.Actions</th>
+	</thead>
+	<tbody>
+		@{ int i = ViewBag.RowIndex;}
+		@foreach (var item in Model)
+		{
+			i++;
+			<tr>
+				<td class="text-center">
+					@i
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.OrderCode)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FullName)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.SaleName)
+				</td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>*@
+				<td class="text-center">
+					@Html.DisplayFor(modelItem => item.CreatedDate)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.TotalPrice)
+				</td>
+				<td class="text-center" style="width: 190px;">
+					@Html.ActionLink("Xem", "Details", new { id = item.OrderId }, new { @class = "btn btn-default btn-sm" })
+					<a class="btn btn-default btn-warning btn-sm" href="/CustomerReport/Index/@item.OrderId">In</a>
+					<a class="btn btn-default btn-danger btn-sm btn-xoa" data-id="@item.OrderId" data-code="@item.OrderCode" data-toggle="modal" data-target="#confirm-delete">Huỷ</a>
+					<input type="hidden" id="idDelete" />
+				</td>
+			</tr>
+		}
+</table>
+
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">Xác nhận xoá đơn hàng</h4>
+			</div>
+			<div class="modal-body">
+				<p>Bạn muốn xoá đơn hàng : <strong></strong> ? </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+				<button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+			</div>
+		</div>
+	</div>
+</div>
+<input type="hidden" name="TotalRow" id="TotalRow" value="@ViewBag.TotalRow" />

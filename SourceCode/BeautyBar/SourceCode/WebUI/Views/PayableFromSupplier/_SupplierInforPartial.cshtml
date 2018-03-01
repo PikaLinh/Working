@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ReportSupInforViewModel>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <label>Tổng dư nợ đầu kỳ: @string.Format("{0:n0}", Model.Sum(p => p.SoDuNoDauKy))</label>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 text-left" >
+            <label>Tổng dư nợ đầu cuối kỳ: @string.Format("{0:n0}", Model.Sum(p => p.SoDuNoCuoiKy))</label>
+        </div>
+    </div>
+  
+</div>
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+	<thead>
+		<tr class="warning">
+			<th class="text-center">
+				TT
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.SupplierName)
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.Phone)
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th class="text-center">
+				@Html.DisplayNameFor(model => model.SoDuNoDauKy)
+			</th>
+            <th class="text-center">
+				@Html.DisplayNameFor(model => model.SoDuNoCuoiKy)
+			</th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+	</thead>
+	<tbody>
+		@{ int i = 0;}
+		@foreach (var item in Model)
+		{
+			i++;
+			<tr>
+				<td class="text-center">
+					@i
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.SupplierName)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td class="text-right">
+					@Html.DisplayFor(modelItem => item.SoDuNoDauKy)
+				</td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.SoDuNoCuoiKy)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-default" target="_blank" href="@string.Format("/ReportsOfPayablesAndReceivables/Index?Fromdate={0}&Todate={1}&Type={2}&SupplierId={3}&FullName={4}",
+                                                         ViewBag.FromDate == null ? "null": string.Format("{0:yyyy-MM-dd}", (DateTime)ViewBag.FromDate),
+                                                         ViewBag.ToDate == null ? "null" : string.Format("{0:yyyy-MM-dd}", (DateTime)ViewBag.ToDate),
+                                                         "NCC",
+                                                         item.SupplierId,
+                                                         item.SupplierName + "-" + item.Phone )">
+                        Xem chi tiết
+                    </a>
+                </td>
+			</tr>
+		}
+</table>
+<script>
+    ReInnitializeDatatable(".dataTable");
+</script>

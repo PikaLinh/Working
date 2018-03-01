@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WarehouseInventoryDetailViewModel>
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="datatableproduct">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="min-width: 10%">STT</th>
+            <th class="text-center" style="min-width: 20%">Mã phiếu kiểm kho </th>
+            <th>Kho </th>
+            <th>Tên sản phẩm</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualInventory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountDifference)
+            </th>
+            <th class="actions text-center" style="width:15%">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+     <tbody>
+@if (Model != null && Model.ToList().Count  > 0)
+    {
+             int i = 0;
+             foreach (var item in @Model) 
+             {
+                 i++;
+                 <tr>
+                    <td class="text-center">
+                       @i
+                    </td>
+                     <td style="min-width: 10%;">
+                        @Html.DisplayFor(modelItem => item.MasterCode)
+                    </td>
+                      <td style="min-width: 15%;">
+                        @Html.DisplayFor(modelItem => item.WarehouseName)
+                    </td>
+                    <td style="min-width: 15%;">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                     <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Inventory)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ActualInventory)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.AmountDifference)
+                    </td>
+                
+                     <td class="text-center" style="min-width:15%">
+                        @if (ViewBag.isLast == 1)
+                        {
+                            @*if (@item.TonTrongDatabase != item.Inventory)
+                            {
+                                <a class = "btn btn-danger btn-sm btn-xoa"  data-id ="@item.WarehouseInventoryDetailId" data-name="@item.ProductName" data-row="@item.WarehouseInventoryMasterId"  data-toggle="modal" data-target="#confirm-delete-product" >Xoá</a>
+                                <a class = "btn btn-info btn-sm btn-update"  data-id ="@item.WarehouseInventoryDetailId" data-tontrongdatabase="@item.TonTrongDatabase" data-row="@item.WarehouseInventoryMasterId">Cập nhật</a>
+                            }
+                            else
+                            {
+                                <a class = "btn btn-danger btn-sm btn-xoa"  data-id ="@item.WarehouseInventoryDetailId" data-name="@item.ProductName" data-row="@item.WarehouseInventoryMasterId"  data-toggle="modal" data-target="#confirm-delete-product" >Xoá</a>
+                            }*@
+                            <a class="btn btn-danger btn-sm btn-xoa" data-id="@item.WarehouseInventoryDetailId" data-name="@item.ProductName" data-row="@item.WarehouseInventoryMasterId" data-toggle="modal" data-target="#confirm-delete-product">Xoá</a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger btn-sm" disabled>Xoá</button>
+                        }
+                        <input type="hidden" id="idDeleteProduct" />
+                        <input type="hidden" id="masterId" />
+                </td>
+                </tr>
+         }
+   
+}
+else
+{
+    <tr>
+        <td class="text-center color-red" colspan="8"> Vui lòng chọn 'Xem phiếu kiểm kho' để xem chi tiết sản phẩm ! </td>
+    </tr>
+     
+}
+    </tbody>
+    </table>

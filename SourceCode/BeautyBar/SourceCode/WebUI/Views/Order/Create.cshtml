@@ -1,0 +1,195 @@
+﻿@model OrderViewModel
+
+@{
+    ViewBag.Title = "Đặt đơn hàng mới";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Đơn đặt hàng</h4></div>
+        <div class="col-md-3 col-sm-6 col-xs-12"><h4>Mã đơn hàng: <span>Tạo mới</span></h4></div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <strong style="font-size: 17px;">
+                Đơn hàng @Html.Action("Tooltip", "Home", null):
+            </strong>
+            <span>Tạo mới</span>
+        </div>
+    </div>
+    <hr class="custom">
+
+    @using (Html.BeginForm("Save", "Order", FormMethod.Post, new { id = "frmHeader" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.OrderId)
+
+        <div class="row">
+            <div class=" col-md-6">
+
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-sm-4 col-xs-12 control-label">Kính gửi</label>
+                            <span class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <strong>
+                                    @Html.DisplayFor(model => model.SendTo)
+                                </strong>
+                            </span>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CustomerName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(model => model.CustomerName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.EnterpriseName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.HiddenFor(m => m.EnterpriseName)
+                                <strong>
+                                    @Html.DisplayFor(m => m.EnterpriseName)
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.HiddenFor(m => m.Phone)
+                                @Html.DisplayFor(m => m.Phone)
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Fax, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.HiddenFor(m => m.Fax)
+                                @Html.DisplayFor(m => m.Fax)
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class=" col-md-6">
+
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ReceivedPerson, new { @class = "col-md-5 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-7 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width:100%;">
+                                                @Html.TextBoxFor(m => m.ReceivedPerson, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.NumberOfTrucks, new { @class = "col-md-5 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-7 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width:100%;">
+                                                @Html.TextBoxFor(m => m.NumberOfTrucks, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ReceivedAddress, new { @class = "col-md-5 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-7 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width:100%;">
+                                                @Html.TextBoxFor(m => m.ReceivedAddress, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.PaymentMethodId, new { @class = "col-md-5 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-7 col-sm-8 col-xs-12 control-label">
+                                <select class="form-control" name="PaymentMethodId" style="padding:0px 2px; height:20px;">
+                                    @foreach (var item in (ViewBag.SelectPaymentMethodId as List<PaymentMethodModel>))
+                                    {
+                                        <option value="@item.PaymentMethodId">@item.PaymentMethodName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.OrderDate, new { @class = "col-md-5 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-7 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeButtonEditSys dxeButtonEdit_Metropolis text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width:100%;">
+                                                @Html.TextBoxFor(m => m.OrderDate, "{0:yyyy-MM-dd}", new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "date", @format = "dd/MM/yyyy" })
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class=" col-md-12">
+                <div class="panel panel-default" style="padding: 10px 25px 5px 25px;">
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Note, new { @class = "col-md-1 col-sm-2 col-xs-12 control-label" })
+                        <div class="col-md-11  col-sm-10 col-xs-12  control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width:100%;">
+                                            @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+            @Html.Action("_CreateList", new { isFirst = (ViewBag.isFirst == true) })
+
+            <div class="form-horizontal">
+                <button id="btnCancel" type="button" class="btn btn-default custom-button btn-danger minw100">Hủy</button>
+                <button id="btnSave" type="button" class="btn btn-default custom-button btn-warning minw100">Lưu</button>
+                <button id="btnSend" type="button" class="btn btn-default custom-button minw100" data-mode="add">Gửi</button>
+            </div>
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            <script src="/Scripts/Order/shared.js"></script>
+            <script src="/Scripts/Order/create.js"></script>
+        }

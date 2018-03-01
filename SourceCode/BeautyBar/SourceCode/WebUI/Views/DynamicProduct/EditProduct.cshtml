@@ -1,0 +1,42 @@
+﻿@model DynamicProductViewModel
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Thông tin sản phẩm</h4></div>
+        <div class="col-md-9 col-sm-6 col-xs-12" id="divOrderCode">
+            @*<h4>Mã sản phẩm cửa hàng: <span>@Model.ProductStoreCode</span> <a class="glyphicon glyphicon-refresh" id="RefreshProductStoreCode"></a></h4>*@
+            @*<input type="hidden" name="StoreIdMark" id="StoreIdMark" value="@Model.StoreId" />
+            <input type="hidden" name="ProductTypeIdMark" id="ProductTypeIdMark" value="@Model.ProductTypeId" />
+            <input type="hidden" name="ProductTypeNameMark" id="ProductTypeNameMark" value="@ViewBag.ProductTypeName" />*@
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmEdit", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ProductId)
+        @Html.HiddenFor(model => model.CreatedDate)
+        @Html.HiddenFor(model => model.CreatedAccount)
+        @Html.HiddenFor(model => model.ImageUrl)
+        @Html.HiddenFor(model => model.BeginWarehouseId)
+        @Html.HiddenFor(model => model.BeginInventoryQty)
+        @Html.HiddenFor(model => model.FileId)
+        @*<input type="hidden" name="ProductStoreCode" id="ProductStoreCode" value="@Model.ProductStoreCode" />
+        <input type="hidden" name="ProductStoreCodeMark" id="ProductStoreCodeMark" value="@Model.ProductStoreCodeMark" />*@
+        @Html.Partial("_EditPartial")
+    }
+        @*@Html.Action("_EditList", new { ProductId = @Model.ProductId })*@
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-5 col-sm-offset-5">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/plugins/form-master/jquery.form.js"></script>
+    <script src="~/Scripts/DynamicProduct/Shared.js"></script>
+    <script src="~/Scripts/DynamicProduct/Edit.js"></script>
+}

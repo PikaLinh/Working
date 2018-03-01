@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    <link href="~/css/fullcalendar.print.min.css" rel="stylesheet" media='print' />
+    <link href="~/css/fullcalendar.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 40px 10px;
+            padding: 0;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+}
+<div id='calendar' style="width:250px;height:250px"></div>
+
+@section Scripts {
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/fullcalendar.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right:''
+            },
+
+        });
+    });
+</script>
+}

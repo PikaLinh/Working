@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ViewModels.DailyServicesViewModel>
+
+@{
+    ViewBag.Title = "Báo cáo ngày";
+}
+
+
+<table class="table table-bordered table-striped table-hover no-footer">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HairTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethodName)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HairTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethodName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="text-right" colspan="5">
+                Tổng cộng
+            </td>
+            <td class="text-right">
+                @{ var total = Model.Sum(p => p.UnitPrice);
+                   string strTotal = "";
+                   if (total != null)
+                    {
+                        strTotal = string.Format("{0:n0}", total);
+                    }
+                }
+                @strTotal
+                <input type="hidden" name="Total" value="@strTotal" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="5">
+            </td>
+            <td class="text-right">
+                <a id="btnSendSMS" class="btn btn-default btn-warning">Gửi tin nhắn</a>
+            </td>
+        </tr>
+
+
+    </tfoot>
+</table>
+ 

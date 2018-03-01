@@ -1,0 +1,48 @@
+﻿@model ProductViewModel
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin sản phẩm";
+  
+}
+
+<div id="tabs">
+    <ul id="nav-tab-list" class="nav nav-tabs">
+        <li id="tab-1">
+            <a href="#pane-1" data-toggle="tab">Thêm mới sản phẩm</a>
+        </li>
+        <li id="tab-2">
+            <a href="#pane-2" data-toggle="tab">Hình ảnh sản phẩm</a>
+        </li>
+    </ul>
+    <input type="hidden" id="num" name="num" />
+    <!-- Tab Pane - Contents -->
+    <div id="tab-content" class="tab-content">
+        <div id="pane-1" class="tab-pane">
+            <div class=" control-list">
+                <div id="divProfile" class="control-group">
+                  @Html.Action("EditProduct", new { model = Model, pathImage = ViewBag.pathImage })
+                </div>
+            </div>
+        </div>
+        <div id="pane-2" class="tab-pane">
+            <div class="control-group" style="padding-top:10px;">
+                @Html.Action("EditProductImage", new {ListImage = Model.ProductImageModel.ToList(), ProductId = Model.ProductId })
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading-modal"></div>
+@section scripts{
+   @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/plugins/form-master/jquery.form.js"></script>
+    <script src="~/Scripts/Product2/Shared.js"></script>
+    <script src="~/Scripts/Product2/Edit.js"></script>
+    <script src="~/Scripts/Product2/SharedQtyAlert.js"></script>
+    <script>
+        $(document).ready(function () {
+            ////TAB RADIO MANAGEMENT BEGIN ***********************************************************************************
+            $("ul.nav-tabs li:first").addClass("active").show(); //Activate first tab
+            $(".tab-pane:first").addClass("active").show(); //Show first tab content
+        });
+</script>
+
+   }

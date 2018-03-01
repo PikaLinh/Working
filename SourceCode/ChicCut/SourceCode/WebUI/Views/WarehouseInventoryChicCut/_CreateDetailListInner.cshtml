@@ -1,0 +1,43 @@
+﻿@model List<WarehouseInventoryDetailViewModel>
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td style="width: 40px" class="text-center">
+            @i
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+            <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">
+        </td>
+        <td style="width: 100px">
+            <div id="divProductId_@k" style="width:255px;">
+                <select name="ProductId" id="ProductId_@k" data-row="@k" class="form-control" style="width:255px;" value="@item.ProductId"></select>
+            </div>
+        </td>
+        <td style="width: 100px">
+            <input type="hidden" name="detail[@k].Specifications" class="form-control text-right" data-row="@k" value="@item.Specifications">
+            <input type="text" disabled name="detail[@k].Specifications" class="detail-Specifications form-control text-right" data-row="@k" value="@item.Specifications">
+        </td>
+        <td style="width: 100px">
+            <input type="hidden" name="detail[@k].EndInventoryQty" class="form-control text-right" data-row="@k" value="@item.EndInventoryQty" />
+            <input type="text" disabled name="detail[@k].EndInventoryQty" class="detail-EndInventoryQty form-control text-right" data-row="@k" value="@item.EndInventoryQty" style="">
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="detail[@k].ActualInventory" class="detail-ActualInventory form-control text-right" data-row="@k" value="@item.ActualInventory">
+        </td>
+        <td style="width: 100px">
+            <input type="hidden" name="detail[@k].AmountDifference" class="form-control text-right" data-row="@k" value="@item.AmountDifference">
+            <input type="text" disabled name="detail[@k].AmountDifference" class="detail-AmountDifference form-control text-right" data-row="@k" value="@item.AmountDifference">
+        </td>
+        <td style="width: 100px; text-align: center;">
+            <a href="#" class="detail-btndelete btn btn-danger " data-row="@i">Xóa</a>
+        </td>
+    </tr>
+}
+
+<script src="~/Scripts/WarehouseInventoryChicCut/grid.js"></script>

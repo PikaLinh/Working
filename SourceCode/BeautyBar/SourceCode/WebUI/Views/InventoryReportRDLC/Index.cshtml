@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<iframe id="ifrmReportViewer" frameborder="0" style="height:1600px ; width:650px" scrolling="no"></iframe>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            ReportValidationCheck();
+        });
+    </script>
+    <script>
+        function ReportValidationCheck()
+        {
+            url = "/Report/DanhSachXuatNhapTonSP.aspx";
+            var myframe = document.getElementById("ifrmReportViewer");
+
+            if(myframe != null)
+            {
+                if(myframe.src)
+                {
+                    myframe.src = url;
+                }
+                else if (myframe.contentWindow !== null && myframe.contentWindow.location !== null)
+                {
+                    myframe.contentWindow.location = url;
+                }
+                else {
+                    myframe.setAttribute('src', url);
+                }
+            }
+        }
+    </script>
+
+}

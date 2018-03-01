@@ -1,0 +1,116 @@
+﻿@model Master_ChicCut_ServiceModel
+
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            @*<h4 style="color: #6BABDF;">Thông tin dịch vụ</h4>*@
+        </div>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmHeader" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m => m.ServiceId)
+        <div class="form-group col-md-12">
+            <div class="panel panel-default" style="min-height: 195px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.ServiceCategoryId)
+                        </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                @Html.DropDownList("ServiceCategoryId", null, "- Vui lòng chọn loại dịch vụ -", new { @class = "form-control" })
+                            </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.HairTypeId)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("HairTypeId", null, "- Vui lòng chọn loại giá -", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                            @Html.RequiredLabelFor(model => model.Price)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.Price, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.Price)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Actived, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <label>
+                                <select name="Actived" id="Actived" class="form-control">
+                                    <option value="true">Còn sử dụng</option>
+                                    <option value="false">Không còn sử dụng</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="visibility:hidden">
+                        @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="Gender" value="true" checked="checked">Nam
+                                </label>
+                                <label>
+                                    <input type="radio" name="Gender" value="false">Nữ
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @*<hr class="custom">
+    @Html.Action("_CreateList")*@
+    <div class="form-horizontal">
+        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        <a id="btnSaveAndRedirectToURL"  class="btn btn-default custom-button btn-warning minw100">Lưu và thêm định lượng</a>
+    </div>
+
+    <!--Star ModelPopup Chi tiết định mức-->
+    <div id="divPopupQuantification" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="text-center" style="font-size:28px">
+                        Chi tiết định lượng
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-center" id="contentQuantification">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-info" id="btnSaveAddNewQuantification">Lưu</a>
+                    <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        Huỷ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End ModelPopup-->
+
+</div>

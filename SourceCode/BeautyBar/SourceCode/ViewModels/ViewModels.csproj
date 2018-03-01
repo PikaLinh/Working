@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C13B239-51B5-4F2F-B680-57B8405CE08E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViewModels</RootNamespace>
+    <AssemblyName>ViewModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebUI\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountProfileViewModel.cs" />
+    <Compile Include="AccountViewModel.cs" />
+    <Compile Include="AppUserPrincipal.cs" />
+    <Compile Include="BeautyBar\ServiceViewModel.cs" />
+    <Compile Include="BeautyBar\TreatmentDetailViewModel.cs" />
+    <Compile Include="CalendarViewModel.cs" />
+    <Compile Include="CategoryViewModel.cs" />
+    <Compile Include="ChangePasswordViewModel.cs" />
+    <Compile Include="AM_TransactionSearchViewModel.cs" />
+    <Compile Include="AM_TransactionInfoViewModel.cs" />
+    <Compile Include="ChicCut\ChicCutOrderDetailViewModel.cs" />
+    <Compile Include="ChicCut\ChicCutPreOrderSeachViewModel.cs" />
+    <Compile Include="ChicCut\ChicCutOrderSeachViewModel.cs" />
+    <Compile Include="ChicCut\ChicCutOrderViewModel.cs" />
+    <Compile Include="ChicCut\DailyServicesReportViewModel.cs" />
+    <Compile Include="ChicCut\DailyServicesViewModel.cs" />
+    <Compile Include="ChicCut\DropdowlistViewBag.cs" />
+    <Compile Include="CRMRemiderSMSParameterMappingViewModel.cs" />
+    <Compile Include="CRMPreviewViewModel.cs" />
+    <Compile Include="CRMRemiderViewModel.cs" />
+    <Compile Include="CRMRemiderEmailParameterMappingViewModel.cs" />
+    <Compile Include="CustomerInfoModel.cs" />
+    <Compile Include="Daily_ChicCut_Pre_OrderDetailViewModel.cs" />
+    <Compile Include="Master_ChicCut_HairTypeSeachModel.cs" />
+    <Compile Include="Master_ChicCut_QuantificationMasterViewModel.cs" />
+    <Compile Include="Master_ChicCut_ServiceCategoryViewModel.cs" />
+    <Compile Include="Master_ChicCut_ServiceViewModel.cs" />
+    <Compile Include="DynamicProductViewModel.cs" />
+    <Compile Include="FileViewModel.cs" />
+    <Compile Include="Master_ChicCut_QuantificationDetailViewModel.cs" />
+    <Compile Include="Daily_ChicCut_OrderDetailViewModel.cs" />
+    <Compile Include="SalaryDetailViewModel.cs" />
+    <Compile Include="ServiceCategoryViewModel.cs" />
+    <Compile Include="TransferManagermentEmployeeViewModel.cs" />
+    <Compile Include="ProductAlertViewModel.cs" />
+    <Compile Include="PriceListViewModel.cs" />
+    <Compile Include="SMSParameterViewModel.cs" />
+    <Compile Include="EmailParameterDetailViewModel.cs" />
+    <Compile Include="ReportSupInforViewModel.cs" />
+    <Compile Include="ReportCusTransactionViewModel.cs" />
+    <Compile Include="ReportCusInforViewModel.cs" />
+    <Compile Include="NotificationViewModel.cs" />
+    <Compile Include="DetailDebtViewModel.cs" />
+    <Compile Include="ReportInforDetailViewModel.cs" />
+    <Compile Include="ReportInforViewModel.cs" />
+    <Compile Include="ReportSearchViewModel.cs" />
+    <Compile Include="PreImportMasterInfoViewModel.cs" />
+    <Compile Include="PreImportMasterSearchViewModel.cs" />
+    <Compile Include="PreImportDetailViewModel.cs" />
+    <Compile Include="ReportCategory1ViewModel.cs" />
+    <Compile Include="SettingViewModel.cs" />
+    <Compile Include="StockInSearchViewModel.cs" />
+    <Compile Include="StockInViewModel.cs" />
+    <Compile Include="WarehouseInventoryDetailViewModel.cs" />
+    <Compile Include="WarehouseInventoryMasterViewModel.cs" />
+    <Compile Include="OrderReturnDetailViewModel.cs" />
+    <Compile Include="OrderReturnMasterViewModel.cs" />
+    <Compile Include="ReturnMasterViewModel.cs" />
+    <Compile Include="ReturnDetailViewModel.cs" />
+    <Compile Include="ReturnMasterInfoViewModel.cs" />
+    <Compile Include="IEOtherMasterInfoViewModel.cs" />
+    <Compile Include="IEOtherMasterSearchViewModel.cs" />
+    <Compile Include="IEOtherDetailViewModel.cs" />
+    <Compile Include="CustomerViewModel.cs" />
+    <Compile Include="DemoMasterModel.cs" />
+    <Compile Include="EmployeeInfoViewModel.cs" />
+    <Compile Include="EmployeeViewModel.cs" />
+    <Compile Include="FiByMarkViewModel.cs" />
+    <Compile Include="ImportDetailViewModel.cs" />
+    <Compile Include="ImportMasterInfoViewModel.cs" />
+    <Compile Include="ImportMasterSearchViewModel.cs" />
+    <Compile Include="InventoryInfoViewModel.cs" />
+    <Compile Include="InventoryMasterInfoViewModel.cs" />
+    <Compile Include="InventoryMasterSearchViewModel.cs" />
+    <Compile Include="InventorySearchViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="MenuViewModel.cs" />
+    <Compile Include="OrderDetailViewModel.cs" />
+    <Compile Include="OrderMasterInfoViewModel.cs" />
+    <Compile Include="OrderMasterViewModel.cs" />
+    <Compile Include="OrderSearchViewModel.cs" />
+    <Compile Include="OrderViewModel.cs" />
+    <Compile Include="PageSelectViewModel.cs" />
+    <Compile Include="ProductInfoViewModel.cs" />
+    <Compile Include="ProductSearchViewModel.cs" />
+    <Compile Include="ProductViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolesViewModel.cs" />
+    <Compile Include="SellSearchViewModel.cs" />
+    <Compile Include="UpdateEmailViewModel.cs" />
+    <Compile Include="RoleViewModel.cs" />
+    <Compile Include="WareHouseViewModel.cs" />
+    <Compile Include="Website_NewsInfoModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityModels\EntityModels.csproj">
+      <Project>{414ea201-2d87-46c4-9e7f-e872b428ecc1}</Project>
+      <Name>EntityModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{b77891fd-1c0f-43b3-984a-5dce7e8ae037}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

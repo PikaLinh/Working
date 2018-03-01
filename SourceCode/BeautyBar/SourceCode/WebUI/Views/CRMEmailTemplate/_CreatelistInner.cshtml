@@ -1,0 +1,34 @@
+﻿@model List<EmailParameterDetailViewModel>
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td style="width: 40px" class="text-center">
+            @if (item.EmailParameterId != 0 && item.RemiderId > 0)
+            {
+                <span class="color-red">@i</span>
+            }
+            else
+            {
+                <span>@i</span>
+            }
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].EmailParameterId" class="detail-EmailParameterId" value="@item.EmailParameterId">
+            <input type="hidden" name="detail[@k].RemiderId" class="detail-RemiderId" value="@item.RemiderId">
+        </td>
+        <td style="width: 200px">
+            <input type="text" name="detail[@k].Name" class="detail-Name  detail-Name-@k form-control text-left" data-row="@k" value="@item.Name">
+        </td>
+        <td style="width: 50px">
+            <input type="text" name="detail[@k].Description" class="detail-Description  detail-Description-@k form-control text-left" data-row="@k" value="@item.Description">
+        </td>
+        <td style="width: 100px; text-align: center;">
+            <a  class="detail-btndelete btn btn-danger " data-row="@i">Xóa</a>
+        </td>
+    </tr>
+}

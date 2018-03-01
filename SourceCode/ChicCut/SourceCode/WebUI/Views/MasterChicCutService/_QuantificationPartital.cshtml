@@ -1,0 +1,26 @@
+﻿@model List<Master_ChicCut_QuantificationMasterModel>
+
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblQuantification" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:50px" class="text-center">Ghi chú</th>
+                    <th style="width:250px" class="text-center">Chi tiết định lượng</th>
+                    <th style="width:50px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_QuantificationInnerPartital", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm định lượng</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>

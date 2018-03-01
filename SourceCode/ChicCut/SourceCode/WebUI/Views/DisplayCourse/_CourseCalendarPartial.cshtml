@@ -1,0 +1,81 @@
+﻿@model List<CalendarViewModel>
+<table class=" alignleft" style="height: 248px;" width="1191">
+    <tbody>
+        <tr>
+            <td style="text-align: left;"><i class="gdlr-icon fa fa-star" style="color: #333333; font-size: 23px; "></i> <span style="font-size: 14pt;"><strong>TÊN CHƯƠNG TRÌNH</strong></span></td>
+            <td style="text-align: center;"><i class="gdlr-icon fa fa-calendar" style="color: #333333; font-size: 23px; "></i> <strong>THỜI GIAN</strong></td>
+            <td style="text-align: center;"><i class="gdlr-icon fa fa-thumbs-up" style="color: #333333; font-size: 23px; "></i> <strong>ƯU ĐÃI</strong></td>
+            <td style="text-align: center;"><i class="gdlr-icon fa fa-key" style="color: #333333; font-size: 23px; "></i> <strong>ĐĂNG KÝ</strong></td>
+        </tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td style="text-align: justify;">
+                    <span style="text-align: justify;">
+                        <a href="@c.CourseUrl" target="_blank">
+                            <i class="gdlr-icon fa fa-shield" style="color: #333333; font-size: 13px; ">
+                            </i>@c.Name – @c.CourseName
+                        </a>
+                    </span><br>
+                    <i class="gdlr-icon fa fa-user" style="color: #333333; font-size: 13px; ">
+                    </i> Trainer:
+                    @if (c.TrainerModel != null && c.TrainerModel.Count > 0)
+                    {
+                        var listTrainer = c.TrainerModel.ToList();
+                        for (int i = 0; i < listTrainer.Count; i++)
+                        {
+                            <a href="@listTrainer[i].Url" target="_blank">@listTrainer[i].TrainerName</a>
+                            if ((i + 1) < listTrainer.Count)
+                            {
+                                @Html.Raw(" và ")
+                            }
+                        }
+                    }
+                    <br>
+                    <i class="gdlr-icon fa fa-map-marker" style="color: #333333; font-size: 13px; "></i>
+                    <a href="@c.LocationUrl" target="_blank" class="black">@c.LocationName</a>
+                </td>
+                <td>
+                    <i class="gdlr-icon fa  fa-sign-in" style="color: #333333; font-size: 13px; ">
+                    </i> Ngày khai giảng: @Html.DisplayFor(model => c.StartDate) <br />
+                    @* <i class="gdlr-icon fa  fa-sign-in" style="color: #333333; font-size: 13px; "></i> Chủ Nhật 29/5 – 21:00;*@
+                    @Html.Raw(HttpUtility.HtmlDecode(@c.Time))
+                </td>
+                <td>
+                    @if ((c.NumberOfTrainees - (c.TotalOfReg ?? 0)) > 0 && c.TotalOfDiscount > 0)
+                    {
+                        <del>@Html.DisplayFor(model => c.Price)</del><br>
+                        <div class="green">@Html.DisplayFor(model => c.NewPrice)</div>
+                        <div class="red"><i>(chỉ còn @c.TotalOfDiscount suất)</i></div>
+                    }
+                    else
+                    {
+                        <div>@Html.DisplayFor(model => c.Price)</div>
+                    }
+                </td>
+                <td>
+                    @if ((c.NumberOfTrainees - (c.TotalOfReg ?? 0)) > 0)
+                    {
+                        string url = string.Format("/khoa-hoc/{0}/{1}.html", c.SEOCategory, c.CalendarId);
+                        if (c.TotalOfDiscount > 1 || (c.TotalOfDiscount == 0 && (c.NumberOfTrainees - (c.TotalOfReg ?? 0)) > 1))
+                        {
+                            <a class="btn btn-primary" href="@url" target="_blank">ĐĂNG KÝ NGAY</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-danger" href="@url" target="_blank">ĐĂNG KÝ GẤP</a>
+                        }
+                    }
+                    else
+                    {
+                        //Hết chỗ đăng ký
+                        <div style="text-align:center;">
+                            <span style="color:red;"><strong><i class="fa fa-lock"></i>ĐÃ HẾT CHỖ</strong></span>
+                            <br><a href="# class="btnContact"><small>Liên hệ chờ chỗ</small></a>
+                        </div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

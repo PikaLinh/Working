@@ -1,0 +1,47 @@
+﻿@model List<Master_ChicCut_QuantificationMasterViewModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@if (Model.Count > 0 && Model != null)
+{
+    foreach (var item in Model)
+    {
+        i++;
+        k++;
+        <tr>
+            <td style="width: 40px" class="text-center">
+                @i
+                @*@foreach (var item in collection)
+                {
+                    
+                }
+                <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+                <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+                <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">*@
+            </td>
+            <td style="width: 200px">
+                @*<div id="divProductId_@k" style="width:255px;">
+                    <select name="ProductId" id="ProductId_@k" data-row="@k" class="form-control" style="width:550px;"></select>
+                </div>*@
+                <input type="text" name="QMaster[@k].QuantificationName" class="QMaster-QuantificationName" value="@item.QuantificationName">
+            </td>
+            <td style="width: 50px">
+                <input type="text" name="QMaster[@k].Detail" class="QMaster-Detail QMaster-Detail-@k form-control text-left" data-row="@k" value="@item.Detail">
+            </td>
+            <td style="width: 100px; text-align: center;">
+                <a href="#" class="detail-btndelete btn btn-danger " data-row="@i">Xóa</a>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="4" class="color-red text-center">Vui lòng nhấn vào nút 'Thêm định lượng' để thêm mới định lượng cho dịch vụ !</td>
+    </tr>
+}
+
+@*<script src="~/Scripts/MasterChicCutService/grid.js"></script>*@

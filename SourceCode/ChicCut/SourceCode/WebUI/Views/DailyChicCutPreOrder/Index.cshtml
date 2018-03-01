@@ -1,0 +1,305 @@
+﻿@model ChicCutPreOrderSeachViewModel
+@{
+    ViewBag.Title = "Danh sách đơn đặt hàng";
+}
+<style>
+    .btn-custom{min-width:100px;}
+</style>
+
+<form id="frmSearch">
+    <div class="row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.SearchCreatedDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.SearchCreatedDate, "{0:yyyy-MM-dd}", new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "date" })
+                                @Html.ValidationMessageFor(model => model.SearchCreatedDate)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.SearchAppointmentTime, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.SearchAppointmentTime, "{0:yyyy-MM-dd}", new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "date" })
+                                @Html.ValidationMessageFor(model => model.SearchAppointmentTime)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="PreOrderId">Số Phiếu Đặt</label>
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.SearchPreOrderCode, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.SearchPreOrderCode)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="FullName">Tên khách</label>
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.SearchFullName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.SearchFullName)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="FullName">SĐT</label>
+            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.SearchPhone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.SearchPhone)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr class="custom" />
+    <div class="row">
+        <div class="form-group col-md-12 text-center">
+            <a class="btn btn-warning btn-custom " id="btnAddNewOrder">Thêm mới</a>
+            <a class="btn btn-info btn-custom" id="btn-search">Tìm</a>
+        </div>
+    </div>
+</form>
+<hr class="custom" />
+
+<div id="tabs">
+    <ul id="nav-tab-list" class="nav nav-tabs">
+        <li id="tab-1">
+            <a href="#pane-1" data-toggle="tab">Khách đặt trước</a>
+        </li>
+        <li id="tab-2">
+            <a href="#pane-2" data-toggle="tab">Khách đã sử dụng dịch vụ</a>
+        </li>
+    </ul>
+    <input type="hidden" id="num" name="num" />
+    <!-- Tab Pane - Contents -->
+    <div id="tab-content" class="tab-content">
+        <div id="pane-1" class="tab-pane">
+            <div class=" control-list">
+                <div id="divKhachDatTruoc" class="control-group">
+                    @*@Html.Partial("_Reservation")*@
+                </div>
+            </div>
+        </div>
+        <div id="pane-2" class="tab-pane">
+            <div id="divKhachDaSuDungDichVu" class="control-group">
+                @Html.Partial("_CustomersWhoUseTheService")
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Star ModelPopup Thông tin đơn hàng-->
+<div id="divPopupOrder" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="StatusNow"></span>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center" id="contentOrder">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div id="divMessengerPanel" class="text-left">
+                        <div class="alert alert-success" id="divMessenger">
+                            <button type="button" class="close" id="closedivMessenger">×</button>
+                            <span id="Messenger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12 text-left">
+                        <a class="btn btn-default btn-danger pull-left btn-sm btn-xoa" data-toggle="modal" data-target="#confirm-delete" id="Calcel-OrderId">Huỷ dịch vụ này</a>
+                    </div>
+                    <div class="col-sm-10 col-xs-12 pull-right">
+                        <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            Đóng
+                        </button>
+                        <a class="btn action" style="background-color: #00CED1" id="serve-immediately">Phục vụ ngay</a>
+                        <a class="btn btn-primary action" id="pay">Thanh toán</a>
+                        <a class="btn btn-info" id="btnSaveOrder">Lưu <i class="glyphicon glyphicon-save"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+<!--Star ModelPopup Huỷ dịch vụ-->
+<!--Alert_Popup_Delete-->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Xác nhận huỷ dịch vụ</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn muốn huỷ dịch vụ: <strong></strong> ? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-show-popup-order" data-dismiss="modal">Huỷ bỏ</button>
+                <button type="button" class="btn btn-danger btn-ok">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+<!--Star ModelPopup Thêm mới khách hàng-->
+<div id="divPopup-add-new-customer" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:100%">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1>Thông tin khách hàng</h1>
+            </div>
+            <div class="modal-body">
+                <div class=" text-center" id="contentInfoCustomer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="Mes-error-add-new-customer" class="color-red"></span>
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+                <a class="btn btn-info" id="btnSave-add-new-customer">Lưu <i class="glyphicon glyphicon-save"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+<!--Star ModelPopup Xem đơn đặt hàng-->
+<div id="divPopup-view-PreOder" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:500px">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1>Xem đơn đặt hàng</h1>
+            </div>
+            <div class="modal-body">
+                <div class="text-center" id="contentPreOrder">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="Mes-error-add-new-customer" class="color-red"></span>
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+<!--Star ModelPopup Xác nhận đơn hàng-->
+<div id="divPopup-Confirm-PreOder" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width:50%">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1>Xác nhận chuyển trạng thái đơn hàng</h1>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center form-horizontal" id="content-confirm-preOrder" style="width: 100%;">
+                    <input type="hidden" id="PreOrderId-to-confirm" />
+                    <input type="hidden" id="OrderStatusId-to-confirm" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SearchFullName, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+                        <div class="col-md-9 col-sm-9 col-xs-12 control-label text-left">
+                            <span id="full-name"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">Loại tóc </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12 control-label text-left">
+                            <div class="form-group cc-hair-type">
+                                <div class="col-xs-12 control-label text-left" style="padding:0px 0px 0px 15px;">
+                                    @{
+                                        var HairTypeLst = (List<Master_ChicCut_HairTypeSeachModel>)ViewBag.HairTypeLstWithCheckedItem;
+                                        var HairTypeLstHaveNotChecked = HairTypeLst.Where(p => p.Checked).ToList();
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in HairTypeLst)
+                                    {
+                                        i++;
+                                        <a class="btn btn-default HairTypeId btn-danger btn-custom" data-hairtypeid="@item.HairTypeId">@item.HairTypeName</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="Mes-error-confirm-customer" class="color-red"></span>
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+                <a class="btn btn-info" id="btnSave-comfirm-customer">Chuyển <i class="glyphicon glyphicon-save"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+@Html.Partial("~/Views/Shared/PrintTemplates/_InvoicePrintReservation.cshtml")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Utils/DateFormat.js"></script>
+    <script src="~/Scripts/kendo.core.min.js"></script>
+    <script src="~/Scripts/Utils/common.js"></script>
+
+    <script src="~/Scripts/DailyChicCutPreOrder/Index.js"></script>
+    <script src="~/Scripts/DailyChicCutPreOrder/Shared.js"></script>
+    <script>
+        $(document).ready(function () {
+            ////TAB RADIO MANAGEMENT BEGIN ***********************************************************************************
+            $("ul.nav-tabs li:first").addClass("active").show(); //Activate first tab
+            $(".tab-pane:first").addClass("active").show(); //Show first tab content
+        });
+    </script>
+}

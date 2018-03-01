@@ -1,0 +1,162 @@
+﻿@model IEnumerable<ViewModels.ChicCutOrderViewModel>
+@{
+    ViewBag.Title = "Danh sách đơn hàng";
+}
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+        <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+    </div>
+</div>
+<hr class="custom">
+<form id="frmSearch" method="post">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-3 col-xs-12">
+                Thu ngân:
+                @Html.DropDownList("CashierUserId", null, "-- Tất cả --", new { @class = "form-control" })
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                Nhân viên:
+                @Html.DropDownList("StaffId", null, "-- Tất cả --", new { @class = "form-control" })
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                Từ ngày:
+                <input type="datetime" name="FromDate" value="" class="form-control" />
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                Đến ngày:
+                <input type="datetime" name="ToDate" value="" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <hr class="custom">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btn-view" class="btn btn-warning col-sm">Xem</a>
+        </div>
+    </div>
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12"></div>
+    </div>
+    <hr class="custom">
+    <div id="div-result">
+        @*@Html.Partial("_Index")*@
+    </div>
+</form>
+
+@section scripts{
+@Html.Partial("~/Views/Shared/PrintTemplates/_InvoicePrint.cshtml")
+<script src="~/Scripts/Utils/DateFormat.js"></script>
+<script src="~/Scripts/kendo.core.min.js"></script>
+<script src="~/Scripts/Utils/common.js"></script>
+<script type="text/javascript">
+    //$(document).on("click", "#btn-view", function () {
+    //    //console.log($("#frmSearch").serializeAnything())
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/DailyChicCutOrderList/index",
+    //        data: $("#frmSearch").serializeAnything(),
+    //        success: function (result, stt, jqXHR) {
+    //            $("#div-result").html(result);
+    //        }
+    //    });
+    //});
+
+    //Phân trang
+    productconfig = {
+        PageIndex: 2,
+        PageSize: 10
+    }
+
+    function LoadContent() {
+        loading2();
+        $.ajax({
+            type: "POST",
+            url: "/DailyChicCutOrderList/Index?PageIndex=" + productconfig.PageIndex + "&PageSize=" + productconfig.PageSize,
+            data: $("#frmSearch").serialize(),
+            success: function (data) {
+                //Load lại kết quả
+                $("#div-result").html(data);
+                //Tính tổng dòng
+                var TotalRow = $("#TotalRow").val();
+                //2 giây sau => thực hiện phân trang 
+                setTimeout(Paging(TotalRow, function () {
+                    LoadContent();
+                }), 20000);
+            }
+        });
+    }
+
+    function Paging(TotalRow, Callback) {
+        if (TotalRow == 0) {
+            TotalRow = 1;
+        }
+        $('#paging').twbsPagination({
+            totalPages: Math.ceil(TotalRow / productconfig.PageSize),
+            visiblePages: 3,
+            first: '<<',
+            prev: '<',
+            next: ">",
+            last: ">>",
+            onPageClick: function (event, page) {
+                productconfig.PageIndex = page;
+                setTimeout(Callback, 200);
+            }
+        });
+    }
+
+    LoadContent();
+
+    $(document).on("click", "#btn-view", function () {
+        $('#paging').twbsPagination('destroy');
+        LoadContent();
+    });
+
+    //#region Xem đơn hàng
+    $(document).on("click", ".view", function () {
+        //console.log($(this).data("id"));
+        $.ajax({
+            type: "POST",
+            url: "/DailyChicCutOrderList/detail",
+            data: { OrderId: $(this).data("id") },
+            success: function (result, stt, jqXHR) {
+                openPrint($("#tmplInvoicePrint").html(), {
+                    Order: result.Data
+                });
+            }
+        });
+    });
+    //#endregion
+
+    //#region Xoá đơn hàng
+        //Popup Xác nhận
+    $(document).on("click", ".btn-cancel", function (e) {
+        var id = $(this).data("id");
+        var code = $(this).data("code");
+        $("#idDelete").val(id);
+        $(".modal-body strong").html(code);
+    });
+
+    $(document).on('click', '.btn-ok', function (e) {
+        var id = $("#idDelete").val();
+        $.ajax({
+            url: '/DailyChicCutOrderList/CancelDailyChicCutOrder',
+            data:{OrderId: id},
+            success: function (data) {
+                $("#confirm-delete").modal("hide");
+                $(".modal-backdrop").remove();
+                if (data == "success") {
+                    $("#btn-view").trigger("click");
+                }
+                else {
+                    $("#divPopup #content").html(data);
+                    $("#divPopup").modal("show");
+                }
+            }
+        })
+    });
+    //#endregion
+
+</script>
+}

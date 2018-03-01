@@ -1,0 +1,75 @@
+﻿@model List<Daily_ChicCut_Pre_OrderModel>
+
+<table class="table table-hover dataTable table-bordered table-striped no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center" style="min-width: 40px;">
+                Số PĐ
+            </th>
+            <th style="min-width: 40px;">
+                Giờ đặt
+            </th>
+            <th style="min-width: 40px;">
+                Giờ đến
+            </th>
+            <th style="min-width: 112px;">
+                Tên khách hàng
+            </th>
+            <th style="min-width: 40px;">
+                SĐT
+            </th>
+            <th style="min-width: 40px;">
+                Dịch vụ
+            </th>
+            <th style="min-width: 40px;">
+                Dịch vụ đặt trước
+            </th>
+            <th style="min-width: 40px;">
+                Ghi chú
+            </th>
+            <th style="min-width: 274px;">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" >
+                    @Html.DisplayFor(modelItem => item.PreOrderCode)
+                </td>
+                <td>
+                    @string.Format("{0:hh:mm dd/MM/yyyy}", item.CreatedDate)
+                </td> 
+                <td>
+                    @string.Format("{0:hh:mm dd/MM/yyyy}", item.AppointmentTime)
+                </td> 
+                <td >
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.ServicesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServicesNote)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td >
+                    <a class="btn btn-default col-sm btn-view" data-id="@item.PreOrderId">Xem</a>
+                    <a class="btn btn-warning col-sm btn-wait" data-id="@item.PreOrderId" data-info="@(item.FullName + " - " + item.Phone)">Chờ</a>
+                    <a class="btn btn-info col-sm btn-serve-immediately" data-id="@item.PreOrderId" data-info="@(item.FullName + " - " + item.Phone)">Phục vụ ngay</a>
+                    <a class="btn btn-danger col-sm btn-cancel" data-id="@item.PreOrderId" data-toggle="modal" data-target="#confirm-delete">Huỷ</a>
+                    <input type="hidden" id="PreOrderId_@item.PreOrderId" value="@(item.FullName + " - " + item.Phone)" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="hidden" id="PreOrderId" />

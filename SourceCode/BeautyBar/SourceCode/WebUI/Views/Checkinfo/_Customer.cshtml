@@ -1,0 +1,22 @@
+﻿@model CustomerModel
+<form id="frmtim"  name="frmtim" action="~/Views/Checkinfo/_Customer" method="post">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <br />
+            <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Số điện thoại
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <input type="text" id="txtdt" name="txtdt" class="form-control" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <a id="btnsearch" class="btn btn-warning">Tìm</a>
+            </div>
+            <br />
+        </div>
+    </div>
+</form>
+<hr class="custom">
+<div id="content">
+    @Html.Partial("_CustomerPartial")
+</div>

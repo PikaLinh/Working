@@ -1,0 +1,28 @@
+﻿@model List<ProductAlertViewModel>
+
+<form id="frmListQtyAlert"  method="post">
+    <div class="form-horizontal">
+        <table id="tblQtyAlertList" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:10px" class="text-center">STT</th>
+                    <th style="width:100px; text-align:center;">Kho</th>
+                    <th style="width:30px; text-align:center;">Số lượng</th>
+                    <th style="width:50px; text-align:center;">Cảnh báo cho nhóm</th>
+                    <th style="width:50px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_QtyAlertListInner", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <a id="btnAddNewRowQtyAlert" class="btn btn-default" style="float:right">Thêm mới</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+

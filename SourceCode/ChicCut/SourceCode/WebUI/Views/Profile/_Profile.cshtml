@@ -1,0 +1,216 @@
+﻿@model EmployeeInfoViewModel
+
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Cập nhật thông tin tài khoản</h4></div>
+        <div class="color-red">@ViewBag.Message</div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id= "frmUpdarteProfile"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.EmployeeId)
+        @Html.HiddenFor(model => model.StoreId)
+        @Html.HiddenFor(model => model.ParentId)
+        @Html.HiddenFor(model => model.Actived)
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.StoreId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                    @if (string.IsNullOrEmpty(Model.StoreId.ToString()))
+                                    {
+                                        <span>-Tất cả-</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@Model.StoreModel.StoreName</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ParentId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                    @if (string.IsNullOrEmpty(Model.ParentName))
+                                    {
+                                       <span>-Không có cấp trên-</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@Model.ParentName</span>
+                                    }
+                                </div>
+                            </div>
+
+                            @Html.LabelFor(model => model.FullName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.FullName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.FullName)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div class="radio">
+                                    @if (@Model.Gender == true)
+                                    {
+                                        <label>
+                                            <input type="radio" name="Gender" value="true" checked="checked">Nam
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="Gender" value="false">Nữ
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <label>
+                                            <input type="radio" name="Gender" value="true">Nam
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="Gender" value="false" checked="checked">Nữ
+                                        </label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BirthDay, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.BirthDay, "{0:yyyy-MM-dd}", new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox", @type = "date" })
+                                                @Html.ValidationMessageFor(model => model.BirthDay)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Email)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div class="form-group row">
+                            <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="Actived"> Trạng thái</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <select name="Actived" id="Actived" class="form-control">
+                                    @if (Model.Actived)
+                                    {
+                                        <option value="true" selected>Còn hoạt động</option>
+                                        <option value="false">Không còn hoạt động</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="true">Còn hoạt động</option>
+                                        <option value="false" selected>Không còn hoạt động</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RolesId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left ">
+                                <span>@Model.RolesName</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <span>@Model.UserName</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IdentityCard, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.IdentityCard, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.IdentityCard)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <hr class="custom" style="clear: both;">
+    <div class="form-horizontal">
+        @Html.ActionLink("Hủy", "Index", "Home", null, new { @class = "btn btn-default custom-button minw100" })
+        <a id="btnUpdateProFileInfor"  class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script >
+    $(document).on("click", "#btnUpdateProFileInfor", function () {
+        //alert("123");
+        $.ajax({
+            type: "POST",
+            url: "/Profile/UpdateProFileInfor",
+            data: $("#frmUpdarteProfile").serialize(),
+            success: function (data) {
+                $("#divPopup #content").html(data);
+                $("#divPopup").modal("show");
+            }
+        });
+    });
+</script>

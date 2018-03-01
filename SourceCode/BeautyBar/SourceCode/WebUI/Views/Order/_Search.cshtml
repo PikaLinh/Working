@@ -1,0 +1,46 @@
+﻿@model ViewModels.OrderSearchViewModel
+@using (Html.BeginForm(null,null, FormMethod.Post, new {id = "frmSearch"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="Header" class="panel panel-default" style="margin-top:-5px;">
+        <div class="panel-body  form-horizontal" style="padding: 5px 15px 0px 15px">
+            <div class="row">
+                <div class="control-group">
+                    @Html.LabelFor(model => model.CustomerId, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.DropDownList("CustomerId", null, "--Vui lòng chọn--", new { @class = " form-control" })
+                        @Html.ValidationMessageFor(model => model.CustomerId)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.StatusId, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.DropDownList("StatusId", null, "--Vui lòng chọn--", new { @class = " form-control" })
+                        @Html.ValidationMessageFor(model => model.StatusId)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="control-group">
+                    @Html.LabelFor(model => model.FromDate, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(model => model.FromDate, new { @class = " form-control", @type = "date" })
+                        @Html.ValidationMessageFor(model => model.FromDate)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.ToDate, new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-4">
+                        @Html.TextBoxFor(model => model.ToDate, new { @class = " form-control", @type = "date" })
+                        @Html.ValidationMessageFor(model => model.ToDate)
+                    </div>
+                </div>
+            </div>
+            <p class="text-center" style="margin-top:5px;">
+                <a id="btnSearchOrder" class="btn custom-button btn-warning minw100">Tìm</a>
+            </p>
+        </div>
+    </div>
+}

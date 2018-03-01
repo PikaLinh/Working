@@ -1,0 +1,44 @@
+﻿@model List<ImportDetailViewModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@foreach (var item in Model)
+{
+    i++;
+    k++;
+    <tr>
+        <td style="width: 40px" class="text-center">
+            @i
+            <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+            <input type="hidden" name="detail[@k].ImportDetailId" class="detail-ImportDetailId" value="@item.ImportDetailId">
+            <input type="hidden" name="detail[@k].ProductId" class="detail-ProductId" value="@item.ProductId">
+            <input type="hidden" name="detail[@k].ProductName" class="detail-ProductName" value="@item.ProductName">
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="detail[@k].ProductCode" class="detail-ProductCode" value="@item.ProductCode">
+            <input type="text" name="detail[@k].ProductCode" value="@item." />
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="aaa" class="detail-ProductCode" disabled="disabled" value="@item.ProductName">
+        </td>
+       <td style="width: 100px">
+            <input type="text" name="detail[@k].Qty" class="detail-Qty" value="@item.Qty">
+        </td>
+         <td style="width: 100px">
+            <input type="text" name="detail[@k].Price" class="detail-Price" value="@item.Price">
+        </td>
+        <td style="width: 100px">
+            <input type="text" name="detail[@k].UnitShippingWeight" class="detail-UnitShippingWeight" value="@item.UnitShippingWeight">
+        </td>
+       <td style="width: 100px">
+            <input type="text" name="detail[@k].UnitPrice" class="detail-UnitPrice" value="@item.UnitPrice">
+        </td>
+        <td style="width: 100px">
+            <a href="#" class="detail-btndelete btn btn-danger" data-row="@i">Xóa</a>
+        </td>
+    </tr>
+}
+

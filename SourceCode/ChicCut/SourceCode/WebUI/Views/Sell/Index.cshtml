@@ -1,0 +1,79 @@
+﻿@model IEnumerable<OrderMasterModel>
+
+@{
+	ViewBag.Title = "Danh sách bán hàng";
+}
+<hr class="custom">
+<div class="row head">
+	<div class="col-md-3 col-sm-12 col-xs-12">
+		<h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+	</div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", "Sell", FormMethod.Post, new { @id = "formload" }))
+{
+	<div class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Tên khách hàng:
+				@*<input type="text" id="FullName" name="FullName" class="form-control" placeholder="Nhập tên khách hàng" />*@
+				<input type="hidden" name="FullName"/>
+				<div id="divCustomId">
+					<select name="CustomerId" class="form-control"></select>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Số điện thoại:
+				<input type="text" id="Phone" name="Phone" class="form-control" placeholder="Nhập số điện thoại"/>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+                Sản phẩm:
+                <input type="hidden" id="ProductName" name="ProductName">
+                <div id="divProductId" style="width: 220px">
+                    <select name="ProductId" class="form-control" style="width: 220px;"></select>
+                </div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				Mã đơn hàng:
+				<input type="hidden" name="OrderCode"/>
+				<div id="divOrderId">
+					<select name="OrderId" class="form-control"></select>
+				</div>
+			</div>
+
+			@*<div class="col-md-3 col-sm-3 col-xs-12">
+					Mã sản phẩm:
+					<input type="text" id="ProductCode" name="ProductCode" class="form-control" placeholder="Nhập mã sản phẩm" />
+				</div>*@
+
+		</div>
+		<br />
+		<div class="form-group">
+			@Html.Partial("FilterDateAndTotal")
+		</div>
+		<hr class="custom">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+			</div>
+		</div>
+	</div>
+}
+  <div class="loading-modal"></div>
+
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12" ></div>
+         <div class="col-md-6" >
+               @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+         </div>
+    </div>
+
+<hr class="custom">
+<div id="contentSell">
+   @* @Html.Action("_SearchSell")*@
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	<script src="~/Scripts/OrderMaster/Index.js"></script>
+}

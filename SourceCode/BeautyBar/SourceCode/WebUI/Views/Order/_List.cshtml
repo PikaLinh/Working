@@ -1,0 +1,106 @@
+﻿@model IEnumerable<OrderViewModel>
+
+<table class="table table-bordered table-striped table-hover dataTable">
+    <thead>
+        <tr class="warning" style="vertical-align:top;">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th style="width:115px">
+                @Html.DisplayNameFor(model => model.TONTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th style="width:115px">
+                @Html.DisplayNameFor(model => model.ConfirmTONTotal)
+            </th>
+            <th class="has-white-tooltip">
+                @Html.DisplayNameFor(model => model.StatusName) 
+            @if (Session["acc"] == null || ((AccountModel)Session["acc"]).RolesId != (int)Repository.RolesEnum.Admin)
+            {
+                @Html.Action("Tooltip", "Home", null)
+            }
+            </th>
+            @*<th class="actions text-center">@Resources.LanguageResource.Actions</th>*@
+        </tr>
+    </thead>
+    @{int i = 0;}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr data-orderid="@item.OrderId" class="data-row-view">
+                <td class="text-center">@i</td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td class="text-right" style="width:100px;">
+                    @if (item.TONTotal.HasValue)
+                    {
+                        @item.TONTotal.Value.ToString("#,###.000")
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td class="text-right" style="width:100px;">
+                    @if (item.ConfirmTONTotal.HasValue)
+                    {
+                        @item.ConfirmTONTotal.Value.ToString("#,###.000")
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.StatusName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewBag.CurrentRoleid == null || (int)ViewBag.CurrentRoleid != (int)Repository.RolesEnum.Admin)
+{
+    <p class="text-right has-btn-add-new" style="margin-top: 4px;">
+        @Html.ActionLink("Đặt đơn hàng mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+    </p>
+}
+@if (Session["acc"] != null && ((AccountModel)Session["acc"]).RolesId == (int)Repository.RolesEnum.Admin)
+{
+    if (ViewBag.isFirst != true)
+    {
+        <script>
+            (function ($) {
+                $('.dataTable').DataTable({
+                    language: {
+                        sProcessing: "Đang xử lý...",
+                        sLengthMenu: "Xem _MENU_ mục",
+                        sZeroRecords: "Không tìm thấy dữ liệu",
+                        sInfo: "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
+                        sInfoEmpty: "Đang xem 0 đến 0 trong tổng số 0 mục",
+                        sInfoFiltered: "(được lọc từ _MAX_ mục)",
+                        sInfoPostFix: "",
+                        sSearch: "Tìm nội dung:",
+                        sUrl: "",
+                        oPaginate: {
+                            sFirst: "Đầu",
+                            sPrevious: "&laquo;",
+                            sNext: "&raquo;",
+                            sLast: "Cuối"
+                        },
+                        columnDefs: [
+                        { targets: [0, 1], visible: true },
+                        { targets: 'no-sort', visible: false }
+                        ]
+                    },
+                    "bLengthChange": false,
+                    "bInfo": false,
+                    //"bPaginate" : false,
+                    "sDom": '<"top"flp>rt<"bottom"i><"clear">',
+                });
+                $(".dataTables_filter").prepend("<span class='search-icon'></span>");
+            })(jQuery);
+        </script>   
+    }
+}

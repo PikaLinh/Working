@@ -1,0 +1,115 @@
+﻿@model EntityModels.CalendarModel
+
+@{
+    ViewBag.Title = "Xem chi tiết";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+            @Html.LabelFor(model => model.CourseId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                @Model.CourseModel.CourseName
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                @Html.DisplayFor(model => model.StartDate)
+            </div>
+            @Html.LabelFor(model => model.LocationId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                @Model.LocationModel.LocationName
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                @Html.DisplayFor(model => model.Price)
+            </div>
+            @Html.LabelFor(model => model.NumberOfTrainees, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                @Html.DisplayFor(model => model.NumberOfTrainees)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.isHot, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label  text-left">
+                @if (Model.isHot == true)
+                {
+                    <i class="glyphicon glyphicon-ok"></i>
+                }
+                else
+                {
+                    <i class="glyphicon glyphicon-remove"></i>
+                }
+            </div>
+        </div>
+        if (Model.isHot == true)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.HotIndex, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+                <div class="col-md-4 col-sm-3 col-xs-12 control-label  text-left">
+                    @Html.DisplayFor(model => model.HotIndex)
+                </div>
+            </div>
+        }*@
+
+        <div class="form-group">
+            @Html.Label("lblTrainer", "Huấn luyện viên", new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-10 col-sm-9 col-xs-12 control-label text-left">
+                <ul class="list-unstyled">
+                    @foreach (var train in Model.TrainerModel)
+                    {
+                        <li>
+                            <label>
+                                @train.TrainerName
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Time, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label text-left">
+                @Html.Raw(HttpUtility.HtmlDecode(Model.Time))
+            </div>
+            <div class="col-md-6">
+                @{ ViewBag.isDetailView = true;}
+                @Html.Partial("_DiscountList", Model.DiscountModel)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Actived, new { @class = "col-md-2 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-4 col-sm-3 col-xs-12 control-label  text-left">
+                @Html.DisplayFor(model => model.Actived)
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.CalendarId }, new { @class = "btn btn-warning custom-button minw100" })
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ReportInforDetailViewModel>
+
+<table class="table table-bordered table-striped table-hover no-footer" >
+    <thead>
+        <tr class="warning">
+        <th class="text-center" style="width:5%">
+                STT
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Cashier)
+        </th>
+        <th  class="text-center">
+            @Html.DisplayNameFor(model => model.StaffName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.SumPriceOfOrderDetail)
+        </th>
+         <th class="text-center">
+            @Html.DisplayNameFor(model => model.TotalBillDiscount)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.SumCOGSOfOrderDetail)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Tip)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Commission)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Profits)
+        </th>
+    </tr>
+</thead>
+ <tbody>
+   @{
+         int i = 0;
+         var RowSum = (ReportInforDetailViewModel)ViewBag.RowSum;
+         foreach (var item in @Model) 
+         {
+             i++;
+             <tr>
+                <td class="text-center">
+                   @i
+                      <input type="hidden" name="CheckHasList" value="true" />
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.Cashier)
+                </td>
+                <td  class="text-left">
+                    @Html.DisplayFor(modelItem => item.StaffName)
+                </td>
+                <td class="text-left">
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.SumPriceOfOrderDetail)
+                </td>
+                 <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.TotalBillDiscount)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                 <td class="text-right">
+                     @Html.DisplayFor(modelItem => item.SumCOGSOfOrderDetail)
+                 </td>
+                 <td class="text-right">
+                     @Html.DisplayFor(modelItem => item.Tip)
+                 </td>
+                 <td class="text-right">
+                     @Html.DisplayFor(modelItem => item.Commission)
+                 </td>
+                 <td class="text-right">
+                     @Html.DisplayFor(modelItem => item.Profits)
+                 </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5"><span>Tổng cộng</span></td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.SumPriceOfOrderDetail)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.TotalBillDiscount)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.Total)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.SumCOGSOfOrderDetail)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.Tip)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.Commission)</td>
+            <td class="text-right">@string.Format("{0:n0}", RowSum.Profits)</td>
+        </tr>
+     }
+ </tbody>
+</table>
+<input type="hidden" name="Date" id="Date" value="@ViewBag.Date" />

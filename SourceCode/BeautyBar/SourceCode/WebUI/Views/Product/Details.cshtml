@@ -1,0 +1,275 @@
+﻿@model ProductViewModel
+@{
+    ViewBag.Title = "thông tin sản phẩm chi tiết";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">Thông tin sản phẩm</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @ViewBag.Error
+        @Html.HiddenFor(model => model.ProductId)
+        <div class="row">
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ProductCode)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ProductName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CategoryId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.CategoryModel.CategoryName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OriginOfProductId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.OriginOfProductModel.OriginOfProductName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PolicyInStockId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.PolicyModel.PolicyName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PolicyOutOfStockId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.PolicyModel.PolicyName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LocationOfProductId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.LocationOfProductModel.LocationOfProductName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductStatusId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ProductStatusModel.ProductStatusName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Keywords, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Keywords)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Barcode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Barcode)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ImageUrl, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                              <img src="/Upload/Product/Thum/@Model.ImageUrl" style="width: 200px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ShippingWeight, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ShippingWeight)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UnitId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.UnitModel.UnitName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ImportPrice, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ImportPrice)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CurrencyId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.CurrencyModel.CurrencyName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ExchangeRate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ExchangeRate)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ShippingFee, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.ShippingFee)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.COGS, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.COGS)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.isHot, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @if (@Model.isHot == true)
+                                {
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                }
+                                else
+                                {
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group" id="divOrderBy" style="display: none;">
+                            @Html.LabelFor(model => model.OrderBy, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.OrderBy)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Price1, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Price1)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Price2, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Price2)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Price3, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(m => m.Price3)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default" style="min-height: 195px;">
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Detail, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                            @*@Html.DisplayFor(m => m.Detail)*@
+                            @Html.Raw(HttpUtility.HtmlDecode(Model.Detail))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <hr class="custom" style="clear: both;">
+        <div class="form-horizontal col-md-offset-5 col-sm-offset-5">
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductId }, new { @class = "btn btn-warning custom-button minw100" })
+        </div>
+    }
+</div>
+@section scripts{
+    <script>
+        function changeCOGS() {
+            if ($('#ShippingFee').val() != '' && $('#ImportPrice').val() != '' && $('#ExchangeRate').val() != '') {
+                $('#COGS').val(Number($('#ImportPrice').val()) * Number($('#ExchangeRate').val()) + Number($('#ShippingFee').val()));
+            }
+        }
+        $(document).on("change", "#CurrencyId", function () {
+            var CurrencyId = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "/Product/GetExchangeRateBy",
+                data: {
+                    CurrencyIdSelect: CurrencyId
+                },
+                dataType: "json",
+                success: function (jsonData) {
+                    //var listItems = "";
+
+                    //$.each(jsonData, function (i, item) {
+                    //    listItems += item.ExchangeRate;
+                    //});
+
+                    //$("#ExchangeRate").html(listItems);
+                    $("#ExchangeRate").val(jsonData.ExchangeRate);
+                    changeCOGS();
+                }
+            });
+            return false;
+        });
+        $(document).on("keyup", "#ShippingFee", function () {
+            changeCOGS();
+        });
+        $(document).on("keyup", "#ImportPrice", function () {
+            changeCOGS();
+        });
+        $(document).on("keyup", "#ExchangeRate", function () {
+            changeCOGS();
+        });
+        $(document).on("change", "#isHot", function () {
+            // alert($('#isHot').prop("checked"));
+            if ($('#isHot').prop("checked") == true) {
+                $('#divOrderBy').show();
+            }
+            else {
+                $('#divOrderBy').hide();
+                $('#OrderBy').val("");
+
+            }
+        });
+        if ($("#CurrencyId").val() == 1) {
+            $("#ImportPrice").number(true);
+            $("#ShippingFee").number(true);
+            $("#ExchangeRate").number(true);
+            $("#COGS").number(true);
+            $("#Price1").number(true);
+            $("#Price2").number(true);
+            $("#Price3").number(true);
+            $("#ShippingWeight").number(true);
+        }
+        else {
+            $("#ImportPrice").number(true, 2);
+            $("#ShippingFee").number(true, 2);
+            $("#ExchangeRate").number(true, 2);
+            $("#COGS").number(true, 2);
+            $("#Price1").number(true, 2);
+            $("#Price2").number(true, 2);
+            $("#Price3").number(true, 2);
+            $("#ShippingWeight").number(true, 2);
+
+        }
+    </script>
+}

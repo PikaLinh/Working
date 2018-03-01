@@ -1,0 +1,398 @@
+﻿@model CRM_RemiderModel
+@{
+    ViewBag.Title = "Chỉnh Sửa thông báo - nhắc nhở";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(m => m.RemiderId)
+            @Html.Hidden("IdCustomer")
+            @Html.Hidden("IdSupplier")
+            @Html.Hidden("FullNameCustomer")
+            @Html.Hidden("FullNameSupplier")
+            @Html.Hidden("ObjectNameTmp")
+    <div class=" col-md-6">
+        <div class="panel panel-default" style="min-height: 594px;">
+            <div class="panel-body form-horizontal">
+
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.RemiderName)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.RemiderName, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 col-sm-4 col-xs-12 control-label">Loại đối tượng</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="radio text-left">
+                            <label><input type="radio" name="ObjectId" id="KH" value="1" checked="checked">Khách hàng</label>
+                            <label><input type="radio" name="ObjectId" id="NCC" value="2">Nhà cung cấp</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row Objectvisible" id="divCustomerId2">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.CustomerId)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <div id="divCustomerId">
+                            <select name="CustomerId" class="form-control ObjectValue"></select>
+                            @Html.ValidationMessageFor(model => model.CustomerId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row Objectvisible" id="divSupplierId2">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label ">
+                        @Html.RequiredLabelFor(model => model.SupplierId)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <div id="divSupplierId">
+                            <select name="SupplierId" class="form-control ObjectValue"></select>
+                            @Html.ValidationMessageFor(model => model.SupplierId)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PeriodType, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="radio text-left">
+                            <label><input type="radio" name="PeriodType" id="MOTLAN" value="1" checked="checked">Một lần</label>
+                            <label><input type="radio" name="PeriodType" id="DINHKY" value="2">Định kỳ</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="PeriodTypeMOTLAN PeriodTypeVisible">
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label ">
+                            @Html.RequiredLabelFor(model => model.ExpiryDate)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.ExpiryDate, "{0:yyyy-MM-dd}", new { @type = "Date", @class = " dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                            @Html.ValidationMessageFor(model => model.ExpiryDate)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="PeriodTypeDINHKY PeriodTypeVisible ">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PeriodCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            @Html.DropDownList("PeriodCode", null, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group NDaysVisible">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label ">
+                            @Html.RequiredLabelFor(model => model.NDays)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            <input type="number" name="NDays" id="NDays" value="1" class=" dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-4 col-xs-12 control-label ">
+                            @Html.RequiredLabelFor(model => model.StartDate)
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.StartDate, "{0:yyyy-MM-dd}", new { @type = "Date", @class = " dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DaysPriorNotice, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="number" name="DaysPriorNotice" value="1" class=" dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NextDateRemind, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <span id="NextDateRemind" class="control-label"></span>
+                        <input type="hidden" id="NextDateRemindPreview" name="NextDateRemindPreview"  value="@Model.NextDateRemind"/>
+                    </div>
+                </div>
+                <hr class="custom" />
+                <div class="form-group">
+                    <label class="col-md-4 col-sm-4 col-xs-12 control-label" for="RemiderName">Hình thức thông báo(<span class="color-red">*</span>)</label>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="checkbox text-left  ">
+                            @{
+                                string isEmailNotifiedChecked = Model.isEmailNotified == true ? "Checked" : "";
+                                string isSMSNotifredChecked = Model.isSMSNotifred == true ? "Checked" : "";
+                            }
+                            <label><input type="checkbox" name="isEmailNotified" id="isEmailNotified" value="true" @isEmailNotifiedChecked >Email</label>
+                            <label><input type="checkbox" name="isSMSNotifred" id="isSMSNotifred" value="true" @isSMSNotifredChecked>SMS</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group EmailTemplateVisible">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.EmailTemplateId)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label ">
+                            @Html.DropDownList("EmailTemplateId", null, "- Vui lòng chọn mẫu Email -", new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12  control-label">
+                            <a href="/CRMEmailTemplate/Details/" id="ViewEmailTemplate" title="Xem chi tiết mẫu Email" target="_blank" class="btn btn-info">Xem</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group SMSTemplateVisible">
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.SMSTemplateId)
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="col-md-10 col-sm-10 col-xs-12 control-label">
+                            @Html.DropDownList("SMSTemplateId", null, "- Vui lòng chọn mẫu SMS -", new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                            <a href="/CRMSMSTemplate/Details/" id="ViewSMSTemplate" title="Xem chi tiết mẫu SMS" target="_blank" class="btn btn-info">Xem</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmployeeId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        @Html.DropDownList("EmployeeId", null, null, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group CCEmailVisible">
+                    @Html.LabelFor(model => model.isCCEmail, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="col-md-2 col-sm-2 col-xs-12 text-left">
+                            <input type="checkbox" name="isCCEmail" value="true" id="isCCEmail" checked="checked" />
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-12 " id="divEmailOfEmployee">
+                            <input type="text" name="EmailOfEmployeeView" id="EmailOfEmployeeView" value="@Model.EmailOfEmployee" data-role="tagsinput" />
+                            <input type="hidden" name="EmailOfEmployee" id="EmailOfEmployee" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group CCSMSVisible">
+                    @Html.LabelFor(model => model.isCCSMS, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <div class="col-md-2 col-sm-2 col-xs-12 text-left">
+                            <input type="checkbox" name="isCCSMS" value="true" id="isCCSMS" checked="checked" />
+                        </div>
+                        <div class="col-md-10 col-sm-10 col-xs-12 ">
+                            <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                <tbody>
+                                    <tr>
+                                        <td class="dxic" style="width: 100%;">
+                                            @Html.TextBoxFor(m => m.SMSOfEmployee, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Actived, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                        <select name="Actived" class="form-control" id="Actived">
+                            <option value="true">Đang hoạt động</option>
+                            <option value="false">Ngừng hoạt động</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default" style="min-height: 297px;">
+            <div class="panel-body form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.Price, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ServiceContent, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                </div>
+                <div class="form-group">
+                    <div class="row" style="margin-left: 0px;">
+                        <div class="col-md-12 col-sm-12 col-xs-12 control-label">
+                            @Html.TextAreaFor(m => m.ServiceContent, new { @class = "ckeditor" })
+                            <script type="text/javascript">
+                                CKEDITOR.replace("ServiceContent");
+                            </script>
+                            @Html.ValidationMessageFor(model => model.ServiceContent)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                    <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+            <hr class="custom" />
+        }
+        <div class="row">
+            <div class="col-md-6" id="divEmailParameter">
+                <h4 style="color: #0534f4;">Danh sách tham số Email</h4>
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmEmailPara" }))
+                {
+                    <div id="EmailParaContent">
+                        @Html.Partial("_EmailParameter", (List < CRMRemiderEmailParameterMappingViewModel >) ViewBag.EmailParaList)
+                    </div>
+                }
+            </div>
+            <div class=" col-md-6" id="divSMSParameter">
+                <h4 style="color: #27e341;">Danh sách tham số SMS</h4>
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmSMSPara" }))
+                {
+                    @Html.Partial("_SMSParameter", (List<CRMRemiderSMSParameterMappingViewModel>)ViewBag.SMSParaList)
+                }
+            </div>
+        </div>
+        <div class="form-horizontal  text-right">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnPreviewEmail" class="btn btn-success custom-button minw100">Xem trước Email sẽ gửi</a>
+            <a id="btnPreviewSMS" class="btn btn-info custom-button minw100">Xem trước SMS sẽ gửi</a>
+            <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+        <div class="loading-modal"></div>
+    </div>
+</div>
+
+<div id="divPreviewCRM" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center title "></h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+                    @ViewBag.Content
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/CRMRemider/Share.js"></script>
+    <script src="~/Scripts/CRMRemider/Edit.js"></script>
+    @*<script>
+        // Xét hiển thì loại (textbox, drop) cho Giá trị
+        $(".detail-ValueType").each(function () {
+            var row = $(this).data("row");
+            ValueOfEmailPara(row);
+        });
+
+        // Xét hiển thì loại (textbox, drop) cho Giá trị
+        $(".SMSPara-ValueType").each(function () {
+            var row = $(this).data("row");
+            ValueOfSMSPara(row);
+        });
+    </script>*@
+}

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProductUpdateMasterModel>
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">Danh sách phiếu cập nhật sản phẩm</h4></div>
+</div>
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="datatableProductUpdateList" style="width:100%">
+    <thead>
+        <tr class="warning">
+            <th style="width:5%">
+                STT
+            </th>
+            <th style="width:25%">
+                @Html.DisplayNameFor(model => model.ProductUpdateMasterCode)
+            </th>
+            <th style="width:20%">
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th style="width:10%">
+                @Html.DisplayNameFor(model => model.CreateAccount)
+            </th>
+            <th class="text-center" style="width:15%">
+                @Html.DisplayNameFor(model => model.TotalQty)
+            </th>
+            <th class="actions text-center" style="width:25%">@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="width:5%">
+                    @i
+                </td>
+                <td class="text-center" style="width:25%">
+                    @Html.DisplayFor(modelItem => item.ProductUpdateMasterCode)
+                </td>
+                <td class="text-center" style="width:20%">
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td style="width:10%">
+                    @Html.DisplayFor(modelItem => item.CreateAccount)
+                </td>
+                <td class="text-right" style="width:15%">
+                    @Html.DisplayFor(modelItem => item.TotalQty)
+                </td>
+                <td class="text-center" style="width:25%">
+                    <a class="btn btn-default btn-sm btn-sm btn-details" data-id="@item.ProductUpdateMasterId">Xem</a>
+                    @if (@item.CreatedIEOther || i != 1)
+                    {
+                        <button class="btn btn-warning btn-sm" disabled>Cập nhật sản phẩm</button>
+                        <button class="btn btn-danger btn-sm" disabled>Huỷ</button>
+                    }
+                    else
+                    {
+                        <a class="btn btn-default btn-warning btn-sm bt-autoimex" data-id="@item.ProductUpdateMasterId" data-code="@item.ProductUpdateMasterCode" data-toggle="modal" data-target="#confirm-autoimex">Cập nhật sản phẩm</a>
+                        <a class="btn btn-default btn-danger btn-sm btn-xoa" data-id="@item.ProductUpdateMasterId" data-code="@item.ProductUpdateMasterCode" data-toggle="modal" data-target="#confirm-delete">Huỷ</a>
+                    }
+                    <input type="hidden" id="idDelete" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

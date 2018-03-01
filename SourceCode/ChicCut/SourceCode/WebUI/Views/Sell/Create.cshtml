@@ -1,0 +1,186 @@
+﻿@model OrderMasterModel
+@using Constant
+@{
+    ViewBag.Title = "Đơn bán hàng mới";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">Đơn đặt hàng</h4>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12" id="divOrderCode">
+            <h4>Mã đơn hàng: <span></span> <a class="glyphicon glyphicon-refresh" title="Cập nhật mã đơn hàng" id="UpdateOrderCode"></a></h4>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+
+        </div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm("Save", null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(m => m.Actived)
+            @Html.HiddenFor(m => m.FullName)
+            @Html.HiddenFor(m => m.OrderStatusId)
+            @Html.Hidden("IdProvince")
+            @Html.Hidden("IdDistrict")
+            @Html.Hidden("IdCustomer")
+            @Html.Hidden("PreOrderId")
+            @Html.HiddenFor(m => m.SaleName)
+            <input type="hidden" name="OrderCode" id="OrderCode" />
+           <input type="hidden" name="StoreId" id="StoreId" value="1000" /> //Chic Cut Salon 
+            <input type="hidden" value="@ViewBag.ProvinceName " name="ProvinceName" />
+            <input type="hidden" value="@ViewBag.DistrictName " name="DistrictName" />
+            <div class="col-md-12">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.CustomerId)
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-8 control-label text-left">
+                                <div id="divCustomerId">
+                                    <select name="CustomerId" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-4 control-label">
+                                <a class="btn btn-default custom-button btn-warning " href="/Customer/Create?ReturnUrl=/Sell/Create" title="Thêm mới khách hàng">Thêm</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Phone)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div class="radio">
+                                    @if (@Model.Gender == true)
+                                    {
+                                        <label><input type="radio" name="Gender" id="Nam" value="true" checked="checked">Nam</label>
+                                        <label><input type="radio" name="Gender" id="Nu" value="false">Nữ</label>
+                                    }
+                                    else
+                                    {
+                                        <label><input type="radio" name="Gender" id="Nam" value="true">Nam</label>
+                                        <label><input type="radio" name="Gender" id="Nu" value="false" checked="checked">Nữ</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Email)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ProvinceId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divProvinceId">
+                                    <select name="ProvinceId" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.DistrictId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divDistrictId">
+                                    <select name="DistrictId" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Address, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Address)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Note)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        @Html.Action("_CreateList", new { PreOrderId = ViewBag.PreOrderId })
+        <div class="form-horizontal text-right">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnSave" class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+        <div id="divAlert">
+        </div>
+         <div class="loading-modal"></div>
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/OrderMaster/shared.js"></script>
+    <script src="~/Scripts/OrderMaster/create.js"></script>
+    <script>
+        GetOtherCode();
+        $(document).on("click", "#UpdateOrderCode", function () {
+            //alert("aaa");
+            GetOtherCode();
+        })
+        function GetOtherCode() {
+            $.ajax({
+                type: "POST",
+                url: "/Sell/UpdateOrderCode",
+                success: function (OrderCode) {
+                    $("#divOrderCode h4 span").html(OrderCode);
+                    $("#OrderCode").val(OrderCode);
+                    //alert(OrderCode);
+                }
+            });
+        }
+    </script>
+
+}

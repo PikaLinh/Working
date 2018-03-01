@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EntityModels.PageModel>
+
+@{
+    ViewBag.Title = "Create2";
+}
+
+<h2>Create2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visiable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Actived)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Visiable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actived)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityModels.EmployeeModel>
+
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "formload" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Họ tên nhân viên:
+                <div id="divEmployeeId">
+                    <select name="EmployeeId" class="form-control"></select>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Số điện thoại:
+                <input type="text" id="Phone" name="Phone" class="form-control" placeholder="Nhập số điện thoại" />
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Nhóm:
+                <input type="hidden" id="ProductName" name="ProductName">
+                <div style="width: 220px">
+                     @Html.DropDownList("RolesId", null, "-Tất cả-" , new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                Trạng thái:
+                <select name="Actived" class="form-control">
+                    <option value="true">Còn hoạt động</option>
+                    <option value="false">Không hoạt động</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <hr class="custom">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <a id="btntim" class="btn btn-warning col-sm">Tìm</a>
+            </div>
+        </div>
+    </div>
+}
+<div class="loading-modal"></div>
+
+<hr class="custom">
+<div id="contentEmployee">
+
+</div>
+@section Scripts {
+<script src="~/Scripts/Employee/Index.js"></script>
+}

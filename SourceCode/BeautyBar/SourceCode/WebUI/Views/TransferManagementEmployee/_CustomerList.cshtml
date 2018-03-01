@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CustomerModel>
+<ul class="ListCus" style="list-style:none;padding-left: 0px;">
+    <li><label><input type="checkbox" name="chkAll" id="chkAll"> Tất cả</label></li>
+    @{
+    foreach (var item in Model)
+    {
+        string NameCus = item.FullName + (string.IsNullOrEmpty(item.Fax) ? "" : " - " + item.Fax);
+        <li><label><input type="checkbox" value="@item.CustomerId" name="CustomerId">  @NameCus</label></li>
+    }
+    }
+</ul>
+

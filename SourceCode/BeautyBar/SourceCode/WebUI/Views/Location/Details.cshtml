@@ -1,0 +1,60 @@
+﻿@model EntityModels.LocationModel
+
+@{
+    ViewBag.Title = "Xem chi tiết";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocationName, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                @Html.DisplayFor(m => m.LocationName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                @if (!string.IsNullOrEmpty(Model.Url))
+                {
+                    string url = "";
+                    if (Model.Url.Length > 40)
+                    {
+                        url = Model.Url.Substring(0, 40) + "...";
+                    }
+                    else
+                    {
+                        url = Model.Url;
+                    }
+                    <a href="@Model.Url" title="Xem bản đồ" target="_blank">@url</a>
+                }
+</div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Actived, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                <div class="checkbox">
+                    <label>
+                        @Html.DisplayFor(m => m.Actived)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.LocationId }, new { @class = "btn btn-warning custom-button minw100" })
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProductInfoViewModel>
+
+<table class="table table-bordered table-striped table-hover dataTable no-footer" id="dataTable1" style="width:100%">
+    <thead>
+        <tr class="warning">
+        <th class="text-center" >
+                STT
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price1)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.Price2)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.Price3)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.Price4)
+        </th>
+        <th class="text-center" style="width: 150px;">@Resources.LanguageResource.Actions</th>
+    </tr>
+</thead>
+ <tbody>
+     @if(Model != null)
+     {
+         int i = 0;
+         foreach (var item in @Model) 
+         {
+             i++;
+             <tr>
+                <td class="text-center">
+                   @i
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price1)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price2)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price3)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price4)
+                </td>
+                 <td class="text-center">
+                     <a href="/Product/Edit/@item.ProductId" class="btn col-sm btn-warning" style="margin: 5px;">Sửa</a>
+                 </td>
+            </tr>
+        };
+     }
+ </tbody>
+</table>

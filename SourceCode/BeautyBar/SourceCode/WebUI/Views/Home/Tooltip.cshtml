@@ -1,0 +1,25 @@
+﻿@model List<StatusModel>
+<!-- trigger element. a regular workable link -->
+<span id="download_now" class="glyphicon glyphicon-info-sign"></span>
+<!-- tooltip element -->
+<div class="tooltip">
+    <table style="margin:0">
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td class="label">@item.StatusName</td>
+                    <td class="tooltip-detail">@item.Detail</td>
+                </tr>
+            }
+        }
+      
+    </table>
+</div>
+@*<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+<script>
+    $("#download_now").tooltip({ effect: 'slide' });
+</script>*@
+<script src="/Scripts/tooltip.js"></script>
+@Scripts.Render("~/bundles/jquery")

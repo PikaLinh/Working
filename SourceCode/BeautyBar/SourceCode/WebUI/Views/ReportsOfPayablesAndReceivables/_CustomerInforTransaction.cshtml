@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ReportCusTransactionViewModel>
+<h3 style="color: #6bdf71;">Chi tiết giao dịch</h3>
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped table-hover no-footer">
+    <thead>
+        <tr class="warning">
+            <th style="width:5%">
+                STT
+            </th>
+            <th style="width:160px">
+               @Html.DisplayNameFor(model => model.DateTransaction)
+            </th>
+           <th style="width:125px;min-width:100px">
+                @Html.DisplayNameFor(model => model.TransactionCode)
+            </th>
+            <th style="width:80px">
+                @Html.DisplayNameFor(model => model.Change)
+            </th>
+            <th style="width: 125px;">
+                @Html.DisplayNameFor(model => model.Amout)
+            </th>
+            <th style="width: 125px;">
+                @Html.DisplayNameFor(model => model.RemainingAmountAccrued)
+            </th>
+             <th style="min-width: 200px;">
+                 @Html.DisplayNameFor(model => model.Description)
+            </th>
+         </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                    <td class="text-center">
+                        @i
+                    </td>
+                     <td class="text-center" >
+                        @Html.DisplayFor(modelItem => item.DateTransaction)
+                    </td>
+                    <td class="text-left" >
+                        @Html.DisplayFor(modelItem => item.TransactionCode)
+                    </td>
+                    <td class="text-center">
+                          @Html.DisplayFor(modelItem => item.Change)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.Amout) 
+                    </td>
+                     <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.RemainingAmountAccrued) 
+                    </td>
+                    <td class="text-left">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                </tr>
+            }   
+        }
+    </tbody>
+</table>
+    
+}

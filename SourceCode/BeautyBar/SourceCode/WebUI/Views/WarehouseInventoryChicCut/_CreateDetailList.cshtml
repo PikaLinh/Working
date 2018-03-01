@@ -1,0 +1,49 @@
+﻿@model List<WarehouseInventoryDetailViewModel>
+<!--Action save => cứ nhấ bất cứ cái gì trong form là nó submit lên => bỏ cái này-->
+<!--Bỏ cái action => mà nó còn cái post nên nó vẫn post lên action hiện tại -->
+<form id="frmList">
+    <div class="form-horizontal">
+        <table id="tblWarehouseInventoryDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px; text-align:center;">Tên sản Phẩm</th>
+                    <th style="width:110px">Quy cách</th>
+                    <th style="width:100px">Tồn hệ thống</th>
+                    <th style="width:130px">Tồn thực tế</th>
+                    <th style="width:130px">Khoảng chênh lệch</th>
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_CreateDetailListInner", @Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-right" colspan="3"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" id="SumEndInventoryQty">
+                        0
+                    </td>
+                    <td class="text-right" id="SumActualInventory">
+                        0
+                    </td>
+                    <td class="text-right" id="SumAmountDifference">
+                        0
+                    </td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <div class="col-md-4">
+                            <div class="col-md-8">
+                                <input type="text" id="scanBarcode" name="scanBarcode" class="form-control " placeholder="Quét mã vạch.." />
+                            </div>
+                        </div>
+                        <button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>
+

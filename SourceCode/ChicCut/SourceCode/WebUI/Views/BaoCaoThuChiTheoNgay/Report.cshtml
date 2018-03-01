@@ -1,0 +1,13 @@
+﻿<div class="panel text-center">
+    <div class="panel-body">
+        @Html.DevExpress().ReportToolbar(settings =>
+{
+    settings.Name = "ReportViewerToolbar";
+    settings.ReportViewerName = "reportViewer";
+}).GetHtml()
+        <div id="divReport" style="width: 1000px; margin: auto auto;">
+            @Html.Action("ReportViewerPartial", "BaoCaoThuChiTheoNgay", new { StoreId = ViewBag.StoreId, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate })
+        </div>
+    </div>
+</div>
+

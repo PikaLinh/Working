@@ -1,0 +1,15 @@
+﻿@model List<CustomerModel>
+
+@if (Model != null)
+{
+    int k = 0;
+    <ul class="list-unstyled">
+
+        <li><label><input type="checkbox" name="chkAll" /> Tất cả</label></li>
+        @foreach (var item in Model)
+        {
+            k++;
+            <li><label><input type="checkbox" value="@item.CustomerId" name="CustomerId" /> @item.EnterpriseName</label></li>
+        }
+    </ul>
+}

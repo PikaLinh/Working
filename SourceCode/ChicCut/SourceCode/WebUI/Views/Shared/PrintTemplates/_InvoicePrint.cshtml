@@ -1,0 +1,117 @@
+﻿<script type="text/x-kendo-template" id="tmplInvoicePrint">
+    <style>
+        .invoice {
+            font-family: 'Arial';
+            margin: 3px;
+            margin-left: 6px;
+            padding: 0;
+            padding-left: 2px;
+        }
+
+            .invoice div, .invoice table {
+                font-family: 'Arial';
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+            }
+            .invoice th{
+                border-bottom: 1px dashed black;
+            }
+           .invoice hr{
+                border: 1px dashed black;
+            }
+            .invoice h3 {
+                font-family: 'Arial';
+                margin: 0px 0px 5px 0px;
+                padding: 0;
+            }
+
+            .invoice h4 {
+                font-family: 'Arial';
+                font-size: 14px;
+                margin: 0;
+                padding: 0;
+            }
+         .invoice h6{
+            padding:0px;
+            margin:0px 0px 0px 0px;
+            text-align:center;
+         }
+         .thanks{
+             text-align:center;
+             font-weight:initial;
+         }
+    </style>
+    <div class="invoice">
+        <h3 style="text-align:center">CHIC CUT HAIR SALON</h3>
+        <h6>489, Hồng Bàng, Phường 14, Quận 5</h6>
+        <h6>08 6278 0881</h6>
+        <div style="clear: both;margin-top:25px"></div>
+        <h3 style="text-align:center">PHIẾU THANH TOÁN</h3>
+        <div style="clear: both;margin-top:10px"></div>
+        <div>Khách hàng: #= Order.FullName # - #= Order.Phone #</div>
+        <div style="clear:both"></div>
+        <div style="float: left">Giới tính: #= Order.GenderName #</div>
+        # if( Order.HairStyle != null) {#
+        <div style="float: right">Loại tóc: #= Order.HairStyle #</div>
+        #}#
+        <div style="float: left">Phương thức: #= Order.PaymentMethod #</div>
+        <div style="float: right">Số bill: #= Order.OrderId #</div>
+        <div style="clear: both"></div>
+        <div style="float: left">Thu ngân: #= Order.CashierName #</div>
+        <div style="float: right">#= kendo.toString(kendo.parseDate(Order.CashierDate, 'yyyy-MM-dd'), 'hh:mm dd/MM/yyyy') #</div>
+        <div style="clear: both"></div>
+        # if( Order.StaffName != null) {#
+        <div style="float: left">Nhân viên: #= Order.StaffName #</div>
+        <div style="clear:both"></div>
+        #}#
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:left;width: 100px;">Dịch vụ</th>
+                    <th style="text-align:center;width: 50px">Đ.Giá</th>
+                    <th style="text-align:center;width: 30px">SL</th>
+                    <th style="text-align:center;width: 50px">T.Tiền</th>
+                </tr>   
+            </thead>
+            <tbody>
+                #for (var i = 0; i < Order.details.length ; i++){#
+                <tr>
+                    # var detail = Order.details[i]; #
+                    <td style="text-align:left;">#= detail.ServiceName #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.Price)) #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.Qty)) #</td>
+                    <td style="text-align: center">#= floatToString(parseFloat(detail.UnitPrice)) #</td>
+                    @*<td style="text-align: right">(#= Number(detail.Qty).toFixed(2)  #)</td>*@
+                </tr>
+                #}#
+            </tbody>
+            <tfoot>                
+                # if( Order.TotalBillDiscount != null && Order.TotalBillDiscount != 0){ #
+                <tr>
+                    <td colspan="2" style="text-align: right;">Tổng cộng:</td>
+                    <td colspan="2" style="text-align: right;"> #= floatToString(Order.SumPriceOfOrderDetail) #</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">Giảm:</td>
+                    <td colspan="2" style="text-align: right;">#= floatToString(Order.TotalBillDiscount) #</td>
+                </tr>
+                # } #
+                <tr>
+                    <td colspan="2" style="text-align: right;"><b>Tổng tiền trả:</b></td>
+                    <td colspan="2" style="text-align: right;"><b>#= floatToString(Order.Total) #</b></td>
+                </tr>
+            </tfoot>
+        </table>
+      
+       
+        #if(Order.Note != null && Order.Note != ""){ #
+            <div style="float: left;font-size: 22px">
+                Ghi chú: #= Order.Note #
+            </div>
+        #}#
+        <div style="clear: both;margin-top:25px"></div>
+        <hr />
+        <div class="thanks"><i>Cám ơn quý khách, Hẹn gặp lại!</i></div>
+    </div>
+</script>

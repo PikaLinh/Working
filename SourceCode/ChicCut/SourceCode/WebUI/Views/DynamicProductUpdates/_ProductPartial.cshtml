@@ -1,0 +1,44 @@
+﻿@using System.Data
+@using EntityModels
+@{
+    DataTable dtView = (DataTable)ViewBag.DataViewModel;
+    string[] columnNames = dtView.Columns.Cast<DataColumn>()
+                                 .Select(x => x.ColumnName)
+                                 .ToArray();
+}
+@if (dtView.Rows.Count > 0)
+{
+    <table class="table table-bordered table-striped table-hover dataTable no-footer" id="dataTable1" style="width:100%">
+        <thead>
+            <tr class="warning">
+                <th class="text-center">
+                    STT
+                </th>.
+                <th>
+                   Tên sản phẩm
+                </th>
+                @foreach (var item in (List<CustomerLevelModel>)ViewBag.lstCusName)
+                {
+                    <th>@item.CustomerLevelName</th>
+                }
+                <th class="text-center" style="width: 150px;">@Resources.LanguageResource.Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+           @for (int i = 0; i < dtView.Rows.Count; i++)
+           {
+               <tr>
+                   <td>@(i + 1 )</td>
+                   <td>@dtView.Rows[i]["ProductName"]</td>
+                  @for (int j = 6; j <= columnNames.Length - 4; j++)
+                  {
+                    <td>@string.Format("{0:n0}",dtView.Rows[i][columnNames[j]])</td>
+                  }
+                   <td class="text-center">
+                       <a href="/Product/Edit/@dtView.Rows[i]["ProductId"]" class="btn col-sm btn-warning" style="margin: 5px;">Sửa</a>
+                   </td>
+               </tr>
+           }
+        </tbody>
+    </table>
+}         

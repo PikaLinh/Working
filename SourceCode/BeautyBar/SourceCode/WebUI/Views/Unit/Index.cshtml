@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityModels.UnitModel>
+
+@{
+    ViewBag.Title = "Danh sách đơn vị tính";
+}
+
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-4 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                TT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Actived)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitName)
+                </td>
+                <td class="text-center">
+                    @if (item.Actived == true)
+                    {
+                        <i class="glyphicon glyphicon-ok"></i>
+                    }
+                    else
+                    {
+                        <i class="glyphicon glyphicon-remove"></i>
+                    }
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Xem", "Details", new { id = item.UnitId }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.UnitId }, new { @class = "btn btn-default btn-warning btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>

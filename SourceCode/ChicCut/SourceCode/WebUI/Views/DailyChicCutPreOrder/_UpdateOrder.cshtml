@@ -1,0 +1,117 @@
+﻿@model Daily_ChicCut_Pre_OrderModel
+@using EntityModels
+@{
+    ViewBag.Title = "Thêm mới dịch vụ";
+}
+@Html.HiddenFor(m => m.PreOrderId)
+<input id="OrderStatusIdNow" value="@Model.OrderStatusId" hidden />
+<div class="row">
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div class="form-group">
+            @*<div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Giới tính:
+            </div>
+            @{
+                string GenderMail = "", GenderFeMail = "", AddNew = "";
+                if (Model.Gender.HasValue)
+                {
+                    GenderMail = Model.Gender.Value ? "btn-danger" : "";
+                    GenderFeMail = !Model.Gender.Value ? "btn-danger" : "";
+                }
+                else
+                {
+                    AddNew = "btn-danger";
+                }
+            }
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                @if (AddNew.Equals("btn-danger"))
+                {
+                    <a class="btn btn-default Gender  btn-custom @GenderMail" data-gender="true" id="Mail">Nam</a>
+                    <a class="btn btn-default Gender btn-custom @GenderFeMail @AddNew" data-gender="false" id="FeMail">Nữ</a>
+                }
+                else // Xử lý disabled và Class Gender
+                {
+                    <span class="btn btn-default @(GenderMail.Equals("btn-danger") ? "Gender" : "")  @GenderMail" data-gender="true" id="Mail" @(!GenderMail.Equals("btn-danger") ? "disabled" : "")>Nam</span>
+                   <span class="btn btn-default @(GenderFeMail.Equals("btn-danger") ? "Gender" : "") @GenderFeMail @AddNew" data-gender="false" id="FeMail" @(!GenderFeMail.Equals("btn-danger") ? "disabled" : "")>Nữ</span>
+
+                }
+              
+            </div>*@
+        </div>
+        <div class="form-group">
+            @*<div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Trạng thái:
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                <a class="btn btn-default btn-danger btn-custom" disabled)>Đặt trước</a>
+            </div>*@
+        </div>
+
+        <div class="form-group">
+            @*<div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                Trạng thái:
+            </div>
+            <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                @{
+                    string[] OrderStatusArr = { "Thêm mới", "Đang chờ", "Đang phục vụ", "Đã tính tiền", "Huỷ" };
+                    string[] cssColorArr = { "", "#BDB76B", "#00CED1" };
+                }
+                <span class="btn-default" data-id="@Model.OrderStatusId" style="background-color:@cssColorArr[Model.OrderStatusId.HasValue ? Model.OrderStatusId.Value : 0]">@OrderStatusArr[Model.OrderStatusId.HasValue ? Model.OrderStatusId.Value : 0]</span>
+            </div>*@
+        </div> 
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="contentService">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group form-horizontal text-left col-md-6">
+        <div>
+            @Html.Partial("_CustomerInfo", Model)
+        </div>
+        <div>
+            @{
+                var _context = new EntityDataContext();
+            }
+            @Html.Action("_DailyChicCutOrderDetailInfo", new
+       {
+           details =
+               Model.PreOrderId > 0 ?
+               Model.Daily_ChicCut_Pre_OrderDetailModel.Select(p => new Daily_ChicCut_Pre_OrderDetailViewModel()
+               {
+                   PreOrderId = p.PreOrderId,
+                   ServiceCategoryId = p.ServiceCategoryId,
+                  // COGS = p.COGS,
+                   MinPrice = p.MinPrice,
+                   MaxPrice = p.MaxPrice,
+                   Qty = p.Qty,
+                  // UnitCOGS = p.UnitCOGS,
+                   MinUnitPrice = p.MinPrice,
+                   MaxUnitPrice = p.MaxUnitPrice ,
+                   ServiceName = _context.Master_ChicCut_ServiceCategoryModel.Where(pp => pp.ServiceCategoryId == p.ServiceCategoryId).Select(pp => pp.ServiceName).FirstOrDefault(),
+               }).ToList() :
+               new List<Daily_ChicCut_Pre_OrderDetailViewModel>()
+       })
+        </div>
+    </div>
+</div>
+<script>
+    //Loại dịch vụ
+    var Gender = $(".Gender").filter(".btn-danger").data("gender");
+   // var HairTypeId = $(".HairTypeId").filter(".btn-danger").data("hairtypeid");
+    GetServicePartital(Gender);
+
+    var CustomerId = $("#IdCustomer").val();
+    var CustomerName = $("#FullName").val();
+    Select2_Custom("/Sell/GetCustomerId", "CustomerId", CustomerId, CustomerName, "divCustomerId");
+    var id = $("#IdCustomer").val();
+    if (id != "" && id != undefined) {
+        CustomerInfo(id);
+    }
+    //Tổng tiền
+
+    TotalPrice();
+</script>

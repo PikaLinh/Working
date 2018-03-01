@@ -1,0 +1,56 @@
+﻿@model List<SalaryDetailViewModel>
+
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblSalaryDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:30px" class="text-center">STT</th>
+                    <th style="width:150px">Nhân viên</th>
+                    <th style="width:60px">Lương</th>
+                    <th style="width:100px">Hoa hồng</th>
+                    <th style="width:100px">Tiền boa</th>
+                    <th style="width:130px">Tổng cộng</th>
+                    <th style="width:100px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td class="text-center">
+                            @i
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.EmployeeName)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(modelItem => item.Salary, new { @class = "form-control text-right salary" })
+                        </td>
+                        <td class="text-right">
+                            @Html.DisplayFor(modelItem => item.Commission, new { @class = "commission" })
+                        </td>
+                        <td class="text-right">
+                            @Html.DisplayFor(modelItem => item.Tip, new { @class = "tip" })
+                        </td>
+                        <td class="text-right totalSalary"></td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-right" colspan="5"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" id="SumSalary">
+                        0
+                    </td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>

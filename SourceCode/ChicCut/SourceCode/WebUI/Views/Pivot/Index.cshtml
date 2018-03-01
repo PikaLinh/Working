@@ -1,0 +1,57 @@
+﻿@model List<ProductInfoViewModel>
+@using (Html.BeginForm("ExportToXLS", "Pivot"))
+{
+   @Html.Partial("_PivotPartialView",Model)
+    <div class="row">
+        <div class="col-md-6">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-info" style="width: 100%;">Export</button>
+            </div>
+             <div class="col-md-3">
+                <select class="form-control" name="ExportType" style="width: 100%">
+                    <option value="Excel">Excel</option>
+                    <option value="PDF">PDF</option>
+                     <option value="Image">Image</option>
+                </select>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@section head{
+    <!--Gọi ở head trong _Layout-->
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid, Theme="Metropolis" },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Chart },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.HtmlEditor },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.Chart },
+        new Script { ExtensionSuite = ExtensionSuite.Report },
+        new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+        new Script { ExtensionSuite = ExtensionSuite.TreeList }
+    )
+}
+@section scripts {
+    <script>
+        $("select[name='ExportType']").select2({
+            placeholder: "Hãy chọn 1 giá trị tuỳ ý",
+            allowClear: true
+        });
+    </script>
+ 
+}

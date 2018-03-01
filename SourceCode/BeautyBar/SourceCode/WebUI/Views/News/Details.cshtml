@@ -1,0 +1,94 @@
+﻿@model Website_NewsModel
+@{
+    ViewBag.Title = "Xem chi tiết tin tức";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.CategoryId)
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                        @Html.DisplayFor(m => m.CategoryModel.CategoryName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        @Html.RequiredLabelFor(model => model.Title)
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        @Html.DisplayFor(p => p.Title)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        @Html.DisplayFor(p => p.Description)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Details, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        @Html.DisplayFor(p => p.Details)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isHot, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                        @if (@Model.isHot == true)
+                        {
+                            <i class="glyphicon glyphicon-ok"></i>
+                        }
+                        else
+                        {
+                            <i class="glyphicon glyphicon-remove"></i>
+                        }
+                    </div>
+                </div>
+                <div class="form-group" id="divOrderIndex" style="display: none;">
+                    @Html.LabelFor(model => model.OrderIndex, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                        @Html.DisplayFor(m => m.OrderIndex)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Visible, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-4 col-sm-4 col-xs-12 control-label text-left">
+                            @if (@Model.Visible == true)
+                            {
+                                <span>Hiện thị</span>
+                            }
+                            else
+                            {
+                                <span>Ẩn</span>
+                            }
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ImageUrl, new { @class = "col-md-2 col-sm-2 col-xs-12 control-label" })
+                    <div class="col-md-10 col-sm-10 col-xs-12 control-label text-left">
+                        @*<img src="/Upload/Website_News/Thum/@Model.ImageUrl" style="width: 200px;" />*@
+                        <img src="@ViewBag.pathImage " style="width: 200px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-5 col-sm-offset-5">
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            @Html.ActionLink("Sửa", "Edit", new { id = Model.NewsID }, new { @class = "btn btn-warning custom-button minw100" })
+        </div>
+    }
+</div>
+<script src="~/Scripts/News/Shared.js"></script>

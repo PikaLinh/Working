@@ -1,0 +1,24 @@
+﻿@*Popup thông báo*@
+<div id="divPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-center">
+                    Thông báo
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center text-bold" style="padding-left: 30px; padding-right:30px;">
+                    @ViewBag.Content
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

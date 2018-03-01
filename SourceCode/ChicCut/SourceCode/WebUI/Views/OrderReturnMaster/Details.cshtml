@@ -1,0 +1,250 @@
+﻿@model OrderReturnMasterViewModel
+
+@{
+    ViewBag.Title = "Chi tiết đơn khách hàng trả hàng";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <h4>Mã phiếu trả hàng: <span>@Model.OrderReturnMasterCode</span></h4>
+        </div>
+
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm("Save", null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(m => m.Actived)
+            // @Html.HiddenFor(m => m.OrderStatusId)
+            <input type="hidden" name="OrderCode" id="OrderCode" />
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StoreId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.StoreName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.WarehouseId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.WarehouseName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.OrderId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.OrderCode)
+                            </div>
+                        </div>
+                        <hr class="custom">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CustomerId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.CustomerName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CustomerLevelId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.CustomerLevelName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.IdentityCard, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.IdentityCard)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Phone, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.Phone)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Gender, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.Gender2)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Email, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.Email)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ProvinceId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.ProvinceName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.DistrictId, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.DistrictName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Address, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.Address)
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="panel panel-default" style="min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.SaleName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.SaleName)
+                            </div>
+                        </div>
+                        <hr class="custom" />
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CompanyName, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.CompanyName)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.TaxBillCode, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.TaxBillCode)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ContractNumber, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.ContractNumber)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.TaxBillDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.TaxBillDate)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.DebtDueDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.DebtDueDate)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DisplayFor(p => p.Note)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <hr class="custom" />
+        <table id="tblImportDetail" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width: 40px" class="text-center">STT</th>
+                    <th style="width: 250px">Sản phẩm</th>
+                    <th style="width: 110px">Giá</th>
+                    @* <th style="width:100px">Phí vận chuyển</th>*@
+                    <th style="width: 50px">Số lượng đã bán</th>
+                    <th style="width: 50px">Số lượng đã trả</th>
+                    <th style="width: 50px">Số lượng trả</th>
+                    <th style="width: 200px">Thành tiền</th>
+                    <th style="width: 50px">Số khung</th>
+                    <th style="width: 100px">Lý do</th>
+                </tr>
+            </thead>
+            <tbody id="contentCreateListInner">
+                @Html.Action("_DetailList", new { OrderReturnMasterId = Model.OrderReturnMasterId })
+            </tbody>
+            <tfoot>
+                @{
+                    string BillDiscount = "";
+                    if (Model.BillDiscount.HasValue)
+                    {
+                        if (Model.BillDiscountTypeId == 1)
+                        {
+                            BillDiscount = Model.BillDiscount.Value.ToString("n0") + "đ";
+                        }
+                        else
+                        {
+                            BillDiscount = Model.BillDiscount.Value.ToString() + "%";
+                        }
+                    }
+                }
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng:</strong></td>
+                    <td class="text-right" id="SumPrice">
+                        @Html.DisplayFor(p => p.SumPrice)
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Giảm giá:</strong></td>
+                    <td class="text-right" style="width: 100px;">
+                        @BillDiscount
+                    </td>
+                   <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>VAT(%):</strong></td>
+                    <td class="text-right">
+                        @Html.DisplayFor(p => p.BillVAT)
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Tổng cộng thành tiền:</strong></td>
+                    <td class="text-right" id="TotalPrice">
+                        @Html.DisplayFor(p => p.TotalPrice)
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                <tr id="divGuestAmountPaid">
+                    <td class="text-right" colspan="6">
+                        <strong>Số tiền trả ngay:</strong>
+                    </td>
+                    <td class="text-right">
+                        @if (Model.Paid != 0)
+                        {
+                             @Html.DisplayFor(p => p.Paid)
+                        } 
+                        else
+                        {
+                             @Html.DisplayFor(p => p.MoneyTransfer)
+                        }     
+                    </td>
+                     <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="6"><strong>Số tiền còn lại:</strong></td>
+                    <td class="text-right" id="RemainingAmount2">
+                        <span>@Html.DisplayFor(p => p.RemainingAmount)</span>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+            </tfoot>
+        </table>
+        <hr class="custom" />
+        <div class="form-horizontal text-left">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+        </div>
+
+    </div>
+
+</div>

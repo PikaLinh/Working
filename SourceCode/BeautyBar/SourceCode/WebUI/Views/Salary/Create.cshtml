@@ -1,0 +1,120 @@
+﻿@model SalaryMasterModel
+@{
+    ViewBag.Title = "Thêm mới bảng lương";
+}
+<div id="partial">
+    <hr class="custom">
+    <div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+        <div class="row head">
+            <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+        </div>
+        <form id="frmMaster">
+            <hr class="custom">
+            <div class="row">
+                <div class=" col-md-6">
+                    <div class="panel panel-default" style=" min-height: 195px;">
+                        <div class="panel-body form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                        <tbody>
+                                            <tr>
+                                                <td class="dxic" style="width: 100%;">
+                                                    @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                    @Html.ValidationMessageFor(model => model.Note)
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PayDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 100%;">
+                                                    <input type="date" name="PayDate" value="@ViewBag.PayDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                    @*@Html.LabelFor(model => model.FromDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })*@
+                                    @Html.RequiredLabelFor(model => model.FromDate)
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 100%;">
+                                                    <input type="date" name="FromDate" value="@ViewBag.FromDate" id="fromDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                    @* @Html.LabelFor(model => model.ToDate, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })*@
+                                    @Html.RequiredLabelFor(model => model.ToDate)
+                                </div>
+
+                                <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                    <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 100%;">
+                                                    <input type="date" name="ToDate" value="@ViewBag.ToDate" id="toDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr />
+                            <a class="btn btn-default btn-warning pull-right" id="btnAddNew">Thêm mới</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="parCreateList" style="visibility:hidden">
+                    @Html.Action("_CreateList")
+                    <div class="form-horizontal  text-right">
+                        @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+                        <button id="btnSave" type="button" class="btn btn-default custom-button btn-warning minw100">Lưu</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).on("click", "#btnAddNew", function () {
+            $.ajax({
+                type: "POST",
+                url: "/Salary/CreateNew",
+                data: $("#frmMaster").serialize(),
+                success: function (result) {
+                    if (result == "Vui lòng nhập thông tin có dấu (*)!")
+                    {
+                        Alert_Popup(result);
+                    }
+                    else
+                    {
+                        $("#parCreateList").attr("visibility", "visible");
+                        $("#partial").html(result);
+                    }     
+                }
+            });
+        });
+    </script>
+}

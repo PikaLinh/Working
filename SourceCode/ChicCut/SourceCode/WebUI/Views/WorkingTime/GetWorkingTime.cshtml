@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ViewModels.ChicCut.PlanDetailViewModel>
+<hr class="custom">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+        <a id="btnSave" class="btn btn-warning col-sm">Lưu</a>
+    </div>
+</div>
+<br />
+<form id="formDetail">
+    <div class="form-horizontal row" style="margin-left:5px;">
+        <table id="tblPlanDetail" class="table table-bordered table-striped table-hover col-md-2 col-sm-2" style="width:200px">
+            <thead>
+                <tr class="warning">
+                    <th style="width:80px" class="text-center">Khung giờ</th>
+                    <th style="width:80px">Lượt khách</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int k = -1;
+                }
+                @foreach (var item in Model)
+                {
+                    k++;
+                    <tr>
+                        @*@Html.HiddenFor(m => m.ImportDetailId)*@
+                        <td style="width: 80px" class="text-center">
+                            <input type="hidden" name="planDetailList[@k].PlanDetailId" value="@item.PlanDetailId" />
+                            <input type="hidden" name="planDetailList[@k].PlanMasterId" value="@item.PlanMasterId" />
+                            <input type="hidden" name="planDetailList[@k].TimeFrame" value="@item.TimeFrame">
+                            @item.TimeFrameString
+                        </td>
+                        <td style="width: 80px" class="text-center">
+                            <input type="number" name="planDetailList[@k].AmountOfCus" id="AmountOfCus" value="@item.AmountOfCus" style="width:60px">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>

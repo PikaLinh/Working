@@ -1,0 +1,42 @@
+﻿@model List<OrderReturnDetailViewModel>
+
+ @{
+                    int i = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    i++;
+                    string Price = item.Price.HasValue ? item.Price.Value.ToString("n0") : "0";
+                    string SellQuantity = item.SellQuantity.HasValue ? item.SellQuantity.Value.ToString("n0") : "0";
+                    string ReturnQty = item.ReturnQuantity.HasValue ? item.ReturnQuantity.Value.ToString("n0") : "0";
+                    string ReturnedQty = item.ReturnedQuantity.HasValue ? item.ReturnedQuantity.Value.ToString("n0") : "0";
+                    string UnitPrice = item.UnitPrice.HasValue ? item.UnitPrice.Value.ToString("n0") : "0";
+                    <tr>
+                        <td style="width: 40px" class="text-center">
+                            @i
+                        <td style="width: 100px">
+                            <a href="/Product/Details/@item.ProductId">@item.ProductName</a>
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @Price
+                        </td>
+                         <td style="width: 100px" class="text-right">
+                             @SellQuantity
+                        </td>
+                         <td style="width: 100px" class="text-right">
+                             @ReturnedQty
+                        </td>
+                        <td style="width: 100px;" class="text-right">
+                             @ReturnQty
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                            @UnitPrice
+                        </td>
+                        <td style="width: 100px" class="text-left">
+                             @item.Note
+                        </td>
+                        <td style="width: 100px" class="text-right">
+                             @item.ReturnReason
+                        </td>
+                    </tr>
+                }

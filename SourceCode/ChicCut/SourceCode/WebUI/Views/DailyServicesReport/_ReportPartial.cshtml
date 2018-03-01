@@ -1,0 +1,114 @@
+﻿@model IEnumerable<ViewModels.DailyServicesViewModel>
+
+@{
+    ViewBag.Title = "Báo cáo ngày";
+}
+
+
+<table class="table table-bordered table-striped table-hover no-footer">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HairTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethodName)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HairTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethodName)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td class="text-right">
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="text-right" colspan="5">
+                Tổng cộng
+            </td>
+            <td class="text-right">
+                @{ var total = Model.Sum(p => p.UnitPrice);
+                 string strTotal = "";
+                 if (total != null)
+                 {
+                     strTotal = string.Format("{0:n0}", total);
+                 }
+                }
+                @strTotal
+                <input type="hidden" name="Total" value="@strTotal" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="5">
+                Tiền mặt
+            </td>
+            <td class="text-right">
+                @{ var totalCash = Model.Where(p => p.PaymentMethodName == "Tiền mặt").Sum(p => p.UnitPrice);
+                 string strTotalCash = "";
+                 if (totalCash != null)
+                 {
+                     strTotalCash = string.Format("{0:n0}", totalCash);
+                 }
+                }
+                @strTotalCash
+                <input type="hidden" name="TotalCash" value="@strTotalCash" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="5">
+                Cà thẻ
+            </td>
+            <td class="text-right">
+                @{ var totalCard = Model.Where(p => p.PaymentMethodName == "Cà thẻ").Sum(p => p.UnitPrice);
+                 string strTotalCard = "";
+                 if (totalCard != null)
+                 {
+                     strTotalCard = string.Format("{0:n0}", totalCard);
+                 }
+                }
+                @strTotalCard
+                <input type="hidden" name="TotalCard" value="@strTotalCard" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right" colspan="5"></td>
+            <td class="text-right">
+                <a id="btnSendSMS" class="btn btn-default btn-warning">Gửi tin nhắn</a>
+            </td>
+        </tr>
+
+
+    </tfoot>
+</table>

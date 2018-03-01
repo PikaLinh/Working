@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ProductInfoViewModel>
+<style>
+    #resuiltGetBarcodeToPrint {
+    display:none;
+    }
+</style>
+<div id="divResult">
+    <div class="table-scrollable">
+        <table class="table table-bordered table-striped table-hover no-footer vh-custom-list" data-count-fixed-columns="3">
+            <thead class="header">
+                <tr class="warning">
+                    <th style="width: 50px;" class="text-center">
+                        STT
+                    </th>
+                    <th style="width: 110px;">
+                        Mã SP C.hàng
+                    </th>
+                    <th style="width: 140px;" class="text-left">
+                        Mã SP
+                    </th>
+                    <th style="width: 330px;" class="text-left">
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th style="width: 180px;" class="text-left">
+                        @Html.DisplayNameFor(model => model.CategoryId)
+                    </th>
+                    <th style="width:130px;">
+                        XXHH
+                    </th>
+                    <th style="width:77px;">
+                        @Html.DisplayNameFor(model => model.ImageUrl)
+                    </th>
+                    <th class="text-center" style="width: 150px;">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = ViewBag.RowIndex;}
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <tr>
+                        <td class="text-center">
+                            @i
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductStoreCode)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.ProductCode)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td style="width: 140px;" class="text-left">
+                            @Html.DisplayFor(modelItem => item.CategoryName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OriginOfProductName)
+                        </td>
+                        <td class="text-center" style="padding:2px 0px;">
+                            <img src="/Upload/Product/Thum/@item.ImageUrl" style="width: 40px; height: 30px;" />
+                        </td>
+                        <td class="text-center" style="padding:2px 0px;">
+                            @*@Html.ActionLink("Xem", "Details", new { id = item.ProductId }, new { @class="btn btn-default col-sm"})*@
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.ProductId }, new { @class = "btn btn-warning col-sm" })
+                            <a class="btn btn-info btn-sm btn-in" data-id="@item.ProductId" data-code="@item.ProductId" data-storecode="@item.ProductName" data-toggle="modal" data-target="#confirm-delete">In mã vạch</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <div id="resuiltGetBarcodeToPrint"> </div>
+</div>
+
+<!--Star ModelPopup-->
+<div id="divPopupBarcode" class="modal fade text-center" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center">
+                    Nội dung in
+                </h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center" id="contentBarcode">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnconfirmPrint" type="button" class="btn btn-info " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-print"></span>
+                    Đồng ý in
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End ModelPopup-->
+@*  <p class="text-right has-btn-add-new" style="margin-top: 4px;">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+    </p>*@
+<input type="hidden" name="TotalRow" id="TotalRow" value="@ViewBag.TotalRow" />
+<script>
+    $(function () {
+        app_handle_listing_horisontal_scroll($('#divResult'))
+    })
+</script>

@@ -1,0 +1,4185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>Account management</value>
+  </data>
+  <data name="AccountModel_Actived" xml:space="preserve">
+    <value>Actived</value>
+  </data>
+  <data name="AccountModel_AvatarImageUrl" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="AccountModel_BirthDay" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="AccountModel_CountryId" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="AccountModel_CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="AccountModel_DistrictId" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="AccountModel_FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="AccountModel_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="AccountModel_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="AccountModel_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="AccountModel_PasswordRecoveryCode" xml:space="preserve">
+    <value>Password Retype</value>
+  </data>
+  <data name="AccountModel_PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="AccountModel_ProvinceId" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="AccountModel_RetypeNewPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="AccountModel_RetypePassword" xml:space="preserve">
+    <value>Confirmation password</value>
+  </data>
+  <data name="AccountModel_RolesId" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="AccountModel_UserCreated" xml:space="preserve">
+    <value>User created</value>
+  </data>
+  <data name="AccountModel_UserId" xml:space="preserve">
+    <value>User code</value>
+  </data>
+  <data name="AccountModel_UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="AccountModels" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Actived" xml:space="preserve">
+    <value>Actived</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddFailed" xml:space="preserve">
+    <value>Add failed</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add new</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="BarCodeExists" xml:space="preserve">
+    <value>Bar code is exists</value>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="BranchId" xml:space="preserve">
+    <value>Branch code</value>
+  </data>
+  <data name="BranchListModel" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="BranchListModel_BankAccountNumber" xml:space="preserve">
+    <value>A/C No.</value>
+  </data>
+  <data name="BranchListModel_BranchName" xml:space="preserve">
+    <value>Branch name</value>
+  </data>
+  <data name="BranchListModel_DateKey" xml:space="preserve">
+    <value>Working date</value>
+  </data>
+  <data name="BranchListModel_isCloseDate" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ thì ngày phải theo ngày khóa số (tương ứng với "Ngày làm việc")</value>
+  </data>
+  <data name="BranchListModel_isDateCurrentSystem" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ thì lấy ngày hiện hành</value>
+  </data>
+  <data name="BranchListModel_isDateOptionInMonth" xml:space="preserve">
+    <value>Khi nhập nghiệp vụ cho phép chọn ngày trong "Tháng làm việc"</value>
+  </data>
+  <data name="BranchListModel_isDebtCust" xml:space="preserve">
+    <value>Có phần công nợ phải thu </value>
+  </data>
+  <data name="BranchListModel_isDebtDuyetVuotCongNo" xml:space="preserve">
+    <value>Cho phép duyêt vượt công nợ không</value>
+  </data>
+  <data name="BranchListModel_isDebtLimitMoney" xml:space="preserve">
+    <value>Giới hạn số tiền được nợ</value>
+  </data>
+  <data name="BranchListModel_isDebtLimitTime" xml:space="preserve">
+    <value>Cho phép giới hạn số tiền</value>
+  </data>
+  <data name="BranchListModel_isLotDate" xml:space="preserve">
+    <value>Có quản lý số lô và date hay không (dành cho công ty dược)</value>
+  </data>
+  <data name="BranchListModel_isPromoteDiscount" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="BranchListModel_isPromoteProduct" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="BranchListModel_ParentBranchId" xml:space="preserve">
+    <value>Parent branch</value>
+  </data>
+  <data name="BranchListModel_RateBV" xml:space="preserve">
+    <value>Rate BV</value>
+  </data>
+  <data name="BranchListModel_Serial" xml:space="preserve">
+    <value>Serial</value>
+  </data>
+  <data name="BranchListModel_TaxCode" xml:space="preserve">
+    <value>Tax code</value>
+  </data>
+  <data name="BranchListModel_TemplateBill" xml:space="preserve">
+    <value>Template bill</value>
+  </data>
+  <data name="BranchListModel_VATAmount" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="BranchListModel_WorkingDate" xml:space="preserve">
+    <value>Working date</value>
+  </data>
+  <data name="BranchListModel_WorkingMonth" xml:space="preserve">
+    <value>Working month</value>
+  </data>
+  <data name="BranchManagement" xml:space="preserve">
+    <value>Branch management</value>
+  </data>
+  <data name="BranchName" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="Brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="Brand_Title" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="BrandId" xml:space="preserve">
+    <value>Brand code</value>
+  </data>
+  <data name="BrandManagement" xml:space="preserve">
+    <value>Brand management</value>
+  </data>
+  <data name="BrandModel_BrandId" xml:space="preserve">
+    <value>Brand code</value>
+  </data>
+  <data name="BrandModel_Title" xml:space="preserve">
+    <value>Brand name</value>
+  </data>
+  <data name="BrandName" xml:space="preserve">
+    <value>Brand name</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="CategoriesManagement" xml:space="preserve">
+    <value>Categories Management</value>
+  </data>
+  <data name="CategoriesModel_CategoryId" xml:space="preserve">
+    <value>Category code</value>
+  </data>
+  <data name="CategoriesModel_CategoryName" xml:space="preserve">
+    <value>Category name</value>
+  </data>
+  <data name="CategoriesModel_Desc" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CategoriesModel_DescVI" xml:space="preserve">
+    <value>Description (Vi)</value>
+  </data>
+  <data name="CategoriesModel_Title" xml:space="preserve">
+    <value>Category name</value>
+  </data>
+  <data name="CategoriesModel_TitleVI" xml:space="preserve">
+    <value>Category name (Vi)</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePVModel_DateExecute" xml:space="preserve">
+    <value>Execute Date</value>
+  </data>
+  <data name="ChangePVModel_DateInvoice" xml:space="preserve">
+    <value>Invoice Date</value>
+  </data>
+  <data name="ChangePVModel_Invoice" xml:space="preserve">
+    <value>Invoice Code</value>
+  </data>
+  <data name="ChangePVModel_UserCreate" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="CheckClosedDate" xml:space="preserve">
+    <value>Check Closed Date</value>
+  </data>
+  <data name="CheckClosedDateSuccess" xml:space="preserve">
+    <value>Check Closed Date Success</value>
+  </data>
+  <data name="CheckClosedMonth" xml:space="preserve">
+    <value>Check Closed Month</value>
+  </data>
+  <data name="CheckSuccess" xml:space="preserve">
+    <value>Check Success</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control Management</value>
+  </data>
+  <data name="CouldNotFound" xml:space="preserve">
+    <value>Could Not Found!</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryModel" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryModel_CountryId" xml:space="preserve">
+    <value>Country code</value>
+  </data>
+  <data name="CountryModel_CountryName" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryModel_LanguageId" xml:space="preserve">
+    <value>Language code</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="CourseManagement" xml:space="preserve">
+    <value>Course Management</value>
+  </data>
+  <data name="CourseModel_CourseId" xml:space="preserve">
+    <value>Course code</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="CourseNameVi" xml:space="preserve">
+    <value>Course Name (Vi)</value>
+  </data>
+  <data name="CreateFailed" xml:space="preserve">
+    <value>Create Failed</value>
+  </data>
+  <data name="CreateSuccess" xml:space="preserve">
+    <value>Create Success</value>
+  </data>
+  <data name="DateCurrent" xml:space="preserve">
+    <value>Current Date</value>
+  </data>
+  <data name="DateInvoice" xml:space="preserve">
+    <value>DateInvoice</value>
+  </data>
+  <data name="DateValid" xml:space="preserve">
+    <value>Vui lòng nhập {0} theo định dạng ngày/tháng/năm</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescriptionVi" xml:space="preserve">
+    <value>Description (Vi)</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DetailsVi" xml:space="preserve">
+    <value>Details (Vi)</value>
+  </data>
+  <data name="Distributor" xml:space="preserve">
+    <value>Distributor</value>
+  </data>
+  <data name="DistributorManagement" xml:space="preserve">
+    <value>Distributor management</value>
+  </data>
+  <data name="DistributorModel_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="DistributorModel_BirthDate" xml:space="preserve">
+    <value>Birthdate</value>
+  </data>
+  <data name="DistributorModel_Code" xml:space="preserve">
+    <value>Distributor code</value>
+  </data>
+  <data name="DistributorModel_DateCurrent" xml:space="preserve">
+    <value>Date current</value>
+  </data>
+  <data name="DistributorModel_FirstNameOfMate" xml:space="preserve">
+    <value>First name of mate</value>
+  </data>
+  <data name="DistributorModel_FisrtName" xml:space="preserve">
+    <value>Fisrt name</value>
+  </data>
+  <data name="DistributorModel_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="DistributorModel_GetMarried" xml:space="preserve">
+    <value>Get married</value>
+  </data>
+  <data name="DistributorModel_Indentity" xml:space="preserve">
+    <value>Indentity</value>
+  </data>
+  <data name="DistributorModel_IndentityOfMate" xml:space="preserve">
+    <value>Indentity of mate</value>
+  </data>
+  <data name="DistributorModel_LastBuydate" xml:space="preserve">
+    <value>Last buy date</value>
+  </data>
+  <data name="DistributorModel_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="DistributorModel_LastNameOfMate" xml:space="preserve">
+    <value>Last name of mate</value>
+  </data>
+  <data name="DistributorModel_LimitDate" xml:space="preserve">
+    <value>Limit date</value>
+  </data>
+  <data name="DistributorModel_Mobile1" xml:space="preserve">
+    <value>Mobile 1</value>
+  </data>
+  <data name="DistributorModel_Mobile2" xml:space="preserve">
+    <value>Mobile 2</value>
+  </data>
+  <data name="DistributorModel_ParentCodeInSide" xml:space="preserve">
+    <value>Parent in side</value>
+  </data>
+  <data name="DistributorModel_ParentCodeOutSide" xml:space="preserve">
+    <value>Parent out side</value>
+  </data>
+  <data name="DistributorModel_RegDate" xml:space="preserve">
+    <value>Reg date</value>
+  </data>
+  <data name="DistributorModel_RegFirstDate" xml:space="preserve">
+    <value>Reg first date</value>
+  </data>
+  <data name="DistributorModel_SalesLevel" xml:space="preserve">
+    <value>Cấp bậc</value>
+  </data>
+  <data name="DistributorModel_StopDate" xml:space="preserve">
+    <value>Stop date</value>
+  </data>
+  <data name="DistributorModel_SurName" xml:space="preserve">
+    <value>Sur name</value>
+  </data>
+  <data name="DistributorModel_SurNameOfMate" xml:space="preserve">
+    <value>Sur name of mate</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="DistrictModel" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="DistrictModel_Appellation" xml:space="preserve">
+    <value>Appellation</value>
+  </data>
+  <data name="DistrictModel_DistrictId" xml:space="preserve">
+    <value>District Id</value>
+  </data>
+  <data name="DistrictModel_DistrictName" xml:space="preserve">
+    <value>District name</value>
+  </data>
+  <data name="DistrictModel_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="DupplicateEmail" xml:space="preserve">
+    <value>Email already exists</value>
+  </data>
+  <data name="DupplicateUserName" xml:space="preserve">
+    <value>User name already exists</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailValid" xml:space="preserve">
+    <value>Please enter accurate "{0}" information</value>
+  </data>
+  <data name="EnterSearchInformation" xml:space="preserve">
+    <value>Enter search information</value>
+  </data>
+  <data name="entries" xml:space="preserve">
+    <value>entries</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExistsEmail" xml:space="preserve">
+    <value>Email is exists!</value>
+  </data>
+  <data name="ExistsUserName" xml:space="preserve">
+    <value>Username is exists</value>
+  </data>
+  <data name="FailPass" xml:space="preserve">
+    <value>Current password is not correct</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="FormManagement" xml:space="preserve">
+    <value>Form management</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="FromInvenCode" xml:space="preserve">
+    <value>FromInvenCode</value>
+  </data>
+  <data name="FromInvenName" xml:space="preserve">
+    <value>From Inventory Name</value>
+  </data>
+  <data name="FullDateUK" xml:space="preserve">
+    <value>Full Date</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Index_Message" xml:space="preserve">
+    <value>Please click on the "search" button to retrieve data</value>
+  </data>
+  <data name="InvenCode" xml:space="preserve">
+    <value>Inventory Code</value>
+  </data>
+  <data name="InvenName" xml:space="preserve">
+    <value>Inventory Name</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="InventoryModel_Des" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
+  <data name="InventoryModel_InvenCode" xml:space="preserve">
+    <value>Warehouse Code</value>
+  </data>
+  <data name="InventoryModel_Management" xml:space="preserve">
+    <value>Inventory Management</value>
+  </data>
+  <data name="Invoice" xml:space="preserve">
+    <value>Invoice code</value>
+  </data>
+  <data name="InvoiceManagement" xml:space="preserve">
+    <value>Invoice Management</value>
+  </data>
+  <data name="InvoiceStatus" xml:space="preserve">
+    <value>Invoice Status</value>
+  </data>
+  <data name="IsCheckedByFromDateToDate" xml:space="preserve">
+    <value>Search from start date to end date ?</value>
+  </data>
+  <data name="isConfirm" xml:space="preserve">
+    <value>isConfirm</value>
+  </data>
+  <data name="isPrinted" xml:space="preserve">
+    <value>isPrinted</value>
+  </data>
+  <data name="isQR" xml:space="preserve">
+    <value>isQR</value>
+  </data>
+  <data name="itemkey" xml:space="preserve">
+    <value>Item Key</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="LearningModel_AddLearning" xml:space="preserve">
+    <value>Add Learning</value>
+  </data>
+  <data name="LearningModel_CourseId" xml:space="preserve">
+    <value>Course code</value>
+  </data>
+  <data name="LearningModel_CourseName" xml:space="preserve">
+    <value>Course name</value>
+  </data>
+  <data name="LearningModel_DateInvoice" xml:space="preserve">
+    <value>Date invoice</value>
+  </data>
+  <data name="LearningModel_DateJoin" xml:space="preserve">
+    <value>Date join</value>
+  </data>
+  <data name="LearningModel_DistributorBranch" xml:space="preserve">
+    <value>Branch</value>
+  </data>
+  <data name="LearningModel_DistributorId" xml:space="preserve">
+    <value>Distributor code</value>
+  </data>
+  <data name="LearningModel_DistributorName" xml:space="preserve">
+    <value>Distributor name</value>
+  </data>
+  <data name="LearningModel_endDate" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="LearningModel_Invoice" xml:space="preserve">
+    <value>Invoice code</value>
+  </data>
+  <data name="LearningModel_startDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="LearningModel_UserCreate" xml:space="preserve">
+    <value>User create</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginFailedNotification" xml:space="preserve">
+    <value>That username or password is incorrect. Be sure you're using the password for your account.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Menu_System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Menu_SystemAdministration" xml:space="preserve">
+    <value>System administration</value>
+  </data>
+  <data name="MenuManagement" xml:space="preserve">
+    <value>Menu management</value>
+  </data>
+  <data name="MenuModel" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="MenuModel_MenuId" xml:space="preserve">
+    <value>Menu code</value>
+  </data>
+  <data name="MenuModel_MenuName" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="No2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="OrderType" xml:space="preserve">
+    <value>Invoice Type</value>
+  </data>
+  <data name="PageModel_PageId" xml:space="preserve">
+    <value>Page code</value>
+  </data>
+  <data name="PageModel_PageName" xml:space="preserve">
+    <value>Page name</value>
+  </data>
+  <data name="PageModel_PageUrl" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="PageModels" xml:space="preserve">
+    <value>Page name</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordDoNotMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="Phone1" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Phone2" xml:space="preserve">
+    <value>Mobile 2</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ProductManagement" xml:space="preserve">
+    <value>Product management</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="ProductNameVi" xml:space="preserve">
+    <value>Product name (Vi)</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="ProfileSettings" xml:space="preserve">
+    <value>Profile Settings</value>
+  </data>
+  <data name="Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="ProvinceModel" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="ProvinceModel_ProvinceId" xml:space="preserve">
+    <value>Province code</value>
+  </data>
+  <data name="ProvinceModel_ProvinceName" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="ProvinceModel_RegionID" xml:space="preserve">
+    <value>Region code</value>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="RegionModel_Des" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="RegionModel_RegionID" xml:space="preserve">
+    <value>Region code</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Please enter information "{0}"</value>
+  </data>
+  <data name="RolesManagement" xml:space="preserve">
+    <value>Roles management</value>
+  </data>
+  <data name="RolesModel" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="RolesModel_RolesId" xml:space="preserve">
+    <value>Roles code</value>
+  </data>
+  <data name="RolesModel_RolesName" xml:space="preserve">
+    <value>Roles name</value>
+  </data>
+  <data name="RolesModels" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Savechanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchArea" xml:space="preserve">
+    <value>Search area</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Showing</value>
+  </data>
+  <data name="Sitecode" xml:space="preserve">
+    <value>Branch code</value>
+  </data>
+  <data name="smscode" xml:space="preserve">
+    <value>SMS code</value>
+  </data>
+  <data name="SMSCodeExists" xml:space="preserve">
+    <value>SMS code is exists</value>
+  </data>
+  <data name="Stock_Import" xml:space="preserve">
+    <value>Stock Import</value>
+  </data>
+  <data name="Stock_Transfer" xml:space="preserve">
+    <value>Stock Transfer</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="SuccessfulUpdate" xml:space="preserve">
+    <value>Successful update</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Your item has been added successfully.</value>
+  </data>
+  <data name="SupId" xml:space="preserve">
+    <value>Supplier ID</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="Supplier_Management" xml:space="preserve">
+    <value>Supplier Management</value>
+  </data>
+  <data name="Supplier_SupId" xml:space="preserve">
+    <value>Supplier Id</value>
+  </data>
+  <data name="Supplier_SupName" xml:space="preserve">
+    <value>Supplier Name</value>
+  </data>
+  <data name="SystemAdministration" xml:space="preserve">
+    <value>System administration</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>System Error</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>Tel</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Title_PhanQuyenNguoiDung" xml:space="preserve">
+    <value>User Permission</value>
+  </data>
+  <data name="Title_QLCN" xml:space="preserve">
+    <value>Branch Management</value>
+  </data>
+  <data name="Title_QLDM" xml:space="preserve">
+    <value>Category management</value>
+  </data>
+  <data name="Title_QLTrang" xml:space="preserve">
+    <value>Form management</value>
+  </data>
+  <data name="Title_QLTTNguoiDung" xml:space="preserve">
+    <value>User information management</value>
+  </data>
+  <data name="Title_QLTTNhomNguoiDung" xml:space="preserve">
+    <value>Role information management</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="ToInvenCode" xml:space="preserve">
+    <value>ToInvenCode</value>
+  </data>
+  <data name="ToInvenName" xml:space="preserve">
+    <value>To Inventory Name</value>
+  </data>
+  <data name="TotalAmount" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="Town" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>UnitPrice</value>
+  </data>
+  <data name="UpdateFailed" xml:space="preserve">
+    <value>Update failed</value>
+  </data>
+  <data name="UpdateLearning" xml:space="preserve">
+    <value>Update Learning</value>
+  </data>
+  <data name="UpdateMenu" xml:space="preserve">
+    <value>Update menu</value>
+  </data>
+  <data name="UpdateSuccess" xml:space="preserve">
+    <value>Update Success</value>
+  </data>
+  <data name="UserConfirm" xml:space="preserve">
+    <value>User Confirm</value>
+  </data>
+  <data name="UserCreate" xml:space="preserve">
+    <value>User Create</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="WarehouseManagement" xml:space="preserve">
+    <value>Warehouse management</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="WarningDistributor" xml:space="preserve">
+    <value>Please enter information Distributor</value>
+  </data>
+  <data name="WarningParentDistributor" xml:space="preserve">
+    <value>Please enter information Parent Distributor</value>
+  </data>
+  <data name="WarningPass" xml:space="preserve">
+    <value>Same Current password and New password</value>
+  </data>
+  <data name="WorkingDateTmp" xml:space="preserve">
+    <value>Working Date</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Msg001" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Msg002" xml:space="preserve">
+    <value>Date invoice</value>
+  </data>
+  <data name="Msg003" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="Msg004" xml:space="preserve">
+    <value>Order code</value>
+  </data>
+  <data name="Msg005" xml:space="preserve">
+    <value>Distributor</value>
+  </data>
+  <data name="Msg006" xml:space="preserve">
+    <value>SellGift Type</value>
+  </data>
+  <data name="Msg007" xml:space="preserve">
+    <value>Payment Type</value>
+  </data>
+  <data name="Msg008" xml:space="preserve">
+    <value>Receive Type</value>
+  </data>
+  <data name="Msg009" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Msg010" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Msg011" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="Msg012" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Msg013" xml:space="preserve">
+    <value>Order Type</value>
+  </data>
+  <data name="Msg014" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="Msg015" xml:space="preserve">
+    <value>Total Amount</value>
+  </data>
+  <data name="Msg016" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="Msg017" xml:space="preserve">
+    <value>Discount Amount</value>
+  </data>
+  <data name="Msg018" xml:space="preserve">
+    <value>InvenCode</value>
+  </data>
+  <data name="Msg019" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Msg020" xml:space="preserve">
+    <value>Actived</value>
+  </data>
+  <data name="Msg021" xml:space="preserve">
+    <value>DeActived</value>
+  </data>
+  <data name="Msg022" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Msg023" xml:space="preserve">
+    <value>Must be over 18 years old made new distributors !</value>
+  </data>
+  <data name="Msg024" xml:space="preserve">
+    <value>This name was used !</value>
+  </data>
+  <data name="Msg025" xml:space="preserve">
+    <value>Please enter information Item !</value>
+  </data>
+  <data name="Msg026" xml:space="preserve">
+    <value>Please enter information "UserName" !</value>
+  </data>
+  <data name="Msg027" xml:space="preserve">
+    <value>Please enter information "Distributors" !</value>
+  </data>
+  <data name="Msg028" xml:space="preserve">
+    <value>Please enter information "Course" !</value>
+  </data>
+  <data name="Msg029" xml:space="preserve">
+    <value>Please enter information "DateJoin" !</value>
+  </data>
+  <data name="Msg030" xml:space="preserve">
+    <value>Please input type datetime !</value>
+  </data>
+  <data name="Msg031" xml:space="preserve">
+    <value>Enter an item</value>
+  </data>
+  <data name="Msg032" xml:space="preserve">
+    <value>Courses Process Management</value>
+  </data>
+  <data name="Msg033" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Msg034" xml:space="preserve">
+    <value>Do you want to Confirm ?</value>
+  </data>
+  <data name="Msg035" xml:space="preserve">
+    <value>Do you want to Delete ?</value>
+  </data>
+  <data name="Msg036" xml:space="preserve">
+    <value>Invoice Management</value>
+  </data>
+  <data name="Msg037" xml:space="preserve">
+    <value>Invoice Create</value>
+  </data>
+  <data name="Msg038" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Msg039" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="Msg040" xml:space="preserve">
+    <value>Order Create</value>
+  </data>
+  <data name="Msg041" xml:space="preserve">
+    <value>Order Sms and Online</value>
+  </data>
+  <data name="Msg042" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Msg043" xml:space="preserve">
+    <value>Data Access Management</value>
+  </data>
+  <data name="Msg044" xml:space="preserve">
+    <value>Warranty Products Management</value>
+  </data>
+  <data name="Msg045" xml:space="preserve">
+    <value>OrderID is not exist !</value>
+  </data>
+  <data name="Msg046" xml:space="preserve">
+    <value>Stock Local Management</value>
+  </data>
+  <data name="Msg047" xml:space="preserve">
+    <value>Quantity buy</value>
+  </data>
+  <data name="Msg048" xml:space="preserve">
+    <value>Quantity return</value>
+  </data>
+  <data name="Msg049" xml:space="preserve">
+    <value>DateTime from start date and end date is invalid</value>
+  </data>
+  <data name="Msg050" xml:space="preserve">
+    <value>Please fill in the blank</value>
+  </data>
+  <data name="Msg051" xml:space="preserve">
+    <value>Your item has been added failed</value>
+  </data>
+  <data name="Msg052" xml:space="preserve">
+    <value>Delete Successfully</value>
+  </data>
+  <data name="Msg053" xml:space="preserve">
+    <value>Do you want to verify this invoice ?</value>
+  </data>
+  <data name="Msg054" xml:space="preserve">
+    <value>Please enter information "Product" !</value>
+  </data>
+  <data name="Msg055" xml:space="preserve">
+    <value>Please input type number !</value>
+  </data>
+  <data name="Msg056" xml:space="preserve">
+    <value>The From Inventory difference To Inventory</value>
+  </data>
+  <data name="Msg057" xml:space="preserve">
+    <value>Purchasing Product</value>
+  </data>
+  <data name="Msg058" xml:space="preserve">
+    <value>Please enter information "Supplier" !</value>
+  </data>
+  <data name="Msg059" xml:space="preserve">
+    <value>Please enter information "Branch" !</value>
+  </data>
+  <data name="Msg060" xml:space="preserve">
+    <value>Please enter information "Inventory" !</value>
+  </data>
+  <data name="Msg061" xml:space="preserve">
+    <value>Updating Successfully !</value>
+  </data>
+  <data name="Msg062" xml:space="preserve">
+    <value>Error in Updating !</value>
+  </data>
+  <data name="Msg063" xml:space="preserve">
+    <value>Adding Successfully !</value>
+  </data>
+  <data name="Msg064" xml:space="preserve">
+    <value>Error in Adding !</value>
+  </data>
+  <data name="Msg065" xml:space="preserve">
+    <value>Verify Successfully !</value>
+  </data>
+  <data name="Msg066" xml:space="preserve">
+    <value>Error in verifying !</value>
+  </data>
+  <data name="Msg067" xml:space="preserve">
+    <value>Active or Deactice Distributors</value>
+  </data>
+  <data name="Msg068" xml:space="preserve">
+    <value>Cắt mã nhà phân phối này và chuyển tuyến dưới lên cho người bảo trợ trực tiếp của nhà phân phối này.</value>
+  </data>
+  <data name="Msg069" xml:space="preserve">
+    <value>Chuyển toàn bộ nhà phân phối này qua nhà bảo trợ mới.</value>
+  </data>
+  <data name="Msg070" xml:space="preserve">
+    <value>Chuyển nhà phân phối này qua nhà bào trợ mới nhưng tuyến dưới của nhà phân phối này thì chuyển lên người bảo trợ cũ.</value>
+  </data>
+  <data name="Msg071" xml:space="preserve">
+    <value>Price Products Management</value>
+  </data>
+  <data name="Msg072" xml:space="preserve">
+    <value>Execute Date is more than Working Date</value>
+  </data>
+  <data name="Msg073" xml:space="preserve">
+    <value>Please enter information "New CP" !</value>
+  </data>
+  <data name="Msg074" xml:space="preserve">
+    <value>Please enter information "New PV" !</value>
+  </data>
+  <data name="Msg075" xml:space="preserve">
+    <value>NewCP</value>
+  </data>
+  <data name="Msg076" xml:space="preserve">
+    <value>NewPV</value>
+  </data>
+  <data name="Msg077" xml:space="preserve">
+    <value>OldCP</value>
+  </data>
+  <data name="Msg078" xml:space="preserve">
+    <value>OldPV</value>
+  </data>
+  <data name="Msg079" xml:space="preserve">
+    <value>Apply for Branch</value>
+  </data>
+  <data name="Msg080" xml:space="preserve">
+    <value>Promote Type</value>
+  </data>
+  <data name="Msg081" xml:space="preserve">
+    <value>ProductId condition</value>
+  </data>
+  <data name="Msg082" xml:space="preserve">
+    <value>ProductName condition</value>
+  </data>
+  <data name="Msg083" xml:space="preserve">
+    <value>Quantity condition</value>
+  </data>
+  <data name="Msg084" xml:space="preserve">
+    <value>ProductId promote</value>
+  </data>
+  <data name="Msg085" xml:space="preserve">
+    <value>ProductName promote</value>
+  </data>
+  <data name="Msg086" xml:space="preserve">
+    <value>Quantity promote</value>
+  </data>
+  <data name="Msg087" xml:space="preserve">
+    <value>Max quantity promote</value>
+  </data>
+  <data name="Msg088" xml:space="preserve">
+    <value>Invoice Discounting</value>
+  </data>
+  <data name="Msg089" xml:space="preserve">
+    <value>% discounting</value>
+  </data>
+  <data name="Msg090" xml:space="preserve">
+    <value>Working Date is more than Start Date</value>
+  </data>
+  <data name="Msg091" xml:space="preserve">
+    <value>There is a running promotions</value>
+  </data>
+  <data name="Msg092" xml:space="preserve">
+    <value>Start Date is more than End Date</value>
+  </data>
+  <data name="Msg093" xml:space="preserve">
+    <value>Please Input Base Total Amount</value>
+  </data>
+  <data name="Msg094" xml:space="preserve">
+    <value>Please Input Discount</value>
+  </data>
+  <data name="Msg095" xml:space="preserve">
+    <value>Data is Valid</value>
+  </data>
+  <data name="Msg096" xml:space="preserve">
+    <value>Please enter information "BaseQty"</value>
+  </data>
+  <data name="Msg097" xml:space="preserve">
+    <value>Please enter information "PromoteItemkey"</value>
+  </data>
+  <data name="Msg098" xml:space="preserve">
+    <value>Please enter information "PromoteQty"</value>
+  </data>
+  <data name="Msg099" xml:space="preserve">
+    <value>Working Date</value>
+  </data>
+  <data name="Msg100" xml:space="preserve">
+    <value>Please enter information "NewCP"</value>
+  </data>
+  <data name="Msg101" xml:space="preserve">
+    <value>Please enter information "NewPV"</value>
+  </data>
+  <data name="Msg102" xml:space="preserve">
+    <value>Product is not in inventory !!!</value>
+  </data>
+  <data name="Msg103" xml:space="preserve">
+    <value>Distributor code</value>
+  </data>
+  <data name="Msg104" xml:space="preserve">
+    <value>Distributor name</value>
+  </data>
+  <data name="Msg105" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="Msg106" xml:space="preserve">
+    <value>Forms of payment</value>
+  </data>
+  <data name="Msg107" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Msg108" xml:space="preserve">
+    <value>Get Order</value>
+  </data>
+  <data name="Msg109" xml:space="preserve">
+    <value>Order Type</value>
+  </data>
+  <data name="Msg110" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="Msg111" xml:space="preserve">
+    <value>Order Create</value>
+  </data>
+  <data name="Msg112" xml:space="preserve">
+    <value>Order Sms and Online</value>
+  </data>
+  <data name="Msg113" xml:space="preserve">
+    <value>Please Input Address Receive</value>
+  </data>
+  <data name="Msg114" xml:space="preserve">
+    <value>Please Input Sell Gift Type</value>
+  </data>
+  <data name="Msg115" xml:space="preserve">
+    <value>Please Input Order Type</value>
+  </data>
+  <data name="Msg116" xml:space="preserve">
+    <value>Please select "Quantity" !</value>
+  </data>
+  <data name="Msg117" xml:space="preserve">
+    <value>Product code</value>
+  </data>
+  <data name="Msg118" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="Msg119" xml:space="preserve">
+    <value>Code old QR</value>
+  </data>
+  <data name="Msg120" xml:space="preserve">
+    <value>Code QR</value>
+  </data>
+  <data name="Msg121" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Msg122" xml:space="preserve">
+    <value>Date invoice</value>
+  </data>
+  <data name="Msg123" xml:space="preserve">
+    <value>Type Invoice</value>
+  </data>
+  <data name="Msg124" xml:space="preserve">
+    <value>QR Renewed</value>
+  </data>
+  <data name="Msg125" xml:space="preserve">
+    <value>Do you want Close ?</value>
+  </data>
+  <data name="Msg126" xml:space="preserve">
+    <value>Do you want Finish ?</value>
+  </data>
+  <data name="Msg127" xml:space="preserve">
+    <value>The Invoice hadn't have item need scan</value>
+  </data>
+  <data name="Msg128" xml:space="preserve">
+    <value>QR is Exist</value>
+  </data>
+  <data name="Msg129" xml:space="preserve">
+    <value>Sale Order</value>
+  </data>
+  <data name="Msg130" xml:space="preserve">
+    <value>Promote Management</value>
+  </data>
+  <data name="Msg131" xml:space="preserve">
+    <value>To Do List (Keepper)</value>
+  </data>
+  <data name="Msg132" xml:space="preserve">
+    <value>Revenues Monthly</value>
+  </data>
+  <data name="Msg133" xml:space="preserve">
+    <value>Revenues Quarterly (Fiscal Year)</value>
+  </data>
+  <data name="Msg134" xml:space="preserve">
+    <value>Revenues YTD (Fiscal Year)</value>
+  </data>
+  <data name="Msg135" xml:space="preserve">
+    <value>KPI Monthly</value>
+  </data>
+  <data name="Msg136" xml:space="preserve">
+    <value>KPI Yearly</value>
+  </data>
+  <data name="Msg137" xml:space="preserve">
+    <value>Certificated Distributor List</value>
+  </data>
+  <data name="Msg138" xml:space="preserve">
+    <value>Sale Level In Fiscal Year</value>
+  </data>
+  <data name="Msg139" xml:space="preserve">
+    <value>Stock Monthly</value>
+  </data>
+  <data name="Msg140" xml:space="preserve">
+    <value>Product Info List</value>
+  </data>
+  <data name="Msg141" xml:space="preserve">
+    <value>isPromote</value>
+  </data>
+  <data name="Msg142" xml:space="preserve">
+    <value>Total Amount Have VAT</value>
+  </data>
+  <data name="Msg143" xml:space="preserve">
+    <value>Total Amount Have VAT Discount</value>
+  </data>
+  <data name="Msg144" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="Msg145" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Msg146" xml:space="preserve">
+    <value>Invoice on</value>
+  </data>
+  <data name="Msg147" xml:space="preserve">
+    <value>will receive discounted</value>
+  </data>
+  <data name="Msg148" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="Msg149" xml:space="preserve">
+    <value>product</value>
+  </data>
+  <data name="Msg150" xml:space="preserve">
+    <value>Give</value>
+  </data>
+  <data name="Msg151" xml:space="preserve">
+    <value>Please enter accurate information "{0}"</value>
+  </data>
+  <data name="Msg152" xml:space="preserve">
+    <value>finish</value>
+  </data>
+  <data name="Msg153" xml:space="preserve">
+    <value>is exist</value>
+  </data>
+  <data name="Msg154" xml:space="preserve">
+    <value>{0} - {1} Not enough {2}</value>
+  </data>
+  <data name="Msg155" xml:space="preserve">
+    <value>Pay cash</value>
+  </data>
+  <data name="Msg156" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="Msg157" xml:space="preserve">
+    <value>Promotional items</value>
+  </data>
+  <data name="Msg158" xml:space="preserve">
+    <value>Promotion discount</value>
+  </data>
+  <data name="Msg159" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="Msg160" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Msg161" xml:space="preserve">
+    <value>Sms</value>
+  </data>
+  <data name="Msg162" xml:space="preserve">
+    <value>Destination items</value>
+  </data>
+  <data name="Msg163" xml:space="preserve">
+    <value>Delivered items</value>
+  </data>
+  <data name="Msg164" xml:space="preserve">
+    <value>Unit sales</value>
+  </data>
+  <data name="Msg165" xml:space="preserve">
+    <value>Orders awarded</value>
+  </data>
+  <data name="Msg166" xml:space="preserve">
+    <value>Application delivery</value>
+  </data>
+  <data name="Msg167" xml:space="preserve">
+    <value>Application barter </value>
+  </data>
+  <data name="Msg168" xml:space="preserve">
+    <value>Product application form</value>
+  </data>
+  <data name="Msg169" xml:space="preserve">
+    <value>Not Scan</value>
+  </data>
+  <data name="Msg170" xml:space="preserve">
+    <value>Already Scan</value>
+  </data>
+  <data name="Msg171" xml:space="preserve">
+    <value>ScanQR</value>
+  </data>
+  <data name="Msg172" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Msg173" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Msg174" xml:space="preserve">
+    <value>Report sponsor tree by order</value>
+  </data>
+  <data name="Msg175" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg176" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg177" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg178" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg179" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg180" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg181" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg182" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg183" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg184" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg185" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg186" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg187" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg188" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg189" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg190" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg191" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg192" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg193" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg194" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg195" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg196" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg197" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg198" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg199" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg200" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg201" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg202" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg203" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg204" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg205" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg206" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg207" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg208" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg209" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg210" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg211" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg212" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg213" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg214" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg215" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg216" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg217" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg218" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg219" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg220" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg221" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg222" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg223" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg224" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg225" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg226" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg227" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg228" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg229" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg230" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg231" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg232" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg233" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg234" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg235" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg236" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg237" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg238" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg239" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg240" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg241" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg242" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg243" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg244" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg245" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg246" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg247" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg248" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg249" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg250" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg251" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg252" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg253" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg254" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg255" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg256" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg257" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg258" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg259" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg260" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg261" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg262" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg263" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg264" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg265" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg266" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg267" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg268" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg269" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg270" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg271" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg272" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg273" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg274" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg275" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg276" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg277" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg278" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg279" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg280" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg281" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg282" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg283" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg284" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg285" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg286" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg287" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg288" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg289" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg290" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg291" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg292" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg293" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg294" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg295" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg296" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg297" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg298" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg299" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg300" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg301" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg302" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg303" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg304" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg305" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg306" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg307" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg308" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg309" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg310" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg311" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg312" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg313" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg314" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg315" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg316" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg317" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg318" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg319" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg320" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg321" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg322" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg323" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg324" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg325" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg326" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg327" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg328" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg329" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg330" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg331" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg332" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg333" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg334" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg335" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg336" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg337" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg338" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg339" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg340" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg341" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg342" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg343" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg344" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg345" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg346" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg347" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg348" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg349" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg350" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg351" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg352" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg353" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg354" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg355" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg356" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg357" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg358" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg359" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg360" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg361" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg362" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg363" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg364" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg365" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg366" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg367" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg368" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg369" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg370" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg371" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg372" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg373" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg374" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg375" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg376" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg377" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg378" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg379" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg380" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg381" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg382" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg383" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg384" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg385" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg386" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg387" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg388" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg389" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg390" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg391" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg392" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg393" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg394" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg395" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg396" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg397" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg398" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg399" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg400" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg401" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg402" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg403" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg404" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg405" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg406" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg407" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg408" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg409" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg410" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg411" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg412" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg413" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg414" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg415" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg416" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg417" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg418" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg419" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg420" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg421" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg422" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg423" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg424" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg425" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg426" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg427" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg428" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg429" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg430" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg431" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg432" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg433" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg434" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg435" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg436" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg437" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg438" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg439" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg440" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg441" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg442" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg443" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg444" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg445" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg446" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg447" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg448" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg449" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg450" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg451" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg452" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg453" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg454" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg455" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg456" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg457" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg458" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg459" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg460" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg461" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg462" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg463" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg464" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg465" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg466" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg467" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg468" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg469" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg470" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg471" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg472" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg473" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg474" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg475" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg476" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg477" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg478" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg479" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg480" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg481" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg482" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg483" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg484" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg485" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg486" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg487" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg488" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg489" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg490" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg491" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg492" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg493" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg494" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg495" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg496" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg497" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg498" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg499" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg500" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg501" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg502" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg503" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg504" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg505" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg506" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg507" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg508" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg509" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg510" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg511" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg512" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg513" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg514" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg515" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg516" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg517" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg518" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg519" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg520" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg521" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg522" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg523" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg524" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg525" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg526" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg527" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg528" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg529" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg530" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg531" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg532" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg533" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg534" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg535" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg536" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg537" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg538" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg539" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg540" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg541" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg542" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg543" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg544" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg545" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg546" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg547" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg548" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg549" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg550" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg551" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg552" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg553" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg554" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg555" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg556" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg557" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg558" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg559" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg560" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg561" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg562" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg563" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg564" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg565" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg566" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg567" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg568" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg569" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg570" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg571" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg572" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg573" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg574" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg575" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg576" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg577" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg578" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg579" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg580" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg581" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg582" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg583" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg584" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg585" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg586" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg587" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg588" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg589" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg590" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg591" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg592" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg593" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg594" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg595" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg596" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg597" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg598" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg599" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg600" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg601" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg602" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg603" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg604" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg605" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg606" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg607" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg608" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg609" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg610" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg611" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg612" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg613" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg614" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg615" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg616" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg617" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg618" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg619" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg620" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg621" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg622" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg623" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg624" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg625" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg626" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg627" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg628" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg629" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg630" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg631" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg632" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg633" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg634" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg635" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg636" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg637" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg638" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg639" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg640" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg641" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg642" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg643" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg644" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg645" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg646" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg647" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg648" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg649" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg650" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg651" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg652" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg653" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg654" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg655" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg656" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg657" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg658" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg659" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg660" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg661" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg662" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg663" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg664" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg665" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg666" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg667" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg668" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg669" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg670" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg671" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg672" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg673" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg674" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg675" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg676" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg677" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg678" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg679" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg680" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg681" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg682" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg683" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg684" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg685" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg686" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg687" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg688" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg689" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg690" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg691" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg692" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg693" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg694" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg695" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg696" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg697" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg698" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg699" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg700" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg701" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg702" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg703" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg704" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg705" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg706" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg707" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg708" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg709" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg710" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg711" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg712" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg713" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg714" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg715" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg716" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg717" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg718" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg719" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg720" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg721" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg722" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg723" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg724" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg725" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg726" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg727" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg728" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg729" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg730" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg731" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg732" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg733" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg734" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg735" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg736" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg737" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg738" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg739" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg740" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg741" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg742" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg743" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg744" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg745" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg746" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg747" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg748" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg749" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg750" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg751" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg752" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg753" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg754" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg755" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg756" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg757" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg758" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg759" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg760" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg761" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg762" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg763" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg764" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg765" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg766" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg767" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg768" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg769" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg770" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg771" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg772" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg773" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg774" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg775" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg776" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg777" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg778" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg779" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg780" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg781" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg782" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg783" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg784" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg785" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg786" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg787" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg788" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg789" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg790" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg791" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg792" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg793" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg794" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg795" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg796" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg797" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg798" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg799" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg800" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg801" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg802" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg803" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg804" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg805" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg806" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg807" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg808" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg809" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg810" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg811" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg812" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg813" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg814" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg815" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg816" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg817" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg818" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg819" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg820" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg821" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg822" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg823" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg824" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg825" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg826" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg827" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg828" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg829" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg830" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg831" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg832" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg833" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg834" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg835" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg836" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg837" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg838" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg839" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg840" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg841" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg842" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg843" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg844" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg845" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg846" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg847" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg848" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg849" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg850" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg851" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg852" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg853" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg854" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg855" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg856" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg857" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg858" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg859" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg860" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg861" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg862" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg863" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg864" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg865" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg866" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg867" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg868" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg869" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg870" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg871" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg872" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg873" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg874" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg875" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg876" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg877" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg878" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg879" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg880" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg881" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg882" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg883" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg884" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg885" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg886" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg887" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg888" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg889" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg890" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg891" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg892" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg893" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg894" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg895" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg896" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg897" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg898" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg899" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg900" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg901" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg902" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg903" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg904" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg905" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg906" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg907" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg908" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg909" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg910" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg911" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg912" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg913" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg914" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg915" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg916" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg917" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg918" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg919" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg920" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg921" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg922" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg923" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg924" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg925" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg926" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg927" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg928" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg929" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg930" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg931" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg932" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg933" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg934" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg935" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg936" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg937" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg938" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg939" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg940" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg941" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg942" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg943" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg944" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg945" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg946" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg947" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg948" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg949" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg950" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg951" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg952" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg953" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg954" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg955" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg956" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg957" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg958" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg959" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg960" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg961" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg962" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg963" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg964" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg965" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg966" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg967" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg968" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg969" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg970" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg971" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg972" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg973" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg974" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg975" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg976" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg977" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg978" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg979" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg980" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg981" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg982" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg983" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg984" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg985" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg986" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg987" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg988" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg989" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg990" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg991" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg992" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg993" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg994" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg995" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg996" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg997" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg998" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Msg999" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="ReceiveEmail" xml:space="preserve">
+    <value>Receive Email</value>
+  </data>
+  <data name="ReceiveSMS" xml:space="preserve">
+    <value>Receive SMS</value>
+  </data>
+  <data name="ExistsProductCode" xml:space="preserve">
+    <value>Mã sản phẩm đã tồn tại</value>
+  </data>
+  <data name="IDCard" xml:space="preserve">
+    <value>ID Card</value>
+  </data>
+  <data name="ProductPackageID" xml:space="preserve">
+    <value>Mã gói </value>
+  </data>
+  <data name="ProductPackageName" xml:space="preserve">
+    <value>Tên gói</value>
+  </data>
+  <data name="ProductPackageTitle" xml:space="preserve">
+    <value>Gói sản phẩm</value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="DistributorCode" xml:space="preserve">
+    <value>Distributor code</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="IncludeInactivePackage" xml:space="preserve">
+    <value>Bao gồm gói ngưng hoạt động</value>
+  </data>
+  <data name="ExistsCode" xml:space="preserve">
+    <value>Distributor code is exists!</value>
+  </data>
+  <data name="CompareGreaterThan" xml:space="preserve">
+    <value>Please enter "{0}" greater than {1}</value>
+  </data>
+  <data name="CompareLessThan" xml:space="preserve">
+    <value>Please enter "{0}" less than {1}</value>
+  </data>
+  <data name="isExists" xml:space="preserve">
+    <value>"{0}" already exists.</value>
+  </data>
+  <data name="BT" xml:space="preserve">
+    <value>Bảo trợ</value>
+  </data>
+  <data name="BuyerAccount" xml:space="preserve">
+    <value>Buyer</value>
+  </data>
+  <data name="CreatedAccount" xml:space="preserve">
+    <value>Created account</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="CT" xml:space="preserve">
+    <value>Cấp trên</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="isAgency" xml:space="preserve">
+    <value>isAgency</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="NPPID" xml:space="preserve">
+    <value>Người thụ hưởng</value>
+  </data>
+  <data name="OrderCode" xml:space="preserve">
+    <value>Order code</value>
+  </data>
+  <data name="OrderDate" xml:space="preserve">
+    <value>Registration time purchase</value>
+  </data>
+  <data name="OrderId" xml:space="preserve">
+    <value>OrderId</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="VAT" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="AgencyType" xml:space="preserve">
+    <value>Agency type</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>order</value>
+  </data>
+  <data name="OrderPackage" xml:space="preserve">
+    <value>Order package</value>
+  </data>
+  <data name="ExcludingSales" xml:space="preserve">
+    <value>Excluding sales</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Bank_AccountName" xml:space="preserve">
+    <value>Account name</value>
+  </data>
+  <data name="Bank_AccountNumber" xml:space="preserve">
+    <value>Account number</value>
+  </data>
+  <data name="Bank_Address" xml:space="preserve">
+    <value>Bank branch</value>
+  </data>
+  <data name="Bank_Branch" xml:space="preserve">
+    <value>Bank name</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Last login</value>
+  </data>
+  <data name="RegDate" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="IDIssuanceDate" xml:space="preserve">
+    <value>Issuance date</value>
+  </data>
+  <data name="IDIssuancePlace" xml:space="preserve">
+    <value>Issuance place</value>
+  </data>
+  <data name="ProductPackage" xml:space="preserve">
+    <value>Gói sản phẩm</value>
+  </data>
+  <data name="InventoryCode" xml:space="preserve">
+    <value>Inventory code</value>
+  </data>
+  <data name="CreateTime" xml:space="preserve">
+    <value>Create time</value>
+  </data>
+  <data name="CreateUser" xml:space="preserve">
+    <value>Create user</value>
+  </data>
+  <data name="EffectDate" xml:space="preserve">
+    <value>Effect date</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="InformationManagement" xml:space="preserve">
+    <value>Information management</value>
+  </data>
+  <data name="TimeOutError" xml:space="preserve">
+    <value>Hết thời gian hiệu lực của phiên làm việc, Vui lòng nhấn phím F5 và đăng nhập lại!</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="PersonalTaxCode" xml:space="preserve">
+    <value>Personal tax code</value>
+  </data>
+  <data name="OrderReference" xml:space="preserve">
+    <value>Order reference</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="OrderStatus" xml:space="preserve">
+    <value>Order status</value>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>Program name</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="ProductPackageMaster" xml:space="preserve">
+    <value>ProductPackageMaster</value>
+  </data>
+  <data name="DataPermission" xml:space="preserve">
+    <value>Data permission</value>
+  </data>
+  <data name="SalesSupervisorEmail" xml:space="preserve">
+    <value>Email of sales supervisor</value>
+  </data>
+  <data name="CustomerId" xml:space="preserve">
+    <value>Customer Code</value>
+  </data>
+  <data name="YearOfBirth" xml:space="preserve">
+    <value>Year of Birth</value>
+  </data>
+</root>

@@ -1,0 +1,11 @@
+﻿@using WebUI.Report
+
+@Html.DevExpress().ReportViewer(settings =>
+{
+    settings.Name = "reportViewer";
+    settings.Report = (PhieuNhapKhoXtraReport)ViewData["Report"];
+    settings.Attributes.Add("class", "reportViewer");
+    settings.CallbackRouteValues = new { Action = "CallbackReportViewerPartial", Controller = "StockInReport", StoreId = ViewBag.StoreId, ToDate = ViewBag.ToDate, FromDate = ViewBag.FromDate,SupplierId = ViewBag.SupplierId, EmployeeId = ViewBag.EmployeeId };
+    settings.ExportRouteValues = new { Action = "ExportReportViewerPartial", Controller = "StockInReport", StoreId = ViewBag.StoreId, ToDate = ViewBag.ToDate, FromDate = ViewBag.FromDate, SupplierId = ViewBag.SupplierId, EmployeeId = ViewBag.EmployeeId };
+}).GetHtml()
+

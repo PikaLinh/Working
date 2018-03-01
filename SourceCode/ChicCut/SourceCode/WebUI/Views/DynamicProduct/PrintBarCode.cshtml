@@ -1,0 +1,43 @@
+﻿@model ProductInfoViewModel
+<style>
+    td {
+        text-align: center;
+    }
+
+    tr {
+        margin: 0px;
+    }
+</style>
+<div style="max-width:200px;font-size:12px;">
+    <div style="max-width:100%; max-height: 30px;text-align:center;">
+        @Model.ProductName.Trim()
+    </div>
+    <img style="width:170px;height:30px;" src="@Url.Content(ViewBag.BarCodeUrl)" />
+
+    <div>
+        <div style="float:left">
+            @Model.ProductId.ToString().PadLeft(8, '0')
+            @if (@Model.LastModifiedDate.HasValue)
+            {
+                <span style="display: inline-block;">
+                    | @Model.LastModifiedDate.Value.ToString("dd-MM-yyyy")
+                </span>
+            }
+        </div>
+        <div style="float:right">
+
+            @Model.OriginOfProductName
+        </div>
+    </div>
+
+    <div>
+        <div style="float:left">
+            @Model.ProductCode
+        </div>
+        <div style="float:right">
+            phutungotoxb.com
+        </div>
+    </div>
+</div>
+
+

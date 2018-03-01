@@ -1,0 +1,124 @@
+﻿@model List<OrderDetailViewModel>
+@{
+    double TotalSum = 0;
+    double ConfirmTotalSum = 0;
+
+}
+@if (Model == null || Model.Count == 0)
+{
+   <tr>
+       <td colspan="8">
+           <center>Vui lòng nhấn thêm mặt hàng để thêm vào lưới này!</center>
+       </td>
+   </tr>
+}
+else
+{
+    int k = -1;
+    int i = 0;
+    foreach (var item in Model)
+    {
+        k++;
+        i++;
+        if (item.TONQty.HasValue)
+        {
+            TotalSum += item.TONQty.Value;
+        }
+        if (item.ConfirmTONQty.HasValue)
+        {
+            ConfirmTotalSum += item.ConfirmTONQty.Value;
+        }
+        <tr>
+            <td class="text-center">
+                @i
+                <input type="hidden" name="detail[@k].STT" class="detail-stt" value="@i">
+                <input type="hidden" name="detail[@k].OrderDetailId" class="detail-stt" value="@item.OrderDetailId">
+                <input type="hidden" name="detail[@k].OrderId" class="detail-stt" value="@item.OrderId">
+            </td>
+            <td>
+                <select id="detail-steelmarkid-@k" class="form-control detail-steelmarkid" name="detail[@k].SteelMarkId" data-row="@k">
+                    @foreach (var mark in ViewBag.SelectSteelMark as List<SteelMarkModel>)
+                    {
+                        if (item.SteelMarkId == mark.SteelMarkId)
+                        {
+                            <option value="@mark.SteelMarkId" selected="selected">@mark.Code</option>
+                        }
+                        else
+                        {
+                            <option value="@mark.SteelMarkId">@mark.Code</option>
+                        }
+                    }
+                </select>
+            </td>
+            <td>
+                @if (ViewBag.SelectSteelFI != null)
+                {
+
+                    int currentMark = 0;
+                    //nếu là item mới chưa có mark => lấy đầu tiên
+                    if (item.SteelMarkId == null && ViewBag.SelectSteelMark != null)
+                    {
+                        currentMark = (ViewBag.SelectSteelMark as List<SteelMarkModel>).First().SteelMarkId;
+                    }
+                    else
+                    {
+                        currentMark = item.SteelMarkId.Value;
+                    }
+                    //Load ddl
+                    <select id="detail-steelfiid-@k" class="form-control detail-steelfiid" name="detail[@k].SteelFIId" data-row="@k">
+                        @foreach (var fi in ViewBag.SelectSteelFI as List<FiByMarkViewModel>)
+                        {
+                            if (fi.SteelMarkId == currentMark)
+                            {
+                                if (item.SteelFIId == fi.SteelFIId)
+                                {
+                                    <option value="@fi.SteelFIId" selected="selected">@fi.SteelFICode</option>
+                                }
+                                else
+                                {
+                                    <option value="@fi.SteelFIId">@fi.SteelFICode</option>
+                                }
+                            }
+                        }
+                    </select>
+                }
+
+            </td>
+            <td>
+                @{
+                    double Roll = item.RollQty ?? 0;
+                    double Tan = item.TONQty ?? 0;
+                }
+                <input id="detail-rollqty-@k" type="text" name="detail[@k].RollQty" class="detail-rollqty  form-control text-right" data-row="@k" value="@Roll.ToString("#")" />
+            </td>
+            <td>
+                <input id="detail-tonqty-@k" type="text" name="detail[@k].TONQty" class="detail-tonqty  form-control text-right" data-row="@k" value="@Tan.ToString("#,###.000")" />
+            </td>
+            <td>
+                @if (item.DeliveryDate.HasValue)
+                {
+                    <input type="date" name="detail[@k].DeliveryDate" class="detail-deliverydate  form-control" data-row="@k" value="@item.DeliveryDate.Value.ToString("yyyy-MM-dd")" />
+                }
+                else
+                {
+                    <input type="date" name="detail[@k].DeliveryDate" class="detail-deliverydate  form-control" data-row="@k" />
+                }
+            </td>
+            @*<td>
+                <input type="text" name="detail[@k].Note" class="detail-note  form-control" data-row="@k" value="@item.Note" />
+            </td>*@
+            <td class="text-center"><a href="#" class="detail-btndelete btn btn-danger" data-row="@i">Xóa</a></td>
+        </tr>
+    @*<script>
+        (function ($) {
+            $(".detail-rollqty").preventNonNumberic();
+            $(".detail-tonqty").preventNonNumberic();
+        })(jQuery);
+    </script>*@
+    }
+    <tr>
+        <td colspan="4" class="text-right"><strong>Tổng cộng:</strong></td>
+        <td class="text-right"><strong id="sumTotal">@TotalSum.ToString("#,###.000")</strong></td>
+        <td colspan="3" class="text-right"></td>
+    </tr>
+}

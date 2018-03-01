@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Đã tích hợp";
+    Layout = "~/Views/Shared/_LayoutWithNoCheck.cshtml";
+}
+<style>
+    body{
+        background-color: #ddd;
+    }
+    .container{
+        background-color: #fff;
+    }
+    #footer {
+        position: relative;
+        margin-top: 0px;
+        height: 73px;
+        clear: both;
+        padding-top: 20px;
+    }
+</style>
+<div style="padding:0px 20px;">
+    <iframe id='idIframe' onload='iframeLoaded()' src='@ViewBag.url' style='width:100%;overflow-y: hidden;border:0px;' scrolling='no' seamless='seamless'></iframe>
+    <script type='text/javascript'>function iframeLoaded() { var iFrameID = document.getElementById('idIframe'); if (iFrameID) { iFrameID.height = ''; iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 'px'; } }</script>
+
+</div>

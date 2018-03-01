@@ -1,0 +1,11 @@
+﻿@using WebUI.Report
+
+@Html.DevExpress().ReportViewer(settings =>
+{
+    settings.Name = "reportViewer";
+    settings.Report = (BaoCaoXuatNhapTonXtraReport)ViewData["Report"];
+    settings.Attributes.Add("class", "reportViewer");
+    settings.CallbackRouteValues = new { Action = "CallbackReportViewerPartial", Controller = "BaoCaoXuatNhapTon", StoreId = ViewBag.StoreId, WarehouseId = ViewBag.WarehouseId, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate, CategoryId = ViewBag.CategoryId };
+    settings.ExportRouteValues = new { Action = "ExportReportViewerPartial", Controller = "BaoCaoXuatNhapTon", StoreId = ViewBag.StoreId, WarehouseId = ViewBag.WarehouseId, FromDate = ViewBag.FromDate, ToDate = ViewBag.ToDate, CategoryId = ViewBag.CategoryId };
+}).GetHtml()
+

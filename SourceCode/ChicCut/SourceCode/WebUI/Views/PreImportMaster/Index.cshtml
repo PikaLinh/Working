@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Danh sách yêu cầu đặt hàng từ nhà cung cấp";
+}
+
+<div class="row head">
+    <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+@using (Html.BeginForm("Index", null, FormMethod.Post, new { @id = "formload" }))
+{      
+    <div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Kho:
+                @Html.DropDownList("WarehouseId", null, "-Tất cả-", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Nhà cung cấp:
+                @Html.DropDownList("SupplierId", null, "-Tất cả-", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Sản phẩm:
+            <input type="hidden" id="ProductName" name="ProductName">
+            <div id="divProductId" style="width: 220px">
+                <select name="ProductId" class="form-control" style="width: 220px;">
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            Mã phiếu yêu cầu:
+            <input type="hidden" id="PreImportMasterCode" name="PreImportMasterCode">
+            <div id="divPreImportMasterCode" style="width: 220px">
+                <select name="PreImportMasterId" class="form-control" style="width: 220px;">
+                </select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+         <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Ngày
+                    </label>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Từ
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="date" name="FromDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        đến
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="date" name="ToDate" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+         <div class="col-md-6 col-sm-6 col-xs-12">
+                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                        Tổng tiền
+                    </label>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        Từ
+                    </label>
+                    <div class="col-md-2 col-sm-2 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="number" name="FromTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>   
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <label class="col-md-2 col-sm-2 col-xs-12 control-label">
+                        đến
+                    </label>
+                    <div class="col-md-3 col-sm-3 col-xs-12 control-label text-left">
+                        <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                            <tbody>
+                                <tr>
+                                    <td class="dxic" style="width: 100%;">
+                                        <input type="number" name="ToTotalPrice" class="dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    </div>
+    <hr class="custom">
+    <div class="form-group">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+            <a id="btnSearch" class="btn btn-warning col-sm">Tìm</a>
+        </div>
+    </div>
+ </div>
+}
+ <div class="loading-modal"></div>
+    <div class="row">
+        <div id="paging" class="pagination col-md-6 col-sm-12" ></div>
+         <div class="col-md-6" >
+               @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning pull-right" })
+         </div>
+    </div>
+<hr class="custom">
+<div id="PreImportcontent">
+    @*@Html.Action("_SearchPreImportMaster")*@
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/PreImportMaster/Index.js"></script>
+}

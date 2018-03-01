@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Alert";
+}
+
+<div id="divPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center">Thông báo
+                </h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center">
+                    @ViewBag.Content
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnHuy" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    Đóng
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

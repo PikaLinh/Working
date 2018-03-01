@@ -1,0 +1,136 @@
+﻿@model AM_TransactionModel
+
+@{
+    ViewBag.Title = "Thêm mới phiếu Nộp tiền | Rút tiền";
+}
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family:Helvetica;font-size:14px;width:100%;">
+    <div class="row head">
+        <div class="col-md-5 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+    </div>
+    <hr class="custom">
+    <div class="row">
+        @using (Html.BeginForm(null,null, FormMethod.Post, new { id = "frmHeader" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+                <div class="panel panel-default" style=" min-height: 195px;">
+                    <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.StoreId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                @Html.DropDownList("StoreId", null, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.StoreId)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.TransactionTypeCode)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DropDownList("TransactionTypeCode", null, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TransactionTypeCode)
+                            </div>
+                        </div>
+                          <div class="form-group row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.ContactItemTypeCode)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                @Html.DropDownList("ContactItemTypeCode", null, null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ContactItemTypeCode)
+                            </div>
+                        </div>
+                        <hr class="custom" />
+                        <div class="form-group row visible" id="divCustomerId2">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.CustomerId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divCustomerId">
+                                    <select name="CustomerId" class="form-control"></select>
+                                    @Html.ValidationMessageFor(model => model.CustomerId)
+                                </div>
+                            </div>
+                        </div>
+
+                          <div class="form-group row visible" id="divSupplierId2">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.SupplierId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divSupplierId">
+                                    <select name="SupplierId" class="form-control"></select>
+                                    @Html.ValidationMessageFor(model => model.SupplierId)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row visible" id="divEmployeeId2">
+                            <div class="col-md-4 col-sm-4 col-xs-12 control-label">
+                                @Html.RequiredLabelFor(model => model.EmployeeId)
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left">
+                                <div id="divEmployeeId">
+                                    <select name="EmployeeId" class="form-control"></select>
+                                    @Html.ValidationMessageFor(model => model.EmployeeId)
+                                </div>
+                            </div>
+                        </div>
+                       <div class="form-group">
+                              <label class = "col-md-4 col-sm-4 col-xs-12 control-label">Số dư nợ cuối kỳ</label>
+                            <input type="hidden" id="ViewBagDebtOld" />
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left " id="DebtOld"> </div>
+                        </div>
+                          <div class="form-group">
+                            @Html.LabelFor(model => model.Amount, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Amount, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Amount)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                              <label class = "col-md-4 col-sm-4 col-xs-12 control-label">Số dư nợ còn lại</label>
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label text-left " id="DebtNew"> </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Note, new { @class = "col-md-4 col-sm-4 col-xs-12 control-label" })
+                            <div class="col-md-8 col-sm-8 col-xs-12 control-label">
+                                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                                    <tbody>
+                                        <tr>
+                                            <td class="dxic" style="width: 100%;">
+                                                @Html.TextBoxFor(m => m.Note, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                                @Html.ValidationMessageFor(model => model.Note)
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        }
+        <div class="form-horizontal  text-right">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button btn-default minw100" })
+            <a id="btnSave"  class="btn btn-default custom-button btn-warning minw100">Lưu</a>
+        </div>
+       
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/BankPaymentVoucher/Create.js"></script>
+}

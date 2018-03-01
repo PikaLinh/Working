@@ -1,0 +1,80 @@
+﻿@model IEnumerable<AM_TransactionInfoViewModel>
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-warning" })
+</p>
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th>
+                STT
+            </th>
+            <th style="width:60px">
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactItemTypeName)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.StoreName)
+            </th>
+             <th >
+               Ghi chú
+            </th>
+            <th class="actions text-center" style="width:135px;" >@Resources.LanguageResource.Actions</th>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>
+                <td class="text-center" style="width:60px">
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionTypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactItemTypeName)
+                </td>
+                <td class="text-right" style="width:10%;">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                    @if (@item.IsImport)
+                    {
+                        <span style="color:blue" class="glyphicon glyphicon-arrow-left" title="Thu tiền mặt"></span>
+                    }
+                    else
+                    {
+                        <span style="color:red" class="glyphicon glyphicon-arrow-right" title="Chi tiền mặt"></span>
+                    }
+
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+                 <td >
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td class="text-center" style="width:190px">
+                    @Html.ActionLink("Xem", "Details", new { id = item.TransactionId }, new { @class = "btn btn-default btn-sm" })
+                     <a class="btn btn-default btn-warning btn-sm" href="/ReceiptVoucherReport/Index/@item.TransactionId">In</a>
+                </td>
+            </tr>
+        }   
+    </tbody>
+</table>

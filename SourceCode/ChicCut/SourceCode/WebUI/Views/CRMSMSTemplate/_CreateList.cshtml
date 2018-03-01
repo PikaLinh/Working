@@ -1,0 +1,26 @@
+﻿@model List<SMSParameterViewModel>
+
+<form id="frmList" action="Save" method="post">
+    <div class="form-horizontal">
+        <table id="tblSMSPara" class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr class="warning">
+                    <th style="width:40px" class="text-center">STT</th>
+                    <th style="width:100px" class="text-center">Mã tham số</th>
+                    <th style="width:200px" class="text-center">Miêu tả</th>
+                    <th style="width:50px">@Resources.LanguageResource.Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_CreateListInner", Model)
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <button id="btnAddNewRow" type="button" class="btn btn-default" style="float:right">Thêm tham số</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</form>

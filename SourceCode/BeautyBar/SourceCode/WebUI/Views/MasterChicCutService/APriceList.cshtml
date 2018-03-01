@@ -1,0 +1,95 @@
+﻿@model List<Master_ChicCut_ServiceCategoryViewModel>
+@using EntityModels
+
+@{
+    ViewBag.Title = "Bảng giá dịch vụ";
+}
+
+<table class="table table-hover">
+    <thead>
+        @*<tr>
+                <td colspan="6" class="text-center">TÓC NỮ</td>
+            </tr>*@
+        <tr>
+            <td></td>
+            @{
+                var ListHairType = (List<Master_ChicCut_HairTypeSeachModel>)ViewBag.HairTypeList;
+            }
+            @foreach (var item in ListHairType)
+            {
+                <td>@item.HairTypeName</td>
+            }
+        </tr>
+
+    </thead>
+    <tbody>
+        @{var _context = new EntityModels.EntityDataContext();}
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var item in Model.Where(p => p.Services.Count > 0))
+            {
+                <tr>
+                    <td>@item.ServiceName</td>
+                    @if (item.Services.Count > 0)
+                    {
+                        foreach (var itemInner in item.Services.OrderBy(p => p.ServiceId))
+                        {
+                            var modelQMaster = _context.Master_ChicCut_QuantificationMasterModel.Where(p => p.ServiceId == itemInner.ServiceId).ToList();
+                            string cssClass = modelQMaster.Count() > 0 ? "#ffa500" : "";
+                            <td>
+                                <a href="/MasterChicCutService/Edit/@itemInner.ServiceId" target="_blank" class="itemInner-service" data-id="@itemInner.ServiceId"> <span title="@modelQMaster.Select(p => p.Detail).FirstOrDefault()" class="xxx " style="color:@cssClass;">@(itemInner.Price > 0 ? string.Format("{0:n0}", itemInner.Price) : "-")</span></a>
+                                @*@Html.Action("Tooltip", "MasterChicCutService", new { ServiceId = itemInner.ServiceId })*@
+                            </td>
+                        }
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+
+                </tr>
+            }
+        }
+        @*<tr>
+                <td colspan="6" class="text-center">TÓC NAM</td>
+            </tr>*@
+        @*@{
+            var ListMail = (List<Master_ChicCut_ServiceCategoryViewModel>)ViewBag.lstMail;
+        }
+        @if (ListMail != null && ListMail.Count > 0)
+        {
+            foreach (var item in ListMail.Where(p => p.Services.Count > 0))
+            {
+                <tr>
+                    <td>@item.ServiceName</td>
+                    @if (item.Services.Count > 0)
+                    {
+                        foreach (var itemInner in item.Services.OrderBy(p => p.ServiceId))
+                        {
+                            string cssClass = _context.Master_ChicCut_QuantificationMasterModel.Where(p => p.ServiceId == itemInner.ServiceId).Count() > 0 ? "#ffa500" : "";
+                            <td><a href="/MasterChicCutService/Edit/@itemInner.ServiceId" target="_blank" class="itemInner-service" data-id="@itemInner.ServiceId" style="color:@cssClass;">@(itemInner.Price > 0 ? string.Format("{0:n0}", itemInner.Price) : "-")</a></td>
+                        }
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+
+                </tr>
+            }
+        }*@
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('.xxx').tooltipster();
+    });
+</script>

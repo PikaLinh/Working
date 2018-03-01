@@ -1,0 +1,94 @@
+﻿@model EntityModels.AM_AccountModel
+
+@{
+    ViewBag.Title = "Cập nhật";
+}
+
+<hr class="custom">
+<div class="dxpnlControl_Metropolis" style="font-family: Helvetica; font-size: 14px; width: 100%;">
+    <div class="row head">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+            <h4 style="color: #6BABDF;">@ViewBag.Title</h4>
+        </div>
+    </div>
+    <hr class="custom">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.AMAccountId)
+        <input type="hidden" name="InitialCodeAccountCode" value="@Model.Code" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.AMAccountTypeCode, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                @Html.DropDownList("AMAccountTypeCode", null, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+             @Html.LabelFor(model => model.StoreId, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                @Html.DropDownList("StoreId", null, null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.Code)
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.Code, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.Code)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-3 col-sm-3 col-xs-12 control-label">
+                @Html.RequiredLabelFor(model => model.Name)
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label">
+                <table class="dxeTextBoxSys dxeTextBox_Metropolis dxeTextBoxDefaultWidthSys text-with-line">
+                    <tbody>
+                        <tr>
+                            <td class="dxic" style="width: 100%;">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "dxeEditArea_Metropolis dxeEditAreaSys fullLineTextbox" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Actived, new { @class = "col-md-3 col-sm-3 col-xs-12 control-label" })
+            <div class="col-md-5 col-sm-5 col-xs-12 control-label text-left">
+                <select name="Actived" class="form-control">
+                    @if (Model.Actived == true)
+                    {
+                        <option selected value="true">Còn sử dụng</option>
+                        <option value="false">Không còn sử dụng</option>
+                    }
+                    else
+                    {
+                        <option value="true">Còn sử dụng</option>
+                        <option selected value="false">Không còn sử dụng</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <hr class="custom">
+        <div class="form-horizontal col-md-offset-3 col-sm-offset-3">
+            @Html.ActionLink("Hủy", "Index", null, new { @class = "btn btn-default custom-button minw100" })
+            <input type="submit" value="Lưu" class="btn btn-warning custom-button minw100" />
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

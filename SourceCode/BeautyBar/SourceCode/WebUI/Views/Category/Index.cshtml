@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CategoryViewModel>
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+}
+
+<p class="text-right has-btn-add-new" style="margin-top: 4px;">
+    @Html.ActionLink("Thêm mới", "Create", new { id = ViewBag.RootId, ParentId = ViewBag.ParentId }, new { @class = "btn btn-default btn-warning" })
+</p>
+
+@using (Html.BeginForm("Index", "Category", FormMethod.Post, new { @id = "formload" }))
+{
+    if (ViewBag.IsVisibleDropdownlist)
+    {
+        <div class="col-md-5 col-sm-5 col-xs-12">
+        Danh mục cha : @Html.DropDownList("Root", ViewBag.CategoryList as SelectList, new { id = "ddlCategory", style = "float:left;",@class = "form-control" })
+        </div>
+    }
+
+}
+<div style="clear:both;"></div>
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<table class="table table-bordered table-striped table-hover dataTable no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderBy)
+            </th>
+            @*<th class="text-center">
+                @Html.DisplayNameFor(model => model.isDisplayOnHomePage)
+            </th>*@
+            <th class="edit-colum no_sort">Hiệu chỉnh</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center">
+                    @i
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryNameEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.OrderBy)
+                </td>
+                @*<td class="text-center">
+                    @Html.DisplayFor(modelItem => item.isDisplayOnHomePage)
+                </td>*@
+                <td class="text-center">
+                    @*@Html.ActionLink("Sửa", "Edit", new { id = item.CategoryId, RootId = ViewBag.RootId, ParentId = item.Parent },
+            new { @class = "btn btn-small", @rel = "tooltip" }) |
+
+            @Html.ActionLink("Xóa", "Delete", new { id = item.CategoryId, RootId = ViewBag.RootId },
+            new { @class = "btn btn-small", @rel = "tooltip" })*@
+                    @Html.ActionLink("Xem", "Details", new { id = item.CategoryId, RootId = ViewBag.RootId, ParentId = item.Parent }, new { @class = "btn btn-default btn-sm" })
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.CategoryId, RootId = ViewBag.RootId, ParentId = item.Parent }, new { @class = "btn btn-default btn-warning btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready();
+    $(function () {
+        $('#ddlCategory').change(function () {
+            $('#formload').submit();
+        });
+    });
+</script>

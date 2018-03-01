@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Master_ChicCut_ServiceViewModel>
+
+<table class="table table-hover dataTable table-bordered table-striped no-footer">
+    <thead>
+        <tr class="warning">
+            <th class="text-center">
+                STT
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.HairTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="actions text-center">@Resources.LanguageResource.Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td class="text-center" style="width:2%">
+                    @i
+                </td> 
+                <td style="width:30%">
+                    @Html.DisplayFor(modelItem => item.ServiceName)
+                </td>
+                @*<td style="width:3%">
+                    @if (item.Gender == true)
+                    {
+                        <span>Nam</span>
+                    }
+                    else if (item.Gender == false)
+                    {
+                        <span>Nữ</span>
+                    }
+                    else
+                    {
+                        <span>Khác</span>
+                    }
+                </td>*@
+                <td style="width:20%">
+                    @Html.DisplayFor(modelItem => item.HairTypeName)
+                </td>
+                <td style="width:10%" class="text-right">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td style="width:10%" class="text-center">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ServiceId }, new { @class = "btn btn-warning col-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

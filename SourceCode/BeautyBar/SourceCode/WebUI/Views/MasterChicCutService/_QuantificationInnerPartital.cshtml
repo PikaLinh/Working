@@ -1,0 +1,40 @@
+﻿@model List<Master_ChicCut_QuantificationMasterModel>
+
+
+@{
+    int i = 0;
+    int k = -1;
+}
+@if (Model.Count > 0 && Model != null)
+{
+    foreach (var item in Model)
+    {
+        i++;
+        k++;
+        <tr>
+            <td class="text-center">
+                @i
+            </td>
+            <td>
+                @*<input type="text" disabled name="QMaster[@k].QuantificationName" class="QMaster-QuantificationName" value="">*@
+                @item.QuantificationName
+            </td>
+            <td>
+                @*<input type="text" disabled name="QMaster[@k].Detail" class="QMaster-Detail QMaster-Detail-@k form-control text-left" data-row="@k" value="">*@
+                @item.Detail
+            </td>
+            <td style="text-align: center;">
+                <a href="#" class="QMaster-btnupdate btn btn-warning " data-id="@item.QuantificationMasterId">Sửa</a>
+                <a href="#" class="QMaster-btndelete btn btn-danger " data-id="@item.QuantificationMasterId">Xóa</a>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="4" class="color-red text-center">Vui lòng nhấn vào nút 'Thêm định lượng' để thêm mới định lượng cho dịch vụ !</td>
+    </tr>
+}
+
+@*<script src="~/Scripts/MasterChicCutService/grid.js"></script>*@

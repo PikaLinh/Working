@@ -1,0 +1,40 @@
+﻿<link href="~/css/notification.css" rel="stylesheet" />
+<div id="Notifi">
+    <span id="notification_count"></span>
+    <a href="#" id="notificationLink">Nhắc nhở</a>
+    <div id="notificationContainer">
+        <div id="notificationTitle">Nhắc nhở</div>
+        <div id="notificationsBody" class="notifications"> 
+
+        </div>
+        <div id="notificationFooter"><a href="#">Xem tất cả</a></div>
+    </div>
+</div>
+<!--Star ModelPopup-->
+<div id="divPopupNotifi" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="text-center" style="font-size:28px">
+                   Nội dung nhắc nhở
+                </h1>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center" id="contentNotifi">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSeen" type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-saved"></span>
+                    Tắt thông báo này
+                </button>
+                <button type="button" class="btn btn-dafault " data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Đóng
+                </button>
+                <input type="hidden" name="NotifiIdSeen" id="NotifiIdSeen" />
+            </div>
+        </div>
+    </div>
+</div>

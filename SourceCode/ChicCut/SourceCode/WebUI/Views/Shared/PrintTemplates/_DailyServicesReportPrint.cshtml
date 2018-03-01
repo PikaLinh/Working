@@ -1,0 +1,87 @@
+﻿<script type="text/x-kendo-template" id="tmplDailyServicesReportPrint">
+    <style>
+        .invoice {
+            font-family: 'Arial';
+            margin: 3px;
+            margin-left: 6px;
+            padding: 0;
+            padding-left: 2px;
+        }
+
+            .invoice div, .invoice table {
+                font-family: 'Arial';
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .invoice th {
+                border-bottom: 1px dashed black;
+            }
+
+            .invoice hr {
+                border: 1px dashed black;
+            }
+
+            .invoice h3 {
+                font-family: 'Arial';
+                margin: 0px 0px 5px 0px;
+                padding: 0;
+            }
+
+            .invoice h4 {
+                font-family: 'Arial';
+                font-size: 14px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .invoice h6 {
+                padding: 0px;
+                margin: 0px 0px 0px 0px;
+                text-align: center;
+            }
+
+        .thanks {
+            text-align: center;
+            font-weight: initial;
+        }
+    </style>
+    <div class="invoice">
+       <h3 style="text-align:center">CHIC CUT HAIR SALON</h3>
+        <h6>489, Hồng Bàng, Phường 14, Quận 5</h6>
+        <h6>08 6278 0881</h6>
+        <div style="clear: both;margin-top:25px"></div>
+        <h3 style="text-align:center">BÁO CÁO NGÀY</h3>
+        <div style="clear: both;margin-top:10px"></div>
+        <div>Ngày: #= kendo.toString(kendo.parseDate(Order.FromDate, 'yyyy-MM-dd'), 'dd/MM/yyyy') # - #= kendo.toString(kendo.parseDate(Order.ToDate, 'yyyy-MM-dd'), 'dd/MM/yyyy') #</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:left;width: 100px;">Dịch vụ</th>
+                <th style="text-align:center;width: 50px">Đ.Giá</th>
+                <th style="text-align:center;width: 30px">SL</th>
+                <th style="text-align:center;width: 50px">T.Tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            #for (var i = 0; i < Order.DailyServices.length ; i++){#
+            <tr>
+                # var detail = Order.DailyServices[i]; #
+                <td style="text-align:left;">#= detail.ServiceName # (#= detail.HairTypeName #)</td>
+                <td style="text-align: center">#= floatToString(parseFloat(detail.Price)) #</td>
+                <td style="text-align: center">#= floatToString(parseFloat(detail.Qty)) #</td>
+                <td style="text-align: center">#= floatToString(parseFloat(detail.UnitPrice)) #</td>
+            </tr>
+            #}#
+        </tbody>
+       <tfoot>
+            <tr>
+                <td colspan="2" style="text-align: right;"><b>Tổng doanh thu:</b></td>
+                <td colspan="2" style="text-align: right;"><b>#= floatToString(Order.Total) #</b></td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+</script>

@@ -1,0 +1,45 @@
+﻿@model List<CalendarViewModel>
+@{
+    Layout = "~/Views/Shared/_DisplayLayout.cshtml";
+}
+
+<div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="background-color: #ffffff; padding-top: 10px; padding-bottom: 15px; ">
+    <div class="gdlr-item gdlr-content-item">
+        <p style="text-align: center;"><strong><span style="font-size: 18pt;">@ViewBag.Title</span></strong></p>
+        <div>
+            <select id="ddlSort" class="pull-right">
+                <option value="1">Khoá gần nhất</option>
+                <option value="2">Khóa có ưu đãi cao nhất</option>
+            </select>
+            <input type="hidden" value="@ViewBag.Id" name="CatId" id="CatId" />
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="gdlr-item gdlr-divider-item" style="margin-bottom: 0px;"><div class="gdlr-divider dotted"></div></div>
+    <div class="clear"></div>
+    <div id="divCalendar" class="gdlr-item gdlr-content-item">
+        @Html.Partial("_CourseCalendarPartial")
+    </div>
+    <div class="clear"></div>
+</div>
+@section scripts{
+    <script>
+        //Sort
+        $(document).on("change", "#ddlSort", function () {
+            var id = $("#CatId").val();
+            var sortType = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "/DisplayCourse/Course/" + id + "?SortType=" + sortType,
+                success: function (data) {
+                    $("#divCalendar").html(data);
+                }
+            });
+        });
+        //Popup Contact
+        $(document).on("click", ".btnContact", function () {
+            
+            return null;
+        });
+    </script>
+}

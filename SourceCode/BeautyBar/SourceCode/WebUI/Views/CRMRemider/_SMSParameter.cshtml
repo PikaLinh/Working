@@ -1,0 +1,72 @@
+﻿@model List<CRMRemiderSMSParameterMappingViewModel>
+@using Constant
+<div class="form-horizontal">
+    <table id="tblSMSPara" class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="warning">
+                <th style="width:100px" class="text-center">Tham số</th>
+                <th style="width:100px" class="text-center">Loại tham số</th>
+                <th style="width:200px" class="text-center">Giá trị (<span class="color-red">*</span>)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                <input type="hidden" name="CheckHasSMSPara" id="CheckHasSMSPara" value="true" />
+                int i = 0;
+                int k = -1;
+                foreach (var item in Model)
+                {
+                    i++;
+                    k++;
+                    <tr>
+
+                        <td style="width: 100px">
+                            <input type="hidden" name="SMSPara[@k].SMSParameterId" class="SMSPara-SMSParameterId" value="@item.SMSParameterId">
+                            <span title="@item.SMSParameterDescription">@item.SMSParameterName</span>
+                            <input type="hidden" name="SMSPara[@k].SMSParameterName" class="SMSPara-SMSParameterName  SMSPara-SMSParameterName-@k form-control text-left" data-row="@k" value="@item.SMSParameterName">
+                        </td>
+                        <td style="width: 200px">
+                            <select name="SMSPara[@k].ValueType" class="SMSPara-ValueType  SMSPara-ValueType-@k form-control text-left" data-row="@k">
+                                @if (item.ValueType == ConstantRemiderValueType.AUTO)
+                                {
+                                    <option value="CUSTOM">Nhập thủ công</option>
+                                    <option value="AUTO" selected>Tự động</option>
+                                }
+                                else
+                                {
+                                    <option value="CUSTOM" selected>Nhập thủ công</option>
+                                    <option value="AUTO">Tự động</option>
+                                }
+
+                            </select>
+                        </td>
+                        <td style="width: 50px">
+                            <select name="SMSPara[@k].Value" class="SMSPara-Value  SMSPara-Value-@k form-control text-left" data-row="@k">
+                                @{
+                                string ExpDATESelected = item.Value == "ExpDATE" ? "selected" : "";
+                                string SerCONTENTSelected = item.Value == "SerCONTENT" ? "selected" : "";
+                                string SerPRICESelected = item.Value == "SerPRICE" ? "selected" : "";
+                                }
+                                <option value="ExpDATE" @ExpDATESelected>Ngày hết hạn</option>
+                                <option value="SerCONTENT" @SerCONTENTSelected>Nội dung dịch vụ</option>
+                                <option value="SerPRICE" @SerPRICESelected>Giá dịch vụ</option>
+                            </select>
+                            <input type="text" name="SMSPara[@k].Value" class="ValueSMSPara form-control text-left" data-row="@k" value="@item.Value">
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">
+                        <input type="hidden" name="CheckHasSMSPara" id="CheckHasSMSPara" value="false" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,113 @@
+﻿@model EntityModels.RegistryModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutWithNoCheck.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <h2 class="text-center"><a href="@ViewBag.Url" style="cursor:pointer; color:orange;font-size:24px;" target="_blank">@ViewBag.Title</a></h2>
+        <div style="padding-bottom:20px;">    
+            <div class="text-center">
+                Khai giảng ngày: @ViewBag.StartDate <br />
+                @if (ViewBag.Time != null && ViewBag.Time != "")
+                {
+                    @Html.Raw(HttpUtility.HtmlDecode(ViewBag.Time)) <br />
+                }
+            </div>        
+                     
+            Học phí: @ViewBag.PriceDisplay<br />
+            Xem chi tiết kháo học <a href="@ViewBag.Url" style="cursor:pointer; color:orange;" target="_blank">tại đây</a>
+        </div>
+        @{
+            string actionName = "RegisterCourse";
+            if (ViewBag.isCourse)
+            {
+                actionName = "RegisterCourse";
+            }else
+            {
+                actionName = "RegisterEvent";
+            }
+        }
+        @using (Html.BeginForm(actionName, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.CourseId)
+            @Html.HiddenFor(model => model.EventId)
+            @Html.HiddenFor(model => model.CalendarId)
+            @Html.HiddenFor(model => model.Price)
+
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FullName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FullName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Gender)
+                </div>
+                <div class="editor-field">
+                    <select class="list-box tri-state form-control" id="Gender" name="Gender">
+                        <option value="true" selected="selected">Nam</option>
+                        <option value="false">Nữ</option>
+                        <option value="">Khác</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Gender)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BirthDay)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.BirthDay, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BirthDay)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Phone)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Note)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Note)
+                </div>
+
+                <div class="form-group" style="padding-top:10px;">
+                    <div style="padding: 6px 15px;">
+                        <input type="submit" class="btn btn-warning" value="Đăng ký" />
+                    </div>
+                </div>
+            </fieldset>
+        }
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

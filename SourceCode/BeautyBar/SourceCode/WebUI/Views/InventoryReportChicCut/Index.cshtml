@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Báo cáo tồn kho";
+}
+<hr class="custom">
+<div class="row head">
+    <div class="col-md-3 col-sm-12 col-xs-12"><h4 style="color:#6BABDF;">@ViewBag.Title</h4></div>
+</div>
+<hr class="custom">
+<form id="frmtimproduct" name="frmtimproduct" action="~/Views/Checkinfo/_Procduct" method="post">
+    <div class="form-horizontal">
+        <br />
+            <div class="form-group">
+                <!--Start Ngày-->
+                <div id="divDay" class="DivToHide">
+                    <div class="col-sm-6 col-xs-12">
+                        @{ var ToTime = DateTime.Now.Date.AddDays(1).AddMilliseconds(-1).ToString("yyyy-MM-dd");}
+                        Ngày :
+                        <input type="date" name="ToDate" value="@ToTime" class="form-control" />
+                    </div>
+                </div>
+                <!--End Ngày-->
+                <div class=" col-sm-6 col-xs-12">
+                    Danh mục:
+                    @Html.DropDownList("CategoryId", null, null, new { @class = "form-control" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="text-center">
+                    <a id="btnsearchproduct" class="btn btn-warning">Xuất báo cáo</a>
+                    <a id="btnExport" class="btn btn-info col-sm">Export</a>
+                </div>
+            </div>
+        </div>
+</form>
+<br />
+<div class="loading-modal"></div>
+<div id="contentproduct">
+    @*@Html.Action("_ProductPartial")*@
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/plugins/form-master/jquery.form.js"></script>
+    <script src="~/Scripts/InventoryReportChicCut/Index.js"></script>
+}
+
+

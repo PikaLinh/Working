@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Kiểm tra thông tin sản phẩm - khách hàng";
+}
+<script src="~/Scripts/jquery.number.min.js"></script>
+<div id="tabs">
+    <ul id="nav-tab-list" class="nav nav-tabs">
+        <li id="tab-1">
+            <a href="#pane-1" data-toggle="tab">@Resources.LanguageResource.Product</a>
+        </li>
+        <li id="tab-2">
+            <a href="#pane-2" data-toggle="tab">Khách hàng</a>
+        </li>
+         <li id="tab-3">
+            <a href="#pane-3" data-toggle="tab">Nhà cung cấp</a>
+        </li>
+    </ul>
+    <input type="hidden" id="num" name="num" />
+    <!-- Tab Pane - Contents -->
+    <div id="tab-content" class="tab-content">
+        <div id="pane-1" class="tab-pane">
+            <div class=" control-list">
+                <div id="divProfile" class="control-group">
+                   @Html.Partial("_Procduct")
+                </div>
+            </div>
+        </div>
+        <div id="pane-2" class="tab-pane">
+            <div class="control-group">
+                   @Html.Partial("_Customer")
+                  <hr class="custom" />
+                <div id="contentDetailDebt">
+                   @Html.Partial("_OrderDetailPartial")
+                </div>
+            </div>
+        </div>
+         <div id="pane-3" class="tab-pane">
+            <div class="control-group">
+                   Nhà cung cấp
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Checkinfo/Index.js"></script>
+}
